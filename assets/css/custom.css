@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css?family=Gentium+Book+Basic');
+
+.dark, .dark pre {
+    background-color: #fafafa;
+}
+
+.dark {
+    color: #171717;
+}
+
+.dark h1 a, .dark h2 a, .dark h3 a, .dark h4 a, .dark h5 a {
+    color: #171717;
+}
+
+.body {
+	font-family: 'Gentium Book Basic', serif !important;
+	hyphens: auto;
+    line-height: 1.5;
+	font-kerning: normal;
+	font-variant-numeric: oldstyle-nums proportional-nums;
+	font-variant-ligatures: common-ligatures contextual;
+	font-feature-settings: "kern", "liga", "clig", "calt";
+}
+
+.hack, .hack blockquote, .hack code, .hack em, .hack h1, .hack h2, .hack h3, .hack h4, .hack h5, .hack h6, .hack strong {
+	font-family: 'Gentium Book Basic', serif !important;
+	hyphens: auto;
+    font-size: 1.5rem;
+    line-height: 1.5;
+	font-kerning: normal;
+	font-variant-numeric: oldstyle-nums proportional-nums;
+	font-variant-ligatures: common-ligatures contextual;
+	font-feature-settings: "kern", "liga", "clig", "calt";
+}
+
+.hack h1 {font-size: 1.8rem;}
+.hack h2 {font-size: 1.7rem;}
+.hack h3 {font-size: 1.6rem;}
+
+
+.hack h1::after {
+    content: ""; 
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+}
+
+a:hover, a:active, a:focus {
+	background-color: #fafafa;
+    color: rgb(231, 25, 1);
+    border-bottom: 1px solid rgba(0,0,0,0.6);
+
+}
+
+a, .toggle__input + label {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    transition: all 0.25s ease;
+}
+
