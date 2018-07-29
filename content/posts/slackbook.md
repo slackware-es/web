@@ -19,7 +19,7 @@ I'll reproduce here the introduction paragraphs. Please consider to collaborate 
 <!--more-->
 
 Why Use Slackware?
-=====
+-----
 
 Slackware has a long tradition of excellence. Started in 1992 and first released in 1993, Slackware is the oldest surviving commercial Linux distribution. Slackware's focus on making a clean, simple Linux distribution that is as UNIX-like as possible makes it a natural choice for those people who really want to learn about Linux and other UNIX-like operating systems. In a 2012 interview, Slackware founder and benevolent dictator for life, Patrick Volkerding, put it thusly.
 
@@ -29,14 +29,14 @@ Slackware's simplicity makes it ideal for those users who want to create their o
 
 
 Differences Compared to Other Linux Distributions
-=====
+-----
 
 There are a great number of differences between Slackware and other mainstream distributions such as Red Hat, Debian, and Ubuntu. Perhaps the greatest difference is the lack of "hand-holding" that Slackware will do for the administrator. Many of those other distributions ship with custom graphical configuration tools for all manner of services. In many cases, these configuration tools are the preferred method of setting up applications on these systems and will overwrite any changes you make to the configuration files via other means. These tools often make it easy (or at least possible) for a rookie with no in-depth understanding of his system to setup basic services; however, they also make it difficult to do anything too out of the ordinary. In contrast, Slackware expects you, the system administrator, to do these tasks on your own. Slackware provides no general purpose setup tools beyond those included with the source code published by upstream developers. This means there is often a somewhat steeper learning curve associated with Slackware, even for those users familiar with other Linux distributions, but also makes it much easier to do whatever you want with your operating system.
 
 Also, you may hear users of other distributions say that Slackware has no package management system. This is completely and obviously false. Slackware has always had package management (see Chapter 17, Package Management for more information). What it does not have is automatic dependency resolution - Slackware's package tools trade dependency management for simplicity, ease-of-use, and reliability.
 
 Licensing
-=====
+-----
 
 Each piece of Slackware (this is true of all Linux distributions) is developed by different people (or teams of people), and each group has their own ideas about what it means to be "free". Because of this, there are literally dozens and dozens of different licenses granting you different permissions regarding their use or distribution. Fortunately dealing with free software licenses isn't as difficult as it may first appear. Most things are licensed with either the Gnu General Public License or the BSD license. Sometimes you'll encounter a piece of software with a different license, but in almost all cases they are remarkably similar to either the GPL or the BSD license.
 
