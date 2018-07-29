@@ -71,6 +71,18 @@
     left: 0;
 }
 
+.hack h2::before {
+    content: "";
+}
+
+.hack h3::before {
+    content: "";
+}
+
+.hack h4::before {
+    content: "";
+}
+
 a:hover, a:active, a:focus {
 	background-color: #fafafa;
     color: rgb(231, 25, 1);
