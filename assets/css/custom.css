@@ -59,28 +59,19 @@
 	font-feature-settings: "kern", "liga", "clig", "calt";
 }
 
-.hack h1 {font-size: 1.8rem;}
-.hack h2 {font-size: 1.7rem;}
-.hack h3 {font-size: 1.6rem;}
+.hack h1 {font-size: 2.5rem;}
+.hack h2 {font-size: 2rem;}
+.hack h3 {font-size: 1.7rem;}
 
+.hack h1::before {content: "";}
+.hack h2::before {content: "";}
+.hack h3::before {content: "";}
 
 .hack h1::after {
     content: ""; 
     position: absolute;
     bottom: 10px;
     left: 0;
-}
-
-.hack h2::before {
-    content: "";
-}
-
-.hack h3::before {
-    content: "";
-}
-
-.hack h4::before {
-    content: "";
 }
 
 a:hover, a:active, a:focus {
