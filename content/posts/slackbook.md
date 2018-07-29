@@ -4,8 +4,8 @@ date = 2018-07-28T08:01:21Z
 description = "A must read for any Slackware user."
 draft = false
 toc = true
-categories = ["reading"]
-tags = ["book"]
+categories = ["documentation"]
+tags = ["slackbook"]
 type = "post"
 images = [
   "https://source.unsplash.com/collection/983219/1600x900"
