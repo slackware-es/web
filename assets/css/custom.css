@@ -1,4 +1,28 @@
-@import url('https://fonts.googleapis.com/css?family=Gentium+Book+Basic');
+
+@font-face {
+  font-family: 'Terminus (TTF)';
+  src: url('/fonts/TerminusTTF-4.46.0.ttf');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Terminus (TTF)';
+  src: url('/fonts/TerminusTTF-Bold-4.46.0.ttf');
+  font-weight: bold;
+}
+
+@font-face {
+    font-family: 'Terminus (TTF)';
+    src: url('/fonts/TerminusTTF-Italic-4.46.0.ttf');
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Terminus (TTF)';
+    src: url('/fonts/TerminusTTF-Bold-Italic-4.46.0.ttf');
+    font-weight: bold;
+    font-style: italic, bold;
+}
 
 .dark, .dark pre {
     background-color: #fafafa;
@@ -13,7 +37,8 @@
 }
 
 .body {
-	font-family: 'Gentium Book Basic', serif !important;
+	font-family: 'Terminus (TTF)' !important;
+ 
 	hyphens: auto;
     line-height: 1.5;
 	font-kerning: normal;
@@ -23,9 +48,10 @@
 }
 
 .hack, .hack blockquote, .hack code, .hack em, .hack h1, .hack h2, .hack h3, .hack h4, .hack h5, .hack h6, .hack strong {
-	font-family: 'Gentium Book Basic', serif !important;
+	font-family: 'Terminus (TTF)' !important;
+ 
 	hyphens: auto;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     line-height: 1.5;
 	font-kerning: normal;
 	font-variant-numeric: oldstyle-nums proportional-nums;
