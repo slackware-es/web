@@ -66,6 +66,7 @@
 .hack h1::before {content: "";}
 .hack h2::before {content: "";}
 .hack h3::before {content: "";}
+.hack h4::before {content: "";}
 
 .hack h1::after {
     content: ""; 
@@ -88,3 +89,19 @@ a, .toggle__input + label {
     transition: all 0.25s ease;
 }
 
+div.center {
+	overflow: hidden;
+}
+
+div.center iframe{
+	overflow: hidden;
+	scrolling: no;	
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 800px;
+    height: 480px;
+}
+.dark code {
+    color: #000;
+}
