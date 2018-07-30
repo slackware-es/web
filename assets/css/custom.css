@@ -105,3 +105,6 @@ div.center iframe{
 .dark code {
     color: #000;
 }
+.dark pre code {
+    color: #fafafa;
+}
