@@ -1,11 +1,11 @@
 +++
 title = "Slackware installation"
 date = 2018-07-28T08:01:21Z
-description = "How to install slackware by default"
+description = "How to install Slackware in 2018"
 draft = false
 toc = true
 categories = ["technology"]
-tags = ["install", "how-to"]
+tags = ["install", "how-to", "setup"]
 +++
 
 This document is a derivative of the [Slacbook:install](https://docs.slackware.com/slackbook:install). The aim is to produce an evolution and contribute it back to the original work.
