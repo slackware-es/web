@@ -1,0 +1,48 @@
+{{ define "title" -}}
+  {{ .Site.Title }}
+{{- end }}
+{{ define "header" }}
+  {{ partial "menu.html" . }}
+{{ end }}
+{{ define "main" }}
+  <header >
+    <h1>{{ .Title }}</h1>
+  </header>
+
+<p>Started in 1992 and first released in 1993, Slackware is the oldest surviving commercial Linux distribution.</p>
+
+</p>This site is a tool to engage community to help others use, learn, build and contribute to Slackware. But it's not an official resource. We'll try to sync the work we do here with the other community channels, but <strong>consider this site as our just our opinion as community members.</strong></p>
+
+<br/>
+<h2>Flavours</h2>
+<ul>
+<li> <strong><a href="/files/media/">Slackware 14.2</a></strong> - Launched in 2016/07/01 - Currently maintained. This is what is called stability. Your machines will work and get security updates and bug fixes for years to come. </li>
+<li> <strong><a href="/files/media/">Slacware Current</a></strong> - This is the development version of the distribution, others could say its an always rolling distribution, with frequent updates. This has de latest and greatest of LTS versions of the packages. At one point, current becomes released as a stable version.</li>
+</ul>
+
+<br/>
+<h2>Get started!</h2>
+
+<ul>
+ <li><a href="/files/media/">Download</a>, <a href="/docs/install/">install</a>, <a href="https://docs.slackware.com" target="_blank">learn</a>, <a href="https://docs.slackware.com/howtos:start" target="_blank">configure</a>, <a href="https://docs.slackware.com" target="_blank">use</a></li>
+ <li><a href="https://www.linuxquestions.org/questions/slackware-14/" target="_blank">Get latest news</a></li>
+ <li><a href="https://www.linuxquestions.org/questions/slackware-14/" target="_blank">Ask for help</a></li>
+ <li><a href="https://www.reddit.com/r/slackware/" target="_blank">Reddit Slackware</a></li>
+</ul>
+
+<br/>
+<h2>Community</h2>
+
+<ul>
+ <li>Community uses <a href="https://www.linuxquestions.org/questions/slackware-14/">LinuxQuestions</a> to ask for help, discuss, make announcements and share experiencies.</li>
+ <li>Documentation, besides the <a href="/docs/">Docs</a> section, can be found in <a href="docs.slackware.com">docs.slackware.com</a></li>
+ <li>There is an IRC channel on the freenode network ##slackware, which its open to all registered nicks in the network.</li>
+ <li>To contribute, see the resources already described, and talk to the community.</li>
+</ul>
+
+<br/>
+{{ end }}
+{{ define "footer" }}
+  
+  {{ partial "powered-by.html" . }}
+{{ end }}

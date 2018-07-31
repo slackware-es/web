@@ -102,6 +102,18 @@ div.center iframe{
     width: 800px;
     height: 480px;
 }
+
+.center {
+	overflow: hidden;
+	scrolling: no;	
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 800px;
+    height: 480px;
+}
+
+
 .dark code {
     color: #000;
 }
@@ -110,4 +122,7 @@ div.center iframe{
 }
 .dark table {
     color: #171717;
+}
+.dark code, .dark strong {
+    color: #000;
 }
