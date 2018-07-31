@@ -108,3 +108,6 @@ div.center iframe{
 .dark pre code {
     color: #fafafa;
 }
+.dark table {
+    color: #171717;
+}
