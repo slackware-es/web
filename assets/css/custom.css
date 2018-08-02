@@ -126,3 +126,10 @@ div.center iframe{
 .dark code, .dark strong {
     color: #000;
 }
+:target {
+    color: rgb(231, 25, 1);
+}
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
