@@ -1,4 +1,4 @@
-{{ $custom := resources.Get "css/custom.css" }}
+{{ $custom := resources.Get "css/custom.css" | resources.Minify}}
 
 {{ if eq .Site.Params.hackcss.disabled true }}
   <style>{{ (slice $custom | resources.Concat "styles.css").Content | safeCSS }}</style>
