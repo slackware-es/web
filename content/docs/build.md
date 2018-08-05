@@ -6,9 +6,6 @@ draft = false
 toc = true
 categories = ["technology"]
 tags = ["build", "how-to"]
-images = [
-  "https://source.unsplash.com/collection/983219/1600x900"
-] # overrides the site-wide open graph image
 +++
 
 In this article we're going to describe how to build your own slackware distribution based on the official disitribution.
