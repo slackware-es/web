@@ -8,7 +8,7 @@ categories = ["technology"]
 tags = ["install", "how-to", "setup"]
 +++
 
-This document is a derivative of the [Slacbook:install](https://docs.slackware.com/slackbook:install). The aim is to produce an evolution and contribute it back to the original work.
+This document is a derivative of the [Slacbook:install](https://docs.slackware.com/slackbook:install) and [Slackbook beta](https://slackbook.org/beta/#ch_install). The aim is to produce an evolution and contribute it back to the original work.
 
 Introduction
 -----
