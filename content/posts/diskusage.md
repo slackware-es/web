@@ -221,7 +221,7 @@ An orphan file does not correspond to any installed package. This could mean is 
 
 To decrease the number of orphan files, use [Appimage](https://appimage.org/) or [flatpak](https://flatpak.org/) to install software which do not have a package for Slackware. Also consider making your own packages, it is easy and allows you to control all the files on your system.
 
-We can devise a script to find all orphan files and list them along with their size in Kb. Be aware this script is slow and requires a considerable amount of RAM (around 400M on our case)
+We can devise a script to find all orphan files and list them along with their size in Kb. Be aware this script is slow and requires a considerable amount of RAM (around 400M on our case). See the contribution below for a better approach.
 
 {{< highlight bash >}}
 #!/bin/bash
@@ -250,6 +250,70 @@ for i in $(seq 0 200 ${#files[@]}); do
 done > orphans-size
 
 {{< /highlight  >}}
+
+A brave soul on #irc contributed another way to look for orphans, with better performance:
+
+{{< highlight bash >}}
+#!bin/bash
+# This needs bash for arrays
+#
+# Author: Jakub Jankowski <shasta@slackware.pl>
+#
+ 
+ONLY_FSTYPES_RGXP='^(btrfs|ext[234]|xfs|jfs)$'
+SKIP_PATHS=( '/root/*' '/home/*' '/mnt/*'
+             '/var/run/*' '/var/tmp/*' '/var/spool/*'
+             '/var/log/pkgtools/*' '/var/lib/pkgtools/*' '/var/lib/sbopkg/*'
+             '/var/cache/lxc/*'
+             '/usr/src/linux*'
+             '/tmp/*' )
+ 
+# create temporary files
+FROM_PKGS=$(mktemp)
+FROM_FS=$(mktemp)
+ 
+set -e
+ 
+# list all files/dirs brought by packages;
+# we are also stripping .new suffix as that's how config
+# files come in, but they are later mv'd "foo.new" "foo"
+for pkg in /var/log/packages/*; do
+  sed -e '1,/^FILE LIST:/d;
+         /^\.\/$/d;
+         /^install\//d;
+         s,^,/,;
+         s,\.new$,,;
+         s,/$,,' "$pkg"
+done > "$FROM_PKGS"
+ 
+# find all files/directories on filesystem, but only if fs type is one of $ONLY_FSTYPES_RGXP;
+# on't descend to other filesystems (-xdev), and ignore paths from $SKIP_PATHS
+declare -a EXCL=( )
+for p in "${SKIP_PATHS[@]}"; do
+  if [ ${#EXCL[@]} -eq 0 ]; then
+    EXCL=( "${EXCL[@]}" '-path' "$p" '-prune' )
+  else
+    EXCL=( "${EXCL[@]}" '-o' '-path' "$p" '-prune' )
+  fi
+done
+[ ${#EXCL[@]} -gt 0 ] && EXCL=( "${EXCL[@]}" '-o' '-print' )
+ 
+find $(awk -v fstypes="$ONLY_FSTYPES_RGXP" '$3 ~ fstypes {print $2}' /proc/mounts) \
+  -xdev "${EXCL[@]}" 2>/dev/null > "$FROM_FS"
+ 
+# output needs to be sorted for join(1) to work
+LC_ALL=C sort -u -o "$FROM_PKGS" "$FROM_PKGS"
+LC_ALL=C sort -u -o "$FROM_FS" "$FROM_FS"
+ 
+# see which paths in $FROM_FS are not in $FROM_PKGS
+LC_ALL=C join -a 2 -v 2 "$FROM_PKGS" "$FROM_FS"
+ 
+# clean up other two temp files
+rm "$FROM_FS" "$FROM_PKGS"
+{{< /highlight  >}}
+
+The script will give us a list of orphans. We can compute the size they use on disk using that list.
+
 
 We can further explore the results the script generated in the file ```orphans-size```:
 
