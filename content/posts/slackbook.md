@@ -7,9 +7,6 @@ toc = true
 categories = ["documentation"]
 tags = ["slackbook"]
 type = "post"
-images = [
-  "https://source.unsplash.com/collection/983219/1600x900"
-] # overrides the site-wide open graph image
 +++
 
 The Slackware Book can be read online in its original form at: [slackbook](https://slackbook.org/beta/).
