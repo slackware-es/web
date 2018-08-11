@@ -1,0 +1,8 @@
+body {
+  font-family: 'Terminus (TTF)';
+  hyphens: auto;
+  line-height: 1;
+}
+#vt100 {
+  font-size: 14pt !important;
+}
