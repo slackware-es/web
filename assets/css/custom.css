@@ -17,12 +17,7 @@
     font-style: italic;
 }
 
-@font-face {
-    font-family: 'Terminus';
-    src: url('/fonts/terminus/TerminusTTF-Bold Italic-4.46.0.ttf');
-    font-weight: bold;
-    font-style: italic, bold;
-}
+
 
 
 @font-face {
@@ -76,7 +71,7 @@
 }
 
 .body {
-	font-family: 'Terminus' !important;
+	font-family: 'Play' !important;
  
 	hyphens: auto;
     line-height: 1.5;
@@ -87,8 +82,7 @@
 }
 
 .hack, .hack blockquote, .hack code, .hack em, .hack h1, .hack h2, .hack h3, .hack h4, .hack h5, .hack h6, .hack strong {
-	font-family: 'Terminus' !important;
- 
+	font-family: 'Play' !important;
 	hyphens: auto;
     font-size: 1.35rem;
     line-height: 1.5;
@@ -98,14 +92,19 @@
 	font-feature-settings: "kern", "liga", "clig", "calt";
 }
 
-.hack h1 {font-size: 2.7rem;}
-.hack h2 {font-size: 2.1rem;}
-.hack h3 {font-size: 1.8rem;}
+.hack h1 {font-family: 'Terminus' !important; font-size: 2.7rem;}
+.hack h2 {font-family: 'Terminus' !important; font-size: 2.1rem;}
+.hack h3 {font-family: 'Terminus' !important; font-size: 1.8rem;}
 
 .hack h1::before {content: "";}
 .hack h2::before {content: "";}
 .hack h3::before {content: "";}
 .hack h4::before {content: "";}
+
+.dark pre code {
+    font-family: 'Terminus' !important;
+    color: #fbf9f1;
+}
 
 .hack h1::after {
     content: ""; 
@@ -115,7 +114,7 @@
 }
 
 a:hover, a:active, a:focus {
-	background-color: #fafafa;
+	background-color: #fbf9f1;
     color: rgb(231, 25, 1);
     border-bottom: 1px solid rgba(0,0,0,0.6);
 

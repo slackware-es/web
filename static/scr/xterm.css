@@ -1,8 +1,31 @@
+@font-face {
+  font-family: 'Terminus';
+  src: url('/fonts/terminus/TerminusTTF-4.46.0.ttf');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Terminus';
+  src: url('/fonts/terminus/TerminusTTF-Bold-4.46.0.ttf');
+  font-weight: bold;
+}
+
+@font-face {
+    font-family: 'Terminus';
+    src: url('/fonts/terminus/TerminusTTF-Italic-4.46.0.ttf');
+    font-style: italic;
+}
+
 body {
-  font-family: 'Terminus (TTF)';
+  font-family: 'Terminus';
   hyphens: auto;
   line-height: 1;
 }
+
+pre {
+  font-family: 'Terminus';
+}
+
 #vt100 {
   font-size: 12pt !important;
 }
