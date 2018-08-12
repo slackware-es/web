@@ -17,9 +17,6 @@
     font-style: italic;
 }
 
-
-
-
 @font-face {
   font-family: 'Marvel';
   src: url('/fonts/marvel/Marvel-Regular.ttf');
@@ -57,23 +54,38 @@
   font-weight: bold;
 }
 
-
 .dark, .dark pre {
     background-color: #fbf9f1;
 }
 
+.dark code, .dark strong, .hack code {
+    font-family: 'Terminus' !important;
+    font-weight: bold !important;
+    font-size: 1.35rem;
+    line-height: 1.5;
+	font-kerning: normal;
+	font-variant-numeric: oldstyle-nums proportional-nums;
+	font-variant-ligatures: common-ligatures contextual;
+	font-feature-settings: "kern", "liga", "clig", "calt";
+	color: #272822;
+	background-color: #fbf9f1;
+}
+
+.dark pre code {
+	color: #fbf9f1;
+	background-color: #272822;
+}
+
 .dark {
-    color: #171717;
+    color: #272822;
 }
 
 .dark h1 a, .dark h2 a, .dark h3 a, .dark h4 a, .dark h5 a {
-    color: #171717;
+    color: #272822;
 }
 
 .body {
 	font-family: 'Play' !important;
- 
-	hyphens: auto;
     line-height: 1.5;
 	font-kerning: normal;
 	font-variant-numeric: oldstyle-nums proportional-nums;
@@ -81,7 +93,32 @@
 	font-feature-settings: "kern", "liga", "clig", "calt";
 }
 
-.hack, .hack blockquote, .hack code, .hack em, .hack h1, .hack h2, .hack h3, .hack h4, .hack h5, .hack h6, .hack strong {
+p {
+    -webkit-hyphens: auto;
+    -webkit-hyphenate-limit-before: 4;
+    -webkit-hyphenate-limit-after: 3;
+    -webkit-hyphenate-limit-chars: 7 4 3;
+    -webkit-hyphenate-limit-lines: 2;
+    -webkit-hyphenate-limit-zone: 8%;
+    -webkit-hyphenate-limit-last: always;
+    -moz-hyphens: auto;
+    -moz-hyphenate-limit-chars: 7 4 3;
+    -moz-hyphenate-limit-lines: 2;
+    -moz-hyphenate-limit-zone: 8%;
+    -moz-hyphenate-limit-last: always;
+    -ms-hyphens: auto;
+    -ms-hyphenate-limit-chars: 7 4 3;
+    -ms-hyphenate-limit-lines: 2;
+    -ms-hyphenate-limit-zone: 8%;
+    -ms-hyphenate-limit-last: always;
+    hyphens: auto;
+    hyphenate-limit-chars: 7 4 3;
+    hyphenate-limit-lines: 2;
+    hyphenate-limit-zone: 8%;
+    hyphenate-limit-last: always;
+}
+
+.hack, .hack blockquote, .hack em, .hack h1, .hack h2, .hack h3, .hack h4, .hack h5, .hack h6, .hack strong {
 	font-family: 'Play' !important;
 	hyphens: auto;
     font-size: 1.35rem;
@@ -100,6 +137,8 @@
 .hack h2::before {content: "";}
 .hack h3::before {content: "";}
 .hack h4::before {content: "";}
+.hack h5::before {content: "";}
+.hack h6::before {content: "";}
 
 .dark pre code {
     font-family: 'Terminus' !important;
@@ -151,19 +190,10 @@ div.center iframe{
     height: 480px;
 }
 
-
-.dark code {
-    color: #000;
-}
-.dark pre code {
-    color: #fafafa;
-}
 .dark table {
-    color: #171717;
+    color: #272822;
 }
-.dark code, .dark strong {
-    color: #000;
-}
+
 :target {
     color: rgb(231, 25, 1);
 }
