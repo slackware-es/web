@@ -5,11 +5,17 @@
   {{ partial "menu.html" . }}
 {{ end }}
 {{ define "main" }}
-  <header >
-    <h1>{{ .Title }}</h1>
-  </header>
 
-<p>Started in 1992 and first released in 1993, Slackware is the oldest surviving commercial Linux distribution.</p>
+  <div class="hero-image">
+    <div class="hero-text">
+      <h1>{{ .Title }}</h1>
+      <h2>since 1993</h2>
+      <br>
+      <a type="button" class="btn btn-primary btn-block getButton" href="https://mirrors.slackware.com/slackware/slackware-iso/slackware64-14.2-iso/slackware64-14.2-install-dvd.iso">Get it now!</a>
+    </div>
+  </div>
+
+<p style="padding-top: 700px;">Started in 1992 and first released in 1993, Slackware is the oldest surviving commercial Linux distribution.</p>
 
 </p>This site is a tool to engage community to help others use, learn, build and contribute to Slackware. But it's not an official resource. We'll try to sync the work we do here with the other community channels, but <strong>consider this site content our opinion as community members.</strong></p>
 
