@@ -10,17 +10,17 @@ tags = ["build", "how-to"]
 
 
 
-This document is a derivative of the [Slacbook:bash](https://docs.slackware.com/slackbook:bash) and [Slackbook beta](https://slackbook.org/beta/#ch_install). The aim is to produce an evolution and contribute it back to the original work.
+This document is a derivative of the [Slackbook:bash](https://docs.slackware.com/slackbook:bash) and [Slackbook beta](https://slackbook.org/beta/#ch_install). The aim is to produce an evolution and contribute it back to the original work.
 
 
 What Is A Shell?
 -----
 
-A shell is a program that give access to the operating system's services. In Slackware the command-line interface (CLI) shell is the Bourne-again shell or [bash](https://www.gnu.org/software/bash/).
+A shell is a program that give access to the operating system's services. In Slackware the command-line interface (CLI) shell is ```bash```, the [Bourne Again Shell](https://www.gnu.org/software/bash/).
 
 The first program Slackware executes after you log into the system is the shell command-line interface:
 
-There are many shells included with a full install of Slackware, but in this chapter we will only discuss ```bash```, the Bourne Again Shell. Advanced users might want to consider using the powerful ```zsh```, and users familiar with older UNIX systems might appreciate ```ksh``` or ```csh```, but new users should stick to ```bash```.
+There are many shells included with a full install of Slackware, but in this chapter we will only discuss ```bash```. Advanced users might want to consider using the powerful ```zsh```, and users familiar with older UNIX systems might appreciate ```ksh``` or ```csh```, but new users should stick to ```bash```.
 
 The main tasks a user does in the shell is executing commands, i.e. telling the computer what to do next.
 
@@ -39,21 +39,21 @@ We type a command at the prompt and press the key enter, and the shell executes 
 
 Here you have a quick reference of commands taken from the fantastic [Introduction to Linux](http://tldp.org/LDP/intro-linux/html/intro-linux.html) by the [TLDP](http://tldp.org):
 
- - ```ls```: displays a list of files in the current working directory
- - ```cd```: directory change directories
- - ```passwd```: change the password for the current user
- - ```file filename```: display file type of file with name filename
- - ```cat textfile```: throws content of textfile on the screen
- - ```pwd```: display present working directory
- - ```exit``` or ```logout```: leave this session
- - ```man command```: read man pages on command
- - ```info command```: read Info pages on command
- - ```apropos string```: search the whatis database for strings
+ - ```ls```: List files in the current working directory
+ - ```cd```: Change directories
+ - ```passwd```: Change the password for the current user
+ - ```file filename```: Display file type of file with name filename
+ - ```cat textfile```: Throws content of textfile on the screen
+ - ```pwd```: Display present working directory
+ - ```exit``` or ```logout```: Leave the current session
+ - ```man command```: Read manual pages on command
+ - ```info command```: Read Info pages on command
+ - ```apropos string```: Search the whatis database for strings
 
 And a quick reference on how to edit what you type at the prompt:
 
- - Ctrl+A: move cursor to the beginning of the command line.
- - Ctrl+E: move cursor to the end of the command line.
+ - Ctrl+A: Move cursor to the beginning of the command line.
+ - Ctrl+E: Move cursor to the end of the command line.
  - Ctrl+C: End a running program and return the prompt, see Chapter 4.
  - Ctrl+D: Log out of the current shell session, equal to typing exit or logout.
  - Ctrl+H: Generate a backspace character.
@@ -64,7 +64,7 @@ And a quick reference on how to edit what you type at the prompt:
  - ArrowUp and ArrowDown: Browse history. Go to the line you want to repeat, edit details and press Enter to save time.
  - Shift+PageUp and Shift+PageDown: Browse terminal buffer (to see text that has "scrolled off" the screen).
  - Tab: Command or filename completion; when multiple choices are possible, the system will either signal with an audio or visual bell, or, if too many choices are possible, ask you if you want to see them all.
- - Tab Tab: Shows file or command completion possibilities.
+ - Tab Tab (Tab twice): Shows file or command completion possibilities.
 
 The prompt
 -----
@@ -93,7 +93,7 @@ An environment is a compound of properties and variables defined in the shell wh
 
 All shells make certain tasks easier for the user by keeping track of things in environment variables. An environment variable is a shorter name for some bit of information that the user wishes to store and make use of later. For example, the environment variable PS1 tells bash how to format its prompt. Other variables may tell applications how to run.
 
-Setting your own environment variables is easy. ```bash``` includes two built-in functions for handling this: ```set``` and ```export```. We can remove an environment with ```unset```. Don't panic if you accidently unset an environment variable and don't know what it would do. You can reset all the default variables by logging out of your terminal and logging back in. You can reference a variable by placing a dollar sign ($) in front.
+Setting your own environment variables is easy. ```bash``` includes two built-in functions for handling this: ```set``` and ```export```. We can remove an environment with ```unset```. Don't panic if you accidentally unset an environment variable and don't know what it would do. You can reset all the default variables by logging out of your terminal and logging back in. You can reference a variable by placing a dollar sign ($) in front.
 
 {{< highlight bash >}}
 darkstar:~$ set FOO=bar
@@ -267,7 +267,7 @@ Each of these ```gettys``` is available on different ```tty``` devices that are 
 
 On desktops, laptops, and other workstations where the user prefers a graphical interface, most terminals are graphical. Slackware includes many graphical terminals, but the most used are KDE's ```konsole```, ```XFCE's Terminal``` and the standard ```xterm```.
 
-If you are using a graphical interface, check your toolbars or menus. Each desktop environment or window manager has a virtual terminal (often called a terminal emulator), and they are all labelled differently. Typically though, you will find them under a "System" sub-menu in desktop environments. Executing any of these will give you a graphical terminal and automatically run your default shell.
+If you are using a graphical interface, check your toolbars or menus. Each desktop environment or window manager has a virtual terminal (often called a terminal emulator), and they are all labeled differently. Typically though, you will find them under a "System" sub-menu in desktop environments. Executing any of these will give you a graphical terminal and automatically run your default shell.
 
 
 Basic shell commands
