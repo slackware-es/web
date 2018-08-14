@@ -22,7 +22,7 @@ footnoteReturnLinkContents = "↩" # Provides a nicer footnote return link
   show_menu = true # Optional, set true to enable section menu
   powered_by = false # Optional, set false to disable credits
   images = [
-    "https://source.unsplash.com/collection/983219/2000x1322"
+    "https://slackware.es/img/penguins.jpg"
   ] # Suggested, controls default Open Graph images
 
 [params.hackcss]
