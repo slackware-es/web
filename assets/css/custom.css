@@ -1,78 +1,82 @@
-
-@font-face {
-  font-family: 'Terminus';
-  src: url('/fonts/terminus/TerminusTTF-4.46.0.ttf');
-  font-style: normal;
+:root {
+	--fg: #272822;
+	--bg: #fbf9f1;
 }
 
 @font-face {
-  font-family: 'Terminus';
-  src: url('/fonts/terminus/TerminusTTF-Bold-4.46.0.ttf');
-  font-weight: bold;
+	font-family: 'Terminus';
+	src: url('/fonts/terminus/TerminusTTF-4.46.0.ttf');
+	font-style: normal;
 }
 
 @font-face {
-    font-family: 'Terminus';
-    src: url('/fonts/terminus/TerminusTTF-Italic-4.46.0.ttf');
-    font-style: italic;
+	font-family: 'Terminus';
+	src: url('/fonts/terminus/TerminusTTF-Bold-4.46.0.ttf');
+	font-weight: bold;
 }
 
 @font-face {
-  font-family: 'Bitter';
-  src: url('/fonts/bitter/Bitter-Regular.ttf');
-  font-style: normal;
+	font-family: 'Terminus';
+	src: url('/fonts/terminus/TerminusTTF-Italic-4.46.0.ttf');
+	font-style: italic;
 }
 
 @font-face {
-  font-family: 'Bitter';
-  src: url('/fonts/bitter/Bitter-Bold.ttf');
-  font-weight: bold;
+	font-family: 'Bitter';
+	src: url('/fonts/bitter/Bitter-Regular.ttf');
+	font-style: normal;
 }
 
 @font-face {
-    font-family: 'Bitter';
-    src: url('/fonts/bitter/Bitter-Italic.ttf');
-    font-style: italic;
-
-@font-face {
-  font-family: 'Marvel';
-  src: url('/fonts/marvel/Marvel-Regular.ttf');
-  font-style: normal;
+	font-family: 'Bitter';
+	src: url('/fonts/bitter/Bitter-Bold.ttf');
+	font-weight: bold;
 }
 
 @font-face {
-  font-family: 'Marvel';
-  src: url('/fonts/marvel/Marvel-Bold.ttf');
-  font-weight: bold;
+	font-family: 'Bitter';
+	src: url('/fonts/bitter/Bitter-Italic.ttf');
+	font-style: italic;
+
+@font-face {
+	font-family: 'Marvel';
+	src: url('/fonts/marvel/Marvel-Regular.ttf');
+	font-style: normal;
 }
 
 @font-face {
-    font-family: 'Marvel';
-    src: url('/fonts/marvel/Marvel-Italic.ttf');
-    font-style: italic;
+	font-family: 'Marvel';
+	src: url('/fonts/marvel/Marvel-Bold.ttf');
+	font-weight: bold;
 }
 
 @font-face {
-    font-family: 'Marvel';
-    src: url('/fonts/play/Marvel-BoldItalic.ttf');
-    font-weight: bold;
-    font-style: italic, bold;
+	font-family: 'Marvel';
+	src: url('/fonts/marvel/Marvel-Italic.ttf');
+	font-style: italic;
 }
 
 @font-face {
-  font-family: 'Play';
-  src: url('/fonts/play/Play-Regular.ttf');
-  font-style: normal;
+	font-family: 'Marvel';
+	src: url('/fonts/play/Marvel-BoldItalic.ttf');
+	font-weight: bold;
+	font-style: italic, bold;
 }
 
 @font-face {
-  font-family: 'Play';
-  src: url('/fonts/play/Play-Bold.ttf');
-  font-weight: bold;
+	font-family: 'Play';
+	src: url('/fonts/play/Play-Regular.ttf');
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Play';
+	src: url('/fonts/play/Play-Bold.ttf');
+	font-weight: bold;
 }
 
 body, html {
-    height: 100%;
+	height: 100%;
 }
 
 
@@ -86,35 +90,35 @@ body, html {
 }
 
 p {
-    -webkit-hyphens: auto;
-    -webkit-hyphenate-limit-before: 4;
-    -webkit-hyphenate-limit-after: 3;
-    -webkit-hyphenate-limit-chars: 7 4 3;
-    -webkit-hyphenate-limit-lines: 2;
-    -webkit-hyphenate-limit-zone: 8%;
-    -webkit-hyphenate-limit-last: always;
-    -moz-hyphens: auto;
-    -moz-hyphenate-limit-chars: 7 4 3;
-    -moz-hyphenate-limit-lines: 2;
-    -moz-hyphenate-limit-zone: 8%;
-    -moz-hyphenate-limit-last: always;
-    -ms-hyphens: auto;
-    -ms-hyphenate-limit-chars: 7 4 3;
-    -ms-hyphenate-limit-lines: 2;
-    -ms-hyphenate-limit-zone: 8%;
-    -ms-hyphenate-limit-last: always;
-    hyphens: auto;
-    hyphenate-limit-chars: 7 4 3;
-    hyphenate-limit-lines: 2;
-    hyphenate-limit-zone: 8%;
-    hyphenate-limit-last: always;
+	-webkit-hyphens: auto;
+	-webkit-hyphenate-limit-before: 4;
+	-webkit-hyphenate-limit-after: 3;
+	-webkit-hyphenate-limit-chars: 7 4 3;
+	-webkit-hyphenate-limit-lines: 2;
+	-webkit-hyphenate-limit-zone: 8%;
+	-webkit-hyphenate-limit-last: always;
+	-moz-hyphens: auto;
+	-moz-hyphenate-limit-chars: 7 4 3;
+	-moz-hyphenate-limit-lines: 2;
+	-moz-hyphenate-limit-zone: 8%;
+	-moz-hyphenate-limit-last: always;
+	-ms-hyphens: auto;
+	-ms-hyphenate-limit-chars: 7 4 3;
+	-ms-hyphenate-limit-lines: 2;
+	-ms-hyphenate-limit-zone: 8%;
+	-ms-hyphenate-limit-last: always;
+	hyphens: auto;
+	hyphenate-limit-chars: 7 4 3;
+	hyphenate-limit-lines: 2;
+	hyphenate-limit-zone: 8%;
+	hyphenate-limit-last: always;
 }
 
 .hack, .hack blockquote, .hack em, .hack h1, .hack h2, .hack h3, .hack h4, .hack h5, .hack h6, .hack strong {
 	font-family: 'Bitter' !important;
 	hyphens: auto;
-    font-size: 1.35rem;
-    line-height: 1.5;
+	font-size: 1.35rem;
+	line-height: 1.5;
 	font-kerning: normal;
 	font-variant-numeric: oldstyle-nums proportional-nums;
 	font-variant-ligatures: common-ligatures contextual;
@@ -133,55 +137,55 @@ p {
 .hack h6::before {content: "";}
 
 .dark, .dark pre {
-    background-color: #fbf9f1;
+	background-color: var(--bg);
 }
 
 .dark code, .dark strong, .hack code {
-    font-family: 'Terminus' !important;
-    font-weight: bold !important;
-    font-size: 1.35rem;
-    line-height: 1.5;
+	font-family: 'Terminus' !important;
+	font-weight: bold !important;
+	font-size: 1.35rem;
+	line-height: 1.5;
 	font-kerning: normal;
 	font-variant-numeric: oldstyle-nums proportional-nums;
 	font-variant-ligatures: common-ligatures contextual;
 	font-feature-settings: "kern", "liga", "clig", "calt";
-	color: #272822;
-	background-color: #fbf9f1;
+	color: var(--fg);
+	background-color: var(--bg);
 }
 
 .dark pre code {
-	color: #fbf9f1;
-	background-color: #272822;
-    font-family: 'Terminus' !important;
+	color: var(-fg);
+	background-color: var(--bg);
+	font-family: 'Terminus' !important;
 }
 
 .dark {
-    color: #272822;
+	color: var(--fg);
 }
 
 .dark h1 a, .dark h2 a, .dark h3 a, .dark h4 a, .dark h5 a {
-    color: #272822;
+	color: var(--fg);
 }
 
 .hack h1::after {
-    content: ""; 
-    position: absolute;
-    bottom: 10px;
-    left: 0;
+	content: ""; 
+	position: absolute;
+	bottom: 10px;
+	left: 0;
 }
 
 a:hover, a:active, a:focus {
-	background-color: #fbf9f1;
-    color: rgb(231, 25, 1);
-    border-bottom: 1px solid rgba(0,0,0,0.6);
+	background-color: var(--bg);
+	color: rgb(231, 25, 1);
+	border-bottom: 1px solid rgba(0,0,0,0.6);
 
 }
 
 a, .toggle__input + label {
-    color: inherit;
-    text-decoration: none;
-    border-bottom: 1px solid rgba(0,0,0,0.2);
-    transition: all 0.25s ease;
+	color: inherit;
+	text-decoration: none;
+	border-bottom: 1px solid rgba(0,0,0,0.2);
+	transition: all 0.25s ease;
 }
 
 div.center {
@@ -191,29 +195,29 @@ div.center {
 div.center iframe{
 	overflow: hidden;
 	scrolling: no;	
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 800px;
-    height: 480px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 800px;
+	height: 480px;
 }
 
 .center {
 	overflow: hidden;
 	scrolling: no;	
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 800px;
-    height: 480px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 800px;
+	height: 480px;
 }
 
 .dark table {
-    color: #272822;
+	color: var(--fg);
 }
 
 :target {
-    color: rgb(231, 25, 1);
+	color: rgb(231, 25, 1);
 }
 img {
 	max-width: 100%;
@@ -222,31 +226,31 @@ img {
 
 
 .hero-image {
-    /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
-    background-image: linear-gradient(rgba(251, 249, 241, 0.3), rgba(251, 249, 241, 0.4)), url("/img/penguins.jpg");
+	/* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+	background-image: linear-gradient(rgba(251, 249, 241, 0.3), rgba(251, 249, 241, 0.4)), url("/img/penguins.jpg");
 
-    /* Set a specific height */
-    height: 600px;
+	/* Set a specific height */
+	height: 600px;
 
-    /* Position and center the image to scale nicely on all screens */
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: absolute;
-    width: 100% !important;
-    left: 50%;
-    transform: translate(-50%, 0%);
-    margin-bottom: 100px;
-    margin-top: 20px; 
+	/* Position and center the image to scale nicely on all screens */
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: absolute;
+	width: 100% !important;
+	left: 50%;
+	transform: translate(-50%, 0%);
+	margin-bottom: 100px;
+	margin-top: 20px; 
 }
 
 /* Place text in the middle of the image */
 .hero-text {
-    text-align: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+	text-align: center;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
 
 .hero-text h1 {
@@ -263,11 +267,12 @@ img {
 }
 
 .getButton {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);   
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);   
 	width: 200px;
-	font-family: Marvel !important;
+	font-family: Terminus !important;
 	font-size: 1.5rem !important;
 	font-weigth: bold;	
 }
+
