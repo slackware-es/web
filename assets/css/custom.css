@@ -18,6 +18,23 @@
 }
 
 @font-face {
+  font-family: 'Bitter';
+  src: url('/fonts/bitter/Bitter-Regular.ttf');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Bitter';
+  src: url('/fonts/bitter/Bitter-Bold.ttf');
+  font-weight: bold;
+}
+
+@font-face {
+    font-family: 'Bitter';
+    src: url('/fonts/bitter/Bitter-Italic.ttf');
+    font-style: italic;
+
+@font-face {
   font-family: 'Marvel';
   src: url('/fonts/marvel/Marvel-Regular.ttf');
   font-style: normal;
@@ -60,8 +77,8 @@ body, html {
 
 
 .body {
-	font-family: 'Play' !important;
-    line-height: 1.5;
+	font-family: 'Bitter' !important;
+	line-height: 1.5;
 	font-kerning: normal;
 	font-variant-numeric: oldstyle-nums proportional-nums;
 	font-variant-ligatures: common-ligatures contextual;
@@ -94,7 +111,7 @@ p {
 }
 
 .hack, .hack blockquote, .hack em, .hack h1, .hack h2, .hack h3, .hack h4, .hack h5, .hack h6, .hack strong {
-	font-family: 'Play' !important;
+	font-family: 'Bitter' !important;
 	hyphens: auto;
     font-size: 1.35rem;
     line-height: 1.5;
@@ -233,13 +250,14 @@ img {
 }
 
 .hero-text h1 {
+	font-family: Terminus !important;
 	font-size: 10rem !important;
 	font-weigth: bold;
 	padding: 0;
 }
 
 .hero-text h2 {
-	font-family: Play !important;
+	font-family: Bitter !important;
 	font-size: 3rem !important;
 	font-weigth: bold;
 }
