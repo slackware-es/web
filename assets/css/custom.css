@@ -139,7 +139,6 @@ p {
 .dark, .dark pre {
 	background-color: var(--bg);
 }
-
 .dark code, .dark strong, .hack code {
 	font-family: 'Terminus' !important;
 	font-weight: bold !important;
@@ -150,12 +149,9 @@ p {
 	font-variant-ligatures: common-ligatures contextual;
 	font-feature-settings: "kern", "liga", "clig", "calt";
 	color: var(--fg);
-	background-color: var(--bg);
 }
 
 .dark pre code {
-	color: var(-fg);
-	background-color: var(--bg);
 	font-family: 'Terminus' !important;
 }
 
@@ -276,3 +272,7 @@ img {
 	font-weigth: bold;	
 }
 
+.highlight {
+	background-color: var(--fg) !important;
+	color: var(--bg) !important;
+}
