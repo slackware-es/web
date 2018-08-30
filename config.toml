@@ -26,8 +26,8 @@ footnoteReturnLinkContents = "↩" # Provides a nicer footnote return link
   ] # Suggested, controls default Open Graph images
 
 [params.hackcss]
-  disabled = false # Optional, set true to disable hackcss
-  mode = "hack" # Optional, choose from standard or hack display modes
+  disabled = true # Optional, set true to disable hackcss
+  mode = "standard" # Optional, choose from standard or hack display modes
   palette = "dark" # Optional, choose from dark, dark-grey and solarized-dark
 
 [params.modules.fractal_forest]

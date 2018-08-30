@@ -18,11 +18,11 @@
     {{ template "_internal/twitter_cards.html" . }}
     {{ partial "meta/ogimage-maybe.html" . }}
     {{ partial "meta/telegram-channel-maybe.html" . }}
-    {{ partial "meta/theme-color.html" . }}
     {{ if eq .Kind "home" }}
       {{ partial "head/site-verification.html" . }}
     {{ end }}
     {{ partial "meta/http-referrer.html" . }}
+    {{ partial "async-scripts.html" . }}
     {{ partial "modules.html" . }}
     {{ if .RSSLink }}
       <link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}">
@@ -36,7 +36,14 @@
     {{ end }}
     {{ partial "head/favicon.html" . }}
     {{ partial "global-styles.html" . }}
-    {{ partial "async-scripts.html" . }}
+    {{ $highlights := findRE "class\\s*?=\\s*?\".*?\\bhighlight\\b.*?\"|class\\s*?=\\s*?highlight\\b" .Content }}
+    {{ if ge (len $highlights) 1 }}
+      <script>fetchInject([{{ "/css/syntax.css" | relURL }}])</script>
+      <noscript>
+        <link href={{ "/css/syntax.css" | relURL }} rel="stylesheet">
+      </noscript>
+    {{ end }}
+    {{ partial "head/validate-maybe.html" . }}
   </head>
   {{ $hackcss_disabled := .Site.Params.hackcss.disabled | default false }}
   {{ $hackcss_mode := .Site.Params.hackcss.mode | default "hack" }}

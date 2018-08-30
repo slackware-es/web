@@ -1,39 +1,39 @@
 name = "After Dark"
 license = "WTFPL"
-licenselink = "https://git.habd.as/comfusion/after-dark/src/branch/master/COPYING"
+licenselink = "https://choosealicense.com/licenses/wtfpl/"
 description = "A deceptively simple dark theme for Hugo."
 homepage = "https://git.habd.as/comfusion/after-dark/"
 tags = [
   "personal",
-  "simple",
   "minimal",
   "responsive",
   "accessible",
-  "search",
   "dark",
+  "search",
   "blog"
 ]
 features = [
+  "Quick Installer",
+  "Online Help",
   "Module System",
+  "Section Menu"
+  "Theme Variants",
+  "Custom Styles",
+  "Trim Color",
+  "Fuzzy Search",
+  "Code Highlighter",
+  "Post Images",
   "Lazy Loading",
-  "BPG Image Support",
   "Social Engagement",
   "Search Optimization",
-  "Post Images",
-  "Fuzzy Search",
-  "Personalization",
-  "Content Reuse",
+  "Modification Dating",
+  "Index Blocking",
+  "Referrer Policy",
+  "Snippets",
   "Related Content",
   "Table of Contents",
-  "Section Menu",
-  "Comments",
-  "Modification Dating",
-  "Syntax Highlighting",
-  "Taxonomy Pages",
-  "Error Page",
-  "Pagination",
-  "Reading time",
-  "Post Bylines"
+  "SVG Favicon",
+  "404 Page"
 ]
 min_version = 0.44
 

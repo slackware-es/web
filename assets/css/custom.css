@@ -37,42 +37,6 @@
 	font-family: 'Bitter';
 	src: url('/fonts/bitter/Bitter-Italic.ttf');
 	font-style: italic;
-
-@font-face {
-	font-family: 'Marvel';
-	src: url('/fonts/marvel/Marvel-Regular.ttf');
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'Marvel';
-	src: url('/fonts/marvel/Marvel-Bold.ttf');
-	font-weight: bold;
-}
-
-@font-face {
-	font-family: 'Marvel';
-	src: url('/fonts/marvel/Marvel-Italic.ttf');
-	font-style: italic;
-}
-
-@font-face {
-	font-family: 'Marvel';
-	src: url('/fonts/play/Marvel-BoldItalic.ttf');
-	font-weight: bold;
-	font-style: italic, bold;
-}
-
-@font-face {
-	font-family: 'Play';
-	src: url('/fonts/play/Play-Regular.ttf');
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'Play';
-	src: url('/fonts/play/Play-Bold.ttf');
-	font-weight: bold;
 }
 
 body, html {
@@ -80,14 +44,17 @@ body, html {
 }
 
 
-.body {
-	font-family: 'Bitter' !important;
+body {
+	font-family: 'Bitter';
 	line-height: 1.5;
 	font-kerning: normal;
 	font-variant-numeric: oldstyle-nums proportional-nums;
 	font-variant-ligatures: common-ligatures contextual;
 	font-feature-settings: "kern", "liga", "clig", "calt";
+	background-color: var(--bg);
+	color: var(--fg);
 }
+
 
 p {
 	-webkit-hyphens: auto;
@@ -114,10 +81,15 @@ p {
 	hyphenate-limit-last: always;
 }
 
-.hack, .hack blockquote, .hack em, .hack h1, .hack h2, .hack h3, .hack h4, .hack h5, .hack h6, .hack strong {
-	font-family: 'Bitter' !important;
-	hyphens: auto;
-	font-size: 1.35rem;
+
+ h1 {font-family: 'Terminus';  font-size: 2.7rem;}
+ h2 {font-family: 'Terminus'; font-size: 2.1rem;}
+ h3 {font-family: 'Terminus'; font-size: 1.8rem;}
+
+
+pre, code {
+	font-family: 'Terminus';
+	font-weight: regular;
 	line-height: 1.5;
 	font-kerning: normal;
 	font-variant-numeric: oldstyle-nums proportional-nums;
@@ -125,45 +97,12 @@ p {
 	font-feature-settings: "kern", "liga", "clig", "calt";
 }
 
-.hack h1 {font-family: 'Terminus' !important; font-size: 2.7rem;}
-.hack h2 {font-family: 'Terminus' !important; font-size: 2.1rem;}
-.hack h3 {font-family: 'Terminus' !important; font-size: 1.8rem;}
-
-.hack h1::before {content: "";}
-.hack h2::before {content: "";}
-.hack h3::before {content: "";}
-.hack h4::before {content: "";}
-.hack h5::before {content: "";}
-.hack h6::before {content: "";}
-
-.dark, .dark pre {
-	background-color: var(--bg);
+pre:hover,
+pre:focus {
+  width: min-content;
 }
-.dark code, .dark strong, .hack code {
-	font-family: 'Terminus' !important;
-	font-weight: bold !important;
-	font-size: 1.35rem;
-	line-height: 1.5;
-	font-kerning: normal;
-	font-variant-numeric: oldstyle-nums proportional-nums;
-	font-variant-ligatures: common-ligatures contextual;
-	font-feature-settings: "kern", "liga", "clig", "calt";
-	color: var(--fg);
-}
-
-.dark pre code {
-	font-family: 'Terminus' !important;
-}
-
-.dark {
-	color: var(--fg);
-}
-
-.dark h1 a, .dark h2 a, .dark h3 a, .dark h4 a, .dark h5 a {
-	color: var(--fg);
-}
-
-.hack h1::after {
+	
+ h1::after {
 	content: ""; 
 	position: absolute;
 	bottom: 10px;
@@ -174,7 +113,6 @@ a:hover, a:active, a:focus {
 	background-color: var(--bg);
 	color: rgb(231, 25, 1);
 	border-bottom: 1px solid rgba(0,0,0,0.6);
-
 }
 
 a, .toggle__input + label {
@@ -194,27 +132,20 @@ div.center iframe{
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
-	width: 800px;
-	height: 480px;
+	width: 750px;
+	height: 390px;
 }
 
-.center {
-	overflow: hidden;
-	scrolling: no;	
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	width: 800px;
-	height: 480px;
-}
 
-.dark table {
+
+table {
 	color: var(--fg);
 }
 
 :target {
 	color: rgb(231, 25, 1);
 }
+
 img {
 	max-width: 100%;
 	max-height: 100%;
@@ -222,57 +153,131 @@ img {
 
 
 .hero-image {
-	/* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
-	background-image: linear-gradient(rgba(251, 249, 241, 0.3), rgba(251, 249, 241, 0.4)), url("/img/penguins.jpg");
+	/* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read 
+	background-image: linear-gradient(rgba(251, 249, 241, 0.3), rgba(251, 249, 241, 0.4)), url("/img/penguins.jpg"); */
 
-	/* Set a specific height */
-	height: 600px;
+	/* Set a specific height 
+	height: 350px;*/
 
 	/* Position and center the image to scale nicely on all screens */
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-size: cover;
-	position: absolute;
-	width: 100% !important;
-	left: 50%;
-	transform: translate(-50%, 0%);
-	margin-bottom: 100px;
-	margin-top: 20px; 
+	width: 100%;
 }
 
 /* Place text in the middle of the image */
 .hero-text {
 	text-align: center;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
 }
 
 .hero-text h1 {
-	font-family: Terminus !important;
-	font-size: 10rem !important;
+	font-family: Terminus;
+	font-size: 5rem;
 	font-weigth: bold;
-	padding: 0;
+	padding: 9px;
+	margin-top: 0px;
+	margin-bottom: 0px;
 }
 
 .hero-text h2 {
-	font-family: Bitter !important;
-	font-size: 3rem !important;
+	font-family: Bitter;
+	font-size: 2rem;
 	font-weigth: bold;
 }
 
 .getButton {
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);   
 	width: 200px;
-	font-family: Terminus !important;
-	font-size: 1.5rem !important;
-	font-weigth: bold;	
+	font-family: Terminus;
+	font-size: 1.5rem;
+	font-weigth: bold;
+	background-color: var(--fg);
+	color: var(--bg);
+	padding: 5px;
 }
 
 .highlight {
-	background-color: var(--fg) !important;
-	color: var(--bg) !important;
+	background-color: var(--fg);
+	color: var(--bg);
+}
+
+.changelog {
+	font-family: Terminus;
+	font-weigth: regular;
+	padding: 0;
+}
+
+/* forms */
+
+.form-group {
+	margin-bottom: 1.75rem;
+	overflow: auto;
+}
+
+fieldset {
+	border: none;
+	padding: 0;
+	margin: 0;
+}
+
+input.form-control {
+	 font-size: initial;
+	border-radius: 0;
+	background-color: transparent;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+}
+
+.form-control {
+	outline: none;
+	border: none;
+	border-bottom: 2px solid #ccc;
+	padding: .5rem 0;
+	width: 20rem;
+	height: 38px;
+	background-color: transparent;
+}
+
+/* responsiveness */
+body {
+	width: 1024px;
+	max-width: 90%;
+	margin: 0 auto;
+	padding: 20px 10px;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+@media \0screen {
+  img { 
+  	width: auto; /* for ie 8 */
+  }
+}
+
+.grid {
+	display: grid;
+}
+
+.cell {
+	overflow-x: auto;
+}
+
+.two {
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr); 
+}
+
+.three {
+	grid-template-columns: 1fr 1fr 1fr;
+}
+
+pre {
+    white-space: pre-wrap;       /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
 }
