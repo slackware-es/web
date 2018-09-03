@@ -45,8 +45,9 @@ body, html {
 
 
 body {
-	font-family: 'Bitter';
+	font-family: 'Bitter', serif;
 	line-height: 1.5;
+	font-size: 1.15rem;
 	font-kerning: normal;
 	font-variant-numeric: oldstyle-nums proportional-nums;
 	font-variant-ligatures: common-ligatures contextual;
@@ -57,6 +58,7 @@ body {
 
 
 p {
+	text-align: justify;
 	-webkit-hyphens: auto;
 	-webkit-hyphenate-limit-before: 4;
 	-webkit-hyphenate-limit-after: 3;
@@ -82,15 +84,15 @@ p {
 }
 
 
- h1 {font-family: 'Terminus';  font-size: 2.7rem;}
- h2 {font-family: 'Terminus'; font-size: 2.1rem;}
- h3 {font-family: 'Terminus'; font-size: 1.8rem;}
+ h1 {font-family: 'Terminus', fixed;  font-size: 2.7rem;}
+ h2 {font-family: 'Terminus', fixed; font-size: 2.1rem;}
+ h3 {font-family: 'Terminus', fixed; font-size: 1.8rem;}
 
 
 pre, code {
-	font-family: 'Terminus';
+	font-family: 'Terminus', fixed;
 	font-weight: regular;
-	line-height: 1.5;
+	line-height: 1.2;
 	font-kerning: normal;
 	font-variant-numeric: oldstyle-nums proportional-nums;
 	font-variant-ligatures: common-ligatures contextual;
@@ -105,7 +107,7 @@ pre:focus {
  h1::after {
 	content: ""; 
 	position: absolute;
-	bottom: 10px;
+	bottom: 1em;
 	left: 0;
 }
 
@@ -157,7 +159,7 @@ img {
 	background-image: linear-gradient(rgba(251, 249, 241, 0.3), rgba(251, 249, 241, 0.4)), url("/img/penguins.jpg"); */
 
 	/* Set a specific height 
-	height: 350px;*/
+	height: 6em;*/
 
 	/* Position and center the image to scale nicely on all screens */
 	background-position: center center;
@@ -169,26 +171,27 @@ img {
 /* Place text in the middle of the image */
 .hero-text {
 	text-align: center;
+	line-height: 2;
 }
 
 .hero-text h1 {
-	font-family: Terminus;
+	font-family: Terminus, fixed;
 	font-size: 5rem;
 	font-weigth: bold;
-	padding: 9px;
-	margin-top: 0px;
-	margin-bottom: 0px;
+	padding: 1rem;
+	margin-top: 2rem;
+	margin-bottom: 1rem;
 }
 
 .hero-text h2 {
-	font-family: Bitter;
+	font-family: Bitter, serif;
 	font-size: 2rem;
 	font-weigth: bold;
 }
 
 .getButton {
-	width: 200px;
-	font-family: Terminus;
+	width: 20rem;
+	font-family: Terminus, fixed;
 	font-size: 1.5rem;
 	font-weigth: bold;
 	background-color: var(--fg);
@@ -202,7 +205,7 @@ img {
 }
 
 .changelog {
-	font-family: Terminus;
+	font-family: Terminus, fixed;
 	font-weigth: regular;
 	padding: 0;
 }
@@ -221,7 +224,7 @@ fieldset {
 }
 
 input.form-control {
-	 font-size: initial;
+	font-size: initial;
 	border-radius: 0;
 	background-color: transparent;
 	-webkit-appearance: none;
@@ -241,10 +244,10 @@ input.form-control {
 
 /* responsiveness */
 body {
-	width: 1024px;
-	max-width: 90%;
+	width: 50rem;
+	max-width: 80%;
 	margin: 0 auto;
-	padding: 20px 10px;
+	padding: 2rem 1rem;
 }
 
 img {
