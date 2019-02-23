@@ -1,8 +1,11 @@
 Last: |
-    Tue Aug 28 22:05:19 UTC 2018
-    a/sysvinit-scripts-2.1-noarch-18.txz:  Rebuilt.
-      rc.cpufreq: for CPUs that use intel_pstate, default to the performance
-      governor. The performance governor provides power savings while avoiding
-      the ramp-up lag caused by using "ondemand", which defaults to "powersave"
-      on these systems. Thanks to EdGr.
-    d/bison-3.1-x86_64-1.txz:  Upgraded.
+    Sat Feb 23 03:33:52 UTC 2019
+    a/file-5.36-x86_64-1.txz:  Upgraded.
+    ap/mariadb-10.3.13-x86_64-1.txz:  Upgraded.
+      This update fixes bugs and security issues.
+      For more information, see:
+        https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-2510
+        https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-2537
+      (* Security fix *)
+    d/p2c-2.01-x86_64-1.txz:  Upgraded.
+    d/python-pip-19.0.3-x86_64-1.txz:  Upgraded.

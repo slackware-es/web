@@ -1,11 +1,6 @@
 Last: |
-    Tue Aug 28 22:05:19 UTC 2018
-    patches/packages/linux-4.4.153/*:  Upgraded.
-      This kernel update enables mitigations for L1 Terminal Fault aka
-      Foreshadow and Foreshadow-NG vulnerabilities.
-      Thanks to Bernhard Kaindl for bisecting the boot issue that was preventing
-      us from upgrading to earlier 4.4.x kernels that contained this fix.
-      To see the status of CPU vulnerability mitigations on your system, look at
-      the files in: /sys/devices/system/cpu/vulnerabilities
-      Be sure to upgrade your initrd after upgrading the kernel packages.
-      If you use lilo to boot your machine, be sure lilo.conf points to the correct
+    Sat Feb 23 03:33:52 UTC 2019
+    patches/packages/mozilla-firefox-60.5.2esr-x86_64-1_slack14.2.txz:  Upgraded.
+      This is a bugfix release.
+      For more information, see:
+        https://www.mozilla.org/en-US/firefox/60.5.2/releasenotes/
