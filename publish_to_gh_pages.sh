@@ -19,6 +19,8 @@ echo "Removing existing files"
 rm -rf public/*
 
 echo "Generating site"
+bash changelog.sh current > data/current/changelog.yaml
+bash changelog.sh 14.2 > data/current/changelog.yaml
 hugo
 
 echo "Updating gh-pages branch"
