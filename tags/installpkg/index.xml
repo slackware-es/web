@@ -3,29 +3,29 @@
   <channel>
     <docs>https://blogs.law.harvard.edu/tech/rss</docs>
     <title>Installpkg on Slackware</title>
-    <link>https://slackware.es/web/tags/installpkg/</link>
+    <link>/web/tags/installpkg/</link>
     <description>Recent content in Installpkg on Slackware</description>
     <image>
       <title>Installpkg on Slackware</title>
-      <link>https://slackware.es/web/tags/installpkg/</link>
-      <url>https://slackware.es/web/img/penguins.jpg</url>
+      <link>/web/tags/installpkg/</link>
+      <url>/web/img/penguins.jpg</url>
     </image>
     <ttl>1440</ttl>
     <generator>Hugo 0.53</generator>
     <language>en-US</language>
     <lastBuildDate>Sat, 04 Aug 2018 08:01:21 +0000</lastBuildDate>
     
-      <atom:link href="https://slackware.es/web/tags/installpkg/index.xml" rel="self" type="application/rss+xml" />
+      <atom:link href="/web/tags/installpkg/index.xml" rel="self" type="application/rss+xml" />
     
     
       <item>
         <title>Package Management</title>
-        <link>https://slackware.es/web/docs/packages/</link>
+        <link>/web/docs/packages/</link>
         <pubDate>Sat, 04 Aug 2018 08:01:21 +0000</pubDate>
-        <guid>https://slackware.es/web/docs/packages/</guid>
+        <guid>/web/docs/packages/</guid>
         <description>This document is a derivative of the Slacbook:install. The aim is to produce an evolution and contribute it back to the original work.
 Introduction Package management is an essential part of any Linux distribution. The software included in Slackware, along with many third-party tools, is distributed as source code. But compiling all those thousands of different applications and libraries is tedious and time consuming. That&amp;rsquo;s why many people prefer to install pre-compiled software packages.</description>
-        <category domain="https://slackware.es/categories/technology">Technology</category>
+        <category domain="/categories/technology">Technology</category>
         <content:encoded><![CDATA[ This document is a derivative of the Slacbook:install. The aim is to produce an evolution and contribute it back to the original work.
 Introduction Package management is an essential part of any Linux distribution. The software included in Slackware, along with many third-party tools, is distributed as source code. But compiling all those thousands of different applications and libraries is tedious and time consuming. That&amp;rsquo;s why many people prefer to install pre-compiled software packages. In fact, when you installed Slackware, the setup program run the package management tools on a list of packages. Here we&amp;rsquo;ll look at the various tools used for handling Slackware packages.
 Slackware packages are tar files compressed by gzip or xz whose name contains the software name and version, the computer architecture of the included binaries and the package maintainer tag.

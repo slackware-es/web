@@ -3,29 +3,29 @@
   <channel>
     <docs>https://blogs.law.harvard.edu/tech/rss</docs>
     <title>Slackware</title>
-    <link>https://slackware.es/web/</link>
+    <link>/web/</link>
     <description>Recent content on Slackware</description>
     <image>
       <title>Slackware</title>
-      <link>https://slackware.es/web/</link>
-      <url>https://slackware.es/web/img/penguins.jpg</url>
+      <link>/web/</link>
+      <url>/web/img/penguins.jpg</url>
     </image>
     <ttl>1440</ttl>
     <generator>Hugo 0.53</generator>
     <language>en-US</language>
     <lastBuildDate>Sat, 01 Sep 2018 06:00:00 +0000</lastBuildDate>
     
-      <atom:link href="https://slackware.es/web/index.xml" rel="self" type="application/rss+xml" />
+      <atom:link href="/web/index.xml" rel="self" type="application/rss+xml" />
     
     
       <item>
         <title>Sysstat: an easy status page</title>
-        <link>https://slackware.es/web/posts/statuspage/</link>
+        <link>/web/posts/statuspage/</link>
         <pubDate>Sat, 01 Sep 2018 06:00:00 +0000</pubDate>
-        <guid>https://slackware.es/web/posts/statuspage/</guid>
+        <guid>/web/posts/statuspage/</guid>
         <description>Introduction   The ```sysstat``` package contains various utilities, common to many commercial Unixes, to monitor system performance and usage activity. http://sebastien.godard.pagesperso-orange.fr/  sysstat is a standard package which comes with Slackware distribution and almost any other distribution out there. Its a very useful tool to analize and monitor linux performance.
 We are going to build a simple status page which will display performance metrics about the linux systems it runs on, including usage of:</description>
-        <category domain="https://slackware.es/categories/documentation">Documentation</category>
+        <category domain="/categories/documentation">Documentation</category>
         <content:encoded><![CDATA[ Introduction   The ```sysstat``` package contains various utilities, common to many commercial Unixes, to monitor system performance and usage activity. http://sebastien.godard.pagesperso-orange.fr/  sysstat is a standard package which comes with Slackware distribution and almost any other distribution out there. Its a very useful tool to analize and monitor linux performance.
 We are going to build a simple status page which will display performance metrics about the linux systems it runs on, including usage of:
  CPU Memory Network Disk  And also process based statistics such system load and process queue.
@@ -43,11 +43,11 @@ Resources  Demo Home page systsat tutorial  ]]></content:encoded>
     
       <item>
         <title>PostgREST: BAAS for PostgreSQL databases</title>
-        <link>https://slackware.es/web/posts/postgrest/</link>
+        <link>/web/posts/postgrest/</link>
         <pubDate>Wed, 29 Aug 2018 06:00:00 +0000</pubDate>
-        <guid>https://slackware.es/web/posts/postgrest/</guid>
+        <guid>/web/posts/postgrest/</guid>
         <description>Introduction   PostgREST is a standalone web server that turns your PostgreSQL database directly into a RESTful API. The structural constraints and permissions in the database determine the API endpoints and operations. Using PostgREST is an alternative to manual CRUD programming. Custom API servers suffer problems. Writing business logic often duplicates, ignores or hobbles database structure. Object-relational mapping is a leaky abstraction leading to slow imperative code. The PostgREST philosophy establishes a single declarative source of truth: the data itself.</description>
-        <category domain="https://slackware.es/categories/documentation">Documentation</category>
+        <category domain="/categories/documentation">Documentation</category>
         <content:encoded><![CDATA[ Introduction   PostgREST is a standalone web server that turns your PostgreSQL database directly into a RESTful API. The structural constraints and permissions in the database determine the API endpoints and operations. Using PostgREST is an alternative to manual CRUD programming. Custom API servers suffer problems. Writing business logic often duplicates, ignores or hobbles database structure. Object-relational mapping is a leaky abstraction leading to slow imperative code. The PostgREST philosophy establishes a single declarative source of truth: the data itself. https://postgrest.org/en/v5.0/intro.html  Our aim is to build and experiment with applications using an HTTP based back-end. These applications can use a lot of languages and environments: shell scripts, Javascript, etc.
 Building a package for Slackware PostgREST is written in the Haskell programming language, so to build the software we need a Haskell compiler installed into our build system. We can install the Glasgow Haskell Compiler from the SlackBuild repository. The official build instructions are basically to execute the command:
 # stack build --install-ghc --copy-bins --local-bin-path /usr/local/bin With this information, we can build our own SlackBuild script. Look into our repository to see all the files.
@@ -64,15 +64,15 @@ Resources  Home page Github repository StackOverflow Gitter  ]]></content:encode
     
       <item>
         <title>Jitsi: video conference server</title>
-        <link>https://slackware.es/web/posts/jitsi/</link>
+        <link>/web/posts/jitsi/</link>
         <pubDate>Thu, 09 Aug 2018 06:00:00 +0000</pubDate>
-        <guid>https://slackware.es/web/posts/jitsi/</guid>
+        <guid>/web/posts/jitsi/</guid>
         <description>From it&amp;rsquo;s Github page:
 Jitsi Meet is an open-source (Apache) WebRTC JavaScript application that uses Jitsi Videobridge to provide high quality, secure and scalable video conferences. You can see Jitsi Meet in action here at the session #482 of the VoIP Users Conference.
 The Jitsi Meet client runs in your browser, without the need for installing anything on your computer. You can also try it out yourself at https://meet.jit.si .
 Jitsi Meet allows for very efficient collaboration. It allows users to stream their desktop or only some windows. It also supports shared document editing with Etherpad.
 </description>
-        <category domain="https://slackware.es/categories/documentation">Documentation</category>
+        <category domain="/categories/documentation">Documentation</category>
         <content:encoded><![CDATA[From it&amp;rsquo;s Github page:
 Jitsi Meet is an open-source (Apache) WebRTC JavaScript application that uses Jitsi Videobridge to provide high quality, secure and scalable video conferences. You can see Jitsi Meet in action here at the session #482 of the VoIP Users Conference.
 The Jitsi Meet client runs in your browser, without the need for installing anything on your computer. You can also try it out yourself at https://meet.jit.si .
@@ -129,13 +129,13 @@ https://server.domain.com/roomXXX?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6Ik...... To en
     
       <item>
         <title>Shell</title>
-        <link>https://slackware.es/web/docs/shell/</link>
+        <link>/web/docs/shell/</link>
         <pubDate>Sun, 05 Aug 2018 23:01:21 +0000</pubDate>
-        <guid>https://slackware.es/web/docs/shell/</guid>
+        <guid>/web/docs/shell/</guid>
         <description>This document is a derivative of the Slackbook:bash and Slackbook beta. The aim is to produce an evolution and contribute it back to the original work.
 What Is A Shell? A shell is a program that give access to the operating system&amp;rsquo;s services. In Slackware the command-line interface (CLI) shell is bash, the Bourne Again Shell.
 The first program Slackware executes after you log into the system is the shell command-line interface:</description>
-        <category domain="https://slackware.es/categories/technology">Technology</category>
+        <category domain="/categories/technology">Technology</category>
         <content:encoded><![CDATA[ This document is a derivative of the Slackbook:bash and Slackbook beta. The aim is to produce an evolution and contribute it back to the original work.
 What Is A Shell? A shell is a program that give access to the operating system&amp;rsquo;s services. In Slackware the command-line interface (CLI) shell is bash, the Bourne Again Shell.
 The first program Slackware executes after you log into the system is the shell command-line interface:
@@ -239,12 +239,12 @@ darkstar:~$ tar -czf /tmp/tarball.tar.gz /tmp/tarball/ ]]></content:encoded>
     
       <item>
         <title>Disk usage</title>
-        <link>https://slackware.es/web/posts/diskusage/</link>
+        <link>/web/posts/diskusage/</link>
         <pubDate>Sat, 04 Aug 2018 08:01:21 +0000</pubDate>
-        <guid>https://slackware.es/web/posts/diskusage/</guid>
+        <guid>/web/posts/diskusage/</guid>
         <description>In this post we will explore how to free disk space without reinstalling the system, and will present some scripts to help in the process.
 </description>
-        <category domain="https://slackware.es/categories/documentation">Documentation</category>
+        <category domain="/categories/documentation">Documentation</category>
         <content:encoded><![CDATA[In this post we will explore how to free disk space without reinstalling the system, and will present some scripts to help in the process.
 Introduction After some time using your system, installing new software and trying out settings, it&amp;rsquo;s inevitable to find that the disk usage is growing.
 It could be a daunting process to free disk space, and most people will reinstall the systems again, adding to the new installation the experience got with the old one.
@@ -289,12 +289,12 @@ With that in mind we can free up a couple of GB easily without breaking anything
     
       <item>
         <title>Package Management</title>
-        <link>https://slackware.es/web/docs/packages/</link>
+        <link>/web/docs/packages/</link>
         <pubDate>Sat, 04 Aug 2018 08:01:21 +0000</pubDate>
-        <guid>https://slackware.es/web/docs/packages/</guid>
+        <guid>/web/docs/packages/</guid>
         <description>This document is a derivative of the Slacbook:install. The aim is to produce an evolution and contribute it back to the original work.
 Introduction Package management is an essential part of any Linux distribution. The software included in Slackware, along with many third-party tools, is distributed as source code. But compiling all those thousands of different applications and libraries is tedious and time consuming. That&amp;rsquo;s why many people prefer to install pre-compiled software packages.</description>
-        <category domain="https://slackware.es/categories/technology">Technology</category>
+        <category domain="/categories/technology">Technology</category>
         <content:encoded><![CDATA[ This document is a derivative of the Slacbook:install. The aim is to produce an evolution and contribute it back to the original work.
 Introduction Package management is an essential part of any Linux distribution. The software included in Slackware, along with many third-party tools, is distributed as source code. But compiling all those thousands of different applications and libraries is tedious and time consuming. That&amp;rsquo;s why many people prefer to install pre-compiled software packages. In fact, when you installed Slackware, the setup program run the package management tools on a list of packages. Here we&amp;rsquo;ll look at the various tools used for handling Slackware packages.
 Slackware packages are tar files compressed by gzip or xz whose name contains the software name and version, the computer architecture of the included binaries and the package maintainer tag.
@@ -354,13 +354,13 @@ cd .. installpkg app-version-arch-tag.tgz ]]></content:encoded>
     
       <item>
         <title>The Xterm</title>
-        <link>https://slackware.es/web/posts/xterm/</link>
+        <link>/web/posts/xterm/</link>
         <pubDate>Thu, 02 Aug 2018 14:27:00 +0000</pubDate>
-        <guid>https://slackware.es/web/posts/xterm/</guid>
+        <guid>/web/posts/xterm/</guid>
         <description>From it&amp;rsquo;s manual page xterm(1):
 The xterm program is a terminal emulator for the X Window System. It provides DEC VT102/VT220 and selected features from higher-level terminals such as VT320/VT420/VT520 (VTxxx). It also provides Tektronix 4014 emulation for programs that cannot use the window system directly.If the underlying operating system supports terminal resizing capabilities (for example, the SIGWINCH signal in systems derived from 4.3BSD), xterm will use the facilities to notify programs running in the window whenever it is resized.
 </description>
-        <category domain="https://slackware.es/categories/documentation">Documentation</category>
+        <category domain="/categories/documentation">Documentation</category>
         <content:encoded><![CDATA[From it&amp;rsquo;s manual page xterm(1):
 The xterm program is a terminal emulator for the X Window System. It provides DEC VT102/VT220 and selected features from higher-level terminals such as VT320/VT420/VT520 (VTxxx). It also provides Tektronix 4014 emulation for programs that cannot use the window system directly.If the underlying operating system supports terminal resizing capabilities (for example, the SIGWINCH signal in systems derived from 4.3BSD), xterm will use the facilities to notify programs running in the window whenever it is resized.
 It&amp;rsquo;s currently maintained and the changes can be followed in Thomas E. Dickey site
@@ -381,24 +381,24 @@ Bugs The XTerm is famous for its difficult code, its bugs, and its complexity:
     
       <item>
         <title>Downloads</title>
-        <link>https://slackware.es/web/downloads/downloads/</link>
+        <link>/web/downloads/downloads/</link>
         <pubDate>Sat, 28 Jul 2018 08:01:21 +0000</pubDate>
-        <guid>https://slackware.es/web/downloads/downloads/</guid>
+        <guid>/web/downloads/downloads/</guid>
         <description>{{if and (eq .Sort &#34;name&#34;) (ne .Order &#34;desc&#34;)}} Name &amp;#9650; {{else if and (eq .Sort &#34;name&#34;) (ne .Order &#34;asc&#34;)}} Name &amp;#9660; {{else}} Name {{end}}  {{if and (eq .Sort &#34;size&#34;) (ne .Order &#34;desc&#34;)}} Size &amp;#9650; {{else if and (eq .Sort &#34;size&#34;) (ne .Order &#34;asc&#34;)}} Size &amp;#9660; {{else}} Size {{end}}  {{if and (eq .Sort &#34;time&#34;) (ne .Order &#34;desc&#34;)}} Modified &amp;#9650; {{else if and (eq .Sort &#34;time&#34;) (ne .</description>
-        <category domain="https://slackware.es/categories/downloads">Downloads</category>
+        <category domain="/categories/downloads">Downloads</category>
         <content:encoded><![CDATA[    {{if and (eq .Sort &#34;name&#34;) (ne .Order &#34;desc&#34;)}} Name &amp;#9650; {{else if and (eq .Sort &#34;name&#34;) (ne .Order &#34;asc&#34;)}} Name &amp;#9660; {{else}} Name {{end}}  {{if and (eq .Sort &#34;size&#34;) (ne .Order &#34;desc&#34;)}} Size &amp;#9650; {{else if and (eq .Sort &#34;size&#34;) (ne .Order &#34;asc&#34;)}} Size &amp;#9660; {{else}} Size {{end}}  {{if and (eq .Sort &#34;time&#34;) (ne .Order &#34;desc&#34;)}} Modified &amp;#9650; {{else if and (eq .Sort &#34;time&#34;) (ne .Order &#34;asc&#34;)}} Modified &amp;#9660; {{else}} Modified {{end}}   {{if .CanGoUp}}      ..     {{end}} {{range .Items}}  {{if .IsDir}} {{else}}{{end}}   {{.Name}}  {{if not .IsDir}}{{.HumanSize}}{{end}} {{.HumanModTime &#34;02.01.2006 15:04:05&#34;}}  {{end}}  ]]></content:encoded>
       </item>
     
       <item>
         <title>How to build your own Slackware</title>
-        <link>https://slackware.es/web/docs/build/</link>
+        <link>/web/docs/build/</link>
         <pubDate>Sat, 28 Jul 2018 08:01:21 +0000</pubDate>
-        <guid>https://slackware.es/web/docs/build/</guid>
+        <guid>/web/docs/build/</guid>
         <description> In this article we&amp;rsquo;re going to describe how to build your own slackware distribution based on the official disitribution.
 To do that we will describe the process of generating a slackware image to use in cloud environments.
 Prepare the environment We&amp;rsquo;re going to use the repository https://github.com/slacware-es/dev to upload all the scripts needed to build your own slackware distribution.
 Select your packages Generate tag files Build installation media Install / distribute </description>
-        <category domain="https://slackware.es/categories/technology">Technology</category>
+        <category domain="/categories/technology">Technology</category>
         <content:encoded><![CDATA[ In this article we&amp;rsquo;re going to describe how to build your own slackware distribution based on the official disitribution.
 To do that we will describe the process of generating a slackware image to use in cloud environments.
 Prepare the environment We&amp;rsquo;re going to use the repository https://github.com/slacware-es/dev to upload all the scripts needed to build your own slackware distribution.
@@ -407,12 +407,12 @@ Select your packages Generate tag files Build installation media Install / distr
     
       <item>
         <title>Slackware installation</title>
-        <link>https://slackware.es/web/docs/install/</link>
+        <link>/web/docs/install/</link>
         <pubDate>Sat, 28 Jul 2018 08:01:21 +0000</pubDate>
-        <guid>https://slackware.es/web/docs/install/</guid>
+        <guid>/web/docs/install/</guid>
         <description>This document is a derivative of the Slacbook:install and Slackbook beta. The aim is to produce an evolution and contribute it back to the original work.
 Introduction Slackware&amp;rsquo;s installation is a bit more simplistic than that of most other Linux distributions and is very reminiscent of installing one of the varieties of BSD operating systems. If you&amp;rsquo;re familiar with those, you should feel right at home. If you&amp;rsquo;ve never installed Slackware or used a distribution that makes use of a non-graphical installer, you may feel a bit overwhelmed at first.</description>
-        <category domain="https://slackware.es/categories/technology">Technology</category>
+        <category domain="/categories/technology">Technology</category>
         <content:encoded><![CDATA[ This document is a derivative of the Slacbook:install and Slackbook beta. The aim is to produce an evolution and contribute it back to the original work.
 Introduction Slackware&amp;rsquo;s installation is a bit more simplistic than that of most other Linux distributions and is very reminiscent of installing one of the varieties of BSD operating systems. If you&amp;rsquo;re familiar with those, you should feel right at home. If you&amp;rsquo;ve never installed Slackware or used a distribution that makes use of a non-graphical installer, you may feel a bit overwhelmed at first. Don&amp;rsquo;t panic! The installation is very easy once you understand it, and it works on just about any x86 platform.
 The latest versions of Slackware Linux are distributed on DVD or CD media, but Slackware can be installed in a variety of other ways. We&amp;rsquo;re only going to focus on the most common method - booting from a DVD - in this book. If you don&amp;rsquo;t have a CD or DVD drive, you might wish to take a look at the various README files inside the usb-and-pxe-installers directory at your favorite Slackware mirror. This directory includes the necessary files and instructions for booting the Slackware installer from a USB flash drive or from a network card that supports PXE. The files there are the best source of information available for such boot methods.
@@ -475,13 +475,13 @@ Reboot?   ]]></content:encoded>
     
       <item>
         <title>The Slackware Book</title>
-        <link>https://slackware.es/web/posts/slackbook/</link>
+        <link>/web/posts/slackbook/</link>
         <pubDate>Sat, 28 Jul 2018 08:01:21 +0000</pubDate>
-        <guid>https://slackware.es/web/posts/slackbook/</guid>
+        <guid>/web/posts/slackbook/</guid>
         <description>The Slackware Book can be read online in its original form at: slackbook.
 I&amp;rsquo;ll reproduce here the introduction paragraphs. Please consider to collaborate with the Slackware documentation project in it&amp;rsquo;s web site
 </description>
-        <category domain="https://slackware.es/categories/documentation">Documentation</category>
+        <category domain="/categories/documentation">Documentation</category>
         <content:encoded><![CDATA[The Slackware Book can be read online in its original form at: slackbook.
 I&amp;rsquo;ll reproduce here the introduction paragraphs. Please consider to collaborate with the Slackware documentation project in it&amp;rsquo;s web site
 Why Use Slackware? Slackware has a long tradition of excellence. Started in 1992 and first released in 1993, Slackware is the oldest surviving commercial Linux distribution. Slackware&amp;rsquo;s focus on making a clean, simple Linux distribution that is as UNIX-like as possible makes it a natural choice for those people who really want to learn about Linux and other UNIX-like operating systems. In a 2012 interview, Slackware founder and benevolent dictator for life, Patrick Volkerding, put it thusly.

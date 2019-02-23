@@ -3,30 +3,30 @@
   <channel>
     <docs>https://blogs.law.harvard.edu/tech/rss</docs>
     <title>Xterm on Slackware</title>
-    <link>https://slackware.es/web/tags/xterm/</link>
+    <link>/web/tags/xterm/</link>
     <description>Recent content in Xterm on Slackware</description>
     <image>
       <title>Xterm on Slackware</title>
-      <link>https://slackware.es/web/tags/xterm/</link>
-      <url>https://slackware.es/web/img/penguins.jpg</url>
+      <link>/web/tags/xterm/</link>
+      <url>/web/img/penguins.jpg</url>
     </image>
     <ttl>1440</ttl>
     <generator>Hugo 0.53</generator>
     <language>en-US</language>
     <lastBuildDate>Thu, 02 Aug 2018 14:27:00 +0000</lastBuildDate>
     
-      <atom:link href="https://slackware.es/web/tags/xterm/index.xml" rel="self" type="application/rss+xml" />
+      <atom:link href="/web/tags/xterm/index.xml" rel="self" type="application/rss+xml" />
     
     
       <item>
         <title>The Xterm</title>
-        <link>https://slackware.es/web/posts/xterm/</link>
+        <link>/web/posts/xterm/</link>
         <pubDate>Thu, 02 Aug 2018 14:27:00 +0000</pubDate>
-        <guid>https://slackware.es/web/posts/xterm/</guid>
+        <guid>/web/posts/xterm/</guid>
         <description>From it&amp;rsquo;s manual page xterm(1):
 The xterm program is a terminal emulator for the X Window System. It provides DEC VT102/VT220 and selected features from higher-level terminals such as VT320/VT420/VT520 (VTxxx). It also provides Tektronix 4014 emulation for programs that cannot use the window system directly.If the underlying operating system supports terminal resizing capabilities (for example, the SIGWINCH signal in systems derived from 4.3BSD), xterm will use the facilities to notify programs running in the window whenever it is resized.
 </description>
-        <category domain="https://slackware.es/categories/documentation">Documentation</category>
+        <category domain="/categories/documentation">Documentation</category>
         <content:encoded><![CDATA[From it&amp;rsquo;s manual page xterm(1):
 The xterm program is a terminal emulator for the X Window System. It provides DEC VT102/VT220 and selected features from higher-level terminals such as VT320/VT420/VT520 (VTxxx). It also provides Tektronix 4014 emulation for programs that cannot use the window system directly.If the underlying operating system supports terminal resizing capabilities (for example, the SIGWINCH signal in systems derived from 4.3BSD), xterm will use the facilities to notify programs running in the window whenever it is resized.
 It&amp;rsquo;s currently maintained and the changes can be followed in Thomas E. Dickey site

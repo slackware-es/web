@@ -3,215 +3,215 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://slackware.es/web/posts/statuspage/</loc>
+    <loc>/web/posts/statuspage/</loc>
     <lastmod>2018-09-01T06:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://slackware.es/web/posts/postgrest/</loc>
+    <loc>/web/posts/postgrest/</loc>
     <lastmod>2018-08-29T06:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://slackware.es/web/posts/jitsi/</loc>
+    <loc>/web/posts/jitsi/</loc>
     <lastmod>2018-08-09T06:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://slackware.es/web/docs/shell/</loc>
+    <loc>/web/docs/shell/</loc>
     <lastmod>2018-08-05T23:01:21+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://slackware.es/web/posts/diskusage/</loc>
+    <loc>/web/posts/diskusage/</loc>
     <lastmod>2018-08-04T08:01:21+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://slackware.es/web/docs/packages/</loc>
+    <loc>/web/docs/packages/</loc>
     <lastmod>2018-08-04T08:01:21+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://slackware.es/web/posts/xterm/</loc>
+    <loc>/web/posts/xterm/</loc>
     <lastmod>2018-08-02T14:27:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://slackware.es/web/downloads/downloads/</loc>
+    <loc>/web/downloads/downloads/</loc>
     <lastmod>2018-07-28T08:01:21+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://slackware.es/web/docs/build/</loc>
+    <loc>/web/docs/build/</loc>
     <lastmod>2018-07-28T08:01:21+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://slackware.es/web/docs/install/</loc>
+    <loc>/web/docs/install/</loc>
     <lastmod>2018-07-28T08:01:21+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://slackware.es/web/posts/slackbook/</loc>
+    <loc>/web/posts/slackbook/</loc>
     <lastmod>2018-07-28T08:01:21+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://slackware.es/web/tags/build/</loc>
+    <loc>/web/tags/build/</loc>
     <lastmod>2018-08-05T23:01:21+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://slackware.es/web/categories/</loc>
+    <loc>/web/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://slackware.es/web/docs/</loc>
+    <loc>/web/docs/</loc>
     <lastmod>2018-08-05T23:01:21+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://slackware.es/web/categories/documentation/</loc>
+    <loc>/web/categories/documentation/</loc>
     <lastmod>2018-09-01T06:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://slackware.es/web/downloads/</loc>
+    <loc>/web/downloads/</loc>
     <lastmod>2018-07-28T08:01:21+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://slackware.es/web/categories/downloads/</loc>
+    <loc>/web/categories/downloads/</loc>
     <lastmod>2018-07-28T08:01:21+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://slackware.es/web/tags/how-to/</loc>
+    <loc>/web/tags/how-to/</loc>
     <lastmod>2018-08-05T23:01:21+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://slackware.es/web/tags/howto/</loc>
+    <loc>/web/tags/howto/</loc>
     <lastmod>2018-09-01T06:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://slackware.es/web/tags/images/</loc>
+    <loc>/web/tags/images/</loc>
     <lastmod>2018-07-28T08:01:21+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://slackware.es/web/tags/install/</loc>
+    <loc>/web/tags/install/</loc>
     <lastmod>2018-07-28T08:01:21+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://slackware.es/web/tags/installpkg/</loc>
+    <loc>/web/tags/installpkg/</loc>
     <lastmod>2018-08-04T08:01:21+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://slackware.es/web/tags/jitsi/</loc>
+    <loc>/web/tags/jitsi/</loc>
     <lastmod>2018-08-09T06:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://slackware.es/web/tags/packages/</loc>
+    <loc>/web/tags/packages/</loc>
     <lastmod>2018-08-04T08:01:21+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://slackware.es/web/tags/pkgtool/</loc>
+    <loc>/web/tags/pkgtool/</loc>
     <lastmod>2018-08-04T08:01:21+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://slackware.es/web/tags/postgrest/</loc>
+    <loc>/web/tags/postgrest/</loc>
     <lastmod>2018-08-29T06:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://slackware.es/web/posts/</loc>
+    <loc>/web/posts/</loc>
     <lastmod>2018-09-01T06:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://slackware.es/web/search/</loc>
+    <loc>/web/search/</loc>
   </url>
   
   <url>
-    <loc>https://slackware.es/web/tags/setup/</loc>
+    <loc>/web/tags/setup/</loc>
     <lastmod>2018-07-28T08:01:21+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://slackware.es/web/tags/slackbook/</loc>
+    <loc>/web/tags/slackbook/</loc>
     <lastmod>2018-08-04T08:01:21+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://slackware.es/web/tags/slackbuild/</loc>
+    <loc>/web/tags/slackbuild/</loc>
     <lastmod>2018-08-04T08:01:21+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://slackware.es/web/tags/slackpkg/</loc>
+    <loc>/web/tags/slackpkg/</loc>
     <lastmod>2018-08-04T08:01:21+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://slackware.es/web/tags/slackpkg&#43;/</loc>
+    <loc>/web/tags/slackpkg&#43;/</loc>
     <lastmod>2018-08-04T08:01:21+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://slackware.es/web/</loc>
+    <loc>/web/</loc>
     <lastmod>2018-09-01T06:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://slackware.es/web/tags/sysstat/</loc>
+    <loc>/web/tags/sysstat/</loc>
     <lastmod>2018-09-01T06:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://slackware.es/web/tags/</loc>
+    <loc>/web/tags/</loc>
     <lastmod>2018-08-05T23:01:21+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://slackware.es/web/categories/technology/</loc>
+    <loc>/web/categories/technology/</loc>
     <lastmod>2018-08-05T23:01:21+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://slackware.es/web/tags/xterm/</loc>
+    <loc>/web/tags/xterm/</loc>
     <lastmod>2018-08-02T14:27:00+00:00</lastmod>
     <priority>0</priority>
   </url>

@@ -3,29 +3,29 @@
   <channel>
     <docs>https://blogs.law.harvard.edu/tech/rss</docs>
     <title>Slackbook on Slackware</title>
-    <link>https://slackware.es/web/tags/slackbook/</link>
+    <link>/web/tags/slackbook/</link>
     <description>Recent content in Slackbook on Slackware</description>
     <image>
       <title>Slackbook on Slackware</title>
-      <link>https://slackware.es/web/tags/slackbook/</link>
-      <url>https://slackware.es/web/img/penguins.jpg</url>
+      <link>/web/tags/slackbook/</link>
+      <url>/web/img/penguins.jpg</url>
     </image>
     <ttl>1440</ttl>
     <generator>Hugo 0.53</generator>
     <language>en-US</language>
     <lastBuildDate>Sat, 04 Aug 2018 08:01:21 +0000</lastBuildDate>
     
-      <atom:link href="https://slackware.es/web/tags/slackbook/index.xml" rel="self" type="application/rss+xml" />
+      <atom:link href="/web/tags/slackbook/index.xml" rel="self" type="application/rss+xml" />
     
     
       <item>
         <title>Disk usage</title>
-        <link>https://slackware.es/web/posts/diskusage/</link>
+        <link>/web/posts/diskusage/</link>
         <pubDate>Sat, 04 Aug 2018 08:01:21 +0000</pubDate>
-        <guid>https://slackware.es/web/posts/diskusage/</guid>
+        <guid>/web/posts/diskusage/</guid>
         <description>In this post we will explore how to free disk space without reinstalling the system, and will present some scripts to help in the process.
 </description>
-        <category domain="https://slackware.es/categories/documentation">Documentation</category>
+        <category domain="/categories/documentation">Documentation</category>
         <content:encoded><![CDATA[In this post we will explore how to free disk space without reinstalling the system, and will present some scripts to help in the process.
 Introduction After some time using your system, installing new software and trying out settings, it&amp;rsquo;s inevitable to find that the disk usage is growing.
 It could be a daunting process to free disk space, and most people will reinstall the systems again, adding to the new installation the experience got with the old one.
@@ -70,13 +70,13 @@ With that in mind we can free up a couple of GB easily without breaking anything
     
       <item>
         <title>The Slackware Book</title>
-        <link>https://slackware.es/web/posts/slackbook/</link>
+        <link>/web/posts/slackbook/</link>
         <pubDate>Sat, 28 Jul 2018 08:01:21 +0000</pubDate>
-        <guid>https://slackware.es/web/posts/slackbook/</guid>
+        <guid>/web/posts/slackbook/</guid>
         <description>The Slackware Book can be read online in its original form at: slackbook.
 I&amp;rsquo;ll reproduce here the introduction paragraphs. Please consider to collaborate with the Slackware documentation project in it&amp;rsquo;s web site
 </description>
-        <category domain="https://slackware.es/categories/documentation">Documentation</category>
+        <category domain="/categories/documentation">Documentation</category>
         <content:encoded><![CDATA[The Slackware Book can be read online in its original form at: slackbook.
 I&amp;rsquo;ll reproduce here the introduction paragraphs. Please consider to collaborate with the Slackware documentation project in it&amp;rsquo;s web site
 Why Use Slackware? Slackware has a long tradition of excellence. Started in 1992 and first released in 1993, Slackware is the oldest surviving commercial Linux distribution. Slackware&amp;rsquo;s focus on making a clean, simple Linux distribution that is as UNIX-like as possible makes it a natural choice for those people who really want to learn about Linux and other UNIX-like operating systems. In a 2012 interview, Slackware founder and benevolent dictator for life, Patrick Volkerding, put it thusly.

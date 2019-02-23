@@ -3,29 +3,29 @@
   <channel>
     <docs>https://blogs.law.harvard.edu/tech/rss</docs>
     <title>Install on Slackware</title>
-    <link>https://slackware.es/web/tags/install/</link>
+    <link>/web/tags/install/</link>
     <description>Recent content in Install on Slackware</description>
     <image>
       <title>Install on Slackware</title>
-      <link>https://slackware.es/web/tags/install/</link>
-      <url>https://slackware.es/web/img/penguins.jpg</url>
+      <link>/web/tags/install/</link>
+      <url>/web/img/penguins.jpg</url>
     </image>
     <ttl>1440</ttl>
     <generator>Hugo 0.53</generator>
     <language>en-US</language>
     <lastBuildDate>Sat, 28 Jul 2018 08:01:21 +0000</lastBuildDate>
     
-      <atom:link href="https://slackware.es/web/tags/install/index.xml" rel="self" type="application/rss+xml" />
+      <atom:link href="/web/tags/install/index.xml" rel="self" type="application/rss+xml" />
     
     
       <item>
         <title>Slackware installation</title>
-        <link>https://slackware.es/web/docs/install/</link>
+        <link>/web/docs/install/</link>
         <pubDate>Sat, 28 Jul 2018 08:01:21 +0000</pubDate>
-        <guid>https://slackware.es/web/docs/install/</guid>
+        <guid>/web/docs/install/</guid>
         <description>This document is a derivative of the Slacbook:install and Slackbook beta. The aim is to produce an evolution and contribute it back to the original work.
 Introduction Slackware&amp;rsquo;s installation is a bit more simplistic than that of most other Linux distributions and is very reminiscent of installing one of the varieties of BSD operating systems. If you&amp;rsquo;re familiar with those, you should feel right at home. If you&amp;rsquo;ve never installed Slackware or used a distribution that makes use of a non-graphical installer, you may feel a bit overwhelmed at first.</description>
-        <category domain="https://slackware.es/categories/technology">Technology</category>
+        <category domain="/categories/technology">Technology</category>
         <content:encoded><![CDATA[ This document is a derivative of the Slacbook:install and Slackbook beta. The aim is to produce an evolution and contribute it back to the original work.
 Introduction Slackware&amp;rsquo;s installation is a bit more simplistic than that of most other Linux distributions and is very reminiscent of installing one of the varieties of BSD operating systems. If you&amp;rsquo;re familiar with those, you should feel right at home. If you&amp;rsquo;ve never installed Slackware or used a distribution that makes use of a non-graphical installer, you may feel a bit overwhelmed at first. Don&amp;rsquo;t panic! The installation is very easy once you understand it, and it works on just about any x86 platform.
 The latest versions of Slackware Linux are distributed on DVD or CD media, but Slackware can be installed in a variety of other ways. We&amp;rsquo;re only going to focus on the most common method - booting from a DVD - in this book. If you don&amp;rsquo;t have a CD or DVD drive, you might wish to take a look at the various README files inside the usb-and-pxe-installers directory at your favorite Slackware mirror. This directory includes the necessary files and instructions for booting the Slackware installer from a USB flash drive or from a network card that supports PXE. The files there are the best source of information available for such boot methods.

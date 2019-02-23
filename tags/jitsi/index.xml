@@ -3,32 +3,32 @@
   <channel>
     <docs>https://blogs.law.harvard.edu/tech/rss</docs>
     <title>Jitsi on Slackware</title>
-    <link>https://slackware.es/web/tags/jitsi/</link>
+    <link>/web/tags/jitsi/</link>
     <description>Recent content in Jitsi on Slackware</description>
     <image>
       <title>Jitsi on Slackware</title>
-      <link>https://slackware.es/web/tags/jitsi/</link>
-      <url>https://slackware.es/web/img/penguins.jpg</url>
+      <link>/web/tags/jitsi/</link>
+      <url>/web/img/penguins.jpg</url>
     </image>
     <ttl>1440</ttl>
     <generator>Hugo 0.53</generator>
     <language>en-US</language>
     <lastBuildDate>Thu, 09 Aug 2018 06:00:00 +0000</lastBuildDate>
     
-      <atom:link href="https://slackware.es/web/tags/jitsi/index.xml" rel="self" type="application/rss+xml" />
+      <atom:link href="/web/tags/jitsi/index.xml" rel="self" type="application/rss+xml" />
     
     
       <item>
         <title>Jitsi: video conference server</title>
-        <link>https://slackware.es/web/posts/jitsi/</link>
+        <link>/web/posts/jitsi/</link>
         <pubDate>Thu, 09 Aug 2018 06:00:00 +0000</pubDate>
-        <guid>https://slackware.es/web/posts/jitsi/</guid>
+        <guid>/web/posts/jitsi/</guid>
         <description>From it&amp;rsquo;s Github page:
 Jitsi Meet is an open-source (Apache) WebRTC JavaScript application that uses Jitsi Videobridge to provide high quality, secure and scalable video conferences. You can see Jitsi Meet in action here at the session #482 of the VoIP Users Conference.
 The Jitsi Meet client runs in your browser, without the need for installing anything on your computer. You can also try it out yourself at https://meet.jit.si .
 Jitsi Meet allows for very efficient collaboration. It allows users to stream their desktop or only some windows. It also supports shared document editing with Etherpad.
 </description>
-        <category domain="https://slackware.es/categories/documentation">Documentation</category>
+        <category domain="/categories/documentation">Documentation</category>
         <content:encoded><![CDATA[From it&amp;rsquo;s Github page:
 Jitsi Meet is an open-source (Apache) WebRTC JavaScript application that uses Jitsi Videobridge to provide high quality, secure and scalable video conferences. You can see Jitsi Meet in action here at the session #482 of the VoIP Users Conference.
 The Jitsi Meet client runs in your browser, without the need for installing anything on your computer. You can also try it out yourself at https://meet.jit.si .
