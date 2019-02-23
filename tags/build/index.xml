@@ -3,26 +3,26 @@
   <channel>
     <docs>https://blogs.law.harvard.edu/tech/rss</docs>
     <title>Build on Slackware</title>
-    <link>https://slackware.es/tags/build/</link>
+    <link>https://slackware.es/web/tags/build/</link>
     <description>Recent content in Build on Slackware</description>
     <image>
       <title>Build on Slackware</title>
-      <link>https://slackware.es/tags/build/</link>
-      <url>https://slackware.es/img/penguins.jpg</url>
+      <link>https://slackware.es/web/tags/build/</link>
+      <url>https://slackware.es/web/img/penguins.jpg</url>
     </image>
     <ttl>1440</ttl>
     <generator>Hugo 0.53</generator>
     <language>en-US</language>
     <lastBuildDate>Sun, 05 Aug 2018 23:01:21 +0000</lastBuildDate>
     
-      <atom:link href="https://slackware.es/tags/build/index.xml" rel="self" type="application/rss+xml" />
+      <atom:link href="https://slackware.es/web/tags/build/index.xml" rel="self" type="application/rss+xml" />
     
     
       <item>
         <title>Shell</title>
-        <link>https://slackware.es/docs/shell/</link>
+        <link>https://slackware.es/web/docs/shell/</link>
         <pubDate>Sun, 05 Aug 2018 23:01:21 +0000</pubDate>
-        <guid>https://slackware.es/docs/shell/</guid>
+        <guid>https://slackware.es/web/docs/shell/</guid>
         <description>This document is a derivative of the Slackbook:bash and Slackbook beta. The aim is to produce an evolution and contribute it back to the original work.
 What Is A Shell? A shell is a program that give access to the operating system&amp;rsquo;s services. In Slackware the command-line interface (CLI) shell is bash, the Bourne Again Shell.
 The first program Slackware executes after you log into the system is the shell command-line interface:</description>
@@ -130,9 +130,9 @@ darkstar:~$ tar -czf /tmp/tarball.tar.gz /tmp/tarball/ ]]></content:encoded>
     
       <item>
         <title>How to build your own Slackware</title>
-        <link>https://slackware.es/docs/build/</link>
+        <link>https://slackware.es/web/docs/build/</link>
         <pubDate>Sat, 28 Jul 2018 08:01:21 +0000</pubDate>
-        <guid>https://slackware.es/docs/build/</guid>
+        <guid>https://slackware.es/web/docs/build/</guid>
         <description> In this article we&amp;rsquo;re going to describe how to build your own slackware distribution based on the official disitribution.
 To do that we will describe the process of generating a slackware image to use in cloud environments.
 Prepare the environment We&amp;rsquo;re going to use the repository https://github.com/slacware-es/dev to upload all the scripts needed to build your own slackware distribution.

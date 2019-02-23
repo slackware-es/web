@@ -3,26 +3,26 @@
   <channel>
     <docs>https://blogs.law.harvard.edu/tech/rss</docs>
     <title>Postgrest on Slackware</title>
-    <link>https://slackware.es/tags/postgrest/</link>
+    <link>https://slackware.es/web/tags/postgrest/</link>
     <description>Recent content in Postgrest on Slackware</description>
     <image>
       <title>Postgrest on Slackware</title>
-      <link>https://slackware.es/tags/postgrest/</link>
-      <url>https://slackware.es/img/penguins.jpg</url>
+      <link>https://slackware.es/web/tags/postgrest/</link>
+      <url>https://slackware.es/web/img/penguins.jpg</url>
     </image>
     <ttl>1440</ttl>
     <generator>Hugo 0.53</generator>
     <language>en-US</language>
     <lastBuildDate>Wed, 29 Aug 2018 06:00:00 +0000</lastBuildDate>
     
-      <atom:link href="https://slackware.es/tags/postgrest/index.xml" rel="self" type="application/rss+xml" />
+      <atom:link href="https://slackware.es/web/tags/postgrest/index.xml" rel="self" type="application/rss+xml" />
     
     
       <item>
         <title>PostgREST: BAAS for PostgreSQL databases</title>
-        <link>https://slackware.es/posts/postgrest/</link>
+        <link>https://slackware.es/web/posts/postgrest/</link>
         <pubDate>Wed, 29 Aug 2018 06:00:00 +0000</pubDate>
-        <guid>https://slackware.es/posts/postgrest/</guid>
+        <guid>https://slackware.es/web/posts/postgrest/</guid>
         <description>Introduction   PostgREST is a standalone web server that turns your PostgreSQL database directly into a RESTful API. The structural constraints and permissions in the database determine the API endpoints and operations. Using PostgREST is an alternative to manual CRUD programming. Custom API servers suffer problems. Writing business logic often duplicates, ignores or hobbles database structure. Object-relational mapping is a leaky abstraction leading to slow imperative code. The PostgREST philosophy establishes a single declarative source of truth: the data itself.</description>
         <category domain="https://slackware.es/categories/documentation">Documentation</category>
         <content:encoded><![CDATA[ Introduction   PostgREST is a standalone web server that turns your PostgreSQL database directly into a RESTful API. The structural constraints and permissions in the database determine the API endpoints and operations. Using PostgREST is an alternative to manual CRUD programming. Custom API servers suffer problems. Writing business logic often duplicates, ignores or hobbles database structure. Object-relational mapping is a leaky abstraction leading to slow imperative code. The PostgREST philosophy establishes a single declarative source of truth: the data itself. https://postgrest.org/en/v5.0/intro.html  Our aim is to build and experiment with applications using an HTTP based back-end. These applications can use a lot of languages and environments: shell scripts, Javascript, etc.

@@ -3,40 +3,40 @@
   <channel>
     <docs>https://blogs.law.harvard.edu/tech/rss</docs>
     <title>Categories on Slackware</title>
-    <link>https://slackware.es/categories/</link>
+    <link>https://slackware.es/web/categories/</link>
     <description>Recent content in Categories on Slackware</description>
     <image>
       <title>Categories on Slackware</title>
-      <link>https://slackware.es/categories/</link>
-      <url>https://slackware.es/img/penguins.jpg</url>
+      <link>https://slackware.es/web/categories/</link>
+      <url>https://slackware.es/web/img/penguins.jpg</url>
     </image>
     <ttl>1440</ttl>
     <generator>Hugo 0.53</generator>
     <language>en-US</language>
     
-      <atom:link href="https://slackware.es/categories/index.xml" rel="self" type="application/rss+xml" />
+      <atom:link href="https://slackware.es/web/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
       <item>
         <title>Documentation</title>
-        <link>https://slackware.es/categories/documentation/</link>
-        <guid>https://slackware.es/categories/documentation/</guid>
+        <link>https://slackware.es/web/categories/documentation/</link>
+        <guid>https://slackware.es/web/categories/documentation/</guid>
         <description></description>
         <content:encoded><![CDATA[]]></content:encoded>
       </item>
     
       <item>
         <title>Downloads</title>
-        <link>https://slackware.es/categories/downloads/</link>
-        <guid>https://slackware.es/categories/downloads/</guid>
+        <link>https://slackware.es/web/categories/downloads/</link>
+        <guid>https://slackware.es/web/categories/downloads/</guid>
         <description></description>
         <content:encoded><![CDATA[]]></content:encoded>
       </item>
     
       <item>
         <title>Technology</title>
-        <link>https://slackware.es/categories/technology/</link>
-        <guid>https://slackware.es/categories/technology/</guid>
+        <link>https://slackware.es/web/categories/technology/</link>
+        <guid>https://slackware.es/web/categories/technology/</guid>
         <description></description>
         <content:encoded><![CDATA[]]></content:encoded>
       </item>

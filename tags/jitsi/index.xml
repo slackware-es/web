@@ -3,26 +3,26 @@
   <channel>
     <docs>https://blogs.law.harvard.edu/tech/rss</docs>
     <title>Jitsi on Slackware</title>
-    <link>https://slackware.es/tags/jitsi/</link>
+    <link>https://slackware.es/web/tags/jitsi/</link>
     <description>Recent content in Jitsi on Slackware</description>
     <image>
       <title>Jitsi on Slackware</title>
-      <link>https://slackware.es/tags/jitsi/</link>
-      <url>https://slackware.es/img/penguins.jpg</url>
+      <link>https://slackware.es/web/tags/jitsi/</link>
+      <url>https://slackware.es/web/img/penguins.jpg</url>
     </image>
     <ttl>1440</ttl>
     <generator>Hugo 0.53</generator>
     <language>en-US</language>
     <lastBuildDate>Thu, 09 Aug 2018 06:00:00 +0000</lastBuildDate>
     
-      <atom:link href="https://slackware.es/tags/jitsi/index.xml" rel="self" type="application/rss+xml" />
+      <atom:link href="https://slackware.es/web/tags/jitsi/index.xml" rel="self" type="application/rss+xml" />
     
     
       <item>
         <title>Jitsi: video conference server</title>
-        <link>https://slackware.es/posts/jitsi/</link>
+        <link>https://slackware.es/web/posts/jitsi/</link>
         <pubDate>Thu, 09 Aug 2018 06:00:00 +0000</pubDate>
-        <guid>https://slackware.es/posts/jitsi/</guid>
+        <guid>https://slackware.es/web/posts/jitsi/</guid>
         <description>From it&amp;rsquo;s Github page:
 Jitsi Meet is an open-source (Apache) WebRTC JavaScript application that uses Jitsi Videobridge to provide high quality, secure and scalable video conferences. You can see Jitsi Meet in action here at the session #482 of the VoIP Users Conference.
 The Jitsi Meet client runs in your browser, without the need for installing anything on your computer. You can also try it out yourself at https://meet.jit.si .
