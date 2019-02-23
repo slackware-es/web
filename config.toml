@@ -1,4 +1,4 @@
-baseurl = "https://slackware.es/" # Controls base URL
+baseurl = "/web" # Controls base URL
 languageCode = "en-US" # Controls site language
 title = "Slackware" # Homepage title and page title suffix
 paginate = 11 # Number of posts to show before paginating
@@ -22,7 +22,7 @@ footnoteReturnLinkContents = "↩" # Provides a nicer footnote return link
   show_menu = true # Optional, set true to enable section menu
   powered_by = false # Optional, set false to disable credits
   images = [
-    "https://slackware.es/img/penguins.jpg"
+    "img/penguins.jpg"
   ] # Suggested, controls default Open Graph images
 
 [params.hackcss]
@@ -43,25 +43,25 @@ footnoteReturnLinkContents = "↩" # Provides a nicer footnote return link
   name = "Home"
   weight = 1
   identifier = "home"
-  url = "/"
+  url = ""
   
 [[menu.main]]
   name = "Downloads"
   weight = 2
   identifier = "downloads"
-  url = "/files/"
+  url = "files/"
   
 [[menu.main]]
   name = "Docs"
   weight = 2
   identifier = "docs"
-  url = "/docs/"
+  url = "docs/"
   
 [[menu.main]]
   name = "Blog"
   weight = 2
   identifier = "posts"
-  url = "/posts/"
+  url = "posts/"
 
 [[menu.main]]
   name = "Search"
