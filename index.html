@@ -500,16 +500,11 @@ pre {
 	<div class="cell">
 		<h3>14.2</h3>
 		<pre class="changelog">
-Tue Aug 28 22:05:19 UTC 2018
-patches/packages/linux-4.4.153/*:  Upgraded.
-  This kernel update enables mitigations for L1 Terminal Fault aka
-  Foreshadow and Foreshadow-NG vulnerabilities.
-  Thanks to Bernhard Kaindl for bisecting the boot issue that was preventing
-  us from upgrading to earlier 4.4.x kernels that contained this fix.
-  To see the status of CPU vulnerability mitigations on your system, look at
-  the files in: /sys/devices/system/cpu/vulnerabilities
-  Be sure to upgrade your initrd after upgrading the kernel packages.
-  If you use lilo to boot your machine, be sure lilo.conf points to the correct
+Sat Feb 23 03:33:52 UTC 2019
+patches/packages/mozilla-firefox-60.5.2esr-x86_64-1_slack14.2.txz:  Upgraded.
+  This is a bugfix release.
+  For more information, see:
+    https://www.mozilla.org/en-US/firefox/60.5.2/releasenotes/
 
 <a href="https://www.slackware.com/changelog/stable.php?cpu=x86_64">[...]</a>
 		</pre>
@@ -517,13 +512,16 @@ patches/packages/linux-4.4.153/*:  Upgraded.
 	<div class="cell">
 		<h3>Current</a></h3>
 		<pre class="changelog">
-Tue Aug 28 22:05:19 UTC 2018
-a/sysvinit-scripts-2.1-noarch-18.txz:  Rebuilt.
-  rc.cpufreq: for CPUs that use intel_pstate, default to the performance
-  governor. The performance governor provides power savings while avoiding
-  the ramp-up lag caused by using &#34;ondemand&#34;, which defaults to &#34;powersave&#34;
-  on these systems. Thanks to EdGr.
-d/bison-3.1-x86_64-1.txz:  Upgraded.
+Sat Feb 23 03:33:52 UTC 2019
+a/file-5.36-x86_64-1.txz:  Upgraded.
+ap/mariadb-10.3.13-x86_64-1.txz:  Upgraded.
+  This update fixes bugs and security issues.
+  For more information, see:
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-2510
+    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-2537
+  (* Security fix *)
+d/p2c-2.01-x86_64-1.txz:  Upgraded.
+d/python-pip-19.0.3-x86_64-1.txz:  Upgraded.
 
 <a href="https://www.slackware.com/changelog/current.php?cpu=x86_64">[...]</a>
 		</pre>
