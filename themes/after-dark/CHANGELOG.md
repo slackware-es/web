@@ -2,6 +2,423 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="7.2.1"></a>
+## [7.2.1](https://git.habd.as/comfusion/after-dark/compare/v7.2.0...v7.2.1) (2019-02-22)
+
+
+### Bug Fixes
+
+* **layout/default:** workaround hugo bug on eval len(nil) go tmpl ([258c747](https://git.habd.as/comfusion/after-dark/commits/258c747)), closes [#135](https://git.habd.as/comfusion/after-dark/issues/135)
+
+
+
+<a name="7.2.0"></a>
+# [7.2.0](https://git.habd.as/comfusion/after-dark/compare/v7.0.1...v7.2.0) (2019-02-20)
+
+
+### Features
+
+* **help/homepage:** update security featurette ([dcd0199](https://git.habd.as/comfusion/after-dark/commits/dcd0199))
+* **layouts:** add rss with full content ([fe99466](https://git.habd.as/comfusion/after-dark/commits/fe99466))
+
+
+<a name="7.1.0"></a>
+# [7.1.0](https://git.habd.as/comfusion/after-dark/compare/v7.0.3...v7.1.0) (2019-02-18)
+
+
+### Features
+
+* **feature/security:** add content security policy ([de24354](https://git.habd.as/comfusion/after-dark/commits/de24354)
+
+### Bug Fixes
+
+<a name="7.0.3"></a>
+## [7.0.3](https://git.habd.as/comfusion/after-dark/compare/v7.0.2...v7.0.3) (2019-02-12)
+
+* **layout/default:** delegate module config to modules ([79f2a13](https://git.habd.as/comfusion/after-dark/commit/79f2a13))
+
+
+### Bug Fixes
+
+<a name="7.0.2"></a>
+## [7.0.2](https://git.habd.as/comfusion/after-dark/compare/v7.0.1...v7.0.2) (2019-02-12)
+
+* **feature/security:** restore gpg signing of commits and tags
+
+
+<a name="7.0.1"></a>
+## [7.0.1](https://git.habd.as/comfusion/after-dark/compare/v7.0.0...v7.0.1) (2019-02-10)
+
+
+### Bug Fixes
+
+* **partials/powered-by:** point to expected directory of refactored file ([f32207f](https://git.habd.as/comfusion/after-dark/commits/f32207f))
+
+
+
+<a name="7.0.0"></a>
+# [7.0.0](https://git.habd.as/comfusion/after-dark/compare/v6.16.1...v7.0.0) (2019-02-08)
+
+
+### Bug Fixes
+
+* **assets/css:** normalize base font-size, large screens ([862da61](https://git.habd.as/comfusion/after-dark/commits/862da61))
+
+
+### Features
+
+* **feature/section-menu:** add support for multiple nav menus ([427f9d2](https://git.habd.as/comfusion/after-dark/commits/427f9d2))
+* **feature/table-of-contents:** add native smooth-scroll ([94b13a1](https://git.habd.as/comfusion/after-dark/commits/94b13a1)), closes [#43](https://git.habd.as/comfusion/after-dark/issues/43)
+
+
+### BREAKING CHANGES
+
+* **feature/section-menu:** removes disqus entirely, previously a deprecated feature
+
+
+
+<a name="6.16.1"></a>
+## [6.16.1](https://git.habd.as/comfusion/after-dark/compare/v6.16.0...v6.16.1) (2019-01-24)
+
+
+### Bug Fixes
+
+* **feature/post-images:** fix yandex validation error ([93cc90f](https://git.habd.as/comfusion/after-dark/commits/93cc90f))
+* **feature/post-images:** zap extra whitespaces ([32767d9](https://git.habd.as/comfusion/after-dark/commits/32767d9))
+
+
+
+<a name="6.16.0"></a>
+# [6.16.0](https://git.habd.as/comfusion/after-dark/compare/v6.15.1...v6.16.0) (2019-01-23)
+
+
+### Bug Fixes
+
+* **assets/css:** normalize samp element font size with pre ([c42ccba](https://git.habd.as/comfusion/after-dark/commits/c42ccba))
+* **assets/css:** normalize whitespace around toc when post images present ([c3f37a5](https://git.habd.as/comfusion/after-dark/commits/c3f37a5))
+
+
+### Features
+
+* **feature/fuzzy-search:** add aria landmark to search form ([7a9b75a](https://git.habd.as/comfusion/after-dark/commits/7a9b75a))
+* **feature/post-images:** add image captions and structured data ([41f41e7](https://git.habd.as/comfusion/after-dark/commits/41f41e7))
+* **feature/section-menu:** add support for html link decoration ([7634b42](https://git.habd.as/comfusion/after-dark/commits/7634b42))
+* **shortcodes/external:** add shorthand usage for named anchors ([243d15a](https://git.habd.as/comfusion/after-dark/commits/243d15a))
+
+
+
+<a name="6.15.1"></a>
+## [6.15.1](https://git.habd.as/comfusion/after-dark/compare/v6.15.0...v6.15.1) (2018-12-28)
+
+
+
+<a name="6.15.0"></a>
+# [6.15.0](https://git.habd.as/comfusion/after-dark/compare/v6.14.0...v6.15.0) (2018-12-11)
+
+
+### Bug Fixes
+
+* **assets/theme:** normalize blockquote line-height with rest of document ([20ec883](https://git.habd.as/comfusion/after-dark/commits/20ec883))
+
+
+### Features
+
+* **layouts/shortcodes:** add grid and cell flexbox shortcode & snippet ([5bc322b](https://git.habd.as/comfusion/after-dark/commits/5bc322b)), closes [#67](https://git.habd.as/comfusion/after-dark/issues/67)
+* **layouts/shortcodes:** add select shortcode, docs and example use ([71fff83](https://git.habd.as/comfusion/after-dark/commits/71fff83))
+
+
+
+<a name="6.14.0"></a>
+# [6.14.0](https://git.habd.as/comfusion/after-dark/compare/v6.13.5...v6.14.0) (2018-11-21)
+
+
+### Features
+
+* **layouts/*:** add cookie disclaimer ([e8d9f68](https://git.habd.as/comfusion/after-dark/commits/e8d9f68))
+
+
+
+<a name="6.13.5"></a>
+## [6.13.5](https://git.habd.as/comfusion/after-dark/compare/v6.13.4...v6.13.5) (2018-11-19)
+
+* **package:** updated tagline and software purpose
+
+<a name="6.13.4"></a>
+## [6.13.4](https://git.habd.as/comfusion/after-dark/compare/v6.13.3...v6.13.4) (2018-11-05)
+
+
+### Bug Fixes
+
+* **assets/css:** normalize size of help text on small viewports ([bc0e33f](https://git.habd.as/comfusion/after-dark/commits/bc0e33f))
+
+
+### Reverts
+
+* **help/home:** disable button wrapped in anchor tag ([88e4b17](https://git.habd.as/comfusion/after-dark/commits/88e4b17))
+
+
+
+<a name="6.13.3"></a>
+## [6.13.3](https://git.habd.as/comfusion/after-dark/compare/v6.13.2...v6.13.3) (2018-10-18)
+
+
+### Bug Fixes
+
+* **archetypes/validate:** swap string method for sha trim behavior ([70e2c47](https://git.habd.as/comfusion/after-dark/commits/70e2c47)), closes [#90](https://git.habd.as/comfusion/after-dark/issues/90)
+* **assets/css:** unset ua default figure element margin ([46326bf](https://git.habd.as/comfusion/after-dark/commits/46326bf))
+
+
+
+<a name="6.13.2"></a>
+## [6.13.2](https://git.habd.as/comfusion/after-dark/compare/v6.13.1...v6.13.2) (2018-10-15)
+
+
+### Bug Fixes
+
+* **shortcode/navmenu:** improve microdata semantics & add test tool to docs ([4913934](https://git.habd.as/comfusion/after-dark/commits/4913934)), closes [#100](https://git.habd.as/comfusion/after-dark/issues/100)
+
+
+
+<a name="6.13.1"></a>
+## [6.13.1](https://git.habd.as/comfusion/after-dark/compare/v6.13.0...v6.13.1) (2018-10-12)
+
+
+
+<a name="6.13.0"></a>
+# [6.13.0](https://git.habd.as/comfusion/after-dark/compare/v6.12.7...v6.13.0) (2018-10-05)
+
+
+### Bug Fixes
+
+* **layouts/partials:** add main menu display condition ([a8fb1cb](https://git.habd.as/comfusion/after-dark/commits/a8fb1cb)), closes [#78](https://git.habd.as/comfusion/after-dark/issues/78)
+* **shortcodes/button:** allow name attribute & pass id as expected ([7aca084](https://git.habd.as/comfusion/after-dark/commits/7aca084))
+
+
+### Features
+
+* **module/toxic-swamp:** integrate module beta ([8f0bc30](https://git.habd.as/comfusion/after-dark/commits/8f0bc30))
+* **shortcodes/button:** add custom class support ([eb8f2db](https://git.habd.as/comfusion/after-dark/commits/eb8f2db))
+
+
+
+<a name="6.12.7"></a>
+## [6.12.7](https://git.habd.as/comfusion/after-dark/compare/v6.12.6...v6.12.7) (2018-09-26)
+
+
+
+<a name="6.12.6"></a>
+## [6.12.6](https://git.habd.as/comfusion/after-dark/compare/v6.12.5...v6.12.6) (2018-09-25)
+
+
+
+<a name="6.12.5"></a>
+## [6.12.5](https://git.habd.as/comfusion/after-dark/compare/v6.12.4...v6.12.5) (2018-09-24)
+
+
+
+<a name="6.12.4"></a>
+## [6.12.4](https://git.habd.as/comfusion/after-dark/compare/v6.12.3...v6.12.4) (2018-09-23)
+
+
+### Bug Fixes
+
+* **help/home:** add missing query string param to search link ([5b842f4](https://git.habd.as/comfusion/after-dark/commits/5b842f4))
+
+
+
+<a name="6.12.3"></a>
+## [6.12.3](https://git.habd.as/comfusion/after-dark/compare/v6.12.2...v6.12.3) (2018-09-22)
+
+
+
+<a name="6.12.2"></a>
+## [6.12.2](https://git.habd.as/comfusion/after-dark/compare/v6.12.1...v6.12.2) (2018-09-22)
+
+
+
+<a name="6.12.1"></a>
+## [6.12.1](https://git.habd.as/comfusion/after-dark/compare/v6.12.0...v6.12.1) (2018-09-22)
+
+
+
+<a name="6.12.0"></a>
+# [6.12.0](https://git.habd.as/comfusion/after-dark/compare/v6.11.2...v6.12.0) (2018-09-22)
+
+
+### Features
+
+* **scripts/upgrade:** prompt for update if metadata cannot be found ([b3a62ff](https://git.habd.as/comfusion/after-dark/commits/b3a62ff))
+
+
+
+<a name="6.11.2"></a>
+## [6.11.2](https://git.habd.as/comfusion/after-dark/compare/v6.11.1...v6.11.2) (2018-09-22)
+
+
+### Bug Fixes
+
+* **scripts:** add || to server shutdown ([f834a0d](https://git.habd.as/comfusion/after-dark/commits/f834a0d))
+
+
+
+<a name="6.11.1"></a>
+## [6.11.1](https://git.habd.as/comfusion/after-dark/compare/v6.11.0...v6.11.1) (2018-09-22)
+
+
+### Bug Fixes
+
+* **onboarding:** add explicit site port setting in install script ([64fefb2](https://git.habd.as/comfusion/after-dark/commits/64fefb2))
+* **onboarding:** serve site not help when starting site from installer ([384895b](https://git.habd.as/comfusion/after-dark/commits/384895b))
+
+
+
+<a name="6.11.0"></a>
+# [6.11.0](https://git.habd.as/comfusion/after-dark/compare/v6.10.1...v6.11.0) (2018-09-21)
+
+
+### Features
+
+* **onboarding:** streamline installation ([8a1cfee](https://git.habd.as/comfusion/after-dark/commits/8a1cfee))
+
+
+
+<a name="6.10.1"></a>
+## [6.10.1](https://git.habd.as/comfusion/after-dark/compare/v6.10.0...v6.10.1) (2018-09-19)
+
+
+### Bug Fixes
+
+* **help/home:** add performance info & undocumented features ([14c1faa](https://git.habd.as/comfusion/after-dark/commits/14c1faa))
+
+
+
+<a name="6.10.0"></a>
+# [6.10.0](https://git.habd.as/comfusion/after-dark/compare/v6.9.7...v6.10.0) (2018-09-14)
+
+
+### Features
+
+* **shortcodes:** add navmenu ([3e53c48](https://git.habd.as/comfusion/after-dark/commits/3e53c48)), closes [#78](https://git.habd.as/comfusion/after-dark/issues/78)
+
+
+
+<a name="6.9.7"></a>
+## [6.9.7](https://git.habd.as/comfusion/after-dark/compare/v6.9.6...v6.9.7) (2018-09-14)
+
+
+### Bug Fixes
+
+* **layouts/partials:** move navmenu snippet into theme ([e432e5c](https://git.habd.as/comfusion/after-dark/commits/e432e5c)), closes [#78](https://git.habd.as/comfusion/after-dark/issues/78)
+
+
+
+<a name="6.9.6"></a>
+## [6.9.6](https://git.habd.as/comfusion/after-dark/compare/v6.9.5...v6.9.6) (2018-09-12)
+
+
+### Bug Fixes
+
+* **archetypes:** fix broken links in post archetype ([9a46e86](https://git.habd.as/comfusion/after-dark/commits/9a46e86))
+
+
+
+<a name="6.9.5"></a>
+## [6.9.5](https://git.habd.as/comfusion/after-dark/compare/v6.9.4...v6.9.5) (2018-09-12)
+
+
+### Bug Fixes
+
+* **archetypes:** prevent internal links from opening in new window ([a5237a8](https://git.habd.as/comfusion/after-dark/commits/a5237a8))
+
+
+
+<a name="6.9.4"></a>
+## [6.9.4](https://git.habd.as/comfusion/after-dark/compare/v6.9.3...v6.9.4) (2018-09-12)
+
+
+### Bug Fixes
+
+* **archetypes:** close tag body on last external shortcode ([aa97ed3](https://git.habd.as/comfusion/after-dark/commits/aa97ed3))
+
+
+
+<a name="6.9.3"></a>
+## [6.9.3](https://git.habd.as/comfusion/after-dark/compare/v6.9.2...v6.9.3) (2018-09-12)
+
+
+### Bug Fixes
+
+* **scripts:** automatically stop running help servers on upgrade ([b6b9a56](https://git.habd.as/comfusion/after-dark/commits/b6b9a56))
+
+
+
+<a name="6.9.2"></a>
+## [6.9.2](https://git.habd.as/comfusion/after-dark/compare/v6.9.1...v6.9.2) (2018-09-12)
+
+
+### Bug Fixes
+
+* **archetypes:** default posts to display as published content ([b4fd2bf](https://git.habd.as/comfusion/after-dark/commits/b4fd2bf))
+
+
+
+<a name="6.9.1"></a>
+## [6.9.1](https://git.habd.as/comfusion/after-dark/compare/v6.9.0...v6.9.1) (2018-09-12)
+
+
+
+<a name="6.9.0"></a>
+# [6.9.0](https://git.habd.as/comfusion/after-dark/compare/v6.8.0...v6.9.0) (2018-09-12)
+
+
+### Features
+
+* **help:** multipage help docs ([0446f50](https://git.habd.as/comfusion/after-dark/commits/0446f50)), closes [#61](https://git.habd.as/comfusion/after-dark/issues/61)
+
+
+
+<a name="6.8.0"></a>
+# [6.8.0](https://git.habd.as/comfusion/after-dark/compare/v6.7.9...v6.8.0) (2018-09-08)
+
+
+### Bug Fixes
+
+* **components:** correct help block class attr behavior ([8336029](https://git.habd.as/comfusion/after-dark/commits/8336029))
+* **help:** rename 404 to error page ([2191740](https://git.habd.as/comfusion/after-dark/commits/2191740))
+* **layouts:** remove navmenu from help layout ([4934a0c](https://git.habd.as/comfusion/after-dark/commits/4934a0c))
+* **partials:** make button onclick handler work as expected ([9998957](https://git.habd.as/comfusion/after-dark/commits/9998957))
+* **shortcodes:** remove insignificant spaces after external links ([1190b94](https://git.habd.as/comfusion/after-dark/commits/1190b94))
+* **shortcodes:** remove standard link treatment from figures ([abade6f](https://git.habd.as/comfusion/after-dark/commits/abade6f))
+* **styles:** leftpad orderd lists ([579404e](https://git.habd.as/comfusion/after-dark/commits/579404e))
+
+
+### Features
+
+* **layouts/search:** and placeholder and allow basic customization ([e4df3a5](https://git.habd.as/comfusion/after-dark/commits/e4df3a5))
+* **shortcodes:** add form attr to button ([f04ea28](https://git.habd.as/comfusion/after-dark/commits/f04ea28))
+* **shortcodes:** add id attribute for forms ([10f1024](https://git.habd.as/comfusion/after-dark/commits/10f1024))
+* **shortcodes:** add navmenu navigational aid ([aa46ed3](https://git.habd.as/comfusion/after-dark/commits/aa46ed3))
+* **shortcodes:** add title attr to external ([ce451e4](https://git.habd.as/comfusion/after-dark/commits/ce451e4))
+* **shortcodes:** add type attribute for external links ([d80b1f3](https://git.habd.as/comfusion/after-dark/commits/d80b1f3))
+* **shortcodes:** add value attr to button ([fbf744e](https://git.habd.as/comfusion/after-dark/commits/fbf744e))
+* **shortcodes:** allow anonymous blockquotes ([3ad1f04](https://git.habd.as/comfusion/after-dark/commits/3ad1f04))
+* **shortcodes:** allow button disablement ([f145780](https://git.habd.as/comfusion/after-dark/commits/f145780)), closes [#65](https://git.habd.as/comfusion/after-dark/issues/65)
+* **shortcodes:** trim whitespace in id attributes ([523b2a1](https://git.habd.as/comfusion/after-dark/commits/523b2a1))
+
+
+### Performance Improvements
+
+* **search:** increase specificity of v-cloak declaration ([35eed67](https://git.habd.as/comfusion/after-dark/commits/35eed67))
+
+
+
+<a name="6.7.9"></a>
+## [6.7.9](https://git.habd.as/comfusion/after-dark/compare/v6.7.8...v6.7.9) (2018-09-07)
+
+### Bug Fixes
+
+* **styles:** prevent jumping scrollbar in windows ([9d2beec](https://git.habd.as/comfusion/after-dark/commit/9d2beec93c72b6145507f850689eae3a64cf22f0)), closes #72 (thanks @tkalpakidis)
+
 <a name="6.7.8"></a>
 ## [6.7.8](https://git.habd.as/comfusion/after-dark/compare/v6.7.7...v6.7.8) (2018-08-30)
 

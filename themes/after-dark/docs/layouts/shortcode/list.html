@@ -1,0 +1,36 @@
+{{ define "header" }}
+  {{ partial "masthead.html" . }}
+{{ end }}
+{{ define "main" }}
+  <header>
+    <h1>{{ .Title }}</h1>
+    {{ if .Description }}
+      <blockquote itemprop="description">{{ .Description }}</blockquote>
+    {{ end }}
+  </header>
+  <table>
+    <caption>Add lazy-loaded images, alerts, blockquotes and design great-looking web forms directly from within your content. Dozens of examples provided below:</caption>
+    <thead>
+      <tr>
+        <th scope="col">{{ .Title | singularize }}</th>
+        <th scope="col">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <nav>
+        {{ range .Paginator.Pages }}
+          <tr>
+            <td><a href="{{ .RelPermalink }}">{{ .Title }}</a></td>
+            <td>{{ .Description }}</td>
+          </tr>
+        {{ end }}
+      </nav>
+    </tbody>
+  </table>
+  <p>In addition to the above you may {{ partial "components/external.html" (dict "href" "https://gohugo.io/content-management/shortcodes/#use-hugo-s-built-in-shortcodes" "body" "Use Hugo's Built-in Shortcodes") }} as well.</p>
+{{ end }}
+{{ define "footer" }}
+  {{ partial "pagination.html" . }}
+  {{ partial "powered-by.html" . }}
+  {{ partial "cookie-disclaimer.html" . }}
+{{ end }}

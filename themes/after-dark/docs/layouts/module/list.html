@@ -1,0 +1,42 @@
+{{ define "header" }}
+  {{ partial "masthead.html" . }}
+{{ end }}
+{{ define "main" }}
+  <header>
+    <h1>{{ .Title }}</h1>
+    {{ if .Description }}
+      <blockquote itemprop="description">{{ .Description }}</blockquote>
+    {{ end }}
+  </header>
+  <style>
+    .hack table th, .hack table td { vertical-align: middle; }
+    .hack table td img { margin-bottom: -7px; }
+  </style>
+  {{ .Content }}
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">{{ .Title | singularize }}</th>
+        <th scope="col">Latest</th>
+        <th scope="col">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <nav>
+        {{ $patinator := .Paginate (where .Pages ".Params.slug" "!=" nil) }}
+        {{ range $patinator.Pages }}
+          <tr>
+            <td><a href="{{ .RelPermalink }}">{{ .Title }}</a></td>
+            <td>{{ with .Params.slug }}{{ partial "module-latest.html" (dict "slug" .) }}{{ else }}N/A{{ end }}</td>
+            <td>{{ .Params.summary }}</td>
+          </tr>
+        {{ end }}
+      </nav>
+    </tbody>
+  </table>
+{{ end }}
+{{ define "footer" }}
+  {{ partial "pagination.html" . }}
+  {{ partial "powered-by.html" . }}
+  {{ partial "cookie-disclaimer.html" . }}
+{{ end }}

@@ -1,6 +1,11 @@
 #
-# Hugo Dockerfile for After Dark.
-# View the theme at <https://themes.gohugo.io/after-dark/>.
+# Hugo Dockerfile for After Dark
+#
+# After Dark is free and open source software you can use to create a
+# privacy-aware website, blog or app.
+#
+# Read the docs (https://after-dark.habd.as/)
+# View the code (https://git.habd.as)
 #
 # Copyright (C) 2018 Josh Habdas <jhabdas@protonmail.com>
 #
