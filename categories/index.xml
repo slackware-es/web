@@ -3,40 +3,40 @@
   <channel>
     <docs>https://blogs.law.harvard.edu/tech/rss</docs>
     <title>Categories on Slackware</title>
-    <link>/web/categories/</link>
+    <link>/categories/</link>
     <description>Recent content in Categories on Slackware</description>
     <image>
       <title>Categories on Slackware</title>
-      <link>/web/categories/</link>
+      <link>/categories/</link>
       <url>img/penguins.jpg</url>
     </image>
     <ttl>1440</ttl>
     <generator>Hugo 0.53</generator>
     <language>en-US</language>
     
-      <atom:link href="/web/categories/index.xml" rel="self" type="application/rss+xml" />
+      <atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
       <item>
         <title>Documentation</title>
-        <link>/web/categories/documentation/</link>
-        <guid>/web/categories/documentation/</guid>
+        <link>/categories/documentation/</link>
+        <guid>/categories/documentation/</guid>
         <description></description>
         <content:encoded><![CDATA[]]></content:encoded>
       </item>
     
       <item>
         <title>Downloads</title>
-        <link>/web/categories/downloads/</link>
-        <guid>/web/categories/downloads/</guid>
+        <link>/categories/downloads/</link>
+        <guid>/categories/downloads/</guid>
         <description></description>
         <content:encoded><![CDATA[]]></content:encoded>
       </item>
     
       <item>
         <title>Technology</title>
-        <link>/web/categories/technology/</link>
-        <guid>/web/categories/technology/</guid>
+        <link>/categories/technology/</link>
+        <guid>/categories/technology/</guid>
         <description></description>
         <content:encoded><![CDATA[]]></content:encoded>
       </item>

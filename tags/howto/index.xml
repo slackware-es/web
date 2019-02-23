@@ -3,11 +3,11 @@
   <channel>
     <docs>https://blogs.law.harvard.edu/tech/rss</docs>
     <title>Howto on Slackware</title>
-    <link>/web/tags/howto/</link>
+    <link>/tags/howto/</link>
     <description>Recent content in Howto on Slackware</description>
     <image>
       <title>Howto on Slackware</title>
-      <link>/web/tags/howto/</link>
+      <link>/tags/howto/</link>
       <url>img/penguins.jpg</url>
     </image>
     <ttl>1440</ttl>
@@ -15,14 +15,14 @@
     <language>en-US</language>
     <lastBuildDate>Sat, 01 Sep 2018 06:00:00 +0000</lastBuildDate>
     
-      <atom:link href="/web/tags/howto/index.xml" rel="self" type="application/rss+xml" />
+      <atom:link href="/tags/howto/index.xml" rel="self" type="application/rss+xml" />
     
     
       <item>
         <title>Sysstat: an easy status page</title>
-        <link>/web/posts/statuspage/</link>
+        <link>/posts/statuspage/</link>
         <pubDate>Sat, 01 Sep 2018 06:00:00 +0000</pubDate>
-        <guid>/web/posts/statuspage/</guid>
+        <guid>/posts/statuspage/</guid>
         <description>Introduction   The ```sysstat``` package contains various utilities, common to many commercial Unixes, to monitor system performance and usage activity. http://sebastien.godard.pagesperso-orange.fr/  sysstat is a standard package which comes with Slackware distribution and almost any other distribution out there. Its a very useful tool to analize and monitor linux performance.
 We are going to build a simple status page which will display performance metrics about the linux systems it runs on, including usage of:</description>
         <category domain="/categories/documentation">Documentation</category>
@@ -43,9 +43,9 @@ Resources  Demo Home page systsat tutorial  ]]></content:encoded>
     
       <item>
         <title>PostgREST: BAAS for PostgreSQL databases</title>
-        <link>/web/posts/postgrest/</link>
+        <link>/posts/postgrest/</link>
         <pubDate>Wed, 29 Aug 2018 06:00:00 +0000</pubDate>
-        <guid>/web/posts/postgrest/</guid>
+        <guid>/posts/postgrest/</guid>
         <description>Introduction   PostgREST is a standalone web server that turns your PostgreSQL database directly into a RESTful API. The structural constraints and permissions in the database determine the API endpoints and operations. Using PostgREST is an alternative to manual CRUD programming. Custom API servers suffer problems. Writing business logic often duplicates, ignores or hobbles database structure. Object-relational mapping is a leaky abstraction leading to slow imperative code. The PostgREST philosophy establishes a single declarative source of truth: the data itself.</description>
         <category domain="/categories/documentation">Documentation</category>
         <content:encoded><![CDATA[ Introduction   PostgREST is a standalone web server that turns your PostgreSQL database directly into a RESTful API. The structural constraints and permissions in the database determine the API endpoints and operations. Using PostgREST is an alternative to manual CRUD programming. Custom API servers suffer problems. Writing business logic often duplicates, ignores or hobbles database structure. Object-relational mapping is a leaky abstraction leading to slow imperative code. The PostgREST philosophy establishes a single declarative source of truth: the data itself. https://postgrest.org/en/v5.0/intro.html  Our aim is to build and experiment with applications using an HTTP based back-end. These applications can use a lot of languages and environments: shell scripts, Javascript, etc.
@@ -64,9 +64,9 @@ Resources  Home page Github repository StackOverflow Gitter  ]]></content:encode
     
       <item>
         <title>Jitsi: video conference server</title>
-        <link>/web/posts/jitsi/</link>
+        <link>/posts/jitsi/</link>
         <pubDate>Thu, 09 Aug 2018 06:00:00 +0000</pubDate>
-        <guid>/web/posts/jitsi/</guid>
+        <guid>/posts/jitsi/</guid>
         <description>From it&amp;rsquo;s Github page:
 Jitsi Meet is an open-source (Apache) WebRTC JavaScript application that uses Jitsi Videobridge to provide high quality, secure and scalable video conferences. You can see Jitsi Meet in action here at the session #482 of the VoIP Users Conference.
 The Jitsi Meet client runs in your browser, without the need for installing anything on your computer. You can also try it out yourself at https://meet.jit.si .
