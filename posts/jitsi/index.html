@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    
+
+
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: 'unsafe-inline' 'unsafe-eval'; font-src 'self' https: data:; img-src 'self' https: data:; object-src 'none'">
+
+
+    <meta name="generator" content="Hugo 0.53" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jitsi: video conference server | Slackware</title>
+    <meta name="description" content="How to install and configure Jitsi video conference server in Slackware">
+    <meta name="keywords" content="jitsi, howto">
+    
+    
+    
+    
+    <meta property="og:title" content="Jitsi: video conference server" />
+<meta property="og:description" content="How to install and configure Jitsi video conference server in Slackware" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://slackware.es/posts/jitsi/" /><meta property="article:published_time" content="2018-08-09T06:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2018-08-09T06:00:00&#43;00:00"/>
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://slackware.es/img/penguins.jpg"/>
+
+<meta name="twitter:title" content="Jitsi: video conference server"/>
+<meta name="twitter:description" content="How to install and configure Jitsi video conference server in Slackware"/>
+
+    
+
+
+
+  <meta property="og:image" content="https://slackware.es/img/penguins.jpg">
+
+
+    
+
+    
+    
+  <meta name="referrer" content="same-origin">
+
+
+    
+    
+    <script integrity="sha512-Jx/MqTxYWqHdoOkHItRJJZCvFDhERPr5gG4I5ESu3V&#43;BgQyAQ6wXfdsGzhzmT0yyvkAWz2jbrn81q90RRJTSTg==">/*! Fetch Inject v2.0.2 | Copyright (C) 2017–2018 Josh Habdas <jhabdas@protonmail.com> | @license Zlib */
+var fetchInject=function(){"use strict";const e=function(e,t,r,n,o,c,i){c=t.createElement(r),i=t.getElementsByTagName(r)[0],c.appendChild(t.createTextNode(n.text)),c.onload=o(n),i?i.parentNode.insertBefore(c,i):t.head.appendChild(c)};return function(t,r){if(!arguments.length)return Promise.reject(new ReferenceError("Failed to execute 'fetchInject': 1 argument required but only 0 present."));if(arguments[0]&&arguments[0].constructor!==Array)return Promise.reject(new TypeError("Failed to execute 'fetchInject': argument 1 must be of type 'Array'."));if(arguments[1]&&arguments[1].constructor!==Promise)return Promise.reject(new TypeError("Failed to execute 'fetchInject': argument 2 must be of type 'Promise'."));const n=[],o=r?[].concat(r):[],c=[];return t.forEach(e=>o.push(window.fetch(e).then(e=>[e.clone().text(),e.blob()]).then(e=>Promise.all(e).then(e=>{n.push({text:e[0],blob:e[1]})})))),Promise.all(o).then(()=>(n.forEach(t=>{c.push({then:r=>{t.blob.type.includes("text/css")?e(window,document,"style",t,r):e(window,document,"script",t,r)}})}),Promise.all(c)))}}();
+</script>
+    <script integrity="sha512-hno7WeTIciCJSjg/myjyK30HYkrcGCVwo4g4SpUalvrs3r2lS7bPNIQwbCNypKbg7BZ1sA4AsGnk6Gq4NOKpGA==">fetchInject(["/js/lazysizes.min.js"]);
+</script>
+    
+
+
+  
+    
+
+  <meta title="mod:fractal-forest" content="status:enabled">
+  
+    <script async src=/js/bpgdec8a.js integrity=sha384-8PG0go3BW8hLm63KbTxk/hNcehaoSbrAhKzsmy2Jhs/KY8QdiKKkjhdeyHY/Q/0I&#10;></script>
+  
+
+
+  
+  
+  
+  
+
+
+    
+    <link rel="canonical" href="https://slackware.es/posts/jitsi/">
+    
+    
+    <link rel="icon" sizes="any" href="data:image/svg+xml,%3Csvg%20viewBox='0%200%2046%2045'%20xmlns='http://www.w3.org/2000/svg'%3E%3Ctitle%3EAfter%20Dark%3C/title%3E%3Cpath%20d='M.708%2045L23%20.416%2045.292%2045H.708zM35%2038L23%2019%2011%2038h24z'%20fill='%23000'/%3E%3C/svg%3E">
+
+    
+
+  
+    
+      <style>:root {
+	--fg: #272822;
+	--bg: #fbf9f1;
+}
+
+@font-face {
+	font-family: 'Terminus';
+	src: url('/fonts/terminus/TerminusTTF-4.46.0.ttf');
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Terminus';
+	src: url('/fonts/terminus/TerminusTTF-Bold-4.46.0.ttf');
+	font-weight: bold;
+}
+
+@font-face {
+	font-family: 'Terminus';
+	src: url('/fonts/terminus/TerminusTTF-Italic-4.46.0.ttf');
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Bitter';
+	src: url('/fonts/bitter/Bitter-Regular.ttf');
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Bitter';
+	src: url('/fonts/bitter/Bitter-Bold.ttf');
+	font-weight: bold;
+}
+
+@font-face {
+	font-family: 'Bitter';
+	src: url('/fonts/bitter/Bitter-Italic.ttf');
+	font-style: italic;
+}
+
+body, html {
+	height: 100%;
+}
+
+/* baisc typography */
+
+html, body, section, nav, article, aside, h1, h2, h3, h4, h5, h6, hgroup, header, footer, address, p, hr, pre, blackquote, ol, ul, li, dl, dt, dd, figure, figcaption, div, table, caption, form, fieldset {
+	vertical-align: baseline;
+	margin 0;
+	padding 0;
+}
+
+body {
+	font-family: 'Bitter', serif;
+	line-height: 1.5;
+	font-size: 1.15rem;
+	font-kerning: normal;
+	font-variant-numeric: oldstyle-nums proportional-nums;
+	font-variant-ligatures: common-ligatures contextual;
+	font-feature-settings: "kern", "liga", "clig", "calt";
+	background-color: var(--bg);
+	color: var(--fg);
+}
+
+
+p {
+	text-align: justify;
+	-webkit-hyphens: auto;
+	-webkit-hyphenate-limit-before: 4;
+	-webkit-hyphenate-limit-after: 3;
+	-webkit-hyphenate-limit-chars: 7 4 3;
+	-webkit-hyphenate-limit-lines: 2;
+	-webkit-hyphenate-limit-zone: 8%;
+	-webkit-hyphenate-limit-last: always;
+	-moz-hyphens: auto;
+	-moz-hyphenate-limit-chars: 7 4 3;
+	-moz-hyphenate-limit-lines: 2;
+	-moz-hyphenate-limit-zone: 8%;
+	-moz-hyphenate-limit-last: always;
+	-ms-hyphens: auto;
+	-ms-hyphenate-limit-chars: 7 4 3;
+	-ms-hyphenate-limit-lines: 2;
+	-ms-hyphenate-limit-zone: 8%;
+	-ms-hyphenate-limit-last: always;
+	hyphens: auto;
+	hyphenate-limit-chars: 7 4 3;
+	hyphenate-limit-lines: 2;
+	hyphenate-limit-zone: 8%;
+	hyphenate-limit-last: always;
+	margin-bottom: 0;
+	letter-spacing: -0.01em;
+}
+
+p + p {
+	text-indent: 2em;
+	margin-top: 0;
+}
+
+.quoted p {
+	quotes: '“' '”' '‘' '’';
+}
+
+.quoted p::before {
+	content: open-quote;
+	margin-left: -0.83ch;
+}
+.quoted p::after {
+	content: close-quote;
+}
+
+
+ol {
+	padding-left: 0; margin-left: 0;list-style: none;
+	counter-reset: list;
+}
+
+ol li::before {
+	counter-increment: list;
+	content: counter(list);
+	margin-left: -2em; margin-right: 1em;
+}
+
+h1 {font-family: 'Terminus', fixed;  font-size: 2.0625rem; line-height: 1;}
+h2 {font-family: 'Terminus', fixed; font-size: 1.5625rem; line-height: 1;}
+h3 {font-family: 'Terminus', fixed; font-size: 1.3125rem; line-height: 1;}
+h4 {font-family: 'Terminus', fixed; font-size: 1.2025rem; line-height: 1.2;}
+h5 {font-family: 'Terminus', fixed; font-size: 1.2025rem; line-height: 1.2;}
+h6 {font-family: 'Terminus', fixed; font-size: 1.2025rem; line-height: 1.2;}
+p {font-size: 1.15rem;}
+
+@media screen and(min-width: 60em) {
+	h1 {font-family: 'Terminus', fixed;  font-size: 3.1875rem; line-height: 1;}
+	h2 {font-family: 'Terminus', fixed; font-size: 2.0625rem; line-height: 1;}
+	h3 {font-family: 'Terminus', fixed; font-size: 1.5625rem; line-height: 1;}
+	h4 {font-family: 'Terminus', fixed; font-size: 1.325rem; line-height: 1.2;}
+	h5 {font-family: 'Terminus', fixed; font-size: 1.325rem; line-height: 1.2;}
+	h6 {font-family: 'Terminus', fixed; font-size: 1.325rem; line-height: 1.2;}	
+	p {font-size: 1.225rem;}
+}
+
+@media screen and(min-width: 120em) {
+	h1 {font-family: 'Terminus', fixed;  font-size: 4.875rem; line-height: 1;}
+	h2 {font-family: 'Terminus', fixed; font-size: 2.75rem; line-height: 1;}
+	h3 {font-family: 'Terminus', fixed; font-size: 1.75rem; line-height: 1;}
+	h4 {font-family: 'Terminus', fixed; font-size: 1.5125rem; line-height: 1.2;}
+	h5 {font-family: 'Terminus', fixed; font-size: 1.5125rem; line-height: 1.2;}	
+	h6 {font-family: 'Terminus', fixed; font-size: 1.5125rem; line-height: 1.2;}
+	p {font-size: 1.4125rem;}
+}
+
+pre, code {
+	font-family: 'Terminus', fixed;
+	font-weight: regular;
+	line-height: 1.2;
+	font-kerning: normal;
+	font-variant-numeric: oldstyle-nums proportional-nums;
+	font-variant-ligatures: common-ligatures contextual;
+	font-feature-settings: "kern", "liga", "clig", "calt";
+}
+
+pre:hover,
+pre:focus {
+  width: min-content;
+}
+
+a:hover, a:active, a:focus {
+	background-color: var(--bg);
+	color: rgb(231, 25, 1);
+	border-bottom: 1px solid rgba(0,0,0,0.6);
+}
+
+a, .toggle__input + label {
+	color: inherit;
+	text-decoration: none;
+	border-bottom: 1px solid rgba(0,0,0,0.2);
+	transition: all 0.25s ease;
+}
+
+div.center {
+	overflow: hidden;
+}
+
+div.center iframe{
+	overflow: hidden;
+	scrolling: no;	
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 750px;
+	height: 390px;
+}
+
+table {
+	color: var(--fg);
+}
+
+:target {
+	color: rgb(231, 25, 1);
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+
+.hero-image {
+	/* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read 
+	background-image: linear-gradient(rgba(251, 249, 241, 0.3), rgba(251, 249, 241, 0.4)), url("/img/penguins.jpg"); */
+
+	/* Set a specific height 
+	height: 6em;*/
+
+	/* Position and center the image to scale nicely on all screens */
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 100%;
+}
+
+/* Place text in the middle of the image */
+.hero-text {
+	text-align: center;
+	line-height: 2;
+}
+
+.hero-text h1 {
+	font-family: Terminus, fixed;
+	font-size: 5rem;
+	font-weigth: bold;
+	padding: 1rem;
+	margin-top: 2rem;
+	margin-bottom: 1rem;
+}
+
+.hero-text h2 {
+	font-family: Bitter, serif;
+	font-size: 2rem;
+	font-weigth: bold;
+}
+
+.getButton {
+	width: 20rem;
+	font-family: Terminus, fixed;
+	font-size: 1.5rem;
+	font-weigth: bold;
+	background-color: var(--fg);
+	color: var(--bg);
+	padding: 5px;
+}
+
+.highlight {
+	background-color: var(--fg);
+	color: var(--bg);
+}
+
+.changelog {
+	font-family: Terminus, fixed;
+	font-weigth: regular;
+	padding: 0;
+}
+
+/* forms */
+
+.form-group {
+	margin-bottom: 1.75rem;
+	overflow: auto;
+}
+
+fieldset {
+	border: none;
+	padding: 0;
+	margin: 0;
+}
+
+input.form-control {
+	font-size: initial;
+	border-radius: 0;
+	background-color: transparent;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+}
+
+.form-control {
+	outline: none;
+	border: none;
+	border-bottom: 2px solid #ccc;
+	padding: .5rem 0;
+	width: 20rem;
+	height: 38px;
+	background-color: transparent;
+}
+
+/* responsiveness */
+body {
+	width: 50rem;
+	max-width: 80%;
+	margin: 0 auto;
+	padding: 2rem 1rem;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+@media \0screen {
+  img { 
+  	width: auto; /* for ie 8 */
+  }
+}
+
+.grid {
+	display: grid;
+}
+
+.cell {
+	overflow-x: auto;
+}
+
+.two {
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr); 
+}
+
+.three {
+	grid-template-columns: 1fr 1fr 1fr;
+}
+
+pre {
+    white-space: pre-wrap;       /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+</style>
+      
+
+
+  
+
+
+    
+  
+
+
+    
+    
+      <script integrity="sha512-ISTAV0GadOIz/NXXHOS+eCM0ysXVVHhQTlvA6LJxz/DeA5yIxm0Vqf5IE+WH0yuuXkayAKtoZkQ326nch5f/fg==">fetchInject(["/css/syntax.css"]);</script>
+      <noscript>
+        <link href="/css/syntax.css" rel="stylesheet">
+      </noscript>
+    
+  </head>
+  
+  
+  
+  <body class="">
+    <header>
+  
+
+  
+    
+      
+  <nav itemscope itemtype="https://schema.org/SiteNavigationElement">
+    <meta itemprop="name" content="Main Menu">
+    
+      
+      
+        <a itemprop="url" href="/">Home</a>
+      
+    
+      
+      
+        <a itemprop="url" href="/posts/">Blog</a>
+      
+    
+      
+      
+        <a itemprop="url" href="/docs/">Docs</a>
+      
+    
+      
+      
+        <a itemprop="url" href="/files/">Downloads</a>
+      
+    
+      
+      
+        <a itemprop="url" href="/search/">Search</a>
+      
+    
+  </nav>
+
+
+    
+  
+
+
+</header>
+    <main>
+  <article itemscope itemtype="https://schema.org/BlogPosting">
+    
+<meta itemprop="name" content="Jitsi: video conference server">
+<meta itemprop="description" content="How to install and configure Jitsi video conference server in Slackware">
+
+
+<meta itemprop="datePublished" content="2018-08-09T06:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2018-08-09T06:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1523">
+
+
+
+<meta itemprop="keywords" content="jitsi,howto," />
+
+    <header>
+      <h1 itemprop="headline name">Jitsi: video conference server</h1>
+      <p class="muted">
+        <svg style="margin-bottom:-3px" class="i-clock" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+  <circle cx="16" cy="16" r="14" />
+  <path d="M16 8 L16 16 20 20" />
+</svg>
+<span>8 minute read</span>
+<svg style="margin-bottom: -3px" class="i-edit" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+  <path d="M30 7 L25 2 5 22 3 29 10 27 Z M21 6 L26 11 Z M5 22 L10 27 Z" />
+</svg>
+
+  Published: <time datetime="2018-08-09T06:00:00&#43;00:00">9 Aug, 2018</time>
+
+
+      </p>
+      
+        <blockquote itemprop="description">How to install and configure Jitsi video conference server in Slackware</blockquote>
+      
+      
+    </header>
+    
+  <details>
+    <summary>Table of Contents</summary>
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#service-architecture">Service architecture</a></li>
+<li><a href="#software-packages">Software packages</a>
+<ul>
+<li><a href="#package-installation">Package installation</a></li>
+</ul></li>
+<li><a href="#web-server-and-ssl-certificate">Web server and SSL certificate</a></li>
+<li><a href="#prosody-server">Prosody server</a></li>
+<li><a href="#jitsi-video-bridge-server">Jitsi video bridge server</a></li>
+<li><a href="#jitsi-conference-focus">Jitsi Conference Focus</a></li>
+<li><a href="#jitsi-meet-application">Jitsi Meet Application</a></li>
+<li><a href="#using-the-service">Using the service</a></li>
+</ul></li>
+</ul>
+</nav>
+  </details>
+
+
+    <div itemprop="articleBody">
+      <p>From it&rsquo;s <a href="https://github.com/jitsi/jitsi-meet">Github</a> page:</p>
+
+<p>Jitsi Meet is an open-source (Apache) WebRTC JavaScript application that uses Jitsi Videobridge to provide high quality, secure and scalable video conferences. You can see Jitsi Meet in action here at the session #482 of the VoIP Users Conference.</p>
+
+<p>The Jitsi Meet client runs in your browser, without the need for installing anything on your computer. You can also try it out yourself at <a href="https://meet.jit.si">https://meet.jit.si</a> .</p>
+
+<p>Jitsi Meet allows for very efficient collaboration. It allows users to stream their desktop or only some windows. It also supports shared document editing with Etherpad.</p>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>We want to offer a secure video conference service for our company.We selected <code>jitsi-meet</code> as our video conference platform because it meets all our requirements.</p>
+
+<p>As soon as we check their documentation, it’s clear they only support Ubuntu and Debian Linux distributions. But they also provide hints to do a manual install of their software.</p>
+
+<p>In this document we will set up and install a single instance of this platform using Slackware 64 bits Current.</p>
+
+<h2 id="service-architecture">Service architecture</h2>
+
+<p>The general architecture of the service as per their documentation is:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-auto" data-lang="auto">                             +                           +
+                             |                           |
+                             |                           |
+                             v                           |
+                            443                          |
+                         +-------+                       |
+                         |       |                       |
+                         | NginX |                       |
+                         |       |                       |
+                         +--+-+--+                       |
+                            | |                          |
+          +------------+    | |    +--------------+      |
+          |            |    | |    |              |      |
+          | jitsi-meet +&lt;---+ +---&gt;+ prosody/xmpp |      |
+          |            |files 5280 |              |      |
+          +------------+           +--------------+      v
+                               5222,5347^    ^5347      4443
+                          +--------+    |    |    +-------------+
+                          |        |    |    |    |             |
+                          | jicofo +----^    ^----+ videobridge |
+                          |        |              |             |
+                          +--------+              +-------------+</code></pre></div>
+
+<p><code>jitsi-meet</code> basic requirements are:</p>
+
+<ul>
+<li><p>A web server with a valid SSL certificate,</p></li>
+
+<li><p>The Prosody Jabber service, with their JWT plug-in</p></li>
+
+<li><p>The Jitsi VideoBridge service</p></li>
+
+<li><p>The Jitsi Conference Focus (jicofo) service</p></li>
+
+<li><p>The Java platform 8</p></li>
+
+<li><p>The Lua platform 5</p></li>
+</ul>
+
+<p>Also we are going to need:</p>
+
+<ul>
+<li><p>Four different secrets for components communication</p></li>
+
+<li><p>A prosody user and group</p></li>
+</ul>
+
+<h2 id="software-packages">Software packages</h2>
+
+<p>We have identified what software we need to install in our server to make <code>jitsi-meet</code> work and created SlackBuild scripts for them. You can check our source code <a href="https://github.com/slackware-es/packages">repository</a> or our binary packages at <a href="https://slacware.es/files/media/pkg/">slackware.es</a>.</p>
+
+<p>We also used packages from <a href="https://slackbuilds.org">slackbuilds.org</a>, like the <code>prosody</code> server package, and also we used those scripts as a base for our own.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-auto" data-lang="auto">├── caddy-0.11-x86_64-1_es.tgz
+├── jdk-8u181-x86_64-1.txz
+├── jitsi
+│   ├── jicofo-1.1-x86_64-1_es.tgz
+│   ├── jitsi-meet-1.1-x86_64-1_es.tgz
+│   ├── jitsi-meet-token-1.1-x86_64-1_es.tgz
+│   └── jitsi-videobridge-1.1-linux-x64-1_es.tgz
+└── prosody
+    ├── LuaBitOp-1.0.2-x86_64-1_SBo.tgz
+    ├── lbase64-5.1--1_SBo.tgz
+    ├── lua-5.1.5-x86_64-1_SBo.tgz
+    ├── lua-cjson-2.1.0-x86_64-1_SBo.tgz
+    ├── lua-filesystem-1.6.3-x86_64-1_SBo.tgz
+    ├── lua-zlib-20140201_c0014bc-x86_64-1_SBo.tgz
+    ├── luacrypto-0.5.1-x86_64-1_SBo.tgz
+    ├── luaevent-0.4.3-x86_64-1_SBo.tgz
+    ├── luaexpat-1.3.0-x86_64-1_SBo.tgz
+    ├── luarocks-2.4.1-x86_64-1_SBo.tgz
+    ├── luasec-0.7-x86_64-1_SBo.tgz
+    ├── luasocket-3.0_rc1-x86_64-1_SBo.tgz
+    └── prosody-0.10.2-x86_64-1_SBo.tgz</code></pre></div>
+
+<p>For the Java package, we used the Slackware extras <code>SlackBuild</code> located in <a href="https://slackware.es/files/slackware/slackware64-current/extra/source/java/">extra</a> folder of the Slackware distribution.</p>
+
+<p>We created startup scripts and a basic configuration files and included them on each package.</p>
+
+<p>If you want to build your own, just download the source and run the SlackBuild scripts as usual.</p>
+
+<p>The only software we do not created a package for was the Let&rsquo;s Encrypt client.</p>
+
+<h3 id="package-installation">Package installation</h3>
+
+<p>After building the packages (you can download them from our b<a href="https://slacware.es/files/media/pkg/">inary repository</a>), we install them using <code>installpkg</code> as usual.</p>
+
+<p>By default the startup scripts are marked for execution and are installed in <code>/etc/rc.d</code></p>
+
+<p>The prosody packages install their software in <code>/usr</code> prefix, while the jisi packages install in <code>/opt</code> prefix.</p>
+
+<h2 id="web-server-and-ssl-certificate">Web server and SSL certificate</h2>
+
+<p>We have chosen the open source <a href="www.caddyserver.com">Caddy</a> as our web server. Our package builds the Github version without any plug-ins, and install <code>/etc/rc.d/rc.caddy</code> as a startup script and <code>/etc/caddy/Caddyfile</code> as a default configuration file.</p>
+
+<p>Our <code>Caddyfile</code> mimics the NGINX configuration provided by the jitsi-meeet team at their <a href="https://github.com/jitsi/jitsi-meet/blob/master/doc/manual-install.md#install-nginx">repository</a></p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-auto" data-lang="auto">https://server.domain.com {
+        root /opt/jitsi-meet
+        tls /etc/acme.sh/server.domain.com/fullchain.cer /etc/acme.sh/server.domain.com/server.domain.com.key
+        rewrite /room.* /
+        proxy /http-bind server.domain.com:5280
+        log /var/log/caddy/access.log
+}</code></pre></div>
+
+<p>The rewrite rule only allows this <code>prosody</code> to create rooms that start with the word <code>room</code>. We can be more creative to mimic better the NGINX configuration but this serves our purpose well.</p>
+
+<p>Caddy integrates with Let&rsquo;s encrypt certificates automatically, but we are going to use <a href="https://github.com/Neilpang/acme.sh">acme.sh</a> client because we want to integrate the certificates in other components and open the possibility to change our web server if we need to. See the wiki for the <a href="https://github.com/Neilpang/acme.sh/wiki/How-to-install">advanced installation</a> proceess.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-auto" data-lang="auto"># curl https://get.acme.sh | sh -s -- --install --home /etc/acme.sh</code></pre></div>
+
+<p>We want <code>acme.sh</code> to install in <code>/etc</code> becasue the certificates will be read by multiple components of the system.</p>
+
+<p>To get our certificates we set up <code>acme.sh</code> to answer Let&rsquo;s encrypt challenge using Cloudflare DNS service:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-auto" data-lang="auto"># export CF_Key=&#34;asdfgasdfgasdfgasdfg&#34;
+# export CF_Email=&#34;me@email.com&#34;
+# acme.sh --issue --dns dns_cf -d server.domain.com -d auth.server.domain.com
+#</code></pre></div>
+
+<p>Note we need to ask for <code>auth.server.domain.com</code> as well, to use the certificate with prosody. Also note that acme.sh will add a <code>cron</code> job to renew certificates monthly.</p>
+
+<p>We can start our web server using <code>/etc/rc.d/rc.caddy start</code> command and check the log files in <code>/var/log/caddy/</code>to search for errors.</p>
+
+<h2 id="prosody-server">Prosody server</h2>
+
+<p>Prosody is used by the <code>jitsi-meet</code> platform to route messages, enable chat, etc. The configuration file is in <code>/etc/prosody</code>.</p>
+
+<p>We need to modify the main configuration file <code>/etc/prosody/prosody.lua.cfg</code> to include the following lines</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lua" data-lang="lua">plugin_paths <span style="color:#f92672">=</span> { <span style="color:#e6db74">&#34;/opt/jitsi-meet-token/&#34;</span> }
+Include <span style="color:#e6db74">&#34;server.domain.com.cfg.lua&#34;</span></code></pre></div>
+
+<p>With those lines we enable the <code>jitsi-meet</code> plugins for <code>prosody</code> and include a new configuration file which will contain our hosts parameters:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lua" data-lang="lua">VirtualHost <span style="color:#e6db74">&#34;server.domain.com&#34;</span>
+    authentication <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;token&#34;</span>
+    app_id <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;server.domain.com&#34;</span>;
+    app_secret <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;jwt-secret&#34;</span>;
+    allow_empty_token <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>;
+
+    ssl <span style="color:#f92672">=</span> {
+        key <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/etc/acme.sh/server.domain.com/server.domain.com.key&#34;</span>;
+        certificate <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/etc/acme.sh/server.domain.com/fullchain.cer&#34;</span>;
+    }
+    modules_enabled <span style="color:#f92672">=</span> {
+        <span style="color:#e6db74">&#34;bosh&#34;</span>;
+        <span style="color:#e6db74">&#34;pubsub&#34;</span>;
+        <span style="color:#e6db74">&#34;ping&#34;</span>;
+    }
+    c2s_require_encryption <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>
+
+Component <span style="color:#e6db74">&#34;conference.server.domain.com&#34;</span> <span style="color:#e6db74">&#34;muc&#34;</span>
+    modules_enabled <span style="color:#f92672">=</span> { <span style="color:#e6db74">&#34;token_verification&#34;</span> }
+    storage <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;internal&#34;</span>
+
+admins <span style="color:#f92672">=</span> { <span style="color:#e6db74">&#34;focus@auth.server.domain.com&#34;</span> }
+
+Component <span style="color:#e6db74">&#34;jitsi-videobridge.server.domain.com&#34;</span>
+    component_secret <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;videobridge-secret&#34;</span>
+
+VirtualHost <span style="color:#e6db74">&#34;auth.server.domain.com&#34;</span>
+    ssl <span style="color:#f92672">=</span> {
+        key <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/etc/acme.sh/server.domain.com/server.domain.com.key&#34;</span>;
+        certificate <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/etc/acme.sh/server.domain.com/fullchain.cer&#34;</span>;
+    }
+    authentication <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;internal_plain&#34;</span>
+
+Component <span style="color:#e6db74">&#34;focus.server.domain.com&#34;</span>
+    component_secret <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;jicofo-secret&#34;</span></code></pre></div>
+
+<p>Before starting prosody, we create an user and group called prosody. The log files for prosody will be in <code>/home/prosody</code>. Also we need to copy our certificates to <code>/etc/prosody/certs/</code> as shown in the configuration file, as prosody user is not able to read them from <code>/root/acme.sh</code>.</p>
+
+<p>Start prosody server with the command <code># prosodyctl start</code> and check the log files.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># prosodyctl register focus auth.jitsi.example.com focus-user-secret</span>
+<span style="color:#75715e"># prosodyctl restart</span></code></pre></div>
+
+<h2 id="jitsi-video-bridge-server">Jitsi video bridge server</h2>
+
+<p>The configuration files for the service are located in <code>/etc/jitsi/videobridge</code>. We need to update the <code>config</code> file with the data of our installation:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-auto" data-lang="auto"># Jitsi Videobridge settings
+
+# sets the XMPP domain (default: none)
+JVB_HOSTNAME=server.domain.com
+
+# sets the hostname of the XMPP server (default: domain if set, localhost otherwise)
+JVB_HOST=
+
+# sets the port of the XMPP server (default: 5275)
+JVB_PORT=5347
+
+# sets the shared secret used to authenticate to the XMPP server
+JVB_SECRET=videobridge-secret
+
+# extra options to pass to the JVB daemon
+JVB_OPTS=--apis=rest,xmpp
+
+# adds java system props that are passed to jvb (default are for home and logging config file)
+JAVA_SYS_PROPS=&#34;$JVB_EXTRA_JVM_PARAMS -Dnet.java.sip.communicator.SC_HOME_DIR_LOCATION=/etc/jitsi -Dnet.java.sip.communicator.SC_HOME_DIR_NAME=videobridge -Dnet.java.sip.communicator.SC_LOG_DIR_LOCATION=/var/log/jitsi -Djava.util.logging.config.file=/etc/jitsi/videobridge/logging.properties&#34;</code></pre></div>
+
+<p>Also we need to create the Java Key Store so clients can connect to the video bridge using SSL. We have included in the <code>jitsi-videobridge</code> package a tool called <code>upgrade-cert.sh</code> to create the store for us using the Let&rsquo;s Encrypt certificates:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span>
+ACME<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/etc/acme.sh&#34;</span>
+SERVER<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;server.domain.com&#34;</span>
+PASSWORD_STORE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;changeit&#34;</span>
+
+openssl pkcs12 <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>        -export <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>        -in $ACME/$SERVER/fullchain.cer <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>        -inkey $ACME/$SERVER/$SERVER.key <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>         -out $SERVER.p12 <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>        -name $SERVER
+
+keytool -importkeystore <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>        -deststorepass $PASSWORD_STORE <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>        -destkeystore $SERVER.jks <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>        -srckeystore $SERVER.p12 <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>        -srcstoretype PKCS12 <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>        -alias $SERVER</code></pre></div>
+
+<p>Customize your server name and password store and run the script to create <code>server.domain.com.jks</code>. Then update the <code>sip-communicator.properties</code>  file accordinly (change the port to 4443 instead of 443 on the file to avoid conflicts).</p>
+
+<p>You also might want to add the script to run when <code>acme.sh</code> renews the certificates.</p>
+
+<p>We start the service using the provided script <code>/etc/rc.d/rc.videobridge start</code> and check the logs in <code>/var/log/jitsi/jvb.log</code> for errors.</p>
+
+<h2 id="jitsi-conference-focus">Jitsi Conference Focus</h2>
+
+<p>The configuration files for the service are located in <code>/etc/jitsi/jicofo</code>. We need to update the <code>config</code> file with the data of our installation:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-auto" data-lang="auto"># Jitsi Conference Focus settings
+# sets the host name of the XMPP server
+JICOFO_HOST=localhost
+
+# sets the XMPP domain (default: none)
+JICOFO_HOSTNAME=server.domain.com
+
+# sets the secret used to authenticate as an XMPP component
+JICOFO_SECRET=jicofo-secret
+
+# sets the port to use for the XMPP component connection
+JICOFO_PORT=5347
+
+# sets the XMPP domain name to use for XMPP user logins
+JICOFO_AUTH_DOMAIN=auth.server.domain.com
+
+# sets the username to use for XMPP user logins
+JICOFO_AUTH_USER=focus
+
+# sets the password to use for XMPP user logins
+JICOFO_AUTH_PASSWORD=focus-user-secret
+
+# extra options to pass to the jicofo daemon
+JICOFO_OPTS=&#34;&#34;
+
+# adds java system props that are passed to jicofo (default are for home and logging config file)
+JAVA_SYS_PROPS=&#34;-Dnet.java.sip.communicator.SC_HOME_DIR_LOCATION=/etc/jitsi -Dnet.java.sip.communicator.SC_HOME_DIR_NAME=jicofo -Dnet.java.sip.communicator.SC_LOG_DIR_LOCATION=/var/log/jitsi -Djava.util.logging.config.file=/etc/jitsi/jicofo/logging.properties&#34;</code></pre></div>
+
+<p>We start the service using the provided script <code>/etc/rc.d/rc.jicofo start</code> and check the logs in <code>/var/log/jitsi/jvb.log</code> for errors.</p>
+
+<h2 id="jitsi-meet-application">Jitsi Meet Application</h2>
+
+<p>The jitsi meet application is in /opt/jitsi-meet. Because the Caddy web server does not have server side includes, we need to edit index.html and include the needed javascript files:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/config.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;libs/do_external_connect.min.js?v=1&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/interface_config.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/logging_config.js&#34;</span> <span style="color:#a6e22e">--</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;</code></pre></div>
+
+<p>Also we might want to include the file <code>title.html</code> in the header section of the <code>index.html</code>.</p>
+
+<h2 id="using-the-service">Using the service</h2>
+
+<p>We have configured the service to use JWT authentication. Following the documentation at <a href="https://github.com/jitsi/lib-jitsi-meet/blob/master/doc/tokens.md">jitsi-meet repository</a> and using the JWT Debugger at <a href="https://jwt.io">jwt.io</a>, we can generate a link like:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-auto" data-lang="auto">https://server.domain.com/roomXXX?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6Ik......</code></pre></div>
+
+<p>To enter a room, paste the link into the browser.</p>
+    </div>
+    <footer>
+      <hr>
+      <p>
+  Published
+  
+  <time itemprop="datePublished" datetime="2018-08-09T06:00:00&#43;00:00">
+    9 Aug, 2018
+  </time>
+  
+    in <span itemprop="articleSection"><a href="/categories/documentation/">documentation</a></span>
+  
+  
+    and tagged <a rel="tag" href="/tags/howto/">howto</a> and <a rel="tag" href="/tags/jitsi/">jitsi</a>
+  
+  using <span itemprop="wordCount">1523</span> words.
+</p>
+
+      
+
+
+
+    </footer>
+  </article>
+</main>
+    <footer>
+  
+  <small class="muted">
+    This page was generated by
+    <a  itemprop itemtype="https://schema.org/significantLink" target="_blank" rel="external noopener" href="https://after-dark.habd.as" referrerpolicy="origin-when-cross-origin">After Dark</a>.
+  </small>
+
+
+  
+
+</footer>
+    
+    
+    
+      
+    
+  </body>
+</html>

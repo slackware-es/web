@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <docs>https://blogs.law.harvard.edu/tech/rss</docs>
+    <title>Packages on Slackware</title>
+    <link>https://slackware.es/tags/packages/</link>
+    <description>Recent content in Packages on Slackware</description>
+    <image>
+      <title>Packages on Slackware</title>
+      <link>https://slackware.es/tags/packages/</link>
+      <url>https://slackware.es/img/penguins.jpg</url>
+    </image>
+    <ttl>1440</ttl>
+    <generator>Hugo 0.53</generator>
+    <language>en-US</language>
+    <lastBuildDate>Sat, 04 Aug 2018 08:01:21 +0000</lastBuildDate>
+    
+      <atom:link href="https://slackware.es/tags/packages/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      <item>
+        <title>Package Management</title>
+        <link>https://slackware.es/docs/packages/</link>
+        <pubDate>Sat, 04 Aug 2018 08:01:21 +0000</pubDate>
+        <guid>https://slackware.es/docs/packages/</guid>
+        <description>This document is a derivative of the Slacbook:install. The aim is to produce an evolution and contribute it back to the original work.
+Introduction Package management is an essential part of any Linux distribution. The software included in Slackware, along with many third-party tools, is distributed as source code. But compiling all those thousands of different applications and libraries is tedious and time consuming. That&amp;rsquo;s why many people prefer to install pre-compiled software packages.</description>
+        <category domain="https://slackware.es/categories/technology">Technology</category>
+        <content:encoded><![CDATA[ This document is a derivative of the Slacbook:install. The aim is to produce an evolution and contribute it back to the original work.
+Introduction Package management is an essential part of any Linux distribution. The software included in Slackware, along with many third-party tools, is distributed as source code. But compiling all those thousands of different applications and libraries is tedious and time consuming. That&amp;rsquo;s why many people prefer to install pre-compiled software packages. In fact, when you installed Slackware, the setup program run the package management tools on a list of packages. Here we&amp;rsquo;ll look at the various tools used for handling Slackware packages.
+Slackware packages are tar files compressed by gzip or xz whose name contains the software name and version, the computer architecture of the included binaries and the package maintainer tag.
+packageName-version-arch-tag.txz
+The package management tools use metadata stored in /var/log/packages to do their operations. This metadata is generated when the package is installed, and stored in files named after the package. In the next Slackware release the metadata will be stored in /var/lib/pkgtool.
+package metadata file   You can see the installed packages on your system by listing the contents of /var/log/packages, and on each file you can explore the following metadata fields:
+ Package name Compressed package size Uncompressed package size Package location Package description File list  Slackware packages were compressed with the gzip compression utility, which was a good compromise between compression speed and size. But new compression schemes have been added and today, official Slackware packages use the xz utility and end with .txz extensions. Older packages, and many third party packages, still use the .tgz extension.
+It&amp;rsquo;s worth emphasizing that .tgz and .txz (or, more succinctly, .t?z files) are standard, non-unique extensions for compressed .tar files. This has many advantages; they&amp;rsquo;re easy to build on any UNIX system (many other package formats require special tools), and they&amp;rsquo;re just as simple to de-construct.
+However, it is also important to realize that just because all Slackware packages are .t?z files, not all .t?z files are Slackware packages. installpkg won&amp;rsquo;t install just any .t?z file, only Slackware packages.
+A package contains an install folder with scripts to execute in the install process. The documentation of `makepkg contains the details of the install scripts.
+Slackware package management tools do not automatically manage the package dependencies and there is no such information on the package metadata and are written in shell script.
+In the next sections we describe the standard package management tools and mention non-standard ones for the advanced user.
+pkgtool The way to perform package maintenance tasks is to invoke pkgtool, a menu-driven interface which allows you to install or remove packages and view the contents of those packages and the list of installed packages in a user-friendly ncurses interface.
+pkgtool user interface   pkgtool is a convenient and easy way to perform the most basic tasks, but for more advanced work we need more flexible tools.
+Installing, Removing, and Upgrading Packages While pkgtool scores points for convenience, `installpkg can handle odd tasks, such as installing a single package, installing an entire disk set of packages, or scripting an custom installation process.
+installpkg takes a list of packages to install and installs them asking no questions. Like all Slackware package management tools, it assumes that you know what you&amp;rsquo;re doing and doesn&amp;rsquo;t pretend to be smarter than you. In its simplest form, installpkg takes a list of packages to install, and does what you would expect.
+pkgtool user interface   You can install multiple packages at a time, and in fact use shell wild cards.The following installs all the “N” series packages from a mounted CD-ROM:
+darkstar:~# installpkg /mnt/cdrom/slackware/n/*.txz removepkg will check the contents of the package metadata file and will remove all the files and directories for that package with one caveat. It will not remove files used by multiple installed packages, or non-empty directories.
+darkstar:~# removepkg blackbox-0.70.1-i486-2.txz``` upgradepkg which first installs a new package, then removes whatever files and directories are left-over from the old package. It doesn&amp;rsquo;t check if the installed package has a higher version number than the “new” package, so it can also downgrade a package to older versions.
+darkstar:~# upgradepkg blackbox-0.70.1-i486-2.txz &#43;============================================================================== | Upgrading blackbox-0.65.0-x86_64-4 package using ./blackbox-0.70.1-i486-2.txz &#43;============================================================================== Pre-installing package blackbox-0.70.1-i486-2... Removing package /var/log/packages/blackbox-0.65.0-x86_64-4-upgraded-2010-02-23,16:50:51... --&amp;gt; Deleting symlink /usr/share/blackbox/nls/POSIX --&amp;gt; Deleting symlink /usr/share/blackbox/nls/US_ASCII --&amp;gt; Deleting symlink /usr/share/blackbox/nls/de --&amp;gt; Deleting symlink /usr/share/blackbox/nls/en --&amp;gt; Deleting symlink /usr/share/blackbox/nls/en_GB ... Package blackbox-0.65.0-x86_64-4 upgraded with new package ./blackbox-0.70.1-i486-2.txz. These tools have useful arguments. For example, the –root to installpkg will install packages into an arbitrary directory. The –dry-run argument will instruct upgradepkg to tell you what it would attempt without changing the system. For complete details, refer to the man pages.
+slackpkg Slackpkg is an automated tool for management of Slackware Linux Packages. It Appeared in /extra for the release of slackware-12.1, and since the release of slackware-12.2 they have included it in the ap/ series of a base installation.
+You can find the latest version of slackpkg and its documentation at https://slackpkg.org.
+Slacpkg can download packages from a mirror in Internet and install them into your computer. This is useful for security updates or application upgrades.
+Without slackpkg, the process would be:
+ Notice in the Slackware change log they have released an update. Look on your local Slackware mirror to find a download link of the package. Download the package from a Slackware mirror to your hard drive. Use either installpkg or pkgtool to install the downloaded package.  Slackpkg reduces the process to:
+ Notice in the Slackware change log they have released an update. slackpkg install or upgrade the changed package  To use slackpkg, configure your system with a Slackware mirror by editing /etc/slackpkg/mirrors as root user. Find a mirror with your Slackware version and architecture and enable it by deleting the # at the start of the line. Only one mirror can be enabled at a time.
+Then, update the local change log by issuing the command slackpkg update. This command will download the change log and will compare it with your local copy. If there are any differences, the local file is updated with the remote contents.
+You should do this any time you notice they have posted a new package (check in with the Slackware change log once a day!).
+To search for a package, use slackpkg search foo, and to install use slackpkg install foo.
+You can manage the packages installed with slackpkg using pkgtool and the other standard package management commands.
+For more information see the man pages for slackpkg(8) and slackpkg.conf(5), and see its website
+There is also a novel tool called slackpkg&#43; which augments the current slackpkg tool to work with multiple repositories, for more information see its Guthub repository
+slackbuilds Original source: slackbuilds.org
+One of the frequent criticisms of Slackware is the lack of official packages available. While the official package set provides a good, stable, and flexible operating system (and is quite adequate for many individuals), the fact remains that many users want/need quite a few additional applications in order for it to meet their needs.
+There are a few well-known third party package repositories, but many users justifiably do not want to install untrusted packages on their systems. For those users, the traditional solution has been to download the source code for desired applications and compile them manually.
+This works, but introduces another set of problems associated with managing those applications; version updates and such require more of the admin&amp;rsquo;s time than precompiled packages, and lack of notes will often mean that the admin forgot which configure flags were used earlier (as well as any other special issues encountered).
+In our opinion, the best solution to this problem is for the admin to automate the compile process using a SlackBuild script. Patrick Volkerding, the maintainer of Slackware, uses SlackBuild scripts to compile the official packages, so it makes sense for us to use the same idea for extra applications we want to add.
+Our goal is to have the largest collection of SlackBuild scripts available while still ensuring that they are of the highest quality - we test every submission prior to inclusion in the repository. We do not now nor will we ever provide precompiled packages for any of the applications for which we have SlackBuild scripts - instead, we want the system administrator (that&amp;rsquo;s you) to be responsible for building the packages.
+How to use it can be read in their fantastic documentation at their website
+Building a package Original source: slack how-to
+Configure and compile the source as you usually do:
+./configure --prefix=/usr --localstatedir=/var --sysconfdir=/etc make Make a temporary destination directory available:
+mkdir /tmp/build Install into the temporary directory:
+make install DESTDIR=/tmp/build Now strip libs/bins within the temporary directory:
+strip -s /tmp/build/usr/lib/* /tmp/build/usr/bin/* You also want to make sure that anything in /usr/man is gzipped before you make the package:
+gzip -9 /tmp/build/usr/man/man?/*.? Create the install directory, this is where the description and install script will be stored:
+cd /tmp/build mkdir install cd install One-liner (for the copy &amp;amp; paste people):
+cd /tmp/build; mkdir install; cd install Using a text editor (or a tool), create a file called slack-desc and fill it with the following contents:
+appname: appname (Short description of the application) appname: &amp;lt;this line is generally left blank&amp;gt; appname: Description of application - this description should be fairly appname: in-depth; in other words, make it clear what the package does (and appname: maybe include relevant links and/or instructions if there&amp;#39;s room), appname: but don&amp;#39;t get too verbose. appname: This file can have a maximum of eleven (11) lines of text preceded by appname: the &amp;#34;appname: &amp;#34; designation. appname: appname: It&amp;#39;s a good idea to include a link to the application&amp;#39;s homepage too. appname: The “appname” string must exactly match the application name portion of the Slackware package (for example, a package titled “gaim-1.5-i486-1.tgz” must have a slack-desc file with the  string of “gaim: ” rather than “Gaim: ” or “GAIM: ” or something else.
+The first line must show the application name followed by a short description (enclosed in parentheses).
+Create the actual package:
+cd /tmp/build makepkg ../app-version-arch-tag.tgz (The dashes should appear as above, so if the version has a subversion like say “1.0 RC2” make sure you use 1.0_RC2 not 1.0-RC2. The arch should be something like “i486” for example. The tag should consist of the build number and your initals, e.g. 1zb for Zaphod Beeblebrox&amp;rsquo;s first build, 2zb for his second build, etc. Official slackware packages have only numbers as tags.)
+ When prompted to recreate symbolic links, say yes When prompted to reset permissions, say no  Note: Using makepkg -l y -c n will give you the same behaviour as answering yes to the symlinks question, and no to the permissions question.
+If all went well, you can now install the package.
+cd .. installpkg app-version-arch-tag.tgz ]]></content:encoded>
+      </item>
+    
+      <item>
+        <title>Downloads</title>
+        <link>https://slackware.es/downloads/downloads/</link>
+        <pubDate>Sat, 28 Jul 2018 08:01:21 +0000</pubDate>
+        <guid>https://slackware.es/downloads/downloads/</guid>
+        <description>{{if and (eq .Sort &#34;name&#34;) (ne .Order &#34;desc&#34;)}} Name &amp;#9650; {{else if and (eq .Sort &#34;name&#34;) (ne .Order &#34;asc&#34;)}} Name &amp;#9660; {{else}} Name {{end}}  {{if and (eq .Sort &#34;size&#34;) (ne .Order &#34;desc&#34;)}} Size &amp;#9650; {{else if and (eq .Sort &#34;size&#34;) (ne .Order &#34;asc&#34;)}} Size &amp;#9660; {{else}} Size {{end}}  {{if and (eq .Sort &#34;time&#34;) (ne .Order &#34;desc&#34;)}} Modified &amp;#9650; {{else if and (eq .Sort &#34;time&#34;) (ne .</description>
+        <category domain="https://slackware.es/categories/downloads">Downloads</category>
+        <content:encoded><![CDATA[    {{if and (eq .Sort &#34;name&#34;) (ne .Order &#34;desc&#34;)}} Name &amp;#9650; {{else if and (eq .Sort &#34;name&#34;) (ne .Order &#34;asc&#34;)}} Name &amp;#9660; {{else}} Name {{end}}  {{if and (eq .Sort &#34;size&#34;) (ne .Order &#34;desc&#34;)}} Size &amp;#9650; {{else if and (eq .Sort &#34;size&#34;) (ne .Order &#34;asc&#34;)}} Size &amp;#9660; {{else}} Size {{end}}  {{if and (eq .Sort &#34;time&#34;) (ne .Order &#34;desc&#34;)}} Modified &amp;#9650; {{else if and (eq .Sort &#34;time&#34;) (ne .Order &#34;asc&#34;)}} Modified &amp;#9660; {{else}} Modified {{end}}   {{if .CanGoUp}}      ..     {{end}} {{range .Items}}  {{if .IsDir}} {{else}}{{end}}   {{.Name}}  {{if not .IsDir}}{{.HumanSize}}{{end}} {{.HumanModTime &#34;02.01.2006 15:04:05&#34;}}  {{end}}  ]]></content:encoded>
+      </item>
+    
+  </channel>
+</rss>

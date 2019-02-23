@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    
+
+
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: 'unsafe-inline' 'unsafe-eval'; font-src 'self' https: data:; img-src 'self' https: data:; object-src 'none'">
+
+
+    <meta name="generator" content="Hugo 0.53" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slackware installation | Slackware</title>
+    <meta name="description" content="How to install Slackware in 2018">
+    <meta name="keywords" content="install, how-to, setup">
+    
+    
+    
+    
+    <meta property="og:title" content="Slackware installation" />
+<meta property="og:description" content="How to install Slackware in 2018" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://slackware.es/docs/install/" /><meta property="article:published_time" content="2018-07-28T08:01:21&#43;00:00"/>
+<meta property="article:modified_time" content="2018-07-28T08:01:21&#43;00:00"/>
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://slackware.es/img/penguins.jpg"/>
+
+<meta name="twitter:title" content="Slackware installation"/>
+<meta name="twitter:description" content="How to install Slackware in 2018"/>
+
+    
+
+
+
+  <meta property="og:image" content="https://slackware.es/img/penguins.jpg">
+
+
+    
+
+    
+    
+  <meta name="referrer" content="same-origin">
+
+
+    
+    
+    <script integrity="sha512-Jx/MqTxYWqHdoOkHItRJJZCvFDhERPr5gG4I5ESu3V&#43;BgQyAQ6wXfdsGzhzmT0yyvkAWz2jbrn81q90RRJTSTg==">/*! Fetch Inject v2.0.2 | Copyright (C) 2017–2018 Josh Habdas <jhabdas@protonmail.com> | @license Zlib */
+var fetchInject=function(){"use strict";const e=function(e,t,r,n,o,c,i){c=t.createElement(r),i=t.getElementsByTagName(r)[0],c.appendChild(t.createTextNode(n.text)),c.onload=o(n),i?i.parentNode.insertBefore(c,i):t.head.appendChild(c)};return function(t,r){if(!arguments.length)return Promise.reject(new ReferenceError("Failed to execute 'fetchInject': 1 argument required but only 0 present."));if(arguments[0]&&arguments[0].constructor!==Array)return Promise.reject(new TypeError("Failed to execute 'fetchInject': argument 1 must be of type 'Array'."));if(arguments[1]&&arguments[1].constructor!==Promise)return Promise.reject(new TypeError("Failed to execute 'fetchInject': argument 2 must be of type 'Promise'."));const n=[],o=r?[].concat(r):[],c=[];return t.forEach(e=>o.push(window.fetch(e).then(e=>[e.clone().text(),e.blob()]).then(e=>Promise.all(e).then(e=>{n.push({text:e[0],blob:e[1]})})))),Promise.all(o).then(()=>(n.forEach(t=>{c.push({then:r=>{t.blob.type.includes("text/css")?e(window,document,"style",t,r):e(window,document,"script",t,r)}})}),Promise.all(c)))}}();
+</script>
+    <script integrity="sha512-hno7WeTIciCJSjg/myjyK30HYkrcGCVwo4g4SpUalvrs3r2lS7bPNIQwbCNypKbg7BZ1sA4AsGnk6Gq4NOKpGA==">fetchInject(["/js/lazysizes.min.js"]);
+</script>
+    
+
+
+  
+    
+
+  <meta title="mod:fractal-forest" content="status:enabled">
+  
+    <script async src=/js/bpgdec8a.js integrity=sha384-8PG0go3BW8hLm63KbTxk/hNcehaoSbrAhKzsmy2Jhs/KY8QdiKKkjhdeyHY/Q/0I&#10;></script>
+  
+
+
+  
+  
+  
+  
+
+
+    
+    <link rel="canonical" href="https://slackware.es/docs/install/">
+    
+    
+    <link rel="icon" sizes="any" href="data:image/svg+xml,%3Csvg%20viewBox='0%200%2046%2045'%20xmlns='http://www.w3.org/2000/svg'%3E%3Ctitle%3EAfter%20Dark%3C/title%3E%3Cpath%20d='M.708%2045L23%20.416%2045.292%2045H.708zM35%2038L23%2019%2011%2038h24z'%20fill='%23000'/%3E%3C/svg%3E">
+
+    
+
+  
+    
+      <style>:root {
+	--fg: #272822;
+	--bg: #fbf9f1;
+}
+
+@font-face {
+	font-family: 'Terminus';
+	src: url('/fonts/terminus/TerminusTTF-4.46.0.ttf');
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Terminus';
+	src: url('/fonts/terminus/TerminusTTF-Bold-4.46.0.ttf');
+	font-weight: bold;
+}
+
+@font-face {
+	font-family: 'Terminus';
+	src: url('/fonts/terminus/TerminusTTF-Italic-4.46.0.ttf');
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Bitter';
+	src: url('/fonts/bitter/Bitter-Regular.ttf');
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Bitter';
+	src: url('/fonts/bitter/Bitter-Bold.ttf');
+	font-weight: bold;
+}
+
+@font-face {
+	font-family: 'Bitter';
+	src: url('/fonts/bitter/Bitter-Italic.ttf');
+	font-style: italic;
+}
+
+body, html {
+	height: 100%;
+}
+
+/* baisc typography */
+
+html, body, section, nav, article, aside, h1, h2, h3, h4, h5, h6, hgroup, header, footer, address, p, hr, pre, blackquote, ol, ul, li, dl, dt, dd, figure, figcaption, div, table, caption, form, fieldset {
+	vertical-align: baseline;
+	margin 0;
+	padding 0;
+}
+
+body {
+	font-family: 'Bitter', serif;
+	line-height: 1.5;
+	font-size: 1.15rem;
+	font-kerning: normal;
+	font-variant-numeric: oldstyle-nums proportional-nums;
+	font-variant-ligatures: common-ligatures contextual;
+	font-feature-settings: "kern", "liga", "clig", "calt";
+	background-color: var(--bg);
+	color: var(--fg);
+}
+
+
+p {
+	text-align: justify;
+	-webkit-hyphens: auto;
+	-webkit-hyphenate-limit-before: 4;
+	-webkit-hyphenate-limit-after: 3;
+	-webkit-hyphenate-limit-chars: 7 4 3;
+	-webkit-hyphenate-limit-lines: 2;
+	-webkit-hyphenate-limit-zone: 8%;
+	-webkit-hyphenate-limit-last: always;
+	-moz-hyphens: auto;
+	-moz-hyphenate-limit-chars: 7 4 3;
+	-moz-hyphenate-limit-lines: 2;
+	-moz-hyphenate-limit-zone: 8%;
+	-moz-hyphenate-limit-last: always;
+	-ms-hyphens: auto;
+	-ms-hyphenate-limit-chars: 7 4 3;
+	-ms-hyphenate-limit-lines: 2;
+	-ms-hyphenate-limit-zone: 8%;
+	-ms-hyphenate-limit-last: always;
+	hyphens: auto;
+	hyphenate-limit-chars: 7 4 3;
+	hyphenate-limit-lines: 2;
+	hyphenate-limit-zone: 8%;
+	hyphenate-limit-last: always;
+	margin-bottom: 0;
+	letter-spacing: -0.01em;
+}
+
+p + p {
+	text-indent: 2em;
+	margin-top: 0;
+}
+
+.quoted p {
+	quotes: '“' '”' '‘' '’';
+}
+
+.quoted p::before {
+	content: open-quote;
+	margin-left: -0.83ch;
+}
+.quoted p::after {
+	content: close-quote;
+}
+
+
+ol {
+	padding-left: 0; margin-left: 0;list-style: none;
+	counter-reset: list;
+}
+
+ol li::before {
+	counter-increment: list;
+	content: counter(list);
+	margin-left: -2em; margin-right: 1em;
+}
+
+h1 {font-family: 'Terminus', fixed;  font-size: 2.0625rem; line-height: 1;}
+h2 {font-family: 'Terminus', fixed; font-size: 1.5625rem; line-height: 1;}
+h3 {font-family: 'Terminus', fixed; font-size: 1.3125rem; line-height: 1;}
+h4 {font-family: 'Terminus', fixed; font-size: 1.2025rem; line-height: 1.2;}
+h5 {font-family: 'Terminus', fixed; font-size: 1.2025rem; line-height: 1.2;}
+h6 {font-family: 'Terminus', fixed; font-size: 1.2025rem; line-height: 1.2;}
+p {font-size: 1.15rem;}
+
+@media screen and(min-width: 60em) {
+	h1 {font-family: 'Terminus', fixed;  font-size: 3.1875rem; line-height: 1;}
+	h2 {font-family: 'Terminus', fixed; font-size: 2.0625rem; line-height: 1;}
+	h3 {font-family: 'Terminus', fixed; font-size: 1.5625rem; line-height: 1;}
+	h4 {font-family: 'Terminus', fixed; font-size: 1.325rem; line-height: 1.2;}
+	h5 {font-family: 'Terminus', fixed; font-size: 1.325rem; line-height: 1.2;}
+	h6 {font-family: 'Terminus', fixed; font-size: 1.325rem; line-height: 1.2;}	
+	p {font-size: 1.225rem;}
+}
+
+@media screen and(min-width: 120em) {
+	h1 {font-family: 'Terminus', fixed;  font-size: 4.875rem; line-height: 1;}
+	h2 {font-family: 'Terminus', fixed; font-size: 2.75rem; line-height: 1;}
+	h3 {font-family: 'Terminus', fixed; font-size: 1.75rem; line-height: 1;}
+	h4 {font-family: 'Terminus', fixed; font-size: 1.5125rem; line-height: 1.2;}
+	h5 {font-family: 'Terminus', fixed; font-size: 1.5125rem; line-height: 1.2;}	
+	h6 {font-family: 'Terminus', fixed; font-size: 1.5125rem; line-height: 1.2;}
+	p {font-size: 1.4125rem;}
+}
+
+pre, code {
+	font-family: 'Terminus', fixed;
+	font-weight: regular;
+	line-height: 1.2;
+	font-kerning: normal;
+	font-variant-numeric: oldstyle-nums proportional-nums;
+	font-variant-ligatures: common-ligatures contextual;
+	font-feature-settings: "kern", "liga", "clig", "calt";
+}
+
+pre:hover,
+pre:focus {
+  width: min-content;
+}
+
+a:hover, a:active, a:focus {
+	background-color: var(--bg);
+	color: rgb(231, 25, 1);
+	border-bottom: 1px solid rgba(0,0,0,0.6);
+}
+
+a, .toggle__input + label {
+	color: inherit;
+	text-decoration: none;
+	border-bottom: 1px solid rgba(0,0,0,0.2);
+	transition: all 0.25s ease;
+}
+
+div.center {
+	overflow: hidden;
+}
+
+div.center iframe{
+	overflow: hidden;
+	scrolling: no;	
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 750px;
+	height: 390px;
+}
+
+table {
+	color: var(--fg);
+}
+
+:target {
+	color: rgb(231, 25, 1);
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+
+.hero-image {
+	/* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read 
+	background-image: linear-gradient(rgba(251, 249, 241, 0.3), rgba(251, 249, 241, 0.4)), url("/img/penguins.jpg"); */
+
+	/* Set a specific height 
+	height: 6em;*/
+
+	/* Position and center the image to scale nicely on all screens */
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 100%;
+}
+
+/* Place text in the middle of the image */
+.hero-text {
+	text-align: center;
+	line-height: 2;
+}
+
+.hero-text h1 {
+	font-family: Terminus, fixed;
+	font-size: 5rem;
+	font-weigth: bold;
+	padding: 1rem;
+	margin-top: 2rem;
+	margin-bottom: 1rem;
+}
+
+.hero-text h2 {
+	font-family: Bitter, serif;
+	font-size: 2rem;
+	font-weigth: bold;
+}
+
+.getButton {
+	width: 20rem;
+	font-family: Terminus, fixed;
+	font-size: 1.5rem;
+	font-weigth: bold;
+	background-color: var(--fg);
+	color: var(--bg);
+	padding: 5px;
+}
+
+.highlight {
+	background-color: var(--fg);
+	color: var(--bg);
+}
+
+.changelog {
+	font-family: Terminus, fixed;
+	font-weigth: regular;
+	padding: 0;
+}
+
+/* forms */
+
+.form-group {
+	margin-bottom: 1.75rem;
+	overflow: auto;
+}
+
+fieldset {
+	border: none;
+	padding: 0;
+	margin: 0;
+}
+
+input.form-control {
+	font-size: initial;
+	border-radius: 0;
+	background-color: transparent;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+}
+
+.form-control {
+	outline: none;
+	border: none;
+	border-bottom: 2px solid #ccc;
+	padding: .5rem 0;
+	width: 20rem;
+	height: 38px;
+	background-color: transparent;
+}
+
+/* responsiveness */
+body {
+	width: 50rem;
+	max-width: 80%;
+	margin: 0 auto;
+	padding: 2rem 1rem;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+@media \0screen {
+  img { 
+  	width: auto; /* for ie 8 */
+  }
+}
+
+.grid {
+	display: grid;
+}
+
+.cell {
+	overflow-x: auto;
+}
+
+.two {
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr); 
+}
+
+.three {
+	grid-template-columns: 1fr 1fr 1fr;
+}
+
+pre {
+    white-space: pre-wrap;       /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+</style>
+      
+
+
+  
+
+
+    
+  
+
+
+    
+    
+  </head>
+  
+  
+  
+  <body class="">
+    <header>
+  
+  <nav itemscope itemtype="http://schema.org/SiteNavigationElement">
+    
+    
+      <a itemprop="url" class="" href="/"><span itemprop="name">Home</span></a>
+    
+      <a itemprop="url" class="" href="/posts/"><span itemprop="name">Blog</span></a>
+    
+      <a itemprop="url" class="" href="/docs/"><span itemprop="name">Docs</span></a>
+    
+      <a itemprop="url" class="" href="/files/"><span itemprop="name">Downloads</span></a>
+    
+      <a itemprop="url" class="" href="/search/"><span itemprop="name">Search</span></a>
+    
+  </nav>
+
+
+</header>
+    <main>
+  <article itemscope itemtype="http://schema.org/BlogPosting">
+    
+<meta itemprop="name" content="Slackware installation">
+<meta itemprop="description" content="How to install Slackware in 2018">
+
+
+<meta itemprop="datePublished" content="2018-07-28T08:01:21&#43;00:00" />
+<meta itemprop="dateModified" content="2018-07-28T08:01:21&#43;00:00" />
+<meta itemprop="wordCount" content="3223">
+
+
+
+<meta itemprop="keywords" content="install,how-to,setup," />
+
+    <header>
+      <h1 itemprop="headline">Slackware installation</h1>
+      <p class="muted">
+        <svg style="margin-bottom:-3px" class="i-clock" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+  <circle cx="16" cy="16" r="14" />
+  <path d="M16 8 L16 16 20 20" />
+</svg>
+<span>16 minute read</span>
+<svg style="margin-bottom: -3px" class="i-edit" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+  <path d="M30 7 L25 2 5 22 3 29 10 27 Z M21 6 L26 11 Z M5 22 L10 27 Z" />
+</svg>
+
+  Published: <time datetime="2018-07-28T08:01:21&#43;00:00">28 Jul, 2018</time>
+
+
+      </p>
+      
+        <blockquote itemprop="description">How to install Slackware in 2018</blockquote>
+      
+      
+    </header>
+    
+  <details>
+    <summary>Table of Contents</summary>
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#booting">Booting</a></li>
+<li><a href="#partitioning">Partitioning</a></li>
+<li><a href="#the-setup-program">The Setup Program</a>
+<ul>
+<li><a href="#help">Help</a></li>
+<li><a href="#keymap">Keymap</a></li>
+<li><a href="#addswap">Addswap</a></li>
+<li><a href="#target">Target</a></li>
+<li><a href="#source">Source</a></li>
+<li><a href="#select">Select</a></li>
+<li><a href="#install">Install</a></li>
+<li><a href="#configure">Configure</a>
+<ul>
+<li><a href="#usb-boot-disk">USB boot disk</a></li>
+<li><a href="#lilo-the-linux-loader">LILO: The Linux Loader</a></li>
+<li><a href="#mouse-enable-gpm">Mouse: enable gpm</a></li>
+<li><a href="#network-configuration">Network configuration</a></li>
+<li><a href="#start-up-services">Start up services</a></li>
+<li><a href="#time-zone">Time zone</a></li>
+<li><a href="#window-manager">Window manager</a></li>
+<li><a href="#root-password">Root password</a></li>
+<li><a href="#additional-settings-and-reboot">Additional settings and reboot</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </details>
+
+
+    <div itemprop="articleBody">
+      
+
+<p>This document is a derivative of the <a href="https://docs.slackware.com/slackbook:install">Slacbook:install</a> and <a href="https://slackbook.org/beta/#ch_install">Slackbook beta</a>. The aim is to produce an evolution and contribute it back to the original work.</p>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>Slackware&rsquo;s installation is a bit more simplistic than that of most other Linux distributions and is very reminiscent of installing one of the varieties of BSD operating systems. If you&rsquo;re familiar with those, you should feel right at home. If you&rsquo;ve never installed Slackware or used a distribution that makes use of a non-graphical installer, you may feel a bit overwhelmed at first. Don&rsquo;t panic! The installation is very easy once you understand it, and it works on just about any x86 platform.</p>
+
+<p>The latest versions of Slackware Linux are distributed on DVD or CD media, but Slackware can be installed in a variety of other ways. We&rsquo;re only going to focus on the most common method - booting from a DVD - in this book. If you don&rsquo;t have a CD or DVD drive, you might wish to take a look at the various README files inside the usb-and-pxe-installers directory at your favorite Slackware mirror. This directory includes the necessary files and instructions for booting the Slackware installer from a USB flash drive or from a network card that supports PXE. The files there are the best source of information available for such boot methods.</p>
+
+<p>Starting with the 14.1 release, Slackware ISO images (both the ones available online as well as the discs sent out from the Slackware store) have been processed using isohybrid. This allows them to be written to a USB stick, which can then be booted and used as the install source.</p>
+
+<p>A HOWTO on setting up a PXE boot server right off a Slackware installation medium (DVD or USB Stick) is available in this separate article: Out of the box Slackware PXE Server</p>
+
+<h2 id="booting">Booting</h2>
+
+<p>Booting the installer is simply a process of inserting the Slackware install disk into your CD or DVD drive and rebooting. You may have to enter your computer&rsquo;s BIOS and alter the boot order to place the optical drive at a higher boot priority than your hard drives. Some computers allow you to change the boot order on the fly by pressing a specific function key during system boot-up. Since every computer is different, we can&rsquo;t offer instructions on how to do this, but the method is simple on nearly all machines.</p>
+
+<p>Once your computer boots from the CD you&rsquo;ll be taken to a screen that allows you to enter any special kernel parameters. This is here primarily to allow you to use the installer as a sort of rescue disk. Some systems may need special kernel parameters in order to boot, but these are very rare exceptions to the norm. Most users can simply press enter to let the kernel boot.</p>
+
+<div class="center">
+	<iframe src="/scr/boot_message_isolinux.xhtml" frameborder="0">
+		
+Boot message
+
+	</iframe>
+</div>
+
+
+<p>You should see a lot of text go flying across your screen. Don&rsquo;t be alarmed, this is all perfectly normal. The text you see is generated by the kernel during boot-up as it discovers your hardware and prepares to load the operating system (in this case, the installer). You can later read these messages with the dmesg(1) command if you&rsquo;re interested. Often these messages are very important for troubleshooting any hardware problems you may have. Once the kernel has completed its hardware discovery, the messages should stop and you&rsquo;ll be given an option to load support for non-us keyboards.</p>
+
+<div class="center">
+	<iframe src="/scr/keyboard_option.xhtml" frameborder="0">
+		
+Keyboard option pre setup
+
+	</iframe>
+</div>
+
+
+<p>Entering 1 and pressing ENTER will give you a list of keyboard mappings. Simply select the mapping that matches your keyboard type and continue on.</p>
+
+<div class="center">
+	<iframe src="/scr/keyboard_map_selection.xhtml" frameborder="0">
+		
+Keyboard selection pre setup
+
+	</iframe>
+</div>
+
+
+<p>Unlike other Linux distributions which boot you directly into a dedicated installer program, Slackware&rsquo;s installer drops you into a limited Linux distribution loaded into your system&rsquo;s RAM. This limited distribution is then used to run all the installation programs manually, or can be used in emergencies to fix a broken system that fails to boot. Now that you&rsquo;re logged in as root (there is no password within the installer) it&rsquo;s time to start setting up your disks. At this point, you may setup software RAID or LVM support if you wish or even an encrypted root partition, but those topics are outside of the scope of this book. I encourage you to refer to the excellent README_RAID.TXT, README_LVM.TXT, and README_CRYPT.TXT files on your CD if you desire to setup your system with these advanced tools. Most users won&rsquo;t have any need to do so and should proceed directly to partitioning.</p>
+
+<h2 id="partitioning">Partitioning</h2>
+
+<p>The Slackware installation media comes with tools to partition a hard drive.
+Usually partitioning a hard disk process is composed of these steps:</p>
+
+<ul>
+<li>Identify computer disks</li>
+<li>Running the desired partitioning tool on the target HDD.</li>
+<li>Showing the current partition table to see if there are any installed partitions.</li>
+<li>If needed, deleting partitions.</li>
+<li>Create a new partition.</li>
+<li>Selecting the type and size of the new partition.</li>
+<li>Continuing to create partitions as planned.</li>
+<li>Changing types of the partition (Swap, Linux, Solaris, etc).</li>
+<li>Setting a bootable flag to a desired partition.</li>
+<li>Writing the partition table.</li>
+</ul>
+
+<p>How to select which hard drive you want to install on could be a challenge on some machines. A modern desktop or laptop can have multiple devices with different naming.</p>
+
+<p>To list the disks present on a device we can list which devies have been recognized by the kernel like:</p>
+
+<div class="center">
+	<iframe src="/scr/disk_by_id.xhtml" frameborder="0">
+		
+Identify computer disks
+
+	</iframe>
+</div>
+
+
+<p>Or on a more complex scenario:</p>
+
+<div class="center">
+	<iframe src="/scr/disk_by_id_complex.xhtml" frameborder="0">
+		
+Identify computer disks complex
+
+	</iframe>
+</div>
+
+
+<p>If the IDs of the decies doest tell you anything, you might want to search for them to identify which disk it might be,</p>
+
+<p>In the comples scenario we can see multiple NVME devices described by their brand and model number.</p>
+
+<p>In this simple scenario (the first one), we select the <code>/dev/sda</code> device and execute the <code>cfdisk</code> program like <code>cfdisk /dev/sda</code>. Then, its UI appears:</p>
+
+<div class="center">
+	<iframe src="/scr/cfdisk_sda_empty_disk.xhtml" frameborder="0">
+		
+Check free space on disk
+
+	</iframe>
+</div>
+
+
+<p>We need to create a partition on the hard disk to contain our Slackware system. We can see our disk is empty and we can use that empty space to create a new partition. If there is no free space on your disk, the first step is to create free space by deleting used space. This is a dangerous operation, so be sure you don&rsquo;t need anything from that disk before deleting partitions.</p>
+
+<p><code>cfdisk</code> will ask how much of that free space we want to assign to a partition when we select the option <code>[New]</code> and press enter.</p>
+
+<div class="center">
+	<iframe src="/scr/cfdisk_partition_size.xhtml" frameborder="0">
+		
+Select partition size
+
+	</iframe>
+</div>
+
+
+<p>If we plan to install the system boot loader in the boot sector of the partition, we need to mark it as bootable with the correspondent <code>cfdisk</code> menu. When its marked as bootable a <code>*</code> symbols appears under the <code>Boot</code> column.</p>
+
+<div class="center">
+	<iframe src="/scr/cfdisk_partition_bootable.xhtml" frameborder="0">
+		
+Mark partition as bootable
+
+	</iframe>
+</div>
+
+
+<p>In some situations we might need to create partitions of differnt types, for that we can change a partition type with the <code>[Type]</code> entry of the <code>cfdisk</code> program. We can select more than enought partition types.</p>
+
+<div class="center">
+	<iframe src="/scr/cfdisk_partition_type.xhtml" frameborder="0">
+		
+Change partition type
+
+	</iframe>
+</div>
+
+
+<p>We everything is done, and we&rsquo;re satisfied with the disk partitioning, we need to write the changes to the disk, and exit the program using the <code>[Quit]</code> menu.</p>
+
+<div class="center">
+	<iframe src="/scr/cfdisk_partition_write.xhtml" frameborder="0">
+		
+Write partition and exit
+
+	</iframe>
+</div>
+
+
+<h2 id="the-setup-program">The Setup Program</h2>
+
+<p>Now that you&rsquo;ve created your partitions it&rsquo;s time to run the setup program to install Slackware. setup will handle formatting partitions, installing packages, and running basic configuration scripts step-by-step. In order to do so, just type <code>setup</code> at your shell prompt.</p>
+
+<div class="center">
+	<iframe src="/scr/slackware_linux_setup.xhtml" frameborder="0">
+		
+Write partition and exit
+
+	</iframe>
+</div>
+
+
+<h3 id="help">Help</h3>
+
+<p>If you&rsquo;ve never installed Slackware before, you can get a very basic over-view of the Slackware installer by reading the Help menu. Most of the information here is on navigating through the installer which should be fairly intuitive, but if you&rsquo;ve never used a curses-based program before you may find this useful.</p>
+
+<div class="center">
+	<iframe src="/scr/slackware_linux_setup_help.xhtml" frameborder="0">
+		
+Access setup program help
+
+	</iframe>
+</div>
+
+
+<h3 id="keymap">Keymap</h3>
+
+<p>Before we go any further, Slackware gives you the opportunity to select a different mapping for your keyboard. If you&rsquo;re using a standard US keyboard you can safely skip this step, but if you&rsquo;re using an international keyboard you will want to select the correct mapping now. This ensures that the keys you press on your keyboard will do exactly what you expect them to do</p>
+
+<div class="center">
+	<iframe src="/scr/slackware_linux_setup_keymap.xhtml" frameborder="0">
+		
+Select keymap
+
+	</iframe>
+</div>
+
+
+<h3 id="addswap">Addswap</h3>
+
+<p>If you created a swap partition, this step will allow you to enable it before running any memory-intensive activities like installing packages. swap space is essentially virtual memory. It&rsquo;s a hard drive partition (or a file, though Slackware&rsquo;s installer does not support swap files) where regions of active system memory get copied when your computer is out of useable RAM. This lets the computer “swap” programs in and out of active RAM, allowing you to use more memory than your computer actually has. This step will also add your swap partition to /etc/fstab so it will be available to your OS.</p>
+
+<h3 id="target">Target</h3>
+
+<p>Our next step is selecting our root partition and any other partitions we&rsquo;d like Slackware to utilize. You&rsquo;ll be given a choice of filesystems to use and whether or not to format the partition. If you&rsquo;re installing to a new partition you must format it. If you have a partition with data on it you&rsquo;d like to save, don&rsquo;t. For example, many users have a seperate /home partition used for user data and elect not to format it on install. This lets them install newer versions of Slackware without having to backup and restore this data.</p>
+
+<div class="center">
+	<iframe src="/scr/slackware_linux_setup_partition.xhtml" frameborder="0">
+		
+Select target partition
+
+	</iframe>
+</div>
+
+
+<h3 id="source">Source</h3>
+
+<p>Here you&rsquo;ll tell the installer where to find the Slackware packages. The most common method is to use the Slackware install DVD or CDs, but various other options are available. If you have your packages installed to a partition that you setup in the previous step, you can install from that partition or a pre-mounted directory. (You may need to mount that partition with mount(8) first. See chapter 11 for more details.) Additionally, Slackware offers a variety of networked options such as NFS shares, FTP, HTTP, and Samba. If you select a network installation, Slackware will prompt you for TCP/IP information first. We&rsquo;re only going to discuss installation from the DVD, but other methods are similar and straightforward.</p>
+
+<div class="center">
+	<iframe src="/scr/slackware_linux_setup_select_media.xhtml" frameborder="0">
+		
+Select source media
+
+	</iframe>
+</div>
+
+
+<h3 id="select">Select</h3>
+
+<p>One unique feature of Slackware is its manner of dividing packages into disksets. At the beginning of time, network access to FTP servers was available only through incredibly slow 300 baud modems, so Slackware was split into disk sets that would fit onto floppy disks so users could download and install only those packages they were interested in. Today that practice continues and the installer allows you to chose which sets to install. This allows you to easily skip packages you may not want, such as X and KDE on headless servers or Emacs on everything. Please note that the “A” series is always required.</p>
+
+<div class="center">
+	<iframe src="/scr/slackware_linux_setup_series_selection.xhtml" frameborder="0">
+		
+Select source media
+
+	</iframe>
+</div>
+
+
+<h3 id="install">Install</h3>
+
+<p>Finally we get to the meat of the installer. At this stage, Slackware will ask you what method to use to chose packages. If this is your first time installing Slackware, the “full” method is highly recommended. Even if this isn&rsquo;t your first time, you&rsquo;ll probably want to use it anyway.</p>
+
+<p>The “menu” and “expert” options allow you to choose individual packages to install and are of use to skilled users familiar with the OS. These methods allow such users to quickly prune packages from the installer to build a very minimal system. If you don&rsquo;t know what you&rsquo;re doing (sometimes even if you do) you&rsquo;re likely to leave out crucial pieces of software and end up with a broken system.</p>
+
+<p>The “newbie” method can be very helpful to a new user, but takes a very long time to install. This method will install all the required packages, then prompt you individually for every other package. The big advantage here is that is pauses and gives you a brief overview of the package contents. For a new user, this introduction into what is included with Slackware can be informative. For most other users it is a long and tedious process.</p>
+
+<p>The “custom” and “tagpath” options should only be used by people with the greatest skill and expertise with Slackware. These methods allow the user to install packages from custom tagfiles. Tagfiles are only rarely used. We won&rsquo;t discuss them in this book.</p>
+
+<div class="center">
+	<iframe src="/scr/slackware_linux_setup_prompt_mode.xhtml" frameborder="0">
+		
+Select source media
+
+	</iframe>
+</div>
+
+
+<p>If we select the recommended prompt mode we will see how the program install all selected series of packages and shows information for each package. It could be too fast to read in modern computers.</p>
+
+<div class="center">
+	<iframe src="/scr/slackware_linux_setup_installing.xhtml" frameborder="0">
+		
+Installing packages
+
+	</iframe>
+</div>
+
+
+<h3 id="configure">Configure</h3>
+
+<p>Once all the packages are installed you&rsquo;re nearly finished. At this stage, Slackware will prompt you with a variety of configuration tasks for your new operating system. Many of these are optional, but most users will need to set something up here. Depending on the packages you&rsquo;ve installed, you may be offered different configuration options than the ones shown here, but we&rsquo;ve included all the really important ones.</p>
+
+<h4 id="usb-boot-disk">USB boot disk</h4>
+
+<p>The first thing you&rsquo;ll likely be prompted to do is setup a boot disk. In the past this was typically a 1.44MB floppy disk, but today&rsquo;s Linux kernel is far too large to fit on a single floppy, so Slackware offers to create a bootable USB flash memory stick. Of course, your computer must support booting from USB in order to use a USB boot stick (most modern computers do). If you do not intend to use LILO or another traditional boot loader, you should consider making a USB boot stick. Please note that doing so will erase the contents of whatever memory stick you&rsquo;re using, so be careful.</p>
+
+<div class="center">
+	<iframe src="/scr/slackware_linux_setup_usb_boot.xhtml" frameborder="0">
+		
+Make bootable USB
+
+	</iframe>
+</div>
+
+
+<h4 id="lilo-the-linux-loader">LILO: The Linux Loader</h4>
+
+<p>Nearly everyone will need to setup the LInux LOader, LILO. LILO is in charge of booting the Linux kernel and connecting to an initrd or the root filesystem. Without it (or some other boot loader), your new Slackware operating system will not boot. Slackware offers a few options here. The “simple” method attempts to automatically configure LILO for your computer, and works well with very simple systems. If Slackware is the only operating system on your computer, it should configure and install LILO for you without any hassels. If you don&rsquo;t trust the simpler method to work, or if you want to take an in-depth look at how to configure LILO, the “expert” method is really not all that complicated. This method will take you through each step and offer to setup dual-boot for Windows and other Linux operating systems. It also allows you to append kernel command parameters (most users will not need to specify any though).</p>
+
+<div class="center">
+	<iframe src="/scr/slackware_linux_setup_install_lilo.xhtml" frameborder="0">
+		
+Make bootable USB
+
+	</iframe>
+</div>
+
+
+<p>On modern UEFI machines and on some virtualization environment LILO might not work, and you might need to install GRUB or boot directly the linux kernel from the UEFI partition.</p>
+
+<h4 id="mouse-enable-gpm">Mouse: enable gpm</h4>
+
+<p>This simple step allows you to configure and activate a console mouse for use outside of the graphical desktops. By activating a console mouse, you&rsquo;ll be able to easily copy and paste from within the Slackware terminal. Most users will need to choose one of the first three options, but many are offered, and yes those ancient two-button serial mice do work.</p>
+
+<div class="center">
+	<iframe src="/scr/slackware_linux_setup_mouse_type.xhtml" frameborder="0">
+		
+Select mouse type
+
+	</iframe>
+</div>
+
+
+<p>And then enable the <code>gpm</code> to enable mouse on the console at boot time.</p>
+
+<div class="center">
+	<iframe src="/scr/slackware_linux_setup_enable_gpm.xhtml" frameborder="0">
+		
+Select mouse type
+
+	</iframe>
+</div>
+
+
+<h4 id="network-configuration">Network configuration</h4>
+
+<p>If you don&rsquo;t wish to configure your network at this stage, you may decline, but otherwise you&rsquo;ll be prompted to provide a hostname for your computer.</p>
+
+<p>For laptops and desktop computing (development workstation, family PC, etc.) you will need a <code>Network Manager</code> setup. For a server you might need something different. In this scenario we&rsquo;re going to cover the laptop/home computing scenario.</p>
+
+<p>First, select we want to setup the network now:</p>
+
+<div class="center">
+	<iframe src="/scr/slackware_linux_setup_ask_network.xhtml" frameborder="0">
+		
+Confirm we want to setup our network
+
+	</iframe>
+</div>
+
+
+<p>Enter a host name to describe your computer. You might need to type it often for other configurations, so choose wisely (only letters and numbers allowed).</p>
+
+<div class="center">
+	<iframe src="/scr/slackware_linux_setup_hostname.xhtml" frameborder="0">
+		
+Enter a host name
+
+	</iframe>
+</div>
+
+
+<p>Enter a domain name. This is not used on home computer environmnent most of the time, so almost always can invent a domain name to put here like <code>slackware.com</code>.</p>
+
+<div class="center">
+	<iframe src="/scr/slackware_linux_setup_domain.xhtml" frameborder="0">
+		
+Enter a domain name
+
+	</iframe>
+</div>
+
+
+<p>Select the <code>Network Manager</code> option:</p>
+
+<div class="center">
+	<iframe src="/scr/slackware_linux_setup_network_manager.xhtml" frameborder="0">
+		
+Select network manager
+
+	</iframe>
+</div>
+
+
+<p>Then confirm the data we&rsquo;ve entered is correct to continue the set up.</p>
+
+<div class="center">
+	<iframe src="/scr/slackware_linux_setup_network_confirm.xhtml" frameborder="0">
+		
+Confirm network set up
+
+	</iframe>
+</div>
+
+
+<h4 id="start-up-services">Start up services</h4>
+
+<p>Once your network configuration is completed Slackware will prompt you to configure the startup services that you wish to run automatically upon boot. Helpful descriptions of each service appear both to the right of the service name as well as at the bottom of the screen. If you&rsquo;re not sure what to turn on, you can safely leave the defaults in place. What services are started at boot time can be easily modified later with pkgtool.</p>
+
+<p>The default ones are normally fine, but you might want to enable or disable some. The fewer you need the better normally.</p>
+
+<div class="center">
+	<iframe src="/scr/slackware_linux_setup_enable_services.xhtml" frameborder="0">
+		
+Enable start up services
+
+	</iframe>
+</div>
+
+
+<h4 id="time-zone">Time zone</h4>
+
+<p>Every computer needs to keep track of the current time, and with so many timezones around the world you have to tell Slackware which one to use. If your computer&rsquo;s hardware clock is set to UTC (Coordinated Universal Time), you&rsquo;ll need to select that; most hardware clocks are not set to UTC from the factory (though you could set it that way on your own; Slackware doesn&rsquo;t care). Then simply select your timezone from the list provided and off you go.</p>
+
+<p>IF you have another OS like Microsoft Windows installed on your computer, your hardware clock would be set up to you local time. If you&rsquo;re going to use Slackware as your system, you can choose the option you like more.</p>
+
+<div class="center">
+	<iframe src="/scr/slackware_linux_setup_hwclock.xhtml" frameborder="0">
+		
+Setup hardware clock
+
+	</iframe>
+</div>
+
+
+<p>If you selected that your hardware clock is sync&rsquo;ed to UTC the timezone selection will show your local time and date correctly. In any case, the timezone is also needed when the clock is sync&rsquo;ed to local time.</p>
+
+<div class="center">
+	<iframe src="/scr/slackware_linux_setup_timezone.xhtml" frameborder="0">
+		
+Set yout local timezone
+
+	</iframe>
+</div>
+
+
+<h4 id="window-manager">Window manager</h4>
+
+<p>If you installed the X disk set, you&rsquo;ll be prompted to select a default window manager or desktop environment. What you select here will apply to every user on your computer, unless that user decides to run xwmconfig(1) and choose a different one. Don&rsquo;t be alarmed if the options you see below do not match the ones Slackware offers you. xwmconfig only offers choices that you installed. So for example, if you elected to skip the “KDE” disk set, KDE will not be offered.</p>
+
+<div class="center">
+	<iframe src="/scr/slackware_linux_setup_window_manager.xhtml" frameborder="0">
+		
+Select your window manager
+
+	</iframe>
+</div>
+
+
+<h4 id="root-password">Root password</h4>
+
+<p>he last configuration step is setting a root password. The root user is the “super user” on Slackware and all other UNIX-like operating systems. Think of root as the Administrator user. root knows all, sees all, and can do all, so setting a strong root password is just common sense.</p>
+
+<div class="center">
+	<iframe src="/scr/slackware_linux_setup_root_passwd.xhtml" frameborder="0">
+		
+Set the root password
+
+	</iframe>
+</div>
+
+
+<h4 id="additional-settings-and-reboot">Additional settings and reboot</h4>
+
+<p>At this point Slackware is installed. If you need to do additional operations before rebooting, select the appropriate options in the following steps:</p>
+
+<div class="center">
+	<iframe src="/scr/slackware_linux_setup_remove_media.xhtml" frameborder="0">
+		
+Remove installation media
+
+	</iframe>
+</div>
+
+
+<div class="center">
+	<iframe src="/scr/slackware_linux_setup_reboot_question.xhtml" frameborder="0">
+		
+Reboot?
+
+	</iframe>
+</div>
+
+
+<p>Remove the Slackware installation disk, and if you performed all the steps correctly, your computer will boot into your new Slackware linux system. If something went wrong, you probably skipped the LILO configuration step or made an error there somehow.</p>
+
+<p>Or be prepared to do your stuff in an screen like this before rebooting ☺</p>
+
+<div class="center">
+	<iframe src="/scr/console_end.xhtml" frameborder="0">
+		
+Reboot?
+
+	</iframe>
+</div>
+
+
+    </div>
+    
+      <article>
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "slackware-es" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      </article>
+    
+    <footer>
+      <hr>
+      <p>
+  Published
+  
+  <time itemprop="datePublished" datetime="2018-07-28T08:01:21&#43;00:00">
+    28 Jul, 2018
+  </time>
+  
+    in <span itemprop="articleSection"><a href="/categories/technology/">technology</a></span>
+  
+  
+    and tagged <a rel="tag" href="/tags/how-to/">how-to</a>, <a rel="tag" href="/tags/install/">install</a> and <a rel="tag" href="/tags/setup/">setup</a>
+  
+  using <span itemprop="wordCount">3223</span> words.
+</p>
+
+      
+
+
+  <aside>
+    <header>Related Content</header>
+    <ul>
+      
+        <li><a href="/docs/build/">How to build your own Slackware</a>
+        <time datetime="1M">1 minutes</time>
+      
+    </ul>
+  </aside>
+
+
+    </footer>
+  </article>
+</main>
+    <footer>
+  
+  <small class="muted">
+    This page was generated by
+    <a  itemprop itemtype="https://schema.org/significantLink" target="_blank" rel="external noopener" href="https://after-dark.habd.as" referrerpolicy="origin-when-cross-origin">After Dark</a>.
+  </small>
+
+
+</footer>
+    
+    
+    
+      
+    
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <docs>https://blogs.law.harvard.edu/tech/rss</docs>
+    <title>Sysstat on Slackware</title>
+    <link>https://slackware.es/tags/sysstat/</link>
+    <description>Recent content in Sysstat on Slackware</description>
+    <image>
+      <title>Sysstat on Slackware</title>
+      <link>https://slackware.es/tags/sysstat/</link>
+      <url>https://slackware.es/img/penguins.jpg</url>
+    </image>
+    <ttl>1440</ttl>
+    <generator>Hugo 0.53</generator>
+    <language>en-US</language>
+    <lastBuildDate>Sat, 01 Sep 2018 06:00:00 +0000</lastBuildDate>
+    
+      <atom:link href="https://slackware.es/tags/sysstat/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      <item>
+        <title>Sysstat: an easy status page</title>
+        <link>https://slackware.es/posts/statuspage/</link>
+        <pubDate>Sat, 01 Sep 2018 06:00:00 +0000</pubDate>
+        <guid>https://slackware.es/posts/statuspage/</guid>
+        <description>Introduction   The ```sysstat``` package contains various utilities, common to many commercial Unixes, to monitor system performance and usage activity. http://sebastien.godard.pagesperso-orange.fr/  sysstat is a standard package which comes with Slackware distribution and almost any other distribution out there. Its a very useful tool to analize and monitor linux performance.
+We are going to build a simple status page which will display performance metrics about the linux systems it runs on, including usage of:</description>
+        <category domain="https://slackware.es/categories/documentation">Documentation</category>
+        <content:encoded><![CDATA[ Introduction   The ```sysstat``` package contains various utilities, common to many commercial Unixes, to monitor system performance and usage activity. http://sebastien.godard.pagesperso-orange.fr/  sysstat is a standard package which comes with Slackware distribution and almost any other distribution out there. Its a very useful tool to analize and monitor linux performance.
+We are going to build a simple status page which will display performance metrics about the linux systems it runs on, including usage of:
+ CPU Memory Network Disk  And also process based statistics such system load and process queue.
+We want something simple, but sysstat tools are powerfull enough to build much more complex systems.
+Install sysstat package sysstat package comes preinstalled in a full installation of Slackware, but if you&amp;rsquo;re using a custom package setup, please check you have sysstat and lm_sensors packages.
+Monitoring We want to calculate statistics in 10 minute periods with one measurement each minute. So we use the sa1 tool to record all collectable data in periods of 600 seconds with collection every 60 seconds. Also we want to repeat this process constantly so we create a cron job to automate the execution.
+This tool will save in the file `/var/log/sa/saDD the data collected and will change DD accordinly to the they of the month.
+# monitoring 0,10,20,30,40,50 * * * * /usr/lib64/sa/sa1 -S XALL 600 60 Then we want to generate some graphics to read the data and store them in a location accesible by our webserver. We want to update our status page as soon as the data has been collected. Using the sadf tools we generate an SVG image containg all the graphs we need:
+ CPU: -u Memory: -r Network: -n DEV Disk: -d System Load: -p Process queue: -q  So we add another cronjob, to execute after the other one. Also we save the results of the svg generation in the file /var/www/sar/stats.svg. This directory needs to be configured in our webserverto make it available externally. It is also possible to download the file using ssh to view it locally if we do not have a web service in the system.
+1,11,21,31,41,51 * * * * /usr/bin/sadf -g -- -u -p -q -r -d -n DEV &amp;gt; /var/www/sar/stats.svg The status page In order to view the generated SVG easily in a browser of mobile, we generate an HTML template as follows:
+&amp;lt;!doctype html&amp;gt; &amp;lt;html class=&amp;#34;no-js&amp;#34; lang=&amp;#34;&amp;#34;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;#34;utf-8&amp;#34;&amp;gt; &amp;lt;meta http-equiv=&amp;#34;x-ua-compatible&amp;#34; content=&amp;#34;ie=edge&amp;#34;&amp;gt; &amp;lt;title&amp;gt;Linux Sysstat Page&amp;lt;/title&amp;gt; &amp;lt;meta name=&amp;#34;description&amp;#34; content=&amp;#34;&amp;#34;&amp;gt; &amp;lt;meta name=&amp;#34;viewport&amp;#34; content=&amp;#34;width=device-width, initial-scale=1, shrink-to-fit=no&amp;#34;&amp;gt; &amp;lt;style&amp;gt; .svg-container { display: inline-block; vertical-align: middle; } .svg-content { display: inline-block; top: 0; left: 0; } &amp;lt;/style&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;!--[if lte IE 9]&amp;gt; &amp;lt;p class=&amp;#34;browserupgrade&amp;#34;&amp;gt;You are using an &amp;lt;strong&amp;gt;outdated&amp;lt;/strong&amp;gt; browser. Please &amp;lt;a href=&amp;#34;https://browsehappy.com/&amp;#34;&amp;gt;upgrade your browser&amp;lt;/a&amp;gt; t o improve your experience and security.&amp;lt;/p&amp;gt; &amp;lt;![endif]--&amp;gt; &amp;lt;div class=&amp;#34;svg-container&amp;#34;&amp;gt; &amp;lt;object type=&amp;#34;image/svg&#43;xml&amp;#34; data=&amp;#34;stats.svg&amp;#34; width=&amp;#34;1024px&amp;#34; height=&amp;#34;9000px&amp;#34; class=&amp;#34;svg-content&amp;#34;&amp;gt; &amp;lt;/object&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt;  And save it as /var/www/sar/index.html.
+The size specified in the SVG object was generated taking into account our output from the sadf tool. It might change if your options change, so update it accordingly.
+Resources  Demo Home page systsat tutorial  ]]></content:encoded>
+      </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    
+
+
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: 'unsafe-inline' 'unsafe-eval'; font-src 'self' https: data:; img-src 'self' https: data:; object-src 'none'">
+
+
+    <meta name="generator" content="Hugo 0.53" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How To | Slackware</title>
+    <meta name="description" content="Slackware community">
+    <meta name="keywords" content="documentation, downloads, technology, ">
+    
+    
+    
+    
+      <meta name="robots" content="noindex">
+    
+    <meta property="og:title" content="How To" />
+<meta property="og:description" content="Slackware community" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://slackware.es/tags/how-to/" />
+<meta property="og:updated_time" content="2018-08-05T23:01:21&#43;00:00"/>
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://slackware.es/img/penguins.jpg"/>
+
+<meta name="twitter:title" content="How To"/>
+<meta name="twitter:description" content="Slackware community"/>
+
+    
+
+  <meta property="og:image" content="https://slackware.es/img/penguins.jpg">
+
+
+
+
+    
+
+    
+    
+  <meta name="referrer" content="same-origin">
+
+
+    
+    
+    <script integrity="sha512-Jx/MqTxYWqHdoOkHItRJJZCvFDhERPr5gG4I5ESu3V&#43;BgQyAQ6wXfdsGzhzmT0yyvkAWz2jbrn81q90RRJTSTg==">/*! Fetch Inject v2.0.2 | Copyright (C) 2017–2018 Josh Habdas <jhabdas@protonmail.com> | @license Zlib */
+var fetchInject=function(){"use strict";const e=function(e,t,r,n,o,c,i){c=t.createElement(r),i=t.getElementsByTagName(r)[0],c.appendChild(t.createTextNode(n.text)),c.onload=o(n),i?i.parentNode.insertBefore(c,i):t.head.appendChild(c)};return function(t,r){if(!arguments.length)return Promise.reject(new ReferenceError("Failed to execute 'fetchInject': 1 argument required but only 0 present."));if(arguments[0]&&arguments[0].constructor!==Array)return Promise.reject(new TypeError("Failed to execute 'fetchInject': argument 1 must be of type 'Array'."));if(arguments[1]&&arguments[1].constructor!==Promise)return Promise.reject(new TypeError("Failed to execute 'fetchInject': argument 2 must be of type 'Promise'."));const n=[],o=r?[].concat(r):[],c=[];return t.forEach(e=>o.push(window.fetch(e).then(e=>[e.clone().text(),e.blob()]).then(e=>Promise.all(e).then(e=>{n.push({text:e[0],blob:e[1]})})))),Promise.all(o).then(()=>(n.forEach(t=>{c.push({then:r=>{t.blob.type.includes("text/css")?e(window,document,"style",t,r):e(window,document,"script",t,r)}})}),Promise.all(c)))}}();
+</script>
+    <script integrity="sha512-hno7WeTIciCJSjg/myjyK30HYkrcGCVwo4g4SpUalvrs3r2lS7bPNIQwbCNypKbg7BZ1sA4AsGnk6Gq4NOKpGA==">fetchInject(["/js/lazysizes.min.js"]);
+</script>
+    
+
+
+  
+    
+
+  <meta title="mod:fractal-forest" content="status:enabled">
+  
+    <script async src=/js/bpgdec8a.js integrity=sha384-8PG0go3BW8hLm63KbTxk/hNcehaoSbrAhKzsmy2Jhs/KY8QdiKKkjhdeyHY/Q/0I&#10;></script>
+  
+
+
+  
+  
+  
+  
+
+
+    
+      <link href="https://slackware.es/tags/how-to/index.xml" rel="alternate" type="application/rss+xml" title="Slackware">
+    
+    <link rel="canonical" href="https://slackware.es/tags/how-to/">
+    
+    
+    <link rel="icon" sizes="any" href="data:image/svg+xml,%3Csvg%20viewBox='0%200%2046%2045'%20xmlns='http://www.w3.org/2000/svg'%3E%3Ctitle%3EAfter%20Dark%3C/title%3E%3Cpath%20d='M.708%2045L23%20.416%2045.292%2045H.708zM35%2038L23%2019%2011%2038h24z'%20fill='%23000'/%3E%3C/svg%3E">
+
+    
+
+  
+    
+      <style>:root {
+	--fg: #272822;
+	--bg: #fbf9f1;
+}
+
+@font-face {
+	font-family: 'Terminus';
+	src: url('/fonts/terminus/TerminusTTF-4.46.0.ttf');
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Terminus';
+	src: url('/fonts/terminus/TerminusTTF-Bold-4.46.0.ttf');
+	font-weight: bold;
+}
+
+@font-face {
+	font-family: 'Terminus';
+	src: url('/fonts/terminus/TerminusTTF-Italic-4.46.0.ttf');
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Bitter';
+	src: url('/fonts/bitter/Bitter-Regular.ttf');
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Bitter';
+	src: url('/fonts/bitter/Bitter-Bold.ttf');
+	font-weight: bold;
+}
+
+@font-face {
+	font-family: 'Bitter';
+	src: url('/fonts/bitter/Bitter-Italic.ttf');
+	font-style: italic;
+}
+
+body, html {
+	height: 100%;
+}
+
+/* baisc typography */
+
+html, body, section, nav, article, aside, h1, h2, h3, h4, h5, h6, hgroup, header, footer, address, p, hr, pre, blackquote, ol, ul, li, dl, dt, dd, figure, figcaption, div, table, caption, form, fieldset {
+	vertical-align: baseline;
+	margin 0;
+	padding 0;
+}
+
+body {
+	font-family: 'Bitter', serif;
+	line-height: 1.5;
+	font-size: 1.15rem;
+	font-kerning: normal;
+	font-variant-numeric: oldstyle-nums proportional-nums;
+	font-variant-ligatures: common-ligatures contextual;
+	font-feature-settings: "kern", "liga", "clig", "calt";
+	background-color: var(--bg);
+	color: var(--fg);
+}
+
+
+p {
+	text-align: justify;
+	-webkit-hyphens: auto;
+	-webkit-hyphenate-limit-before: 4;
+	-webkit-hyphenate-limit-after: 3;
+	-webkit-hyphenate-limit-chars: 7 4 3;
+	-webkit-hyphenate-limit-lines: 2;
+	-webkit-hyphenate-limit-zone: 8%;
+	-webkit-hyphenate-limit-last: always;
+	-moz-hyphens: auto;
+	-moz-hyphenate-limit-chars: 7 4 3;
+	-moz-hyphenate-limit-lines: 2;
+	-moz-hyphenate-limit-zone: 8%;
+	-moz-hyphenate-limit-last: always;
+	-ms-hyphens: auto;
+	-ms-hyphenate-limit-chars: 7 4 3;
+	-ms-hyphenate-limit-lines: 2;
+	-ms-hyphenate-limit-zone: 8%;
+	-ms-hyphenate-limit-last: always;
+	hyphens: auto;
+	hyphenate-limit-chars: 7 4 3;
+	hyphenate-limit-lines: 2;
+	hyphenate-limit-zone: 8%;
+	hyphenate-limit-last: always;
+	margin-bottom: 0;
+	letter-spacing: -0.01em;
+}
+
+p + p {
+	text-indent: 2em;
+	margin-top: 0;
+}
+
+.quoted p {
+	quotes: '“' '”' '‘' '’';
+}
+
+.quoted p::before {
+	content: open-quote;
+	margin-left: -0.83ch;
+}
+.quoted p::after {
+	content: close-quote;
+}
+
+
+ol {
+	padding-left: 0; margin-left: 0;list-style: none;
+	counter-reset: list;
+}
+
+ol li::before {
+	counter-increment: list;
+	content: counter(list);
+	margin-left: -2em; margin-right: 1em;
+}
+
+h1 {font-family: 'Terminus', fixed;  font-size: 2.0625rem; line-height: 1;}
+h2 {font-family: 'Terminus', fixed; font-size: 1.5625rem; line-height: 1;}
+h3 {font-family: 'Terminus', fixed; font-size: 1.3125rem; line-height: 1;}
+h4 {font-family: 'Terminus', fixed; font-size: 1.2025rem; line-height: 1.2;}
+h5 {font-family: 'Terminus', fixed; font-size: 1.2025rem; line-height: 1.2;}
+h6 {font-family: 'Terminus', fixed; font-size: 1.2025rem; line-height: 1.2;}
+p {font-size: 1.15rem;}
+
+@media screen and(min-width: 60em) {
+	h1 {font-family: 'Terminus', fixed;  font-size: 3.1875rem; line-height: 1;}
+	h2 {font-family: 'Terminus', fixed; font-size: 2.0625rem; line-height: 1;}
+	h3 {font-family: 'Terminus', fixed; font-size: 1.5625rem; line-height: 1;}
+	h4 {font-family: 'Terminus', fixed; font-size: 1.325rem; line-height: 1.2;}
+	h5 {font-family: 'Terminus', fixed; font-size: 1.325rem; line-height: 1.2;}
+	h6 {font-family: 'Terminus', fixed; font-size: 1.325rem; line-height: 1.2;}	
+	p {font-size: 1.225rem;}
+}
+
+@media screen and(min-width: 120em) {
+	h1 {font-family: 'Terminus', fixed;  font-size: 4.875rem; line-height: 1;}
+	h2 {font-family: 'Terminus', fixed; font-size: 2.75rem; line-height: 1;}
+	h3 {font-family: 'Terminus', fixed; font-size: 1.75rem; line-height: 1;}
+	h4 {font-family: 'Terminus', fixed; font-size: 1.5125rem; line-height: 1.2;}
+	h5 {font-family: 'Terminus', fixed; font-size: 1.5125rem; line-height: 1.2;}	
+	h6 {font-family: 'Terminus', fixed; font-size: 1.5125rem; line-height: 1.2;}
+	p {font-size: 1.4125rem;}
+}
+
+pre, code {
+	font-family: 'Terminus', fixed;
+	font-weight: regular;
+	line-height: 1.2;
+	font-kerning: normal;
+	font-variant-numeric: oldstyle-nums proportional-nums;
+	font-variant-ligatures: common-ligatures contextual;
+	font-feature-settings: "kern", "liga", "clig", "calt";
+}
+
+pre:hover,
+pre:focus {
+  width: min-content;
+}
+
+a:hover, a:active, a:focus {
+	background-color: var(--bg);
+	color: rgb(231, 25, 1);
+	border-bottom: 1px solid rgba(0,0,0,0.6);
+}
+
+a, .toggle__input + label {
+	color: inherit;
+	text-decoration: none;
+	border-bottom: 1px solid rgba(0,0,0,0.2);
+	transition: all 0.25s ease;
+}
+
+div.center {
+	overflow: hidden;
+}
+
+div.center iframe{
+	overflow: hidden;
+	scrolling: no;	
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 750px;
+	height: 390px;
+}
+
+table {
+	color: var(--fg);
+}
+
+:target {
+	color: rgb(231, 25, 1);
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+
+.hero-image {
+	/* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read 
+	background-image: linear-gradient(rgba(251, 249, 241, 0.3), rgba(251, 249, 241, 0.4)), url("/img/penguins.jpg"); */
+
+	/* Set a specific height 
+	height: 6em;*/
+
+	/* Position and center the image to scale nicely on all screens */
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 100%;
+}
+
+/* Place text in the middle of the image */
+.hero-text {
+	text-align: center;
+	line-height: 2;
+}
+
+.hero-text h1 {
+	font-family: Terminus, fixed;
+	font-size: 5rem;
+	font-weigth: bold;
+	padding: 1rem;
+	margin-top: 2rem;
+	margin-bottom: 1rem;
+}
+
+.hero-text h2 {
+	font-family: Bitter, serif;
+	font-size: 2rem;
+	font-weigth: bold;
+}
+
+.getButton {
+	width: 20rem;
+	font-family: Terminus, fixed;
+	font-size: 1.5rem;
+	font-weigth: bold;
+	background-color: var(--fg);
+	color: var(--bg);
+	padding: 5px;
+}
+
+.highlight {
+	background-color: var(--fg);
+	color: var(--bg);
+}
+
+.changelog {
+	font-family: Terminus, fixed;
+	font-weigth: regular;
+	padding: 0;
+}
+
+/* forms */
+
+.form-group {
+	margin-bottom: 1.75rem;
+	overflow: auto;
+}
+
+fieldset {
+	border: none;
+	padding: 0;
+	margin: 0;
+}
+
+input.form-control {
+	font-size: initial;
+	border-radius: 0;
+	background-color: transparent;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+}
+
+.form-control {
+	outline: none;
+	border: none;
+	border-bottom: 2px solid #ccc;
+	padding: .5rem 0;
+	width: 20rem;
+	height: 38px;
+	background-color: transparent;
+}
+
+/* responsiveness */
+body {
+	width: 50rem;
+	max-width: 80%;
+	margin: 0 auto;
+	padding: 2rem 1rem;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+@media \0screen {
+  img { 
+  	width: auto; /* for ie 8 */
+  }
+}
+
+.grid {
+	display: grid;
+}
+
+.cell {
+	overflow-x: auto;
+}
+
+.two {
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr); 
+}
+
+.three {
+	grid-template-columns: 1fr 1fr 1fr;
+}
+
+pre {
+    white-space: pre-wrap;       /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+</style>
+      
+
+
+  
+
+
+    
+  
+
+
+    
+    
+  </head>
+  
+  
+  
+  <body class="">
+    <header>
+  
+
+  
+    
+      
+  <nav itemscope itemtype="https://schema.org/SiteNavigationElement">
+    <meta itemprop="name" content="Main Menu">
+    
+      
+      
+        <a itemprop="url" href="/">Home</a>
+      
+    
+      
+      
+        <a itemprop="url" href="/posts/">Blog</a>
+      
+    
+      
+      
+        <a itemprop="url" href="/docs/">Docs</a>
+      
+    
+      
+      
+        <a itemprop="url" href="/files/">Downloads</a>
+      
+    
+      
+      
+        <a itemprop="url" href="/search/">Search</a>
+      
+    
+  </nav>
+
+
+    
+  
+
+
+</header>
+    <main>
+  <header>
+    <h1>How To</h1>
+  </header>
+  
+    <article itemprop="citation" itemscope itemtype="https://schema.org/CreativeWork">
+  <header>
+    <h2 itemprop="name">
+      <a href="/docs/shell/" rel="bookmark">Shell</a>
+    </h2>
+    
+  </header>
+  
+    <blockquote itemprop="headline">Introduction to the Slackware shell environment</blockquote>
+  
+  <div itemprop="description">
+    This document is a derivative of the Slackbook:bash and Slackbook beta. The aim is to produce an evolution and contribute it back to the original work.
+What Is A Shell? A shell is a program that give access to the operating system&rsquo;s services. In Slackware the command-line interface (CLI) shell is bash, the Bourne Again Shell.
+The first program Slackware executes after you log into the system is the shell command-line interface:
+  </div>
+  
+    <nav class="readmore"><p>
+      <a itemprop="url" href="/docs/shell/" rel="bookmark">Read More&nbsp;&raquo;</a>
+    </p></nav>
+  
+  <meta itemprop="inLanguage" content="en-US">
+  <meta itemprop="datePublished" content="2018-08-05T23:01:21&#43;00:00">
+  <meta itemprop="dateModified" content="2018-08-05T23:01:21&#43;00:00">
+  
+</article>
+
+  
+    <article itemprop="citation" itemscope itemtype="https://schema.org/CreativeWork">
+  <header>
+    <h2 itemprop="name">
+      <a href="/docs/packages/" rel="bookmark">Package Management</a>
+    </h2>
+    
+  </header>
+  
+    <blockquote itemprop="headline">How to build your own slackware from </blockquote>
+  
+  <div itemprop="description">
+    This document is a derivative of the Slacbook:install. The aim is to produce an evolution and contribute it back to the original work.
+Introduction Package management is an essential part of any Linux distribution. The software included in Slackware, along with many third-party tools, is distributed as source code. But compiling all those thousands of different applications and libraries is tedious and time consuming. That&rsquo;s why many people prefer to install pre-compiled software packages.
+  </div>
+  
+    <nav class="readmore"><p>
+      <a itemprop="url" href="/docs/packages/" rel="bookmark">Read More&nbsp;&raquo;</a>
+    </p></nav>
+  
+  <meta itemprop="inLanguage" content="en-US">
+  <meta itemprop="datePublished" content="2018-08-04T08:01:21&#43;00:00">
+  <meta itemprop="dateModified" content="2018-08-04T08:01:21&#43;00:00">
+  
+</article>
+
+  
+    <article itemprop="citation" itemscope itemtype="https://schema.org/CreativeWork">
+  <header>
+    <h2 itemprop="name">
+      <a href="/docs/build/" rel="bookmark">How to build your own Slackware</a>
+    </h2>
+    
+  </header>
+  
+    <blockquote itemprop="headline">How to build your own slackware from </blockquote>
+  
+  <div itemprop="description">
+     In this article we&rsquo;re going to describe how to build your own slackware distribution based on the official disitribution.
+To do that we will describe the process of generating a slackware image to use in cloud environments.
+Prepare the environment We&rsquo;re going to use the repository https://github.com/slacware-es/dev to upload all the scripts needed to build your own slackware distribution.
+Select your packages Generate tag files Build installation media Install / distribute 
+  </div>
+  
+  <meta itemprop="inLanguage" content="en-US">
+  <meta itemprop="datePublished" content="2018-07-28T08:01:21&#43;00:00">
+  <meta itemprop="dateModified" content="2018-07-28T08:01:21&#43;00:00">
+  
+</article>
+
+  
+    <article itemprop="citation" itemscope itemtype="https://schema.org/CreativeWork">
+  <header>
+    <h2 itemprop="name">
+      <a href="/docs/install/" rel="bookmark">Slackware installation</a>
+    </h2>
+    
+  </header>
+  
+    <blockquote itemprop="headline">How to install Slackware in 2018</blockquote>
+  
+  <div itemprop="description">
+    This document is a derivative of the Slacbook:install and Slackbook beta. The aim is to produce an evolution and contribute it back to the original work.
+Introduction Slackware&rsquo;s installation is a bit more simplistic than that of most other Linux distributions and is very reminiscent of installing one of the varieties of BSD operating systems. If you&rsquo;re familiar with those, you should feel right at home. If you&rsquo;ve never installed Slackware or used a distribution that makes use of a non-graphical installer, you may feel a bit overwhelmed at first.
+  </div>
+  
+    <nav class="readmore"><p>
+      <a itemprop="url" href="/docs/install/" rel="bookmark">Read More&nbsp;&raquo;</a>
+    </p></nav>
+  
+  <meta itemprop="inLanguage" content="en-US">
+  <meta itemprop="datePublished" content="2018-07-28T08:01:21&#43;00:00">
+  <meta itemprop="dateModified" content="2018-07-28T08:01:21&#43;00:00">
+  
+</article>
+
+  
+</main>
+    <footer>
+  <nav><p>
+  
+  
+    <span>Page 1 of 1</span>
+  
+  
+</p></nav>
+
+  
+  <small class="muted">
+    This page was generated by
+    <a  itemprop itemtype="https://schema.org/significantLink" target="_blank" rel="external noopener" href="https://after-dark.habd.as" referrerpolicy="origin-when-cross-origin">After Dark</a>.
+  </small>
+
+
+  
+
+</footer>
+    
+    
+    
+      
+    
+  </body>
+</html>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <docs>https://blogs.law.harvard.edu/tech/rss</docs>
+    <title>Howto on Slackware</title>
+    <link>https://slackware.es/tags/howto/</link>
+    <description>Recent content in Howto on Slackware</description>
+    <image>
+      <title>Howto on Slackware</title>
+      <link>https://slackware.es/tags/howto/</link>
+      <url>https://slackware.es/img/penguins.jpg</url>
+    </image>
+    <ttl>1440</ttl>
+    <generator>Hugo 0.53</generator>
+    <language>en-US</language>
+    <lastBuildDate>Sat, 01 Sep 2018 06:00:00 +0000</lastBuildDate>
+    
+      <atom:link href="https://slackware.es/tags/howto/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      <item>
+        <title>Sysstat: an easy status page</title>
+        <link>https://slackware.es/posts/statuspage/</link>
+        <pubDate>Sat, 01 Sep 2018 06:00:00 +0000</pubDate>
+        <guid>https://slackware.es/posts/statuspage/</guid>
+        <description>Introduction   The ```sysstat``` package contains various utilities, common to many commercial Unixes, to monitor system performance and usage activity. http://sebastien.godard.pagesperso-orange.fr/  sysstat is a standard package which comes with Slackware distribution and almost any other distribution out there. Its a very useful tool to analize and monitor linux performance.
+We are going to build a simple status page which will display performance metrics about the linux systems it runs on, including usage of:</description>
+        <category domain="https://slackware.es/categories/documentation">Documentation</category>
+        <content:encoded><![CDATA[ Introduction   The ```sysstat``` package contains various utilities, common to many commercial Unixes, to monitor system performance and usage activity. http://sebastien.godard.pagesperso-orange.fr/  sysstat is a standard package which comes with Slackware distribution and almost any other distribution out there. Its a very useful tool to analize and monitor linux performance.
+We are going to build a simple status page which will display performance metrics about the linux systems it runs on, including usage of:
+ CPU Memory Network Disk  And also process based statistics such system load and process queue.
+We want something simple, but sysstat tools are powerfull enough to build much more complex systems.
+Install sysstat package sysstat package comes preinstalled in a full installation of Slackware, but if you&amp;rsquo;re using a custom package setup, please check you have sysstat and lm_sensors packages.
+Monitoring We want to calculate statistics in 10 minute periods with one measurement each minute. So we use the sa1 tool to record all collectable data in periods of 600 seconds with collection every 60 seconds. Also we want to repeat this process constantly so we create a cron job to automate the execution.
+This tool will save in the file `/var/log/sa/saDD the data collected and will change DD accordinly to the they of the month.
+# monitoring 0,10,20,30,40,50 * * * * /usr/lib64/sa/sa1 -S XALL 600 60 Then we want to generate some graphics to read the data and store them in a location accesible by our webserver. We want to update our status page as soon as the data has been collected. Using the sadf tools we generate an SVG image containg all the graphs we need:
+ CPU: -u Memory: -r Network: -n DEV Disk: -d System Load: -p Process queue: -q  So we add another cronjob, to execute after the other one. Also we save the results of the svg generation in the file /var/www/sar/stats.svg. This directory needs to be configured in our webserverto make it available externally. It is also possible to download the file using ssh to view it locally if we do not have a web service in the system.
+1,11,21,31,41,51 * * * * /usr/bin/sadf -g -- -u -p -q -r -d -n DEV &amp;gt; /var/www/sar/stats.svg The status page In order to view the generated SVG easily in a browser of mobile, we generate an HTML template as follows:
+&amp;lt;!doctype html&amp;gt; &amp;lt;html class=&amp;#34;no-js&amp;#34; lang=&amp;#34;&amp;#34;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;#34;utf-8&amp;#34;&amp;gt; &amp;lt;meta http-equiv=&amp;#34;x-ua-compatible&amp;#34; content=&amp;#34;ie=edge&amp;#34;&amp;gt; &amp;lt;title&amp;gt;Linux Sysstat Page&amp;lt;/title&amp;gt; &amp;lt;meta name=&amp;#34;description&amp;#34; content=&amp;#34;&amp;#34;&amp;gt; &amp;lt;meta name=&amp;#34;viewport&amp;#34; content=&amp;#34;width=device-width, initial-scale=1, shrink-to-fit=no&amp;#34;&amp;gt; &amp;lt;style&amp;gt; .svg-container { display: inline-block; vertical-align: middle; } .svg-content { display: inline-block; top: 0; left: 0; } &amp;lt;/style&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;!--[if lte IE 9]&amp;gt; &amp;lt;p class=&amp;#34;browserupgrade&amp;#34;&amp;gt;You are using an &amp;lt;strong&amp;gt;outdated&amp;lt;/strong&amp;gt; browser. Please &amp;lt;a href=&amp;#34;https://browsehappy.com/&amp;#34;&amp;gt;upgrade your browser&amp;lt;/a&amp;gt; t o improve your experience and security.&amp;lt;/p&amp;gt; &amp;lt;![endif]--&amp;gt; &amp;lt;div class=&amp;#34;svg-container&amp;#34;&amp;gt; &amp;lt;object type=&amp;#34;image/svg&#43;xml&amp;#34; data=&amp;#34;stats.svg&amp;#34; width=&amp;#34;1024px&amp;#34; height=&amp;#34;9000px&amp;#34; class=&amp;#34;svg-content&amp;#34;&amp;gt; &amp;lt;/object&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt;  And save it as /var/www/sar/index.html.
+The size specified in the SVG object was generated taking into account our output from the sadf tool. It might change if your options change, so update it accordingly.
+Resources  Demo Home page systsat tutorial  ]]></content:encoded>
+      </item>
+    
+      <item>
+        <title>PostgREST: BAAS for PostgreSQL databases</title>
+        <link>https://slackware.es/posts/postgrest/</link>
+        <pubDate>Wed, 29 Aug 2018 06:00:00 +0000</pubDate>
+        <guid>https://slackware.es/posts/postgrest/</guid>
+        <description>Introduction   PostgREST is a standalone web server that turns your PostgreSQL database directly into a RESTful API. The structural constraints and permissions in the database determine the API endpoints and operations. Using PostgREST is an alternative to manual CRUD programming. Custom API servers suffer problems. Writing business logic often duplicates, ignores or hobbles database structure. Object-relational mapping is a leaky abstraction leading to slow imperative code. The PostgREST philosophy establishes a single declarative source of truth: the data itself.</description>
+        <category domain="https://slackware.es/categories/documentation">Documentation</category>
+        <content:encoded><![CDATA[ Introduction   PostgREST is a standalone web server that turns your PostgreSQL database directly into a RESTful API. The structural constraints and permissions in the database determine the API endpoints and operations. Using PostgREST is an alternative to manual CRUD programming. Custom API servers suffer problems. Writing business logic often duplicates, ignores or hobbles database structure. Object-relational mapping is a leaky abstraction leading to slow imperative code. The PostgREST philosophy establishes a single declarative source of truth: the data itself. https://postgrest.org/en/v5.0/intro.html  Our aim is to build and experiment with applications using an HTTP based back-end. These applications can use a lot of languages and environments: shell scripts, Javascript, etc.
+Building a package for Slackware PostgREST is written in the Haskell programming language, so to build the software we need a Haskell compiler installed into our build system. We can install the Glasgow Haskell Compiler from the SlackBuild repository. The official build instructions are basically to execute the command:
+# stack build --install-ghc --copy-bins --local-bin-path /usr/local/bin With this information, we can build our own SlackBuild script. Look into our repository to see all the files.
+Build the PostgREST package executing the postgrest.SlackBuild script. It will generate the package into /tmp.
+Once you have the package, we need to install it into the server.
+Before setting up This package requires a working PostgreSQL database, configured with user access, tables, etc. The service requires planning carefully the database schemas, permissions and functions to work.
+Try to set up first an SQL program to build your database before setting up PostgREST. Also, follow the tutorials and the documentation in their website.
+We had problems with schema isolation. We learned that we need to set up the search_path per function.
+It is also advisable to split the internal procedures, and the external ones, so only the API only exposes what it is really neeed and nothing more.
+Setting PostgREST up Before starting, PostREST needs a configuration file describing the environment. The package expects the configuration file to be /opt/postgrest/etc/postgrest.conf. The configuration file documentation details how to set up PostgREST. It will neeed the PostgreSQL database URI, the database schema and the database anonymous role.
+To get things right, it is advisable to follow the getting started (tutorial)[https://postgrest.org/en/v5.0/tutorials/tut0.html].
+Resources  Home page Github repository StackOverflow Gitter  ]]></content:encoded>
+      </item>
+    
+      <item>
+        <title>Jitsi: video conference server</title>
+        <link>https://slackware.es/posts/jitsi/</link>
+        <pubDate>Thu, 09 Aug 2018 06:00:00 +0000</pubDate>
+        <guid>https://slackware.es/posts/jitsi/</guid>
+        <description>From it&amp;rsquo;s Github page:
+Jitsi Meet is an open-source (Apache) WebRTC JavaScript application that uses Jitsi Videobridge to provide high quality, secure and scalable video conferences. You can see Jitsi Meet in action here at the session #482 of the VoIP Users Conference.
+The Jitsi Meet client runs in your browser, without the need for installing anything on your computer. You can also try it out yourself at https://meet.jit.si .
+Jitsi Meet allows for very efficient collaboration. It allows users to stream their desktop or only some windows. It also supports shared document editing with Etherpad.
+</description>
+        <category domain="https://slackware.es/categories/documentation">Documentation</category>
+        <content:encoded><![CDATA[From it&amp;rsquo;s Github page:
+Jitsi Meet is an open-source (Apache) WebRTC JavaScript application that uses Jitsi Videobridge to provide high quality, secure and scalable video conferences. You can see Jitsi Meet in action here at the session #482 of the VoIP Users Conference.
+The Jitsi Meet client runs in your browser, without the need for installing anything on your computer. You can also try it out yourself at https://meet.jit.si .
+Jitsi Meet allows for very efficient collaboration. It allows users to stream their desktop or only some windows. It also supports shared document editing with Etherpad.
+Introduction We want to offer a secure video conference service for our company.We selected jitsi-meet as our video conference platform because it meets all our requirements.
+As soon as we check their documentation, it’s clear they only support Ubuntu and Debian Linux distributions. But they also provide hints to do a manual install of their software.
+In this document we will set up and install a single instance of this platform using Slackware 64 bits Current.
+Service architecture The general architecture of the service as per their documentation is:
+&#43; &#43; | | | | v | 443 | &#43;-------&#43; | | | | | NginX | | | | | &#43;--&#43;-&#43;--&#43; | | | | &#43;------------&#43; | | &#43;--------------&#43; | | | | | | | | | jitsi-meet &#43;&amp;lt;---&#43; &#43;---&amp;gt;&#43; prosody/xmpp | | | |files 5280 | | | &#43;------------&#43; &#43;--------------&#43; v 5222,5347^ ^5347 4443 &#43;--------&#43; | | &#43;-------------&#43; | | | | | | | jicofo &#43;----^ ^----&#43; videobridge | | | | | &#43;--------&#43; &#43;-------------&#43; jitsi-meet basic requirements are:
+ A web server with a valid SSL certificate,
+ The Prosody Jabber service, with their JWT plug-in
+ The Jitsi VideoBridge service
+ The Jitsi Conference Focus (jicofo) service
+ The Java platform 8
+ The Lua platform 5
+  Also we are going to need:
+ Four different secrets for components communication
+ A prosody user and group
+  Software packages We have identified what software we need to install in our server to make jitsi-meet work and created SlackBuild scripts for them. You can check our source code repository or our binary packages at slackware.es.
+We also used packages from slackbuilds.org, like the prosody server package, and also we used those scripts as a base for our own.
+├── caddy-0.11-x86_64-1_es.tgz ├── jdk-8u181-x86_64-1.txz ├── jitsi │ ├── jicofo-1.1-x86_64-1_es.tgz │ ├── jitsi-meet-1.1-x86_64-1_es.tgz │ ├── jitsi-meet-token-1.1-x86_64-1_es.tgz │ └── jitsi-videobridge-1.1-linux-x64-1_es.tgz └── prosody ├── LuaBitOp-1.0.2-x86_64-1_SBo.tgz ├── lbase64-5.1--1_SBo.tgz ├── lua-5.1.5-x86_64-1_SBo.tgz ├── lua-cjson-2.1.0-x86_64-1_SBo.tgz ├── lua-filesystem-1.6.3-x86_64-1_SBo.tgz ├── lua-zlib-20140201_c0014bc-x86_64-1_SBo.tgz ├── luacrypto-0.5.1-x86_64-1_SBo.tgz ├── luaevent-0.4.3-x86_64-1_SBo.tgz ├── luaexpat-1.3.0-x86_64-1_SBo.tgz ├── luarocks-2.4.1-x86_64-1_SBo.tgz ├── luasec-0.7-x86_64-1_SBo.tgz ├── luasocket-3.0_rc1-x86_64-1_SBo.tgz └── prosody-0.10.2-x86_64-1_SBo.tgz For the Java package, we used the Slackware extras SlackBuild located in extra folder of the Slackware distribution.
+We created startup scripts and a basic configuration files and included them on each package.
+If you want to build your own, just download the source and run the SlackBuild scripts as usual.
+The only software we do not created a package for was the Let&amp;rsquo;s Encrypt client.
+Package installation After building the packages (you can download them from our binary repository), we install them using installpkg as usual.
+By default the startup scripts are marked for execution and are installed in /etc/rc.d
+The prosody packages install their software in /usr prefix, while the jisi packages install in /opt prefix.
+Web server and SSL certificate We have chosen the open source Caddy as our web server. Our package builds the Github version without any plug-ins, and install /etc/rc.d/rc.caddy as a startup script and /etc/caddy/Caddyfile as a default configuration file.
+Our Caddyfile mimics the NGINX configuration provided by the jitsi-meeet team at their repository
+https://server.domain.com { root /opt/jitsi-meet tls /etc/acme.sh/server.domain.com/fullchain.cer /etc/acme.sh/server.domain.com/server.domain.com.key rewrite /room.* / proxy /http-bind server.domain.com:5280 log /var/log/caddy/access.log } The rewrite rule only allows this prosody to create rooms that start with the word room. We can be more creative to mimic better the NGINX configuration but this serves our purpose well.
+Caddy integrates with Let&amp;rsquo;s encrypt certificates automatically, but we are going to use acme.sh client because we want to integrate the certificates in other components and open the possibility to change our web server if we need to. See the wiki for the advanced installation proceess.
+# curl https://get.acme.sh | sh -s -- --install --home /etc/acme.sh We want acme.sh to install in /etc becasue the certificates will be read by multiple components of the system.
+To get our certificates we set up acme.sh to answer Let&amp;rsquo;s encrypt challenge using Cloudflare DNS service:
+# export CF_Key=&amp;#34;asdfgasdfgasdfgasdfg&amp;#34; # export CF_Email=&amp;#34;me@email.com&amp;#34; # acme.sh --issue --dns dns_cf -d server.domain.com -d auth.server.domain.com # Note we need to ask for auth.server.domain.com as well, to use the certificate with prosody. Also note that acme.sh will add a cron job to renew certificates monthly.
+We can start our web server using /etc/rc.d/rc.caddy start command and check the log files in /var/log/caddy/to search for errors.
+Prosody server Prosody is used by the jitsi-meet platform to route messages, enable chat, etc. The configuration file is in /etc/prosody.
+We need to modify the main configuration file /etc/prosody/prosody.lua.cfg to include the following lines
+plugin_paths = { &amp;#34;/opt/jitsi-meet-token/&amp;#34; } Include &amp;#34;server.domain.com.cfg.lua&amp;#34; With those lines we enable the jitsi-meet plugins for prosody and include a new configuration file which will contain our hosts parameters:
+VirtualHost &amp;#34;server.domain.com&amp;#34; authentication = &amp;#34;token&amp;#34; app_id = &amp;#34;server.domain.com&amp;#34;; app_secret = &amp;#34;jwt-secret&amp;#34;; allow_empty_token = false; ssl = { key = &amp;#34;/etc/acme.sh/server.domain.com/server.domain.com.key&amp;#34;; certificate = &amp;#34;/etc/acme.sh/server.domain.com/fullchain.cer&amp;#34;; } modules_enabled = { &amp;#34;bosh&amp;#34;; &amp;#34;pubsub&amp;#34;; &amp;#34;ping&amp;#34;; } c2s_require_encryption = false Component &amp;#34;conference.server.domain.com&amp;#34; &amp;#34;muc&amp;#34; modules_enabled = { &amp;#34;token_verification&amp;#34; } storage = &amp;#34;internal&amp;#34; admins = { &amp;#34;focus@auth.server.domain.com&amp;#34; } Component &amp;#34;jitsi-videobridge.server.domain.com&amp;#34; component_secret = &amp;#34;videobridge-secret&amp;#34; VirtualHost &amp;#34;auth.server.domain.com&amp;#34; ssl = { key = &amp;#34;/etc/acme.sh/server.domain.com/server.domain.com.key&amp;#34;; certificate = &amp;#34;/etc/acme.sh/server.domain.com/fullchain.cer&amp;#34;; } authentication = &amp;#34;internal_plain&amp;#34; Component &amp;#34;focus.server.domain.com&amp;#34; component_secret = &amp;#34;jicofo-secret&amp;#34; Before starting prosody, we create an user and group called prosody. The log files for prosody will be in /home/prosody. Also we need to copy our certificates to /etc/prosody/certs/ as shown in the configuration file, as prosody user is not able to read them from /root/acme.sh.
+Start prosody server with the command # prosodyctl start and check the log files.
+# prosodyctl register focus auth.jitsi.example.com focus-user-secret # prosodyctl restart Jitsi video bridge server The configuration files for the service are located in /etc/jitsi/videobridge. We need to update the config file with the data of our installation:
+# Jitsi Videobridge settings # sets the XMPP domain (default: none) JVB_HOSTNAME=server.domain.com # sets the hostname of the XMPP server (default: domain if set, localhost otherwise) JVB_HOST= # sets the port of the XMPP server (default: 5275) JVB_PORT=5347 # sets the shared secret used to authenticate to the XMPP server JVB_SECRET=videobridge-secret # extra options to pass to the JVB daemon JVB_OPTS=--apis=rest,xmpp # adds java system props that are passed to jvb (default are for home and logging config file) JAVA_SYS_PROPS=&amp;#34;$JVB_EXTRA_JVM_PARAMS -Dnet.java.sip.communicator.SC_HOME_DIR_LOCATION=/etc/jitsi -Dnet.java.sip.communicator.SC_HOME_DIR_NAME=videobridge -Dnet.java.sip.communicator.SC_LOG_DIR_LOCATION=/var/log/jitsi -Djava.util.logging.config.file=/etc/jitsi/videobridge/logging.properties&amp;#34; Also we need to create the Java Key Store so clients can connect to the video bridge using SSL. We have included in the jitsi-videobridge package a tool called upgrade-cert.sh to create the store for us using the Let&amp;rsquo;s Encrypt certificates:
+#!/bin/bash  ACME=&amp;#34;/etc/acme.sh&amp;#34; SERVER=&amp;#34;server.domain.com&amp;#34; PASSWORD_STORE=&amp;#34;changeit&amp;#34; openssl pkcs12 \  -export \  -in $ACME/$SERVER/fullchain.cer \  -inkey $ACME/$SERVER/$SERVER.key \  -out $SERVER.p12 \  -name $SERVER keytool -importkeystore \  -deststorepass $PASSWORD_STORE \  -destkeystore $SERVER.jks \  -srckeystore $SERVER.p12 \  -srcstoretype PKCS12 \  -alias $SERVER Customize your server name and password store and run the script to create server.domain.com.jks. Then update the sip-communicator.properties file accordinly (change the port to 4443 instead of 443 on the file to avoid conflicts).
+You also might want to add the script to run when acme.sh renews the certificates.
+We start the service using the provided script /etc/rc.d/rc.videobridge start and check the logs in /var/log/jitsi/jvb.log for errors.
+Jitsi Conference Focus The configuration files for the service are located in /etc/jitsi/jicofo. We need to update the config file with the data of our installation:
+# Jitsi Conference Focus settings # sets the host name of the XMPP server JICOFO_HOST=localhost # sets the XMPP domain (default: none) JICOFO_HOSTNAME=server.domain.com # sets the secret used to authenticate as an XMPP component JICOFO_SECRET=jicofo-secret # sets the port to use for the XMPP component connection JICOFO_PORT=5347 # sets the XMPP domain name to use for XMPP user logins JICOFO_AUTH_DOMAIN=auth.server.domain.com # sets the username to use for XMPP user logins JICOFO_AUTH_USER=focus # sets the password to use for XMPP user logins JICOFO_AUTH_PASSWORD=focus-user-secret # extra options to pass to the jicofo daemon JICOFO_OPTS=&amp;#34;&amp;#34; # adds java system props that are passed to jicofo (default are for home and logging config file) JAVA_SYS_PROPS=&amp;#34;-Dnet.java.sip.communicator.SC_HOME_DIR_LOCATION=/etc/jitsi -Dnet.java.sip.communicator.SC_HOME_DIR_NAME=jicofo -Dnet.java.sip.communicator.SC_LOG_DIR_LOCATION=/var/log/jitsi -Djava.util.logging.config.file=/etc/jitsi/jicofo/logging.properties&amp;#34; We start the service using the provided script /etc/rc.d/rc.jicofo start and check the logs in /var/log/jitsi/jvb.log for errors.
+Jitsi Meet Application The jitsi meet application is in /opt/jitsi-meet. Because the Caddy web server does not have server side includes, we need to edit index.html and include the needed javascript files:
+&amp;lt;script src=&amp;#34;/config.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script src=&amp;#34;libs/do_external_connect.min.js?v=1&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script src=&amp;#34;/interface_config.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script src=&amp;#34;/logging_config.js&amp;#34; --&amp;gt;&amp;lt;/script&amp;gt; Also we might want to include the file title.html in the header section of the index.html.
+Using the service We have configured the service to use JWT authentication. Following the documentation at jitsi-meet repository and using the JWT Debugger at jwt.io, we can generate a link like:
+https://server.domain.com/roomXXX?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6Ik...... To enter a room, paste the link into the browser.
+]]></content:encoded>
+      </item>
+    
+  </channel>
+</rss>

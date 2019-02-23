@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    
+
+
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: 'unsafe-inline' 'unsafe-eval'; font-src 'self' https: data:; img-src 'self' https: data:; object-src 'none'">
+
+
+    <meta name="generator" content="Hugo 0.53" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Xterm | Slackware</title>
+    <meta name="description" content="Xterm user guide">
+    <meta name="keywords" content="xterm">
+    
+    
+    
+    
+    <meta property="og:title" content="The Xterm" />
+<meta property="og:description" content="Xterm user guide" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://slackware.es/posts/xterm/" />
+<meta property="og:image" content="https://slackware.es/img/xterm_to_html.png" />
+<meta property="article:published_time" content="2018-08-02T14:27:00&#43;00:00"/>
+<meta property="article:modified_time" content="2018-08-02T14:27:00&#43;00:00"/>
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://slackware.es/img/xterm_to_html.png"/>
+
+<meta name="twitter:title" content="The Xterm"/>
+<meta name="twitter:description" content="Xterm user guide"/>
+
+    
+
+
+
+
+    
+
+    
+    
+  <meta name="referrer" content="same-origin">
+
+
+    
+    
+    <script integrity="sha512-Jx/MqTxYWqHdoOkHItRJJZCvFDhERPr5gG4I5ESu3V&#43;BgQyAQ6wXfdsGzhzmT0yyvkAWz2jbrn81q90RRJTSTg==">/*! Fetch Inject v2.0.2 | Copyright (C) 2017–2018 Josh Habdas <jhabdas@protonmail.com> | @license Zlib */
+var fetchInject=function(){"use strict";const e=function(e,t,r,n,o,c,i){c=t.createElement(r),i=t.getElementsByTagName(r)[0],c.appendChild(t.createTextNode(n.text)),c.onload=o(n),i?i.parentNode.insertBefore(c,i):t.head.appendChild(c)};return function(t,r){if(!arguments.length)return Promise.reject(new ReferenceError("Failed to execute 'fetchInject': 1 argument required but only 0 present."));if(arguments[0]&&arguments[0].constructor!==Array)return Promise.reject(new TypeError("Failed to execute 'fetchInject': argument 1 must be of type 'Array'."));if(arguments[1]&&arguments[1].constructor!==Promise)return Promise.reject(new TypeError("Failed to execute 'fetchInject': argument 2 must be of type 'Promise'."));const n=[],o=r?[].concat(r):[],c=[];return t.forEach(e=>o.push(window.fetch(e).then(e=>[e.clone().text(),e.blob()]).then(e=>Promise.all(e).then(e=>{n.push({text:e[0],blob:e[1]})})))),Promise.all(o).then(()=>(n.forEach(t=>{c.push({then:r=>{t.blob.type.includes("text/css")?e(window,document,"style",t,r):e(window,document,"script",t,r)}})}),Promise.all(c)))}}();
+</script>
+    <script integrity="sha512-hno7WeTIciCJSjg/myjyK30HYkrcGCVwo4g4SpUalvrs3r2lS7bPNIQwbCNypKbg7BZ1sA4AsGnk6Gq4NOKpGA==">fetchInject(["/js/lazysizes.min.js"]);
+</script>
+    
+
+
+  
+    
+
+  <meta title="mod:fractal-forest" content="status:enabled">
+  
+    <script async src=/js/bpgdec8a.js integrity=sha384-8PG0go3BW8hLm63KbTxk/hNcehaoSbrAhKzsmy2Jhs/KY8QdiKKkjhdeyHY/Q/0I&#10;></script>
+  
+
+
+  
+  
+  
+  
+
+
+    
+    <link rel="canonical" href="https://slackware.es/posts/xterm/">
+    
+    
+    <link rel="icon" sizes="any" href="data:image/svg+xml,%3Csvg%20viewBox='0%200%2046%2045'%20xmlns='http://www.w3.org/2000/svg'%3E%3Ctitle%3EAfter%20Dark%3C/title%3E%3Cpath%20d='M.708%2045L23%20.416%2045.292%2045H.708zM35%2038L23%2019%2011%2038h24z'%20fill='%23000'/%3E%3C/svg%3E">
+
+    
+
+  
+    
+      <style>:root {
+	--fg: #272822;
+	--bg: #fbf9f1;
+}
+
+@font-face {
+	font-family: 'Terminus';
+	src: url('/fonts/terminus/TerminusTTF-4.46.0.ttf');
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Terminus';
+	src: url('/fonts/terminus/TerminusTTF-Bold-4.46.0.ttf');
+	font-weight: bold;
+}
+
+@font-face {
+	font-family: 'Terminus';
+	src: url('/fonts/terminus/TerminusTTF-Italic-4.46.0.ttf');
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Bitter';
+	src: url('/fonts/bitter/Bitter-Regular.ttf');
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Bitter';
+	src: url('/fonts/bitter/Bitter-Bold.ttf');
+	font-weight: bold;
+}
+
+@font-face {
+	font-family: 'Bitter';
+	src: url('/fonts/bitter/Bitter-Italic.ttf');
+	font-style: italic;
+}
+
+body, html {
+	height: 100%;
+}
+
+/* baisc typography */
+
+html, body, section, nav, article, aside, h1, h2, h3, h4, h5, h6, hgroup, header, footer, address, p, hr, pre, blackquote, ol, ul, li, dl, dt, dd, figure, figcaption, div, table, caption, form, fieldset {
+	vertical-align: baseline;
+	margin 0;
+	padding 0;
+}
+
+body {
+	font-family: 'Bitter', serif;
+	line-height: 1.5;
+	font-size: 1.15rem;
+	font-kerning: normal;
+	font-variant-numeric: oldstyle-nums proportional-nums;
+	font-variant-ligatures: common-ligatures contextual;
+	font-feature-settings: "kern", "liga", "clig", "calt";
+	background-color: var(--bg);
+	color: var(--fg);
+}
+
+
+p {
+	text-align: justify;
+	-webkit-hyphens: auto;
+	-webkit-hyphenate-limit-before: 4;
+	-webkit-hyphenate-limit-after: 3;
+	-webkit-hyphenate-limit-chars: 7 4 3;
+	-webkit-hyphenate-limit-lines: 2;
+	-webkit-hyphenate-limit-zone: 8%;
+	-webkit-hyphenate-limit-last: always;
+	-moz-hyphens: auto;
+	-moz-hyphenate-limit-chars: 7 4 3;
+	-moz-hyphenate-limit-lines: 2;
+	-moz-hyphenate-limit-zone: 8%;
+	-moz-hyphenate-limit-last: always;
+	-ms-hyphens: auto;
+	-ms-hyphenate-limit-chars: 7 4 3;
+	-ms-hyphenate-limit-lines: 2;
+	-ms-hyphenate-limit-zone: 8%;
+	-ms-hyphenate-limit-last: always;
+	hyphens: auto;
+	hyphenate-limit-chars: 7 4 3;
+	hyphenate-limit-lines: 2;
+	hyphenate-limit-zone: 8%;
+	hyphenate-limit-last: always;
+	margin-bottom: 0;
+	letter-spacing: -0.01em;
+}
+
+p + p {
+	text-indent: 2em;
+	margin-top: 0;
+}
+
+.quoted p {
+	quotes: '“' '”' '‘' '’';
+}
+
+.quoted p::before {
+	content: open-quote;
+	margin-left: -0.83ch;
+}
+.quoted p::after {
+	content: close-quote;
+}
+
+
+ol {
+	padding-left: 0; margin-left: 0;list-style: none;
+	counter-reset: list;
+}
+
+ol li::before {
+	counter-increment: list;
+	content: counter(list);
+	margin-left: -2em; margin-right: 1em;
+}
+
+h1 {font-family: 'Terminus', fixed;  font-size: 2.0625rem; line-height: 1;}
+h2 {font-family: 'Terminus', fixed; font-size: 1.5625rem; line-height: 1;}
+h3 {font-family: 'Terminus', fixed; font-size: 1.3125rem; line-height: 1;}
+h4 {font-family: 'Terminus', fixed; font-size: 1.2025rem; line-height: 1.2;}
+h5 {font-family: 'Terminus', fixed; font-size: 1.2025rem; line-height: 1.2;}
+h6 {font-family: 'Terminus', fixed; font-size: 1.2025rem; line-height: 1.2;}
+p {font-size: 1.15rem;}
+
+@media screen and(min-width: 60em) {
+	h1 {font-family: 'Terminus', fixed;  font-size: 3.1875rem; line-height: 1;}
+	h2 {font-family: 'Terminus', fixed; font-size: 2.0625rem; line-height: 1;}
+	h3 {font-family: 'Terminus', fixed; font-size: 1.5625rem; line-height: 1;}
+	h4 {font-family: 'Terminus', fixed; font-size: 1.325rem; line-height: 1.2;}
+	h5 {font-family: 'Terminus', fixed; font-size: 1.325rem; line-height: 1.2;}
+	h6 {font-family: 'Terminus', fixed; font-size: 1.325rem; line-height: 1.2;}	
+	p {font-size: 1.225rem;}
+}
+
+@media screen and(min-width: 120em) {
+	h1 {font-family: 'Terminus', fixed;  font-size: 4.875rem; line-height: 1;}
+	h2 {font-family: 'Terminus', fixed; font-size: 2.75rem; line-height: 1;}
+	h3 {font-family: 'Terminus', fixed; font-size: 1.75rem; line-height: 1;}
+	h4 {font-family: 'Terminus', fixed; font-size: 1.5125rem; line-height: 1.2;}
+	h5 {font-family: 'Terminus', fixed; font-size: 1.5125rem; line-height: 1.2;}	
+	h6 {font-family: 'Terminus', fixed; font-size: 1.5125rem; line-height: 1.2;}
+	p {font-size: 1.4125rem;}
+}
+
+pre, code {
+	font-family: 'Terminus', fixed;
+	font-weight: regular;
+	line-height: 1.2;
+	font-kerning: normal;
+	font-variant-numeric: oldstyle-nums proportional-nums;
+	font-variant-ligatures: common-ligatures contextual;
+	font-feature-settings: "kern", "liga", "clig", "calt";
+}
+
+pre:hover,
+pre:focus {
+  width: min-content;
+}
+
+a:hover, a:active, a:focus {
+	background-color: var(--bg);
+	color: rgb(231, 25, 1);
+	border-bottom: 1px solid rgba(0,0,0,0.6);
+}
+
+a, .toggle__input + label {
+	color: inherit;
+	text-decoration: none;
+	border-bottom: 1px solid rgba(0,0,0,0.2);
+	transition: all 0.25s ease;
+}
+
+div.center {
+	overflow: hidden;
+}
+
+div.center iframe{
+	overflow: hidden;
+	scrolling: no;	
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 750px;
+	height: 390px;
+}
+
+table {
+	color: var(--fg);
+}
+
+:target {
+	color: rgb(231, 25, 1);
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+
+.hero-image {
+	/* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read 
+	background-image: linear-gradient(rgba(251, 249, 241, 0.3), rgba(251, 249, 241, 0.4)), url("/img/penguins.jpg"); */
+
+	/* Set a specific height 
+	height: 6em;*/
+
+	/* Position and center the image to scale nicely on all screens */
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 100%;
+}
+
+/* Place text in the middle of the image */
+.hero-text {
+	text-align: center;
+	line-height: 2;
+}
+
+.hero-text h1 {
+	font-family: Terminus, fixed;
+	font-size: 5rem;
+	font-weigth: bold;
+	padding: 1rem;
+	margin-top: 2rem;
+	margin-bottom: 1rem;
+}
+
+.hero-text h2 {
+	font-family: Bitter, serif;
+	font-size: 2rem;
+	font-weigth: bold;
+}
+
+.getButton {
+	width: 20rem;
+	font-family: Terminus, fixed;
+	font-size: 1.5rem;
+	font-weigth: bold;
+	background-color: var(--fg);
+	color: var(--bg);
+	padding: 5px;
+}
+
+.highlight {
+	background-color: var(--fg);
+	color: var(--bg);
+}
+
+.changelog {
+	font-family: Terminus, fixed;
+	font-weigth: regular;
+	padding: 0;
+}
+
+/* forms */
+
+.form-group {
+	margin-bottom: 1.75rem;
+	overflow: auto;
+}
+
+fieldset {
+	border: none;
+	padding: 0;
+	margin: 0;
+}
+
+input.form-control {
+	font-size: initial;
+	border-radius: 0;
+	background-color: transparent;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+}
+
+.form-control {
+	outline: none;
+	border: none;
+	border-bottom: 2px solid #ccc;
+	padding: .5rem 0;
+	width: 20rem;
+	height: 38px;
+	background-color: transparent;
+}
+
+/* responsiveness */
+body {
+	width: 50rem;
+	max-width: 80%;
+	margin: 0 auto;
+	padding: 2rem 1rem;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+@media \0screen {
+  img { 
+  	width: auto; /* for ie 8 */
+  }
+}
+
+.grid {
+	display: grid;
+}
+
+.cell {
+	overflow-x: auto;
+}
+
+.two {
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr); 
+}
+
+.three {
+	grid-template-columns: 1fr 1fr 1fr;
+}
+
+pre {
+    white-space: pre-wrap;       /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+</style>
+      
+
+
+  
+
+
+    
+  
+
+
+    
+    
+  </head>
+  
+  
+  
+  <body class="">
+    <header>
+  
+
+  
+    
+      
+  <nav itemscope itemtype="https://schema.org/SiteNavigationElement">
+    <meta itemprop="name" content="Main Menu">
+    
+      
+      
+        <a itemprop="url" href="/">Home</a>
+      
+    
+      
+      
+        <a itemprop="url" href="/posts/">Blog</a>
+      
+    
+      
+      
+        <a itemprop="url" href="/docs/">Docs</a>
+      
+    
+      
+      
+        <a itemprop="url" href="/files/">Downloads</a>
+      
+    
+      
+      
+        <a itemprop="url" href="/search/">Search</a>
+      
+    
+  </nav>
+
+
+    
+  
+
+
+</header>
+    <main>
+  <article itemscope itemtype="https://schema.org/BlogPosting">
+    
+<meta itemprop="name" content="The Xterm">
+<meta itemprop="description" content="Xterm user guide">
+
+
+<meta itemprop="datePublished" content="2018-08-02T14:27:00&#43;00:00" />
+<meta itemprop="dateModified" content="2018-08-02T14:27:00&#43;00:00" />
+<meta itemprop="wordCount" content="740">
+
+  <meta itemprop="image" content="https://slackware.es/img/xterm_to_html.png">
+
+
+
+<meta itemprop="keywords" content="xterm," />
+
+    <header>
+      <h1 itemprop="headline name">The Xterm</h1>
+      <p class="muted">
+        <svg style="margin-bottom:-3px" class="i-clock" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+  <circle cx="16" cy="16" r="14" />
+  <path d="M16 8 L16 16 20 20" />
+</svg>
+<span>4 minute read</span>
+<svg style="margin-bottom: -3px" class="i-edit" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+  <path d="M30 7 L25 2 5 22 3 29 10 27 Z M21 6 L26 11 Z M5 22 L10 27 Z" />
+</svg>
+
+  Published: <time datetime="2018-08-02T14:27:00&#43;00:00">2 Aug, 2018</time>
+
+
+      </p>
+      
+        <blockquote itemprop="description">Xterm user guide</blockquote>
+      
+      
+    </header>
+    
+  <details>
+    <summary>Table of Contents</summary>
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#features-and-configuration">Features and configuration</a>
+<ul>
+<li><a href="#fonts">Fonts</a></li>
+<li><a href="#unicode">Unicode</a></li>
+<li><a href="#ncurses">ncurses</a></li>
+<li><a href="#xhtml-export">xhtml export</a></li>
+</ul></li>
+<li><a href="#usability">Usability</a></li>
+<li><a href="#performance">Performance</a></li>
+<li><a href="#bugs">Bugs</a></li>
+</ul></li>
+</ul>
+</nav>
+  </details>
+
+
+    <div itemprop="articleBody">
+      <p>From it&rsquo;s manual page xterm(1):</p>
+
+<p>The xterm program is a terminal emulator for the X Window System.  It provides DEC VT102/VT220 and selected features from higher-level terminals such as VT320/VT420/VT520 (VTxxx). It also provides Tektronix 4014 emulation for programs that cannot use the window system directly.If the underlying operating system supports terminal resizing capabilities (for example, the SIGWINCH signal in systems derived from 4.3BSD), xterm will use the facilities to notify programs running in the window whenever it is resized.</p>
+
+<p>It&rsquo;s currently maintained and the changes can be followed in <a href="https://invisible-island.net/xterm/xterm.log.html">Thomas E. Dickey site</a></p>
+
+<h2 id="features-and-configuration">Features and configuration</h2>
+
+<p>It&rsquo;s reason to be, emulation of other terminals, should be considered on my opinion it&rsquo;s major feature. It provides emulation for a lot of old terminals, so that software written long ago can be used on today systems, emulating the screens those computers had. XTerm still provides a fairly complete emulation of those terminals. See for example <a href="https://www.dim13.org/teapot">these Tektronix programs</a>.</p>
+
+<h3 id="fonts">Fonts</h3>
+
+<p>It can be condifured to use fonts supported by the <a href="https://www.freetype.org/">FreeType library</a>, which is pretty much any font you can find out there (TTF, OTF, etc.) It can only have one font size per session, so any given XTerm window will have the same font size on all the text buffer. But the size of the current font can be changed to multiple options (tiny, small, medium, huge, default) using the fonts menu (<code>CTRL+3rd mouse button click</code>).</p>
+
+<div class="center">
+	<iframe src="/scr/xterm_xresources.xhtml" frameborder="0">
+		
+Xterm showing the contents of an .Xresources file
+
+	</iframe>
+</div>
+
+
+<p>The font management in X is a bit messy, but you can have decent results with a bit of work.</p>
+
+<h3 id="unicode">Unicode</h3>
+
+<p>Xterm is able to show unicode characters. There is an xterm wrapper uxterm which set up xterm to show them,as it not show them by default. But it does not work well with all the fonts. In case you need non latin output, I suggest you to use uterm wrapper and the default fonts. Unless you need it to do heavy work that you will need to search for a good font for your needs.</p>
+
+<div class="center">
+	<iframe src="/scr/xterm_unicode.xhtml" frameborder="0">
+		
+Xterm with htop application running
+
+	</iframe>
+</div>
+
+
+<p>Note that this terminal font is rendered in your browser and might have better Unicode support. Below is an image of what appeared on the screen:</p>
+
+
+
+
+
+
+
+
+
+
+
+<figure class="lazyload">
+  
+    
+      <img class="lazyload" data-src="/img/xterm_unicode.png" alt="Xterm screenshot of Unicode test" />
+    
+  
+  
+  <figcaption>
+    
+    <small>Xterm screenshot of Unicode test
+    
+      
+    
+    </small>
+  </figcaption>
+  
+</figure>
+
+
+<h3 id="ncurses">ncurses</h3>
+
+<p>Xterm has the best support for ncurses programs AFAICT. It might me related to the fact that Thomas E. Dickey is related to both xterm and also ncruses.</p>
+
+<h3 id="xhtml-export">xhtml export</h3>
+
+<p>It has the feature to export the current window, not the whole buffer as an XHTML page. The terminals on this site have been generated using that functionality. Colors and ncurses are supported and the final result is quite good.</p>
+
+<div class="center">
+	<iframe src="/scr/xterm_calcurses.xhtml" frameborder="0">
+		
+Xterm with calcurses application running
+
+	</iframe>
+</div>
+
+
+<div class="center">
+	<iframe src="/scr/xterm_htop.xhtml" frameborder="0">
+		
+Xterm with htop application running
+
+	</iframe>
+</div>
+
+
+<p>Note that the screen captures uses the default monospace font from your browser. I&rsquo;m using <a href="https://files.ax86.net/terminus-ttf/">Terminus (TTF)</a> font as the monospace font in my browsers and the render of both consoles are just like I saw them in the Xterm.</p>
+
+<h2 id="usability">Usability</h2>
+
+<p>It&rsquo;s menu system, the .Xresources file, and the config modifications you can apply without closing and restarting the session is a bit annoying. But the work I normally do in XTerm does not requiere such things.</p>
+
+<p>You can serach using a printerCommand, like the one in the screenshot of my <code>.Xresources</code> file, but it would be nice if you could just do that in the current buffer</p>
+
+<h2 id="performance">Performance</h2>
+
+<p>I do not require a special performance of a terminal emulator. Also I have plenty of memory to run an XTerm from time to time.</p>
+
+<h2 id="bugs">Bugs</h2>
+
+<p>The XTerm is famous for its difficult code, its bugs, and its complexity:</p>
+
+<ul>
+<li>cut/paste does not select tabs; instead spaces are selected. This is because the selection works from the array of displayed characters, on which tab/space conversion has already been performed.</li>
+<li>does not implement the autorepeat feature of VTxxx terminals.</li>
+<li>the program must be run with fixed (nonproportional) fonts.</li>
+<li>the home and end keys do not generate usable escape sequences, due to an indexing error.</li>
+<li>the Main Options menu is improperly constructed, due to incorrect indices after removing the logging toggle. This makes the list of signals off by one.</li>
+<li>very large screens (e.g., by using nil2 for a font) cause core dumps because the program uses a fixed array (200 lines) for adjusting pointers.</li>
+<li>certain types of key translations cause a core dump because the program does not check the event class before attempting to use events.</li>
+</ul>
+    </div>
+    <footer>
+      <hr>
+      <p>
+  Published
+  
+  <time itemprop="datePublished" datetime="2018-08-02T14:27:00&#43;00:00">
+    2 Aug, 2018
+  </time>
+  
+    in <span itemprop="articleSection"><a href="/categories/documentation/">documentation</a></span>
+  
+  
+    and tagged <a rel="tag" href="/tags/xterm/">xterm</a>
+  
+  using <span itemprop="wordCount">740</span> words.
+</p>
+
+      
+
+
+
+    </footer>
+  </article>
+</main>
+    <footer>
+  
+  <small class="muted">
+    This page was generated by
+    <a  itemprop itemtype="https://schema.org/significantLink" target="_blank" rel="external noopener" href="https://after-dark.habd.as" referrerpolicy="origin-when-cross-origin">After Dark</a>.
+  </small>
+
+
+  
+
+</footer>
+    
+    
+    
+      
+    
+  </body>
+</html>

@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    
+
+
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: 'unsafe-inline' 'unsafe-eval'; font-src 'self' https: data:; img-src 'self' https: data:; object-src 'none'">
+
+
+    <meta name="generator" content="Hugo 0.53" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Package Management | Slackware</title>
+    <meta name="description" content="How to build your own slackware from ">
+    <meta name="keywords" content="packages, slackbuild, pkgtool, installpkg, slackpkg, slackpkg&#43;, how-to">
+    
+    
+    
+    
+    <meta property="og:title" content="Package Management" />
+<meta property="og:description" content="How to build your own slackware from " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://slackware.es/docs/packages/" /><meta property="article:published_time" content="2018-08-04T08:01:21&#43;00:00"/>
+<meta property="article:modified_time" content="2018-08-04T08:01:21&#43;00:00"/>
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://slackware.es/img/penguins.jpg"/>
+
+<meta name="twitter:title" content="Package Management"/>
+<meta name="twitter:description" content="How to build your own slackware from "/>
+
+    
+
+
+
+  <meta property="og:image" content="https://slackware.es/img/penguins.jpg">
+
+
+    
+
+    
+    
+  <meta name="referrer" content="same-origin">
+
+
+    
+    
+    <script integrity="sha512-Jx/MqTxYWqHdoOkHItRJJZCvFDhERPr5gG4I5ESu3V&#43;BgQyAQ6wXfdsGzhzmT0yyvkAWz2jbrn81q90RRJTSTg==">/*! Fetch Inject v2.0.2 | Copyright (C) 2017–2018 Josh Habdas <jhabdas@protonmail.com> | @license Zlib */
+var fetchInject=function(){"use strict";const e=function(e,t,r,n,o,c,i){c=t.createElement(r),i=t.getElementsByTagName(r)[0],c.appendChild(t.createTextNode(n.text)),c.onload=o(n),i?i.parentNode.insertBefore(c,i):t.head.appendChild(c)};return function(t,r){if(!arguments.length)return Promise.reject(new ReferenceError("Failed to execute 'fetchInject': 1 argument required but only 0 present."));if(arguments[0]&&arguments[0].constructor!==Array)return Promise.reject(new TypeError("Failed to execute 'fetchInject': argument 1 must be of type 'Array'."));if(arguments[1]&&arguments[1].constructor!==Promise)return Promise.reject(new TypeError("Failed to execute 'fetchInject': argument 2 must be of type 'Promise'."));const n=[],o=r?[].concat(r):[],c=[];return t.forEach(e=>o.push(window.fetch(e).then(e=>[e.clone().text(),e.blob()]).then(e=>Promise.all(e).then(e=>{n.push({text:e[0],blob:e[1]})})))),Promise.all(o).then(()=>(n.forEach(t=>{c.push({then:r=>{t.blob.type.includes("text/css")?e(window,document,"style",t,r):e(window,document,"script",t,r)}})}),Promise.all(c)))}}();
+</script>
+    <script integrity="sha512-hno7WeTIciCJSjg/myjyK30HYkrcGCVwo4g4SpUalvrs3r2lS7bPNIQwbCNypKbg7BZ1sA4AsGnk6Gq4NOKpGA==">fetchInject(["/js/lazysizes.min.js"]);
+</script>
+    
+
+
+  
+    
+
+  <meta title="mod:fractal-forest" content="status:enabled">
+  
+    <script async src=/js/bpgdec8a.js integrity=sha384-8PG0go3BW8hLm63KbTxk/hNcehaoSbrAhKzsmy2Jhs/KY8QdiKKkjhdeyHY/Q/0I&#10;></script>
+  
+
+
+  
+  
+  
+  
+
+
+    
+    <link rel="canonical" href="https://slackware.es/docs/packages/">
+    
+    
+    <link rel="icon" sizes="any" href="data:image/svg+xml,%3Csvg%20viewBox='0%200%2046%2045'%20xmlns='http://www.w3.org/2000/svg'%3E%3Ctitle%3EAfter%20Dark%3C/title%3E%3Cpath%20d='M.708%2045L23%20.416%2045.292%2045H.708zM35%2038L23%2019%2011%2038h24z'%20fill='%23000'/%3E%3C/svg%3E">
+
+    
+
+  
+    
+      <style>:root {
+	--fg: #272822;
+	--bg: #fbf9f1;
+}
+
+@font-face {
+	font-family: 'Terminus';
+	src: url('/fonts/terminus/TerminusTTF-4.46.0.ttf');
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Terminus';
+	src: url('/fonts/terminus/TerminusTTF-Bold-4.46.0.ttf');
+	font-weight: bold;
+}
+
+@font-face {
+	font-family: 'Terminus';
+	src: url('/fonts/terminus/TerminusTTF-Italic-4.46.0.ttf');
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Bitter';
+	src: url('/fonts/bitter/Bitter-Regular.ttf');
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Bitter';
+	src: url('/fonts/bitter/Bitter-Bold.ttf');
+	font-weight: bold;
+}
+
+@font-face {
+	font-family: 'Bitter';
+	src: url('/fonts/bitter/Bitter-Italic.ttf');
+	font-style: italic;
+}
+
+body, html {
+	height: 100%;
+}
+
+/* baisc typography */
+
+html, body, section, nav, article, aside, h1, h2, h3, h4, h5, h6, hgroup, header, footer, address, p, hr, pre, blackquote, ol, ul, li, dl, dt, dd, figure, figcaption, div, table, caption, form, fieldset {
+	vertical-align: baseline;
+	margin 0;
+	padding 0;
+}
+
+body {
+	font-family: 'Bitter', serif;
+	line-height: 1.5;
+	font-size: 1.15rem;
+	font-kerning: normal;
+	font-variant-numeric: oldstyle-nums proportional-nums;
+	font-variant-ligatures: common-ligatures contextual;
+	font-feature-settings: "kern", "liga", "clig", "calt";
+	background-color: var(--bg);
+	color: var(--fg);
+}
+
+
+p {
+	text-align: justify;
+	-webkit-hyphens: auto;
+	-webkit-hyphenate-limit-before: 4;
+	-webkit-hyphenate-limit-after: 3;
+	-webkit-hyphenate-limit-chars: 7 4 3;
+	-webkit-hyphenate-limit-lines: 2;
+	-webkit-hyphenate-limit-zone: 8%;
+	-webkit-hyphenate-limit-last: always;
+	-moz-hyphens: auto;
+	-moz-hyphenate-limit-chars: 7 4 3;
+	-moz-hyphenate-limit-lines: 2;
+	-moz-hyphenate-limit-zone: 8%;
+	-moz-hyphenate-limit-last: always;
+	-ms-hyphens: auto;
+	-ms-hyphenate-limit-chars: 7 4 3;
+	-ms-hyphenate-limit-lines: 2;
+	-ms-hyphenate-limit-zone: 8%;
+	-ms-hyphenate-limit-last: always;
+	hyphens: auto;
+	hyphenate-limit-chars: 7 4 3;
+	hyphenate-limit-lines: 2;
+	hyphenate-limit-zone: 8%;
+	hyphenate-limit-last: always;
+	margin-bottom: 0;
+	letter-spacing: -0.01em;
+}
+
+p + p {
+	text-indent: 2em;
+	margin-top: 0;
+}
+
+.quoted p {
+	quotes: '“' '”' '‘' '’';
+}
+
+.quoted p::before {
+	content: open-quote;
+	margin-left: -0.83ch;
+}
+.quoted p::after {
+	content: close-quote;
+}
+
+
+ol {
+	padding-left: 0; margin-left: 0;list-style: none;
+	counter-reset: list;
+}
+
+ol li::before {
+	counter-increment: list;
+	content: counter(list);
+	margin-left: -2em; margin-right: 1em;
+}
+
+h1 {font-family: 'Terminus', fixed;  font-size: 2.0625rem; line-height: 1;}
+h2 {font-family: 'Terminus', fixed; font-size: 1.5625rem; line-height: 1;}
+h3 {font-family: 'Terminus', fixed; font-size: 1.3125rem; line-height: 1;}
+h4 {font-family: 'Terminus', fixed; font-size: 1.2025rem; line-height: 1.2;}
+h5 {font-family: 'Terminus', fixed; font-size: 1.2025rem; line-height: 1.2;}
+h6 {font-family: 'Terminus', fixed; font-size: 1.2025rem; line-height: 1.2;}
+p {font-size: 1.15rem;}
+
+@media screen and(min-width: 60em) {
+	h1 {font-family: 'Terminus', fixed;  font-size: 3.1875rem; line-height: 1;}
+	h2 {font-family: 'Terminus', fixed; font-size: 2.0625rem; line-height: 1;}
+	h3 {font-family: 'Terminus', fixed; font-size: 1.5625rem; line-height: 1;}
+	h4 {font-family: 'Terminus', fixed; font-size: 1.325rem; line-height: 1.2;}
+	h5 {font-family: 'Terminus', fixed; font-size: 1.325rem; line-height: 1.2;}
+	h6 {font-family: 'Terminus', fixed; font-size: 1.325rem; line-height: 1.2;}	
+	p {font-size: 1.225rem;}
+}
+
+@media screen and(min-width: 120em) {
+	h1 {font-family: 'Terminus', fixed;  font-size: 4.875rem; line-height: 1;}
+	h2 {font-family: 'Terminus', fixed; font-size: 2.75rem; line-height: 1;}
+	h3 {font-family: 'Terminus', fixed; font-size: 1.75rem; line-height: 1;}
+	h4 {font-family: 'Terminus', fixed; font-size: 1.5125rem; line-height: 1.2;}
+	h5 {font-family: 'Terminus', fixed; font-size: 1.5125rem; line-height: 1.2;}	
+	h6 {font-family: 'Terminus', fixed; font-size: 1.5125rem; line-height: 1.2;}
+	p {font-size: 1.4125rem;}
+}
+
+pre, code {
+	font-family: 'Terminus', fixed;
+	font-weight: regular;
+	line-height: 1.2;
+	font-kerning: normal;
+	font-variant-numeric: oldstyle-nums proportional-nums;
+	font-variant-ligatures: common-ligatures contextual;
+	font-feature-settings: "kern", "liga", "clig", "calt";
+}
+
+pre:hover,
+pre:focus {
+  width: min-content;
+}
+
+a:hover, a:active, a:focus {
+	background-color: var(--bg);
+	color: rgb(231, 25, 1);
+	border-bottom: 1px solid rgba(0,0,0,0.6);
+}
+
+a, .toggle__input + label {
+	color: inherit;
+	text-decoration: none;
+	border-bottom: 1px solid rgba(0,0,0,0.2);
+	transition: all 0.25s ease;
+}
+
+div.center {
+	overflow: hidden;
+}
+
+div.center iframe{
+	overflow: hidden;
+	scrolling: no;	
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 750px;
+	height: 390px;
+}
+
+table {
+	color: var(--fg);
+}
+
+:target {
+	color: rgb(231, 25, 1);
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+
+.hero-image {
+	/* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read 
+	background-image: linear-gradient(rgba(251, 249, 241, 0.3), rgba(251, 249, 241, 0.4)), url("/img/penguins.jpg"); */
+
+	/* Set a specific height 
+	height: 6em;*/
+
+	/* Position and center the image to scale nicely on all screens */
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 100%;
+}
+
+/* Place text in the middle of the image */
+.hero-text {
+	text-align: center;
+	line-height: 2;
+}
+
+.hero-text h1 {
+	font-family: Terminus, fixed;
+	font-size: 5rem;
+	font-weigth: bold;
+	padding: 1rem;
+	margin-top: 2rem;
+	margin-bottom: 1rem;
+}
+
+.hero-text h2 {
+	font-family: Bitter, serif;
+	font-size: 2rem;
+	font-weigth: bold;
+}
+
+.getButton {
+	width: 20rem;
+	font-family: Terminus, fixed;
+	font-size: 1.5rem;
+	font-weigth: bold;
+	background-color: var(--fg);
+	color: var(--bg);
+	padding: 5px;
+}
+
+.highlight {
+	background-color: var(--fg);
+	color: var(--bg);
+}
+
+.changelog {
+	font-family: Terminus, fixed;
+	font-weigth: regular;
+	padding: 0;
+}
+
+/* forms */
+
+.form-group {
+	margin-bottom: 1.75rem;
+	overflow: auto;
+}
+
+fieldset {
+	border: none;
+	padding: 0;
+	margin: 0;
+}
+
+input.form-control {
+	font-size: initial;
+	border-radius: 0;
+	background-color: transparent;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+}
+
+.form-control {
+	outline: none;
+	border: none;
+	border-bottom: 2px solid #ccc;
+	padding: .5rem 0;
+	width: 20rem;
+	height: 38px;
+	background-color: transparent;
+}
+
+/* responsiveness */
+body {
+	width: 50rem;
+	max-width: 80%;
+	margin: 0 auto;
+	padding: 2rem 1rem;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+@media \0screen {
+  img { 
+  	width: auto; /* for ie 8 */
+  }
+}
+
+.grid {
+	display: grid;
+}
+
+.cell {
+	overflow-x: auto;
+}
+
+.two {
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr); 
+}
+
+.three {
+	grid-template-columns: 1fr 1fr 1fr;
+}
+
+pre {
+    white-space: pre-wrap;       /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+</style>
+      
+
+
+  
+
+
+    
+  
+
+
+    
+    
+      <script integrity="sha512-ISTAV0GadOIz/NXXHOS+eCM0ysXVVHhQTlvA6LJxz/DeA5yIxm0Vqf5IE+WH0yuuXkayAKtoZkQ326nch5f/fg==">fetchInject(["/css/syntax.css"]);</script>
+      <noscript>
+        <link href="/css/syntax.css" rel="stylesheet">
+      </noscript>
+    
+  </head>
+  
+  
+  
+  <body class="">
+    <header>
+  
+  <nav itemscope itemtype="http://schema.org/SiteNavigationElement">
+    
+    
+      <a itemprop="url" class="" href="/"><span itemprop="name">Home</span></a>
+    
+      <a itemprop="url" class="" href="/posts/"><span itemprop="name">Blog</span></a>
+    
+      <a itemprop="url" class="" href="/docs/"><span itemprop="name">Docs</span></a>
+    
+      <a itemprop="url" class="" href="/files/"><span itemprop="name">Downloads</span></a>
+    
+      <a itemprop="url" class="" href="/search/"><span itemprop="name">Search</span></a>
+    
+  </nav>
+
+
+</header>
+    <main>
+  <article itemscope itemtype="http://schema.org/BlogPosting">
+    
+<meta itemprop="name" content="Package Management">
+<meta itemprop="description" content="How to build your own slackware from ">
+
+
+<meta itemprop="datePublished" content="2018-08-04T08:01:21&#43;00:00" />
+<meta itemprop="dateModified" content="2018-08-04T08:01:21&#43;00:00" />
+<meta itemprop="wordCount" content="1807">
+
+
+
+<meta itemprop="keywords" content="packages,slackbuild,pkgtool,installpkg,slackpkg,slackpkg&#43;,how-to," />
+
+    <header>
+      <h1 itemprop="headline">Package Management</h1>
+      <p class="muted">
+        <svg style="margin-bottom:-3px" class="i-clock" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+  <circle cx="16" cy="16" r="14" />
+  <path d="M16 8 L16 16 20 20" />
+</svg>
+<span>9 minute read</span>
+<svg style="margin-bottom: -3px" class="i-edit" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+  <path d="M30 7 L25 2 5 22 3 29 10 27 Z M21 6 L26 11 Z M5 22 L10 27 Z" />
+</svg>
+
+  Published: <time datetime="2018-08-04T08:01:21&#43;00:00">4 Aug, 2018</time>
+
+
+      </p>
+      
+        <blockquote itemprop="description">How to build your own slackware from </blockquote>
+      
+      
+    </header>
+    
+  <details>
+    <summary>Table of Contents</summary>
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#pkgtool">pkgtool</a></li>
+<li><a href="#installing-removing-and-upgrading-packages">Installing, Removing, and Upgrading Packages</a></li>
+<li><a href="#slackpkg">slackpkg</a></li>
+<li><a href="#slackbuilds">slackbuilds</a></li>
+<li><a href="#building-a-package">Building a package</a></li>
+</ul></li>
+</ul>
+</nav>
+  </details>
+
+
+    <div itemprop="articleBody">
+      
+
+<p>This document is a derivative of the <a href="https://docs.slackware.com/slackbook:package_management">Slacbook:install</a>. The aim is to produce an evolution and contribute it back to the original work.</p>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>Package management is an essential part of any Linux distribution. The software included in Slackware, along with many third-party tools, is distributed as source code. But compiling all those thousands of different applications and libraries is tedious and time consuming. That&rsquo;s why many people prefer to install pre-compiled software packages. In fact, when you installed Slackware, the setup program run the package management tools on a list of packages. Here we&rsquo;ll look at the various tools used for handling Slackware packages.</p>
+
+<p>Slackware packages are <code>tar</code> files compressed by <code>gzip</code> or <code>xz</code>  whose name contains the software name and version, the computer architecture of the included binaries and the package maintainer tag.</p>
+
+<p><code>packageName-version-arch-tag.txz</code></p>
+
+<p>The package management tools use metadata stored in <code>/var/log/packages</code>  to do their operations. This metadata is generated when the package is installed, and stored in files named after the package. In the next Slackware release the metadata will be stored in <code>/var/lib/pkgtool</code>.</p>
+
+<div class="center">
+	<iframe src="/scr/package_metadata_file.xhtml" frameborder="0">
+		
+package metadata file
+
+	</iframe>
+</div>
+
+
+<p>You can see the installed packages  on your system by listing the contents of <code>/var/log/packages</code>, and on each file you can explore the following metadata fields:</p>
+
+<ul>
+<li>Package name</li>
+<li>Compressed package size</li>
+<li>Uncompressed package size</li>
+<li>Package location</li>
+<li>Package description</li>
+<li>File list</li>
+</ul>
+
+<p>Slackware packages were compressed with the <code>gzip</code> compression utility, which was a good compromise between compression speed and size. But new compression schemes have been added and today, official Slackware packages use the <code>xz</code> utility and end with <code>.txz</code> extensions. Older packages, and many third party packages, still use the <code>.tgz</code> extension.</p>
+
+<p>It&rsquo;s worth emphasizing that <code>.tgz</code> and <code>.txz</code> (or, more succinctly, <code>.t?z</code> files) are standard, non-unique extensions for compressed <code>.tar</code> files. This has many advantages; they&rsquo;re easy to build on any UNIX system (many other package formats require special tools), and they&rsquo;re just as simple to de-construct.</p>
+
+<p>However, it is also important to realize that just because all Slackware packages are <code>.t?z</code> files, not all <code>.t?z</code> files are Slackware packages. <code>installpkg</code> won&rsquo;t install just any <code>.t?z</code> file, only Slackware packages.</p>
+
+<p>A package contains an <code>install</code> folder with scripts to execute in the install process. The documentation of `<code>makepkg</code> contains the details of the install scripts.</p>
+
+<p>Slackware package management tools do not automatically manage the package dependencies and there is no such information on the package metadata and are written in shell script.</p>
+
+<p>In the next sections we describe the standard package management tools and mention non-standard ones for the advanced user.</p>
+
+<h2 id="pkgtool">pkgtool</h2>
+
+<p>The way to perform package maintenance tasks is to invoke <code>pkgtool</code>, a menu-driven interface which allows you to install or remove packages and view the contents of those packages and the list of installed packages in a user-friendly ncurses interface.</p>
+
+<div class="center">
+	<iframe src="/scr/pkgtool.xhtml" frameborder="0">
+		
+pkgtool user interface
+
+	</iframe>
+</div>
+
+
+<p><code>pkgtool</code> is a convenient and easy way to perform the most basic tasks, but for more advanced work we need more flexible tools.</p>
+
+<h2 id="installing-removing-and-upgrading-packages">Installing, Removing, and Upgrading Packages</h2>
+
+<p>While <code>pkgtool</code> scores points for convenience, `<code>installpkg</code> can handle odd tasks, such as installing a single package, installing an entire disk set of packages, or scripting an custom installation process.</p>
+
+<p><code>installpkg</code> takes a list of packages to install and installs them asking no questions. Like all Slackware package management tools, it assumes that you know what you&rsquo;re doing and doesn&rsquo;t pretend to be smarter than you. In its simplest form, <code>installpkg</code> takes a list of packages to install, and does what you would expect.</p>
+
+<div class="center">
+	<iframe src="/scr/installpkg.xhtml" frameborder="0">
+		
+pkgtool user interface
+
+	</iframe>
+</div>
+
+
+<p>You can install multiple packages at a time, and in fact use shell wild cards.The following installs all the “N” series packages from a mounted CD-ROM:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">darkstar:~# installpkg /mnt/cdrom/slackware/n/*.txz</code></pre></div>
+
+<p><code>removepkg</code> will check the contents of the package metadata file and will remove all the files and directories for that package with one caveat. It will not remove files used by multiple installed packages, or non-empty directories.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">darkstar:~# removepkg blackbox-0.70.1-i486-2.txz<span style="color:#e6db74">```</span></code></pre></div>
+
+<p><code>upgradepkg</code> which first installs a new package, then removes whatever files and directories are left-over from the old package. It doesn&rsquo;t check if the installed package has a higher version number than the “new” package, so it can also downgrade a package to older versions.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">darkstar:~# upgradepkg blackbox-0.70.1-i486-2.txz
+
++<span style="color:#f92672">==============================================================================</span>
+| Upgrading blackbox-0.65.0-x86_64-4 package using
+./blackbox-0.70.1-i486-2.txz
++<span style="color:#f92672">==============================================================================</span>
+
+Pre-installing package blackbox-0.70.1-i486-2...
+
+Removing package
+/var/log/packages/blackbox-0.65.0-x86_64-4-upgraded-2010-02-23,16:50:51...
+--&gt; Deleting symlink /usr/share/blackbox/nls/POSIX
+--&gt; Deleting symlink /usr/share/blackbox/nls/US_ASCII
+--&gt; Deleting symlink /usr/share/blackbox/nls/de
+--&gt; Deleting symlink /usr/share/blackbox/nls/en
+--&gt; Deleting symlink /usr/share/blackbox/nls/en_GB
+...
+Package blackbox-0.65.0-x86_64-4 upgraded with new package
+./blackbox-0.70.1-i486-2.txz.</code></pre></div>
+
+<p>These tools have useful arguments. For example, the –root to installpkg will install packages into an arbitrary directory. The –dry-run argument will instruct upgradepkg to tell you what it would attempt without changing the system. For complete details, refer to the man pages.</p>
+
+<h2 id="slackpkg">slackpkg</h2>
+
+<p>Slackpkg is an automated tool for management of Slackware Linux Packages. It Appeared in <code>/extra</code> for the release of slackware-12.1, and since the release of slackware-12.2 they have included it in the <code>ap/</code> series of a base installation.</p>
+
+<p>You can find the latest version of slackpkg and its documentation at <a href="https://slackpkg.org">https://slackpkg.org</a>.</p>
+
+<p>Slacpkg can download packages from a mirror in Internet and install them into your computer. This is useful for security updates or application upgrades.</p>
+
+<p>Without slackpkg, the process would be:</p>
+
+<ul>
+<li>Notice in the Slackware change log they have released an update.</li>
+<li>Look on your local Slackware mirror to find a download link of the package.</li>
+<li>Download the package from a Slackware mirror to your hard drive.</li>
+<li>Use either installpkg or pkgtool to install the downloaded package.</li>
+</ul>
+
+<p>Slackpkg reduces the process to:</p>
+
+<ul>
+<li>Notice in the Slackware change log they have released an update.</li>
+<li>slackpkg install or upgrade the changed package</li>
+</ul>
+
+<p>To use slackpkg, configure your system with a Slackware mirror by editing <code>/etc/slackpkg/mirrors</code>  as <code>root</code> user. Find a mirror with your Slackware version and architecture and enable it by deleting the <code>#</code> at the start of the line. Only one mirror can be enabled at a time.</p>
+
+<p>Then, update the local change log by issuing the command <code>slackpkg update</code>. This command will download the change log and will compare it with your local copy. If there are any differences, the local file is updated with the remote contents.</p>
+
+<p>You should do this any time you notice they have posted a new package (check in with the Slackware change log once a day!).</p>
+
+<p>To search for a package, use <code>slackpkg search foo</code>, and to install use <code>slackpkg install foo</code>.</p>
+
+<p>You can manage the packages installed with <code>slackpkg</code> using <code>pkgtool</code> and the other standard package management commands.</p>
+
+<p>For more information see the man pages for slackpkg(8) and slackpkg.conf(5), and see its <a href="http://www.slackpkg.org/">website</a></p>
+
+<p>There is also a novel tool called <code>slackpkg+</code> which augments the current slackpkg tool to work with multiple repositories, for more information see its <a href="https://github.com/zuno/slackpkgplus">Guthub repository</a></p>
+
+<h2 id="slackbuilds">slackbuilds</h2>
+
+<p>Original source: <a href="https://slackbuilds.org">slackbuilds.org</a></p>
+
+<p>One of the frequent criticisms of Slackware is the lack of official packages available. While the official package set provides a good, stable, and flexible operating system (and is quite adequate for many individuals), the fact remains that many users want/need quite a few additional applications in order for it to meet their needs.</p>
+
+<p>There are a few well-known third party package repositories, but many users justifiably do not want to install untrusted packages on their systems. For those users, the traditional solution has been to download the source code for desired applications and compile them manually.</p>
+
+<p>This works, but introduces another set of problems associated with managing those applications; version updates and such require more of the admin&rsquo;s time than precompiled packages, and lack of notes will often mean that the admin forgot which configure flags were used earlier (as well as any other special issues encountered).</p>
+
+<p>In our opinion, the best solution to this problem is for the admin to automate the compile process using a SlackBuild script. Patrick Volkerding, the maintainer of Slackware, uses SlackBuild scripts to compile the official packages, so it makes sense for us to use the same idea for extra applications we want to add.</p>
+
+<p>Our goal is to have the largest collection of SlackBuild scripts available while still ensuring that they are of the highest quality - we test every submission prior to inclusion in the repository. We do not now nor will we ever provide precompiled packages for any of the applications for which we have SlackBuild scripts - instead, we want the system administrator (that&rsquo;s you) to be responsible for building the packages.</p>
+
+<p>How to use it can be read in their fantastic documentation at their <a href="https://www.slackbuilds.org/howto/">website</a></p>
+
+<h2 id="building-a-package">Building a package</h2>
+
+<p>Original source: <a href="https://docs.slackware.com/howtos:slackware_admin:building_a_package">slack how-to</a></p>
+
+<p>Configure and compile the source as you usually do:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">./configure --prefix<span style="color:#f92672">=</span>/usr --localstatedir<span style="color:#f92672">=</span>/var --sysconfdir<span style="color:#f92672">=</span>/etc
+make</code></pre></div>
+
+<p>Make a temporary destination directory available:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mkdir /tmp/build</code></pre></div>
+
+<p>Install into the temporary directory:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">make install DESTDIR<span style="color:#f92672">=</span>/tmp/build</code></pre></div>
+
+<p>Now strip libs/bins within the temporary directory:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">strip -s /tmp/build/usr/lib/* /tmp/build/usr/bin/*</code></pre></div>
+
+<p>You also want to make sure that anything in <tt>/usr/man</tt> is gzipped before you make the package:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gzip -9 /tmp/build/usr/man/man?/*.?</code></pre></div>
+
+<p>Create the install directory, this is where the description and install script will be stored:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd /tmp/build
+mkdir install
+cd install</code></pre></div>
+
+<p>One-liner (for the copy &amp; paste people):</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd /tmp/build; mkdir install; cd install</code></pre></div>
+
+<p>Using a text editor (or a tool), create a file called slack-desc and fill it with the following contents:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">    appname: appname <span style="color:#f92672">(</span>Short description of the application<span style="color:#f92672">)</span>
+    appname:      &lt;this line is generally left blank&gt;
+    appname: Description of application  -  this description should be fairly
+    appname: in-depth; in other words, make it clear what the package does <span style="color:#f92672">(</span>and 
+    appname: maybe include relevant links and/or instructions <span style="color:#66d9ef">if</span> there<span style="color:#e6db74">&#39;s room),
+</span><span style="color:#e6db74">    appname: but don&#39;</span>t get too verbose.  
+    appname: This file can have a maximum of eleven <span style="color:#f92672">(</span><span style="color:#ae81ff">11</span><span style="color:#f92672">)</span> lines of text preceded by
+    appname: the <span style="color:#e6db74">&#34;appname: &#34;</span> designation.  
+    appname:
+    appname: It<span style="color:#e6db74">&#39;s a good idea to include a link to the application&#39;</span>s homepage too.
+    appname:</code></pre></div>
+
+<p>The “appname” string must <em>exactly</em> match the application name portion of the Slackware package (for example, a package titled “gaim-1.5-i486-1.tgz” must have a slack-desc file with the <appname> string of “gaim: ” rather than “Gaim: ” or “GAIM: ” or something else.</p>
+
+<p>The first line must show the application name followed by a short description (enclosed in parentheses).</p>
+
+<p>Create the actual package:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd /tmp/build
+makepkg ../app-version-arch-tag.tgz</code></pre></div>
+
+<p>(The dashes should appear as above, so if the version has a subversion like say “1.0 RC2” make sure you use 1.0_RC2 not 1.0-RC2. The arch should be something like “i486” for example. The tag should consist of the build number and your initals, e.g. 1zb for Zaphod Beeblebrox&rsquo;s first build, 2zb for his second build, etc. Official slackware packages have only numbers as tags.)</p>
+
+<ul>
+<li>When prompted to recreate symbolic links, say <code>yes</code></li>
+<li>When prompted to reset permissions, say <code>no</code></li>
+</ul>
+
+<p>Note: Using <code>makepkg -l y -c n</code> will give you the same behaviour as answering yes to the symlinks question, and no to the permissions question.</p>
+
+<p>If all went well, you can now install the package.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd .. 
+installpkg app-version-arch-tag.tgz</code></pre></div>
+
+    </div>
+    
+      <article>
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "slackware-es" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      </article>
+    
+    <footer>
+      <hr>
+      <p>
+  Published
+  
+  <time itemprop="datePublished" datetime="2018-08-04T08:01:21&#43;00:00">
+    4 Aug, 2018
+  </time>
+  
+    in <span itemprop="articleSection"><a href="/categories/technology/">technology</a></span>
+  
+  
+    and tagged <a rel="tag" href="/tags/how-to/">how-to</a>, <a rel="tag" href="/tags/installpkg/">installpkg</a>, <a rel="tag" href="/tags/packages/">packages</a>, <a rel="tag" href="/tags/pkgtool/">pkgtool</a>, <a rel="tag" href="/tags/slackbuild/">slackbuild</a>, <a rel="tag" href="/tags/slackpkg/">slackpkg</a> and <a rel="tag" href="/tags/slackpkg&#43;/">slackpkg&#43;</a>
+  
+  using <span itemprop="wordCount">1807</span> words.
+</p>
+
+      
+
+
+  <aside>
+    <header>Related Content</header>
+    <ul>
+      
+        <li><a href="/docs/build/">How to build your own Slackware</a>
+        <time datetime="1M">1 minutes</time>
+      
+        <li><a href="/downloads/downloads/">Downloads</a>
+        <time datetime="1M">1 minutes</time>
+      
+        <li><a href="/docs/install/">Slackware installation</a>
+        <time datetime="16M">16 minutes</time>
+      
+    </ul>
+  </aside>
+
+
+    </footer>
+  </article>
+</main>
+    <footer>
+  
+  <small class="muted">
+    This page was generated by
+    <a  itemprop itemtype="https://schema.org/significantLink" target="_blank" rel="external noopener" href="https://after-dark.habd.as" referrerpolicy="origin-when-cross-origin">After Dark</a>.
+  </small>
+
+
+</footer>
+    
+    
+    
+      
+    
+  </body>
+</html>

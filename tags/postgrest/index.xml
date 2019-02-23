@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <docs>https://blogs.law.harvard.edu/tech/rss</docs>
+    <title>Postgrest on Slackware</title>
+    <link>https://slackware.es/tags/postgrest/</link>
+    <description>Recent content in Postgrest on Slackware</description>
+    <image>
+      <title>Postgrest on Slackware</title>
+      <link>https://slackware.es/tags/postgrest/</link>
+      <url>https://slackware.es/img/penguins.jpg</url>
+    </image>
+    <ttl>1440</ttl>
+    <generator>Hugo 0.53</generator>
+    <language>en-US</language>
+    <lastBuildDate>Wed, 29 Aug 2018 06:00:00 +0000</lastBuildDate>
+    
+      <atom:link href="https://slackware.es/tags/postgrest/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      <item>
+        <title>PostgREST: BAAS for PostgreSQL databases</title>
+        <link>https://slackware.es/posts/postgrest/</link>
+        <pubDate>Wed, 29 Aug 2018 06:00:00 +0000</pubDate>
+        <guid>https://slackware.es/posts/postgrest/</guid>
+        <description>Introduction   PostgREST is a standalone web server that turns your PostgreSQL database directly into a RESTful API. The structural constraints and permissions in the database determine the API endpoints and operations. Using PostgREST is an alternative to manual CRUD programming. Custom API servers suffer problems. Writing business logic often duplicates, ignores or hobbles database structure. Object-relational mapping is a leaky abstraction leading to slow imperative code. The PostgREST philosophy establishes a single declarative source of truth: the data itself.</description>
+        <category domain="https://slackware.es/categories/documentation">Documentation</category>
+        <content:encoded><![CDATA[ Introduction   PostgREST is a standalone web server that turns your PostgreSQL database directly into a RESTful API. The structural constraints and permissions in the database determine the API endpoints and operations. Using PostgREST is an alternative to manual CRUD programming. Custom API servers suffer problems. Writing business logic often duplicates, ignores or hobbles database structure. Object-relational mapping is a leaky abstraction leading to slow imperative code. The PostgREST philosophy establishes a single declarative source of truth: the data itself. https://postgrest.org/en/v5.0/intro.html  Our aim is to build and experiment with applications using an HTTP based back-end. These applications can use a lot of languages and environments: shell scripts, Javascript, etc.
+Building a package for Slackware PostgREST is written in the Haskell programming language, so to build the software we need a Haskell compiler installed into our build system. We can install the Glasgow Haskell Compiler from the SlackBuild repository. The official build instructions are basically to execute the command:
+# stack build --install-ghc --copy-bins --local-bin-path /usr/local/bin With this information, we can build our own SlackBuild script. Look into our repository to see all the files.
+Build the PostgREST package executing the postgrest.SlackBuild script. It will generate the package into /tmp.
+Once you have the package, we need to install it into the server.
+Before setting up This package requires a working PostgreSQL database, configured with user access, tables, etc. The service requires planning carefully the database schemas, permissions and functions to work.
+Try to set up first an SQL program to build your database before setting up PostgREST. Also, follow the tutorials and the documentation in their website.
+We had problems with schema isolation. We learned that we need to set up the search_path per function.
+It is also advisable to split the internal procedures, and the external ones, so only the API only exposes what it is really neeed and nothing more.
+Setting PostgREST up Before starting, PostREST needs a configuration file describing the environment. The package expects the configuration file to be /opt/postgrest/etc/postgrest.conf. The configuration file documentation details how to set up PostgREST. It will neeed the PostgreSQL database URI, the database schema and the database anonymous role.
+To get things right, it is advisable to follow the getting started (tutorial)[https://postgrest.org/en/v5.0/tutorials/tut0.html].
+Resources  Home page Github repository StackOverflow Gitter  ]]></content:encoded>
+      </item>
+    
+  </channel>
+</rss>

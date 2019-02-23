@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://slackware.es/posts/statuspage/</loc>
+    <lastmod>2018-09-01T06:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://slackware.es/posts/postgrest/</loc>
+    <lastmod>2018-08-29T06:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://slackware.es/posts/jitsi/</loc>
+    <lastmod>2018-08-09T06:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://slackware.es/docs/shell/</loc>
+    <lastmod>2018-08-05T23:01:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://slackware.es/posts/diskusage/</loc>
+    <lastmod>2018-08-04T08:01:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://slackware.es/docs/packages/</loc>
+    <lastmod>2018-08-04T08:01:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://slackware.es/posts/xterm/</loc>
+    <lastmod>2018-08-02T14:27:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://slackware.es/downloads/downloads/</loc>
+    <lastmod>2018-07-28T08:01:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://slackware.es/docs/build/</loc>
+    <lastmod>2018-07-28T08:01:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://slackware.es/docs/install/</loc>
+    <lastmod>2018-07-28T08:01:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://slackware.es/posts/slackbook/</loc>
+    <lastmod>2018-07-28T08:01:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://slackware.es/tags/build/</loc>
+    <lastmod>2018-08-05T23:01:21+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://slackware.es/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://slackware.es/docs/</loc>
+    <lastmod>2018-08-05T23:01:21+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://slackware.es/categories/documentation/</loc>
+    <lastmod>2018-09-01T06:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://slackware.es/downloads/</loc>
+    <lastmod>2018-07-28T08:01:21+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://slackware.es/categories/downloads/</loc>
+    <lastmod>2018-07-28T08:01:21+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://slackware.es/tags/how-to/</loc>
+    <lastmod>2018-08-05T23:01:21+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://slackware.es/tags/howto/</loc>
+    <lastmod>2018-09-01T06:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://slackware.es/tags/images/</loc>
+    <lastmod>2018-07-28T08:01:21+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://slackware.es/tags/install/</loc>
+    <lastmod>2018-07-28T08:01:21+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://slackware.es/tags/installpkg/</loc>
+    <lastmod>2018-08-04T08:01:21+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://slackware.es/tags/jitsi/</loc>
+    <lastmod>2018-08-09T06:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://slackware.es/tags/packages/</loc>
+    <lastmod>2018-08-04T08:01:21+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://slackware.es/tags/pkgtool/</loc>
+    <lastmod>2018-08-04T08:01:21+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://slackware.es/tags/postgrest/</loc>
+    <lastmod>2018-08-29T06:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://slackware.es/posts/</loc>
+    <lastmod>2018-09-01T06:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://slackware.es/search/</loc>
+  </url>
+  
+  <url>
+    <loc>https://slackware.es/tags/setup/</loc>
+    <lastmod>2018-07-28T08:01:21+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://slackware.es/tags/slackbook/</loc>
+    <lastmod>2018-08-04T08:01:21+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://slackware.es/tags/slackbuild/</loc>
+    <lastmod>2018-08-04T08:01:21+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://slackware.es/tags/slackpkg/</loc>
+    <lastmod>2018-08-04T08:01:21+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://slackware.es/tags/slackpkg&#43;/</loc>
+    <lastmod>2018-08-04T08:01:21+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://slackware.es/</loc>
+    <lastmod>2018-09-01T06:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://slackware.es/tags/sysstat/</loc>
+    <lastmod>2018-09-01T06:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://slackware.es/tags/</loc>
+    <lastmod>2018-08-05T23:01:21+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://slackware.es/categories/technology/</loc>
+    <lastmod>2018-08-05T23:01:21+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://slackware.es/tags/xterm/</loc>
+    <lastmod>2018-08-02T14:27:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

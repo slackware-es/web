@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    
+
+
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: 'unsafe-inline' 'unsafe-eval'; font-src 'self' https: data:; img-src 'self' https: data:; object-src 'none'">
+
+
+    <meta name="generator" content="Hugo 0.53" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shell | Slackware</title>
+    <meta name="description" content="Introduction to the Slackware shell environment">
+    <meta name="keywords" content="build, how-to">
+    
+    
+    
+    
+    <meta property="og:title" content="Shell" />
+<meta property="og:description" content="Introduction to the Slackware shell environment" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://slackware.es/docs/shell/" /><meta property="article:published_time" content="2018-08-05T23:01:21&#43;00:00"/>
+<meta property="article:modified_time" content="2018-08-05T23:01:21&#43;00:00"/>
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://slackware.es/img/penguins.jpg"/>
+
+<meta name="twitter:title" content="Shell"/>
+<meta name="twitter:description" content="Introduction to the Slackware shell environment"/>
+
+    
+
+
+
+  <meta property="og:image" content="https://slackware.es/img/penguins.jpg">
+
+
+    
+
+    
+    
+  <meta name="referrer" content="same-origin">
+
+
+    
+    
+    <script integrity="sha512-Jx/MqTxYWqHdoOkHItRJJZCvFDhERPr5gG4I5ESu3V&#43;BgQyAQ6wXfdsGzhzmT0yyvkAWz2jbrn81q90RRJTSTg==">/*! Fetch Inject v2.0.2 | Copyright (C) 2017–2018 Josh Habdas <jhabdas@protonmail.com> | @license Zlib */
+var fetchInject=function(){"use strict";const e=function(e,t,r,n,o,c,i){c=t.createElement(r),i=t.getElementsByTagName(r)[0],c.appendChild(t.createTextNode(n.text)),c.onload=o(n),i?i.parentNode.insertBefore(c,i):t.head.appendChild(c)};return function(t,r){if(!arguments.length)return Promise.reject(new ReferenceError("Failed to execute 'fetchInject': 1 argument required but only 0 present."));if(arguments[0]&&arguments[0].constructor!==Array)return Promise.reject(new TypeError("Failed to execute 'fetchInject': argument 1 must be of type 'Array'."));if(arguments[1]&&arguments[1].constructor!==Promise)return Promise.reject(new TypeError("Failed to execute 'fetchInject': argument 2 must be of type 'Promise'."));const n=[],o=r?[].concat(r):[],c=[];return t.forEach(e=>o.push(window.fetch(e).then(e=>[e.clone().text(),e.blob()]).then(e=>Promise.all(e).then(e=>{n.push({text:e[0],blob:e[1]})})))),Promise.all(o).then(()=>(n.forEach(t=>{c.push({then:r=>{t.blob.type.includes("text/css")?e(window,document,"style",t,r):e(window,document,"script",t,r)}})}),Promise.all(c)))}}();
+</script>
+    <script integrity="sha512-hno7WeTIciCJSjg/myjyK30HYkrcGCVwo4g4SpUalvrs3r2lS7bPNIQwbCNypKbg7BZ1sA4AsGnk6Gq4NOKpGA==">fetchInject(["/js/lazysizes.min.js"]);
+</script>
+    
+
+
+  
+    
+
+  <meta title="mod:fractal-forest" content="status:enabled">
+  
+    <script async src=/js/bpgdec8a.js integrity=sha384-8PG0go3BW8hLm63KbTxk/hNcehaoSbrAhKzsmy2Jhs/KY8QdiKKkjhdeyHY/Q/0I&#10;></script>
+  
+
+
+  
+  
+  
+  
+
+
+    
+    <link rel="canonical" href="https://slackware.es/docs/shell/">
+    
+    
+    <link rel="icon" sizes="any" href="data:image/svg+xml,%3Csvg%20viewBox='0%200%2046%2045'%20xmlns='http://www.w3.org/2000/svg'%3E%3Ctitle%3EAfter%20Dark%3C/title%3E%3Cpath%20d='M.708%2045L23%20.416%2045.292%2045H.708zM35%2038L23%2019%2011%2038h24z'%20fill='%23000'/%3E%3C/svg%3E">
+
+    
+
+  
+    
+      <style>:root {
+	--fg: #272822;
+	--bg: #fbf9f1;
+}
+
+@font-face {
+	font-family: 'Terminus';
+	src: url('/fonts/terminus/TerminusTTF-4.46.0.ttf');
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Terminus';
+	src: url('/fonts/terminus/TerminusTTF-Bold-4.46.0.ttf');
+	font-weight: bold;
+}
+
+@font-face {
+	font-family: 'Terminus';
+	src: url('/fonts/terminus/TerminusTTF-Italic-4.46.0.ttf');
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Bitter';
+	src: url('/fonts/bitter/Bitter-Regular.ttf');
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Bitter';
+	src: url('/fonts/bitter/Bitter-Bold.ttf');
+	font-weight: bold;
+}
+
+@font-face {
+	font-family: 'Bitter';
+	src: url('/fonts/bitter/Bitter-Italic.ttf');
+	font-style: italic;
+}
+
+body, html {
+	height: 100%;
+}
+
+/* baisc typography */
+
+html, body, section, nav, article, aside, h1, h2, h3, h4, h5, h6, hgroup, header, footer, address, p, hr, pre, blackquote, ol, ul, li, dl, dt, dd, figure, figcaption, div, table, caption, form, fieldset {
+	vertical-align: baseline;
+	margin 0;
+	padding 0;
+}
+
+body {
+	font-family: 'Bitter', serif;
+	line-height: 1.5;
+	font-size: 1.15rem;
+	font-kerning: normal;
+	font-variant-numeric: oldstyle-nums proportional-nums;
+	font-variant-ligatures: common-ligatures contextual;
+	font-feature-settings: "kern", "liga", "clig", "calt";
+	background-color: var(--bg);
+	color: var(--fg);
+}
+
+
+p {
+	text-align: justify;
+	-webkit-hyphens: auto;
+	-webkit-hyphenate-limit-before: 4;
+	-webkit-hyphenate-limit-after: 3;
+	-webkit-hyphenate-limit-chars: 7 4 3;
+	-webkit-hyphenate-limit-lines: 2;
+	-webkit-hyphenate-limit-zone: 8%;
+	-webkit-hyphenate-limit-last: always;
+	-moz-hyphens: auto;
+	-moz-hyphenate-limit-chars: 7 4 3;
+	-moz-hyphenate-limit-lines: 2;
+	-moz-hyphenate-limit-zone: 8%;
+	-moz-hyphenate-limit-last: always;
+	-ms-hyphens: auto;
+	-ms-hyphenate-limit-chars: 7 4 3;
+	-ms-hyphenate-limit-lines: 2;
+	-ms-hyphenate-limit-zone: 8%;
+	-ms-hyphenate-limit-last: always;
+	hyphens: auto;
+	hyphenate-limit-chars: 7 4 3;
+	hyphenate-limit-lines: 2;
+	hyphenate-limit-zone: 8%;
+	hyphenate-limit-last: always;
+	margin-bottom: 0;
+	letter-spacing: -0.01em;
+}
+
+p + p {
+	text-indent: 2em;
+	margin-top: 0;
+}
+
+.quoted p {
+	quotes: '“' '”' '‘' '’';
+}
+
+.quoted p::before {
+	content: open-quote;
+	margin-left: -0.83ch;
+}
+.quoted p::after {
+	content: close-quote;
+}
+
+
+ol {
+	padding-left: 0; margin-left: 0;list-style: none;
+	counter-reset: list;
+}
+
+ol li::before {
+	counter-increment: list;
+	content: counter(list);
+	margin-left: -2em; margin-right: 1em;
+}
+
+h1 {font-family: 'Terminus', fixed;  font-size: 2.0625rem; line-height: 1;}
+h2 {font-family: 'Terminus', fixed; font-size: 1.5625rem; line-height: 1;}
+h3 {font-family: 'Terminus', fixed; font-size: 1.3125rem; line-height: 1;}
+h4 {font-family: 'Terminus', fixed; font-size: 1.2025rem; line-height: 1.2;}
+h5 {font-family: 'Terminus', fixed; font-size: 1.2025rem; line-height: 1.2;}
+h6 {font-family: 'Terminus', fixed; font-size: 1.2025rem; line-height: 1.2;}
+p {font-size: 1.15rem;}
+
+@media screen and(min-width: 60em) {
+	h1 {font-family: 'Terminus', fixed;  font-size: 3.1875rem; line-height: 1;}
+	h2 {font-family: 'Terminus', fixed; font-size: 2.0625rem; line-height: 1;}
+	h3 {font-family: 'Terminus', fixed; font-size: 1.5625rem; line-height: 1;}
+	h4 {font-family: 'Terminus', fixed; font-size: 1.325rem; line-height: 1.2;}
+	h5 {font-family: 'Terminus', fixed; font-size: 1.325rem; line-height: 1.2;}
+	h6 {font-family: 'Terminus', fixed; font-size: 1.325rem; line-height: 1.2;}	
+	p {font-size: 1.225rem;}
+}
+
+@media screen and(min-width: 120em) {
+	h1 {font-family: 'Terminus', fixed;  font-size: 4.875rem; line-height: 1;}
+	h2 {font-family: 'Terminus', fixed; font-size: 2.75rem; line-height: 1;}
+	h3 {font-family: 'Terminus', fixed; font-size: 1.75rem; line-height: 1;}
+	h4 {font-family: 'Terminus', fixed; font-size: 1.5125rem; line-height: 1.2;}
+	h5 {font-family: 'Terminus', fixed; font-size: 1.5125rem; line-height: 1.2;}	
+	h6 {font-family: 'Terminus', fixed; font-size: 1.5125rem; line-height: 1.2;}
+	p {font-size: 1.4125rem;}
+}
+
+pre, code {
+	font-family: 'Terminus', fixed;
+	font-weight: regular;
+	line-height: 1.2;
+	font-kerning: normal;
+	font-variant-numeric: oldstyle-nums proportional-nums;
+	font-variant-ligatures: common-ligatures contextual;
+	font-feature-settings: "kern", "liga", "clig", "calt";
+}
+
+pre:hover,
+pre:focus {
+  width: min-content;
+}
+
+a:hover, a:active, a:focus {
+	background-color: var(--bg);
+	color: rgb(231, 25, 1);
+	border-bottom: 1px solid rgba(0,0,0,0.6);
+}
+
+a, .toggle__input + label {
+	color: inherit;
+	text-decoration: none;
+	border-bottom: 1px solid rgba(0,0,0,0.2);
+	transition: all 0.25s ease;
+}
+
+div.center {
+	overflow: hidden;
+}
+
+div.center iframe{
+	overflow: hidden;
+	scrolling: no;	
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 750px;
+	height: 390px;
+}
+
+table {
+	color: var(--fg);
+}
+
+:target {
+	color: rgb(231, 25, 1);
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+
+.hero-image {
+	/* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read 
+	background-image: linear-gradient(rgba(251, 249, 241, 0.3), rgba(251, 249, 241, 0.4)), url("/img/penguins.jpg"); */
+
+	/* Set a specific height 
+	height: 6em;*/
+
+	/* Position and center the image to scale nicely on all screens */
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 100%;
+}
+
+/* Place text in the middle of the image */
+.hero-text {
+	text-align: center;
+	line-height: 2;
+}
+
+.hero-text h1 {
+	font-family: Terminus, fixed;
+	font-size: 5rem;
+	font-weigth: bold;
+	padding: 1rem;
+	margin-top: 2rem;
+	margin-bottom: 1rem;
+}
+
+.hero-text h2 {
+	font-family: Bitter, serif;
+	font-size: 2rem;
+	font-weigth: bold;
+}
+
+.getButton {
+	width: 20rem;
+	font-family: Terminus, fixed;
+	font-size: 1.5rem;
+	font-weigth: bold;
+	background-color: var(--fg);
+	color: var(--bg);
+	padding: 5px;
+}
+
+.highlight {
+	background-color: var(--fg);
+	color: var(--bg);
+}
+
+.changelog {
+	font-family: Terminus, fixed;
+	font-weigth: regular;
+	padding: 0;
+}
+
+/* forms */
+
+.form-group {
+	margin-bottom: 1.75rem;
+	overflow: auto;
+}
+
+fieldset {
+	border: none;
+	padding: 0;
+	margin: 0;
+}
+
+input.form-control {
+	font-size: initial;
+	border-radius: 0;
+	background-color: transparent;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+}
+
+.form-control {
+	outline: none;
+	border: none;
+	border-bottom: 2px solid #ccc;
+	padding: .5rem 0;
+	width: 20rem;
+	height: 38px;
+	background-color: transparent;
+}
+
+/* responsiveness */
+body {
+	width: 50rem;
+	max-width: 80%;
+	margin: 0 auto;
+	padding: 2rem 1rem;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+@media \0screen {
+  img { 
+  	width: auto; /* for ie 8 */
+  }
+}
+
+.grid {
+	display: grid;
+}
+
+.cell {
+	overflow-x: auto;
+}
+
+.two {
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr); 
+}
+
+.three {
+	grid-template-columns: 1fr 1fr 1fr;
+}
+
+pre {
+    white-space: pre-wrap;       /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+</style>
+      
+
+
+  
+
+
+    
+  
+
+
+    
+    
+      <script integrity="sha512-ISTAV0GadOIz/NXXHOS+eCM0ysXVVHhQTlvA6LJxz/DeA5yIxm0Vqf5IE+WH0yuuXkayAKtoZkQ326nch5f/fg==">fetchInject(["/css/syntax.css"]);</script>
+      <noscript>
+        <link href="/css/syntax.css" rel="stylesheet">
+      </noscript>
+    
+  </head>
+  
+  
+  
+  <body class="">
+    <header>
+  
+  <nav itemscope itemtype="http://schema.org/SiteNavigationElement">
+    
+    
+      <a itemprop="url" class="" href="/"><span itemprop="name">Home</span></a>
+    
+      <a itemprop="url" class="" href="/posts/"><span itemprop="name">Blog</span></a>
+    
+      <a itemprop="url" class="" href="/docs/"><span itemprop="name">Docs</span></a>
+    
+      <a itemprop="url" class="" href="/files/"><span itemprop="name">Downloads</span></a>
+    
+      <a itemprop="url" class="" href="/search/"><span itemprop="name">Search</span></a>
+    
+  </nav>
+
+
+</header>
+    <main>
+  <article itemscope itemtype="http://schema.org/BlogPosting">
+    
+<meta itemprop="name" content="Shell">
+<meta itemprop="description" content="Introduction to the Slackware shell environment">
+
+
+<meta itemprop="datePublished" content="2018-08-05T23:01:21&#43;00:00" />
+<meta itemprop="dateModified" content="2018-08-05T23:01:21&#43;00:00" />
+<meta itemprop="wordCount" content="5368">
+
+
+
+<meta itemprop="keywords" content="build,how-to," />
+
+    <header>
+      <h1 itemprop="headline">Shell</h1>
+      <p class="muted">
+        <svg style="margin-bottom:-3px" class="i-clock" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+  <circle cx="16" cy="16" r="14" />
+  <path d="M16 8 L16 16 20 20" />
+</svg>
+<span>26 minute read</span>
+<svg style="margin-bottom: -3px" class="i-edit" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+  <path d="M30 7 L25 2 5 22 3 29 10 27 Z M21 6 L26 11 Z M5 22 L10 27 Z" />
+</svg>
+
+  Published: <time datetime="2018-08-05T23:01:21&#43;00:00">5 Aug, 2018</time>
+
+
+      </p>
+      
+        <blockquote itemprop="description">Introduction to the Slackware shell environment</blockquote>
+      
+      
+    </header>
+    
+  <details>
+    <summary>Table of Contents</summary>
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#what-is-a-shell">What Is A Shell?</a></li>
+<li><a href="#quick-start">Quick-start</a></li>
+<li><a href="#the-prompt">The prompt</a></li>
+<li><a href="#configuration">Configuration</a></li>
+<li><a href="#environment">Environment</a></li>
+<li><a href="#writing-commands-ii">Writing commands (II)</a>
+<ul>
+<li><a href="#wildcards">Wildcards</a></li>
+<li><a href="#tab-completion">Tab Completion</a></li>
+<li><a href="#input-and-output-redirection">Input and Output Redirection</a></li>
+</ul></li>
+<li><a href="#task-management">Task Management</a></li>
+<li><a href="#terminals">Terminals</a></li>
+<li><a href="#basic-shell-commands">Basic shell commands</a>
+<ul>
+<li><a href="#system-documentation">System Documentation</a></li>
+<li><a href="#files-and-directories-the-filesystem">Files and directories: The filesystem</a>
+<ul>
+<li><a href="#listing-files-and-directory-contents">Listing Files and Directory Contents</a></li>
+<li><a href="#moving-around-the-filesystem">Moving Around the Filesystem</a></li>
+<li><a href="#file-and-directory-creation-and-deletion">File and Directory Creation and Deletion</a></li>
+<li><a href="#links">Links</a></li>
+<li><a href="#reading-files">Reading files</a>
+<ul>
+<li><a href="#more">more</a></li>
+<li><a href="#less">less</a></li>
+</ul></li>
+<li><a href="#archive-and-compression">Archive and Compression</a>
+<ul>
+<li><a href="#zip-and-unzip">zip and unzip</a></li>
+<li><a href="#gzip">gzip</a></li>
+<li><a href="#bzip2">bzip2</a></li>
+<li><a href="#xz-lzma">XZ / LZMA</a></li>
+<li><a href="#tar">tar</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </details>
+
+
+    <div itemprop="articleBody">
+      
+
+<p>This document is a derivative of the <a href="https://docs.slackware.com/slackbook:bash">Slackbook:bash</a> and <a href="https://slackbook.org/beta/#ch_install">Slackbook beta</a>. The aim is to produce an evolution and contribute it back to the original work.</p>
+
+<h2 id="what-is-a-shell">What Is A Shell?</h2>
+
+<p>A shell is a program that give access to the operating system&rsquo;s services. In Slackware the command-line interface (CLI) shell is <code>bash</code>, the <a href="https://www.gnu.org/software/bash/">Bourne Again Shell</a>.</p>
+
+<p>The first program Slackware executes after you log into the system is the shell command-line interface:</p>
+
+<p>There are many shells included with a full install of Slackware, but in this chapter we will only discuss <code>bash</code>. Advanced users might want to consider using the powerful <code>zsh</code>, and users familiar with older UNIX systems might appreciate <code>ksh</code> or <code>csh</code>, but new users should stick to <code>bash</code>.</p>
+
+<p>The main tasks a user does in the shell is executing commands, i.e. telling the computer what to do next.</p>
+
+<p>Users can also program in the shell. Programs written in shell language are shell scripts and the Linux kernel execute them as if they were binary programs.</p>
+
+<p>A lot of Slackware tools are written in bash.</p>
+
+<p>A complete guide on how to use <code>bash</code> is available in its <a href="https://www.gnu.org/software/bash/manual/bashref.html">web</a>. In this chapter we will make a gentle introduction to the <code>bash</code> shell, focused on its use in the Slackware Linux distribution.</p>
+
+<h2 id="quick-start">Quick-start</h2>
+
+<p>So you&rsquo;ve installed Slackware and you&rsquo;re staring at a terminal prompt, what now? Now would be a good time to learn about the basic command-line tools. And since you&rsquo;re staring at a blinking curser, you may need a little help in knowing how to get around.</p>
+
+<p>We type a command at the prompt and press the key enter, and the shell executes it. It prints the result of the command below and when the command ends shows the prompt again.</p>
+
+<p>Here you have a quick reference of commands taken from the fantastic <a href="http://tldp.org/LDP/intro-linux/html/intro-linux.html">Introduction to Linux</a> by the <a href="http://tldp.org">TLDP</a>:</p>
+
+<ul>
+<li><code>ls</code>: List files in the current working directory</li>
+<li><code>cd</code>: Change directories</li>
+<li><code>passwd</code>: Change the password for the current user</li>
+<li><code>file filename</code>: Display file type of file with name filename</li>
+<li><code>cat textfile</code>: Throws content of textfile on the screen</li>
+<li><code>pwd</code>: Display present working directory</li>
+<li><code>exit</code> or <code>logout</code>: Leave the current session</li>
+<li><code>man command</code>: Read manual pages on command</li>
+<li><code>info command</code>: Read Info pages on command</li>
+<li><code>apropos string</code>: Search the whatis database for strings</li>
+</ul>
+
+<p>And a quick reference on how to edit what you type at the prompt:</p>
+
+<ul>
+<li>Ctrl+A: Move cursor to the beginning of the command line.</li>
+<li>Ctrl+E: Move cursor to the end of the command line.</li>
+<li>Ctrl+C: End a running program and return the prompt, see Chapter 4.</li>
+<li>Ctrl+D: Log out of the current shell session, equal to typing exit or logout.</li>
+<li>Ctrl+H: Generate a backspace character.</li>
+<li>Ctrl+L: Clear this terminal.</li>
+<li>Ctrl+R: Search command history, see Section 3.3.3.4.</li>
+<li>Ctrl+Z: Suspend a program, see Chapter 4.</li>
+<li>ArrowLeft and ArrowRight: Move the cursor one place to the left or right on the command line, so you can insert characters at other places than just at the beginning and the end.</li>
+<li>ArrowUp and ArrowDown: Browse history. Go to the line you want to repeat, edit details and press Enter to save time.</li>
+<li>Shift+PageUp and Shift+PageDown: Browse terminal buffer (to see text that has &ldquo;scrolled off&rdquo; the screen).</li>
+<li>Tab: Command or filename completion; when multiple choices are possible, the system will either signal with an audio or visual bell, or, if too many choices are possible, ask you if you want to see them all.</li>
+<li>Tab Tab (Tab twice): Shows file or command completion possibilities.</li>
+</ul>
+
+<h2 id="the-prompt">The prompt</h2>
+
+<p>It is the message the shell prints to show it is ready to accept new instructions. <code>bash</code> generates the prompt based in a template. The default template in Slackware is <code>\u@\h:\w\$</code> which generate prompts like <code>root@darkstar:~#</code>. <code>\u</code> stands for the user name, <code>\h</code> stands for the host name <code>\w</code> stands for the current path in the filesystem and <code>\$</code> shows if the user has administration privileges <code>#</code> or not <code>$</code>.</p>
+
+<p>PS1 variable contains the template to configure the prompt.</p>
+
+<h2 id="configuration">Configuration</h2>
+
+<p>The shell is configured editing the following files, depending on what kind of configuration we want to make.</p>
+
+<ul>
+<li><code>/etc/profile</code>: The systemwide initialization file, executed for login shells</li>
+<li><code>~/.bash_profile</code>:  The personal initialization file, executed for login shells</li>
+<li><code>~/.bashrc</code>:  The individual per-interactive-shell startup file</li>
+<li><code>~/.bash_logout</code>:  The individual login shell cleanup file, executed when a login shell exits</li>
+<li><code>~/.inputrc</code>:  Individual <code>readline</code> initialization file</li>
+</ul>
+
+<p>Those files accept bash commands as their content, and those commands are the ones which will configure the bash environment when it starts.</p>
+
+<h2 id="environment">Environment</h2>
+
+<p>An environment is a compound of properties and variables defined in the shell when it starts. We can change most without restarting the shell.</p>
+
+<p>All shells make certain tasks easier for the user by keeping track of things in environment variables. An environment variable is a shorter name for some bit of information that the user wishes to store and make use of later. For example, the environment variable PS1 tells bash how to format its prompt. Other variables may tell applications how to run.</p>
+
+<p>Setting your own environment variables is easy. <code>bash</code> includes two built-in functions for handling this: <code>set</code> and <code>export</code>. We can remove an environment with <code>unset</code>. Don&rsquo;t panic if you accidentally unset an environment variable and don&rsquo;t know what it would do. You can reset all the default variables by logging out of your terminal and logging back in. You can reference a variable by placing a dollar sign ($) in front.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">darkstar:~$ set FOO<span style="color:#f92672">=</span>bar
+darkstar:~$ echo $FOO
+bar</code></pre></div>
+
+<p>The primary difference between set and export is that export will make the variable available to any sub-shells. (A sub-shell is another shell running inside a parent shell.) You can see this behavior when working with the PS1 variable that controls the bash prompt.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">darkstar:~$ set PS1<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;FOO &#39;</span>
+darkstar:~$ export PS1<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;FOO &#39;</span>
+FOO</code></pre></div>
+
+<p>There are many important environment variables that bash and other shells use, but one of the most important ones you will run across is PATH. It contains a list of directories to search through for applications.</p>
+
+<p>For example, <code>top</code> is in <code>/usr/bin/top</code>. You could run it by specifying the complete path, but if <code>/usr/bin</code> is in your PATH variable, bash will check there for you when you type <code>top</code> at the prompt. You will most likely first notice this when you try to run a program and it is not in your PATH.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">darkstar:~$ ifconfig
+bash: ifconfig: command not found
+darkstar:~$ echo $PATH
+/usr/local/bin:/usr/bin:/bin:/usr/X11R6/bin:/usr/games:/opt/www/htdig/bin:.</code></pre></div>
+
+<p>Above, you see a typical PATH for a regular user (see the $ in the prompt). You can change it on your own the same as any other environment variable. If you login as root however, you&rsquo;ll see that root has a different PATH.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">darkstar:~$ su -
+Password:
+darkstar:~# echo $PATH
+/usr/local/sbin:/usr/sbin:/sbin:/usr/local/bin:/usr/bin:/bin:/usr/X11R6/bin:/usr/games:/opt/www/htdig/bin</code></pre></div>
+
+<h2 id="writing-commands-ii">Writing commands (II)</h2>
+
+<h3 id="wildcards">Wildcards</h3>
+
+<p>Wildcards are symbols used as placeholders for other characters.  The use case for these in a shell is to complete strings like file names.</p>
+
+<p>The asterisk matches any character or a characters combination, including none. Thus b* would match strings like b, ba, bab, babc, bcdb, and so forth. Less common is the ?. This wildcard matches one instance of any character, so b? would match ba and bb, but not b or bab.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">darkstar:~$ touch b ba bab
+darkstar:~$ ls *
+b ba bab
+darkstar:~$ ls b?
+ba</code></pre></div>
+
+<p>No, the fun doesn&rsquo;t stop there! Besides these two we also have the bracket pair &ldquo;[ ]&rdquo; which allows us to fine tune what we want to match. Whenever bash see the bracket pair, it substitutes the contents of the bracket with any combination of letters or numbers specified, as long as they are comma separated.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">darkstar:~$ ls a<span style="color:#f92672">[</span><span style="color:#ae81ff">1</span>-4,9<span style="color:#f92672">]</span>
+a1 a2 a3 a4 a9</code></pre></div>
+
+<p>We can specify a range of letters or numbers  typing a <code>-</code> between the start and the end of the range.</p>
+
+<p><code>bash</code> treat capital and lower-case letters as different. All capital letters come before all lower-case letters in alphabetical order. This is important when working with ranges.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">darkstar:~$ ls <span style="color:#ae81ff">1</span><span style="color:#f92672">[</span>W-b<span style="color:#f92672">]</span>
+1W 1X 1Y 1Z 1a 1b
+darkstar:~$ ls <span style="color:#ae81ff">1</span><span style="color:#f92672">[</span>w-B<span style="color:#f92672">]</span>
+/bin/ls: cannot access <span style="color:#ae81ff">1</span><span style="color:#f92672">[</span>b-W<span style="color:#f92672">]</span>: No such file or directory</code></pre></div>
+
+<p>In the second example, <code>1[b-W]</code> isn&rsquo;t a valid range, so the shell treats it as a filename, and since that file doesn&rsquo;t exist, <code>ls</code> tells you so.</p>
+
+<h3 id="tab-completion">Tab Completion</h3>
+
+<p><code>bash</code> completes your commands and filenames when you write just press the key <code>Tab</code>.  Even if you haven&rsquo;t typed in enough text to identify a filename or command, the shell will fill in as much as it can for you. Hitting <code>Tab</code> a second time will make it display a list of all matches for you.</p>
+
+<h3 id="input-and-output-redirection">Input and Output Redirection</h3>
+
+<p>One of the defining features of Linux and other UNIX-like operating systems is the number of small, simple applications and the ability to stack them together to create complex systems. In <code>bash</code> we can make the output of a command the input of another one or into a file.</p>
+
+<p>A shell command has three channels to control its input/output operations:</p>
+
+<ul>
+<li>The standard output (stdout or 1) is where the commands write their result</li>
+<li>The standard error (stderr or 2) is where the commands write their errors</li>
+<li>The standard input (stdin or 0) is where the commands read their input</li>
+</ul>
+
+<p>To get started, we will show you how to redirect the output (stdout) of a program to a file.  We  do this with the <code>&gt;</code> character. When bash sees the <code>&gt;</code> character, it redirects all the output  to whatever file name follows.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">darkstar:~$ echo foo
+foo
+darkstar:~$ echo foo &gt; /tmp/bar
+darkstar:~$ cat /tmp/bar
+foo</code></pre></div>
+
+<p>If we do not redirect the <code>stdout</code> of echo, it prints the string given as its argument to its <code>stdout</code>. But if we redirect that <code>stdout</code> to a file we cannot see the output of the echo command.</p>
+
+<p>If <code>/tmp/bar</code> does not exist, <code>bash</code> creates it and write the output as its contents.  If <code>/tmp/bar</code>  exist, then its contents are over-written. This might not be the best idea if you want to keep those contents in place.</p>
+
+<p><code>bash</code> supports <code>&gt;&gt;</code> which will append the output to the file, instead of over-write it.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">darkstar:~$ echo foo
+foo
+darkstar:~$ echo foo &gt; /tmp/bar
+darkstar:~$ cat /tmp/bar foo
+darkstar:~$ echo foo2 &gt;&gt; /tmp/bar
+darkstar:~$ cat /tmp/bar
+foo
+foo2</code></pre></div>
+
+<p>You can also re-direct the standard error to a file using <code>2&gt;</code> instead of just <code>&gt;</code>.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">darkstar:~$ rm bar
+rm: cannot remove <span style="color:#e6db74">`</span>bar<span style="color:#e6db74">&#39;: No such file or directory
+</span><span style="color:#e6db74">darkstar:~$ rm bar 2&gt; /tmp/foo
+</span><span style="color:#e6db74">darkstar:~$ cat /tmp/foo
+</span><span style="color:#e6db74">rm: cannot remove `bar&#39;</span>: No such file or directory</code></pre></div>
+
+<p>You may also redirect the standard input  with the &lsquo;&lt;&rsquo; character, though it&rsquo;s not used often.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">darkstar:~$ fromdos &lt; dosfile</code></pre></div>
+
+<p>You can redirect the output of one program as input to another using the <code>|</code> character. <code>bash</code> uses pipes to connect the <code>stdout</code> of a command to the <code>stdin</code> of another.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">darkstar:~$ ps auxw | grep getty
+root <span style="color:#ae81ff">2632</span> <span style="color:#ae81ff">0</span>.0 <span style="color:#ae81ff">0</span>.0 <span style="color:#ae81ff">1656</span> <span style="color:#ae81ff">532</span> tty2 Ss+ Feb21 <span style="color:#ae81ff">0</span>:00 /sbin/agetty <span style="color:#ae81ff">38400</span> tty2 linux
+root <span style="color:#ae81ff">3199</span> <span style="color:#ae81ff">0</span>.0 <span style="color:#ae81ff">0</span>.0 <span style="color:#ae81ff">1656</span> <span style="color:#ae81ff">528</span> tty3 Ss+ Feb15 <span style="color:#ae81ff">0</span>:00 /sbin/agetty <span style="color:#ae81ff">38400</span> tty3 linux
+root <span style="color:#ae81ff">3200</span> <span style="color:#ae81ff">0</span>.0 <span style="color:#ae81ff">0</span>.0 <span style="color:#ae81ff">1656</span> <span style="color:#ae81ff">532</span> tty4 Ss+ Feb15 <span style="color:#ae81ff">0</span>:00 /sbin/agetty <span style="color:#ae81ff">38400</span> tty4 linux
+root <span style="color:#ae81ff">3201</span> <span style="color:#ae81ff">0</span>.0 <span style="color:#ae81ff">0</span>.0 <span style="color:#ae81ff">1656</span> <span style="color:#ae81ff">532</span> tty5 Ss+ Feb15 <span style="color:#ae81ff">0</span>:00 /sbin/agetty <span style="color:#ae81ff">38400</span> tty5 linux
+root <span style="color:#ae81ff">3202</span> <span style="color:#ae81ff">0</span>.0 <span style="color:#ae81ff">0</span>.0 <span style="color:#ae81ff">1660</span> <span style="color:#ae81ff">536</span> tty6 Ss+ Feb15 <span style="color:#ae81ff">0</span>:00 /sbin/agetty <span style="color:#ae81ff">38400</span> tty6 linux</code></pre></div>
+
+<h2 id="task-management">Task Management</h2>
+
+<p><code>bash</code> has yet another cool feature to offer: the ability to suspend and resume tasks. This allows you halt a running process, perform other task, then resume it or make it run in the background. Upon pressing <code>CTRL-Z</code>,<code>bash</code> will suspend the running process and return you to a prompt. You can return to that process later. You can suspend multiple processes in this way. The <code>jobs</code> built-in command will display a list of suspended tasks.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">darkstar:~$ jobs
+<span style="color:#f92672">[</span><span style="color:#ae81ff">1</span><span style="color:#f92672">]</span>- Stopped vi TODO
+<span style="color:#f92672">[</span><span style="color:#ae81ff">2</span><span style="color:#f92672">]</span>+ Stopped vi chapter_05.xml</code></pre></div>
+
+<p>To return to a suspended task, run the <code>fg</code> built-in to bring the last suspended task back into the foreground. If you have multiple suspended tasks, you can specify a number as well to bring one to the foreground.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">darkstar:~$ fg <span style="color:#75715e"># &#34;vi TODO&#34;</span>
+darkstar:~$ fg <span style="color:#ae81ff">1</span> <span style="color:#75715e"># &#34;vi chapter_05.xml&#34;</span></code></pre></div>
+
+<p>You can also background a task with  <code>bg</code>. This allows the process to run without maintaining control of your shell. You can bring it back to the foreground with <code>fg</code> in the same way as suspended tasks. Also, if you type <code>&amp;</code> at the end of a command, <code>bash</code> send it to the background.</p>
+
+<h2 id="terminals">Terminals</h2>
+
+<p>Terminals were keyboards and monitors (sometimes even mice) wired into a mainframe or server via serial connections. Today however, most terminals are virtual. This allow users to connect to the computer without requiring expensive and often incompatible hardware.</p>
+
+<p>Slackware Linux and other UNIX-like operating systems use virtual terminals to interact with its users.</p>
+
+<p>The most common virtual terminals (every Slackware Linux machine will have at least one) are the <code>gettys</code>. <code>agetty(8)</code> runs six instances by default on Slackware and allows local users (those who can sit down in front of the computer and type at the keyboard) to login and run applications.
+Each of these <code>gettys</code> is available on different <code>tty</code> devices that are accessible by pressing the <code>ALT</code> key and one of the function keys from <code>F1</code> through <code>F6</code>. Using these <code>gettys</code> allows you to login multiple times, perhaps as different users, and run applications in those users&rsquo; shells.</p>
+
+<p>On desktops, laptops, and other workstations where the user prefers a graphical interface, most terminals are graphical. Slackware includes many graphical terminals, but the most used are KDE&rsquo;s <code>konsole</code>, <code>XFCE's Terminal</code> and the standard <code>xterm</code>.</p>
+
+<p>If you are using a graphical interface, check your toolbars or menus. Each desktop environment or window manager has a virtual terminal (often called a terminal emulator), and they are all labeled differently. Typically though, you will find them under a &ldquo;System&rdquo; sub-menu in desktop environments. Executing any of these will give you a graphical terminal and automatically run your default shell.</p>
+
+<h2 id="basic-shell-commands">Basic shell commands</h2>
+
+<h3 id="system-documentation">System Documentation</h3>
+
+<p>Your Slackware Linux system comes with lots of built-in documentation for nearly every installed application. Perhaps the most common method of reading system documentation is <code>man</code>. <code>man</code> (short for manual) will bring up the included man-page for any application, system call, a configuration file, or library you tell it too. For example, <code>man man</code> will bring up the man-page for itself.</p>
+
+<p>You may not always know what application you need to use for the task at hand. But man has built-in search abilities to help. Using the [-k] switch will make <code>man</code> to search for every man-page that matches your search terms.</p>
+
+<p>The man-pages are organized into groups or sections by their content type. For example, Section 1 is for user applications. man will search each section in order and display the first match it finds. Sometimes you find that a man-page exists in more than one section for an entry. In that case, you will need to specify the exact section to look in.</p>
+
+<p>In this book, all applications and several other things will have a number on their right-hand side in parentheses. This number is the man page section where you will find information on that tool.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">darkstar:~$ man -k printf
+printf               <span style="color:#f92672">(</span><span style="color:#ae81ff">1</span><span style="color:#f92672">)</span>  - format and print data
+printf               <span style="color:#f92672">(</span><span style="color:#ae81ff">3</span><span style="color:#f92672">)</span>  - formatted output conversion
+darkstar:~$ man <span style="color:#ae81ff">3</span> printf</code></pre></div>
+
+<p>The sections of the manual pages are:
+ - Section 1: User Commands
+ - Section 2: System Calls
+ - Section 3: C Library Calls
+ - Section 4: Devices
+ - Section 5: File Formats / Protocols
+ - Section 6: Games
+ - Section 7: Conventions / Macro Packages
+ - Section 8: System Administration
+ - Section 9: Kernel API Descriptions
+ - Section n: &ldquo;New&rdquo; - typically used to Tcl/Tk</p>
+
+<h3 id="files-and-directories-the-filesystem">Files and directories: The filesystem</h3>
+
+
+
+
+
+<blockquote cite="https://en.wikipedia.org/wiki/File_system">
+  <p>
+
+In computing, a file system or filesystem controls how data is stored and retrieved. Without a file system, information placed in a storage medium would be one large body of data with no way to tell where one piece of information stops and the next begins. By separating the data into pieces and giving each piece a name, the information is easily isolated and identified. Taking its name from the way paper-based information systems are named, each group of data is called a &#34;file&#34;. The structure and logic rules used to manage the groups of information and their names is called a &#34;file system&#34; 
+
+</p>
+  
+    <cite><a  target="_blank" rel="external noopener" href="https://en.wikipedia.org/wiki/File_system">Wikipedia</a></cite>
+  
+</blockquote>
+
+
+<p>In Slackware and other UNIX-like operating systems, the file systems is a hierarchical tree-like structure which starts at the root directory denoted by <code>/</code>. All other directories and files are referenced from its relation to the root.</p>
+
+<h4 id="listing-files-and-directory-contents">Listing Files and Directory Contents</h4>
+
+<p>We use <code>ls(1)</code>  to list files and directories, their permissions, size, type, inode number, owner and group, and plenty of additional information. For example, let&rsquo;s list what&rsquo;s in the <code>/</code> directory for your new Slackware Linux system.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">darkstar:~$ ls /
+bin/ dev/ home/  lost+found/  mnt/ proc/  sbin/  sys/  usr/
+boot/ etc/ lib/ media/ opt/ root/  srv/   tmp/ var/</code></pre></div>
+
+<p>Notice that each of the listings is a directory. These are distinguished from regular files due to the trailing /; standard files do not have a suffix. Executable files will have an asterisk suffix. But ls can do so much more. To get a view of the permissions of a file or directory, you must do a &ldquo;long list&rdquo;.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">darkstar:~$ ls -l /home/alan/Desktop
+-rw-r--r-- <span style="color:#ae81ff">1</span> alan users <span style="color:#ae81ff">15624161</span> <span style="color:#ae81ff">2007</span>-09-21 <span style="color:#ae81ff">13</span>:02 <span style="color:#ae81ff">9780596510480</span>.pdf
+-rw-r--r-- <span style="color:#ae81ff">1</span> alan users <span style="color:#ae81ff">3829534</span> <span style="color:#ae81ff">2007</span>-09-14 <span style="color:#ae81ff">12</span>:56 imgscan.zip
+drwxr-xr-x <span style="color:#ae81ff">3</span> alan root <span style="color:#ae81ff">168</span> <span style="color:#ae81ff">2007</span>-09-17 <span style="color:#ae81ff">21</span>:01 ipod_hack/
+drwxr-xr-x <span style="color:#ae81ff">2</span> alan users <span style="color:#ae81ff">200</span> <span style="color:#ae81ff">2007</span>-12-03 <span style="color:#ae81ff">22</span>:11 libgpod/
+drwxr-xr-x <span style="color:#ae81ff">2</span> alan users <span style="color:#ae81ff">136</span> <span style="color:#ae81ff">2007</span>-09-30 <span style="color:#ae81ff">03</span>:16 playground/</code></pre></div>
+
+<p>A long listing lets you view the permissions, user and group ownership, file size, last modified date, and the file name itself. Notice that the first two entire are files, and the last three are directories. This is denoted by the first character on the line. Regular files get a &ldquo;-&rdquo;; directories get a &ldquo;d&rdquo;. There are several other file types with their own denominators. Symbolic links for example will have an &ldquo;l&rdquo;.</p>
+
+<p>We&rsquo;ll show you how to list dot-files, or hidden files. Unlike other operating systems such as Microsoft Windows, there is no special property that differentiates &ldquo;hidden&rdquo; files from &ldquo;unhidden&rdquo; files. A hidden file begins with a dot. To display these files along with all the others, you need to pass the [-a] argument to ls.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">darkstar:~$ ls -a
+.xine/   .xinitrc-backup  .xscreensaver  .xsession-errors  SBo/
+.xinitrc  .xinitrc-xfce   .xsession   .xwmconfig/ Shared/</code></pre></div>
+
+<p>You also likely noticed that your files and directories appear in different colors. Many of the enhanced features of ls such as these colors or the trailing characters showing file-type are special features of the ls program enabled by passing various arguments. As a convenience, Slackware sets up ls to use many of these optional arguments by default. These are controlled by the LS_OPTIONS and LS_COLORS environment variables.</p>
+
+<h4 id="moving-around-the-filesystem">Moving Around the Filesystem</h4>
+
+<p><code>cd</code> is the command used to change directories. Unlike most other commands, <code>cd</code> is not it&rsquo;s own program, but is a shell built-in. That means <code>cd</code> does not have its own man page. You must check your shell&rsquo;s documentation for more details on the cd you may be using. Mostly though, they all behave the same.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">darkstar:~$ cd /
+darkstar:/$ls
+bin/ dev/ home/  lost+found/  mnt/ proc/  sbin/  sys/  usr/
+boot/ etc/ lib/ media/ opt/ root/  srv/   tmp/ var/
+darkstar:/$cd /usr/local
+darkstar:/usr/local$</code></pre></div>
+
+<p>Notice how the prompt changed when we changed directories? The default Slackware shell does this as a quick, easy way to see your current directory, but this is not a <code>cd</code> function. If your shell doesn&rsquo;t operate in this way, you can get your current working directory with the <code>pwd(1)</code> command.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">bash4.4$ pwd
+/usr/local</code></pre></div>
+
+<h4 id="file-and-directory-creation-and-deletion">File and Directory Creation and Deletion</h4>
+
+<p>While most applications can and will create their own files and directories, you&rsquo;ll often want to do this on your own. It&rsquo;s easy using <code>touch(1)</code> and <code>mkdir(1)</code>.</p>
+
+<p><code>touch</code> modifies the time stamp on a file, but if that file doesn&rsquo;t exist, it will be created.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">darkstar:~/foo$ ls -l
+-rw-r--r-- <span style="color:#ae81ff">1</span> alan users <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">2012</span>-01-18 <span style="color:#ae81ff">15</span>:01 bar1
+darkstar:~/foo$ touch bar2
+-rw-r--r-- <span style="color:#ae81ff">1</span> alan users <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">2012</span>-01-18 <span style="color:#ae81ff">15</span>:01 bar1
+-rw-r--r-- <span style="color:#ae81ff">1</span> alan users <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">2012</span>-01-18 <span style="color:#ae81ff">15</span>:05 bar2
+darkstar:~/foo$ touch bar1
+-rw-r--r-- <span style="color:#ae81ff">1</span> alan users <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">2012</span>-01-18 <span style="color:#ae81ff">15</span>:05 bar1
+-rw-r--r-- <span style="color:#ae81ff">1</span> alan users <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">2012</span>-01-18 <span style="color:#ae81ff">15</span>:05 bar2</code></pre></div>
+
+<p>Note how <code>bar2</code> was created in our second command, and the third command  updated the time stamp on <code>bar1</code>.</p>
+
+<p><code>mkdir</code> is used for making directories. <code>mkdir foo</code> will create the directory <code>foo</code> within the current working directory. You can also use the <code>-p</code> argument to create any missing parent directories.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">darkstar:~$ mkdir foo
+darkstar:~$ mkdir /slack/foo/bar/
+mkdir: cannot create directory <span style="color:#e6db74">`</span>/slack/foo/bar/<span style="color:#960050;background-color:#1e0010">&#39;</span>: No such file or directory
+darkstar:~$ mkdir -p /slack/foo/bar/</code></pre></div>
+
+<p>In the latter case, mkdir will first create <code>/slack</code>, then <code>/slack/foo</code>, and <code>/slack/foo/bar</code>. If you failed to use the [-p] argument, man would fail to create <code>/slack/foo/bar</code> unless the first two already existed, as you saw in the example.</p>
+
+<p>Removing a file is as easy as creating one. The <code>rm(1)</code> command will remove a file (assuming you have permission to do this). There are a few common arguments to rm. The first is [-f] and is used to force the removal of a file you may lack explicit permission to delete. The [-r] argument will remove directories and their contents recursively.</p>
+
+<p>There is another tool to remove directories, the humble rmdir(1). rmdir will only remove directories that are empty and complain about those that contain files or sub-directories.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">darkstar:~$ ls
+foo_1/ foo_2/
+darkstar:~$ ls foo_1
+bar_1
+darkstar:~$ rmdir foo_1
+rmdir: foo/: Directory not empty
+darkstar:~$ rm foo_1/bar
+darkstar:~$ rmdir foo_1
+darkstar:~$ ls foo_2
+bar_2/
+darkstar:~$ rm -fr foo_2
+darkstar:~$ ls</code></pre></div>
+
+<h4 id="links">Links</h4>
+
+<p>Links are a method of referring to one file by multiple names. By using the <code>ln(1)</code> application, a user can reference one file with multiple names. The two files are not carbon-copies of one another, but rather are the same file, just with a different name. To remove the file, all of its names must be deleted. (This is the result of how rm and other tools like it work. Rather than remove the contents of the file, they remove the reference to the file, freeing that space to be re-used. ln will create a second reference or &ldquo;link&rdquo; to that file.)</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">darkstar:~$ ln /etc/slackware-version foo
+darkstar:~$ cat foo
+Slackware <span style="color:#ae81ff">14</span>.0
+darkstar:~$ ls -l /etc/slackware-version foo
+-rw-r--r-- <span style="color:#ae81ff">1</span> root root <span style="color:#ae81ff">17</span> <span style="color:#ae81ff">2007</span>-06-10 <span style="color:#ae81ff">02</span>:23 /etc/slackware-version
+-rw-r--r-- <span style="color:#ae81ff">1</span> root root <span style="color:#ae81ff">17</span> <span style="color:#ae81ff">2007</span>-06-10 <span style="color:#ae81ff">02</span>:23 foo</code></pre></div>
+
+<p>Another type of link exists, the symlink. Symlinks, rather than being another reference to the same file, are a special file in their own right. These symlinks point to another file or directory. The primary advantage of symlinks is that they can refer to directories and files, and they can span multiple filesystems. We create them with the [-s] argument.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">darkstar:~$ ln -s /etc/slackware-version foo
+darkstar:~$ cat foo
+Slackware <span style="color:#ae81ff">140</span>
+darkstar:~$ ls -l /etc/slackware-version foo
+-rw-r--r-- <span style="color:#ae81ff">1</span> root root <span style="color:#ae81ff">17</span> <span style="color:#ae81ff">2007</span>-06-10 <span style="color:#ae81ff">02</span>:23 /etc/slackware-version
+lrwxrwxrwx <span style="color:#ae81ff">1</span> root root <span style="color:#ae81ff">22</span> <span style="color:#ae81ff">2008</span>-01-25 <span style="color:#ae81ff">04</span>:16 foo -&gt; /etc/slackware-version</code></pre></div>
+
+<p>When using symlinks, remember that if the original file is deleted, your symlink is useless; it points at a file that doesn&rsquo;t exist anymore.</p>
+
+<h4 id="reading-files">Reading files</h4>
+
+<p>UNIX and UNIX-like operating systems use text files extensively, and that at some point in time, the system&rsquo;s users will need to read and modify them. There are plenty of ways of reading these files, and we&rsquo;ll show you the most common ones.</p>
+
+<p>In the early days, if you wanted to see the contents of a file  you would use <code>cat(1)</code> to view them. <code>cat</code> is a simple program, which takes one or more files, concatenates them (hence the name) and sends them to the standard output, which is usually your terminal screen.</p>
+
+<p>This was fine when the file was small and wouldn&rsquo;t scroll off the screen, but inadequate for larger files as it had no built-in way of moving within a document and reading it a paragraph at a time. Today, cat is still used predominately in scripts or for joining two or more files into one.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">darkstar:~$ cat /etc/slackware-version
+Slackware <span style="color:#ae81ff">14</span>.2</code></pre></div>
+
+<p>Given the limitations of <code>cat</code> some very intelligent people sat down and worked on an application to let them read documents one page at a time. Such applications began to be known as &ldquo;pagers&rdquo;. One of the earliest of these was <code>more(1)</code>, named because it would let you see &ldquo;more&rdquo; of the file whenever you wanted.</p>
+
+<h5 id="more">more</h5>
+
+<p><code>more</code> will display the first few lines of a text file until your screen is full, then pause. Once you&rsquo;ve read through that screen, you can proceed down one line by pressing Enter, or an entire screen by pressing Space, or by a specified number of lines by typing a number and then the Space bar. more can also search through a text file for keywords; once you&rsquo;ve displayed a file in more, press the / key and enter a keyword. Upon pressing Enter, the text will scroll until it finds the next match.</p>
+
+<p>This is a big improvement over cat, but still suffers from some annoying flaws; more cannot scroll back up through a piped file to allow you to read something you might have missed, the search function does not highlight its results, there is no horizontal scrolling, and so on.</p>
+
+<h5 id="less">less</h5>
+
+<p>To address the short-comings of more, a new pager was developed and ironically dubbed <code>less(1)</code>. <code>less</code> is a powerful pager that supports all the functions of more while adding lots of additional features. To begin with, less allows you to use your arrow keys to control movement within the document.</p>
+
+<p>Due to its popularity, many Linux distributions have excluded more in favor of less. Slackware includes both. Slackware also includes a handy little pre-processor for less called lesspipe.sh. This allows a user to execute less on several non-text files. lesspipe.sh will generate text output from running a command on these files, and display it in less.</p>
+
+<p>Less provides as much functionality as one might expect from a text editor without being a text editor. We can move line-by-line can be done vi-style with j and k, or with the arrow keys, or Enter. In the event that a file is too wide to fit on one screen, you can even scroll with the left and right arrow keys. The g key takes you to the top of the file, while G takes you to the end.</p>
+
+<p>Searching is done as with more, by typing the / key and then your search string, but notice how the search results are highlighted for you, and typing n will take you to the next occurrence of the result while N takes you to the previous occurrence.</p>
+
+<p>Also as with more, files may be opened directly in less or piped to it:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">  darkstar:~$ less
+  /usr/doc/less-*/README
+  darkstar:~$ cat
+  /usr/doc/less*/README
+  /usr/doc/util-linux*/README | less</code></pre></div>
+
+<p>There is much more to less; from within the application, type <code>h</code> for a full list of commands.</p>
+
+<h4 id="archive-and-compression">Archive and Compression</h4>
+
+<p>Everyone needs to package a lot of small files together for easy storage from time to time, or perhaps you need to compress very large files into a more manageable size? Maybe you want to do both together? there are several tools to do just that.</p>
+
+<h5 id="zip-and-unzip">zip and unzip</h5>
+
+<p>You&rsquo;re probably familiar with .zip files. These are compressed files that contain other files and directories.</p>
+
+<p>To create a zip file, you&rsquo;ll use the <code>zip(1)</code> command. You can compress either files or directories (or both) with <code>zip</code>, but you must use the [-r] argument for recursive action to deal with directories.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">darkstar:~$ zip -r /tmp/home.zip /home
+darkstar:~$ zip /tmp/large_file.zip /tmp/large_file</code></pre></div>
+
+<p>The order of the arguments is very important. The first filename must be the zip file to create (<code>zip</code> will add the <code>.zip</code> file extension for you) and the rest are files or directories to be added to the zip file.</p>
+
+<p><code>unzip(1)</code> will decompress a zip archive file.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">darkstar:~$ unzip /tmp/home.zip</code></pre></div>
+
+<h5 id="gzip">gzip</h5>
+
+<p>One of the oldest compression tools included in Slackware is gzip(1), a compression tool which operate on a single file at a time or stream at a time. While zip is both a compression and an archival tool, gzip does only compression. At first glance this seems like a draw-back, but it is a strength. The UNIX philosophy of making small tools that do their small jobs well allows us to combine them in myriad ways. To compress a file (or multiple files), pass them as arguments to gzip. Whenever gzip compresses a file, it adds a .gz extension and removes the original file.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">darkstar:~$ gzip /tmp/large_file</code></pre></div>
+
+<p>Decompressing is just as straight-forward with <code>gunzip</code> which will create a new uncompressed file and delete the old one.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">darkstar:~$ gunzip /tmp/large_file.gz
+darkstar:~$ ls /tmp/large_file*
+/tmp/large_file</code></pre></div>
+
+<p>But suppose we don&rsquo;t want to delete the old compressed file, we want to read its contents or send them as input to another program? The <code>zcat</code> program will read the <code>gzip</code> file, decompress it in memory, and send the contents to the standard output.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">darkstar:~$ zcat /tmp/large_file.gz
+Wed Aug <span style="color:#ae81ff">26</span> <span style="color:#ae81ff">10</span>:00:38 CDT <span style="color:#ae81ff">2009</span>
+Slackware <span style="color:#ae81ff">13</span>.0 x86 is released as stable!  Thanks to everyone who helped
+make this release possible -- see the RELEASE_NOTES <span style="color:#66d9ef">for</span> the credits.
+The ISOs are off to the replicator.  This time it will be a <span style="color:#ae81ff">6</span> CD-ROM
+<span style="color:#ae81ff">32</span>-bit set and a dual-sided <span style="color:#ae81ff">32</span>-bit/64-bit x86/x86_64 DVD.  We<span style="color:#960050;background-color:#1e0010">&#39;</span>re taking
+pre-orders now at store.slackware.com.  Please consider picking up a copy
+to help support the project.  Once again, thanks to the entire Slackware
+community <span style="color:#66d9ef">for</span> all the help testing and fixing things and offering
+suggestions during this development cycle.</code></pre></div>
+
+<h5 id="bzip2">bzip2</h5>
+
+<p>One alternative to gzip is the <code>bzip2(1)</code>xt compression utility which works in almost the same way. The advantage to bzip2 is that it boasts greater compression strength. Achieving that greater compression is a slow and CPU-intensive process, so bzip2 typical takes much longer to run than other alternatives.</p>
+
+<h5 id="xz-lzma">XZ / LZMA</h5>
+
+<p>The latest compression utility added to Slackware is xz, which implements the LZMA compression algorithm. This is faster than bzip2 and often compresses better. In fact, its blend of speed and compression strength caused it to replace gzip as the compression scheme of choice for Slackware. We can compress files using the [-z] argument, and decompression with [-d].</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">darkstar:~$ xz -z /tmp/large_file</code></pre></div>
+
+<h5 id="tar">tar</h5>
+
+<p>So great, we know how to compress files using many programs, but none of them can archive files like zip does.</p>
+
+<p>The Tape Archiver, or <code>tar(1)</code> is the most used archival program in Slackware. Like other archival programs, <code>tar</code> generates a new file that contains other files and directories. It does not compress the generated file (often called a &ldquo;tarball&rdquo;) by default; however, the version of <code>tar</code> included in Slackware supports a variety of compression schemes, including the ones mentioned above.</p>
+
+<p>Invoking tar can be as easy or as complicated as you like. Creating a tarball is done with the [-cvzf] arguments. Let&rsquo;s look at these in depth.</p>
+
+<ul>
+<li>c: create a tarball</li>
+<li>x: extract the contents of a tarball</li>
+<li>t: display the contents of a tarball</li>
+<li>v: be more verbose</li>
+<li>z: use gzip compression</li>
+<li>j: use bzip2 compression</li>
+<li>J: use LZMA compression</li>
+<li>p: preserve permissions</li>
+</ul>
+
+<p><code>tar</code> requires more precision than other applications in the order of its arguments. The <code>[-f]</code> argument must be present when reading or writing to a file for example, and the very next thing to follow must be the filename. Consider the following examples.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">darkstar:~$ tar -xvzf /tmp/tarball.tar.gz
+darkstar:~$ tar -xvfz /tmp/tarball.tar.gz</code></pre></div>
+
+<p>Above, the first example works as you would expect, but the second fails because <code>tar</code> was told to open the <code>z</code> file rather than the expected <code>/tmp/tarball.tar.gz</code>.</p>
+
+<p>Now we&rsquo;ve got our arguments straightened out, lets look at a few examples of how to create and extract tarballs. As we&rsquo;ve noted, the <code>[-c]</code> argument is used to create tarballs and [-x] extracts their contents. If we want to create or extract a compressed tarball though, we also have to specify the proper compression to use. If we don&rsquo;t want to compress the tarball at all, we can leave these options out. The following command creates a new tarball using the gzip compression algorithm. While it&rsquo;s not a strict requirement, it&rsquo;s also good practice to add the .tar extension to all tarballs and whatever extension is used by the compression algorithm.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">darkstar:~$ tar -czf /tmp/tarball.tar.gz /tmp/tarball/</code></pre></div>
+
+    </div>
+    
+      <article>
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "slackware-es" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      </article>
+    
+    <footer>
+      <hr>
+      <p>
+  Published
+  
+  <time itemprop="datePublished" datetime="2018-08-05T23:01:21&#43;00:00">
+    5 Aug, 2018
+  </time>
+  
+    in <span itemprop="articleSection"><a href="/categories/technology/">technology</a></span>
+  
+  
+    and tagged <a rel="tag" href="/tags/build/">build</a> and <a rel="tag" href="/tags/how-to/">how-to</a>
+  
+  using <span itemprop="wordCount">5368</span> words.
+</p>
+
+      
+
+
+  <aside>
+    <header>Related Content</header>
+    <ul>
+      
+        <li><a href="/docs/build/">How to build your own Slackware</a>
+        <time datetime="1M">1 minutes</time>
+      
+        <li><a href="/docs/packages/">Package Management</a>
+        <time datetime="9M">9 minutes</time>
+      
+        <li><a href="/docs/install/">Slackware installation</a>
+        <time datetime="16M">16 minutes</time>
+      
+    </ul>
+  </aside>
+
+
+    </footer>
+  </article>
+</main>
+    <footer>
+  
+  <small class="muted">
+    This page was generated by
+    <a  itemprop itemtype="https://schema.org/significantLink" target="_blank" rel="external noopener" href="https://after-dark.habd.as" referrerpolicy="origin-when-cross-origin">After Dark</a>.
+  </small>
+
+
+</footer>
+    
+    
+    
+      
+    
+  </body>
+</html>
