@@ -20,18 +20,18 @@
     <meta property="og:title" content="Slackware" />
 <meta property="og:description" content="Slackware community" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="/" />
+<meta property="og:url" content="/web/" />
 <meta property="og:updated_time" content="2018-09-01T06:00:00&#43;00:00"/>
 
     <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="/img/penguins.jpg"/>
+<meta name="twitter:image" content="/web/img/penguins.jpg"/>
 
 <meta name="twitter:title" content="Slackware"/>
 <meta name="twitter:description" content="Slackware community"/>
 
     
 
-  <meta property="og:image" content="/img/penguins.jpg">
+  <meta property="og:image" content="img/penguins.jpg">
 
 
 
@@ -54,7 +54,7 @@
     <script integrity="sha512-Jx/MqTxYWqHdoOkHItRJJZCvFDhERPr5gG4I5ESu3V&#43;BgQyAQ6wXfdsGzhzmT0yyvkAWz2jbrn81q90RRJTSTg==">/*! Fetch Inject v2.0.2 | Copyright (C) 2017–2018 Josh Habdas <jhabdas@protonmail.com> | @license Zlib */
 var fetchInject=function(){"use strict";const e=function(e,t,r,n,o,c,i){c=t.createElement(r),i=t.getElementsByTagName(r)[0],c.appendChild(t.createTextNode(n.text)),c.onload=o(n),i?i.parentNode.insertBefore(c,i):t.head.appendChild(c)};return function(t,r){if(!arguments.length)return Promise.reject(new ReferenceError("Failed to execute 'fetchInject': 1 argument required but only 0 present."));if(arguments[0]&&arguments[0].constructor!==Array)return Promise.reject(new TypeError("Failed to execute 'fetchInject': argument 1 must be of type 'Array'."));if(arguments[1]&&arguments[1].constructor!==Promise)return Promise.reject(new TypeError("Failed to execute 'fetchInject': argument 2 must be of type 'Promise'."));const n=[],o=r?[].concat(r):[],c=[];return t.forEach(e=>o.push(window.fetch(e).then(e=>[e.clone().text(),e.blob()]).then(e=>Promise.all(e).then(e=>{n.push({text:e[0],blob:e[1]})})))),Promise.all(o).then(()=>(n.forEach(t=>{c.push({then:r=>{t.blob.type.includes("text/css")?e(window,document,"style",t,r):e(window,document,"script",t,r)}})}),Promise.all(c)))}}();
 </script>
-    <script integrity="sha512-hno7WeTIciCJSjg/myjyK30HYkrcGCVwo4g4SpUalvrs3r2lS7bPNIQwbCNypKbg7BZ1sA4AsGnk6Gq4NOKpGA==">fetchInject(["/js/lazysizes.min.js"]);
+    <script integrity="sha512-0WOenVsDTZ&#43;BUERD0Wln3gSMwKfm21qaOZyVg4IE259C&#43;JS1MDhVnZvZsfwywgrYEtT61FkFBctw2oODBF5eTg==">fetchInject(["/web/js/lazysizes.min.js"]);
 </script>
     
 
@@ -64,7 +64,7 @@ var fetchInject=function(){"use strict";const e=function(e,t,r,n,o,c,i){c=t.crea
 
   <meta title="mod:fractal-forest" content="status:enabled">
   
-    <script async src=/js/bpgdec8a.js integrity=sha384-8PG0go3BW8hLm63KbTxk/hNcehaoSbrAhKzsmy2Jhs/KY8QdiKKkjhdeyHY/Q/0I&#10;></script>
+    <script async src=/web/js/bpgdec8a.js integrity=sha384-8PG0go3BW8hLm63KbTxk/hNcehaoSbrAhKzsmy2Jhs/KY8QdiKKkjhdeyHY/Q/0I&#10;></script>
   
 
 
@@ -75,9 +75,9 @@ var fetchInject=function(){"use strict";const e=function(e,t,r,n,o,c,i){c=t.crea
 
 
     
-      <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Slackware">
+      <link href="/web/index.xml" rel="alternate" type="application/rss+xml" title="Slackware">
     
-    <link rel="canonical" href="/">
+    <link rel="canonical" href="/web/">
     
     
     <link rel="icon" sizes="any" href="data:image/svg+xml,%3Csvg%20viewBox='0%200%2046%2045'%20xmlns='http://www.w3.org/2000/svg'%3E%3Ctitle%3EAfter%20Dark%3C/title%3E%3Cpath%20d='M.708%2045L23%20.416%2045.292%2045H.708zM35%2038L23%2019%2011%2038h24z'%20fill='%23000'/%3E%3C/svg%3E">
@@ -446,15 +446,15 @@ pre {
   <nav itemscope itemtype="http://schema.org/SiteNavigationElement">
     
     
-      <a itemprop="url" class="active" href="/"><span itemprop="name">Home</span></a>
+      <a itemprop="url" class="active" href="/web/"><span itemprop="name">Home</span></a>
     
-      <a itemprop="url" class="" href="/posts/"><span itemprop="name">Blog</span></a>
+      <a itemprop="url" class="" href="posts/"><span itemprop="name">Blog</span></a>
     
-      <a itemprop="url" class="" href="/docs/"><span itemprop="name">Docs</span></a>
+      <a itemprop="url" class="" href="docs/"><span itemprop="name">Docs</span></a>
     
-      <a itemprop="url" class="" href="/files/"><span itemprop="name">Downloads</span></a>
+      <a itemprop="url" class="" href="files/"><span itemprop="name">Downloads</span></a>
     
-      <a itemprop="url" class="" href="/search/"><span itemprop="name">Search</span></a>
+      <a itemprop="url" class="" href="/web/search/"><span itemprop="name">Search</span></a>
     
   </nav>
 
@@ -513,15 +513,10 @@ patches/packages/mozilla-firefox-60.5.2esr-x86_64-1_slack14.2.txz:  Upgraded.
 		<h3>Current</a></h3>
 		<pre class="changelog">
 Sat Feb 23 03:33:52 UTC 2019
-a/file-5.36-x86_64-1.txz:  Upgraded.
-ap/mariadb-10.3.13-x86_64-1.txz:  Upgraded.
-  This update fixes bugs and security issues.
+patches/packages/mozilla-firefox-60.5.2esr-x86_64-1_slack14.2.txz:  Upgraded.
+  This is a bugfix release.
   For more information, see:
-    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-2510
-    https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-2537
-  (* Security fix *)
-d/p2c-2.01-x86_64-1.txz:  Upgraded.
-d/python-pip-19.0.3-x86_64-1.txz:  Upgraded.
+    https://www.mozilla.org/en-US/firefox/60.5.2/releasenotes/
 
 <a href="https://www.slackware.com/changelog/current.php?cpu=x86_64">[...]</a>
 		</pre>

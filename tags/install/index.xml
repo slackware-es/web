@@ -3,26 +3,26 @@
   <channel>
     <docs>https://blogs.law.harvard.edu/tech/rss</docs>
     <title>Install on Slackware</title>
-    <link>/tags/install/</link>
+    <link>/web/tags/install/</link>
     <description>Recent content in Install on Slackware</description>
     <image>
       <title>Install on Slackware</title>
-      <link>/tags/install/</link>
-      <url>/img/penguins.jpg</url>
+      <link>/web/tags/install/</link>
+      <url>img/penguins.jpg</url>
     </image>
     <ttl>1440</ttl>
     <generator>Hugo 0.53</generator>
     <language>en-US</language>
     <lastBuildDate>Sat, 28 Jul 2018 08:01:21 +0000</lastBuildDate>
     
-      <atom:link href="/tags/install/index.xml" rel="self" type="application/rss+xml" />
+      <atom:link href="/web/tags/install/index.xml" rel="self" type="application/rss+xml" />
     
     
       <item>
         <title>Slackware installation</title>
-        <link>/docs/install/</link>
+        <link>/web/docs/install/</link>
         <pubDate>Sat, 28 Jul 2018 08:01:21 +0000</pubDate>
-        <guid>/docs/install/</guid>
+        <guid>/web/docs/install/</guid>
         <description>This document is a derivative of the Slacbook:install and Slackbook beta. The aim is to produce an evolution and contribute it back to the original work.
 Introduction Slackware&amp;rsquo;s installation is a bit more simplistic than that of most other Linux distributions and is very reminiscent of installing one of the varieties of BSD operating systems. If you&amp;rsquo;re familiar with those, you should feel right at home. If you&amp;rsquo;ve never installed Slackware or used a distribution that makes use of a non-graphical installer, you may feel a bit overwhelmed at first.</description>
         <category domain="/categories/technology">Technology</category>

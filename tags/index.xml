@@ -3,153 +3,153 @@
   <channel>
     <docs>https://blogs.law.harvard.edu/tech/rss</docs>
     <title>Tags on Slackware</title>
-    <link>/tags/</link>
+    <link>/web/tags/</link>
     <description>Recent content in Tags on Slackware</description>
     <image>
       <title>Tags on Slackware</title>
-      <link>/tags/</link>
-      <url>/img/penguins.jpg</url>
+      <link>/web/tags/</link>
+      <url>img/penguins.jpg</url>
     </image>
     <ttl>1440</ttl>
     <generator>Hugo 0.53</generator>
     <language>en-US</language>
     <lastBuildDate>Sun, 05 Aug 2018 23:01:21 +0000</lastBuildDate>
     
-      <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+      <atom:link href="/web/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
       <item>
         <title>Build</title>
-        <link>/tags/build/</link>
-        <guid>/tags/build/</guid>
+        <link>/web/tags/build/</link>
+        <guid>/web/tags/build/</guid>
         <description></description>
         <content:encoded><![CDATA[]]></content:encoded>
       </item>
     
       <item>
         <title>How To</title>
-        <link>/tags/how-to/</link>
-        <guid>/tags/how-to/</guid>
+        <link>/web/tags/how-to/</link>
+        <guid>/web/tags/how-to/</guid>
         <description></description>
         <content:encoded><![CDATA[]]></content:encoded>
       </item>
     
       <item>
         <title>Howto</title>
-        <link>/tags/howto/</link>
-        <guid>/tags/howto/</guid>
+        <link>/web/tags/howto/</link>
+        <guid>/web/tags/howto/</guid>
         <description></description>
         <content:encoded><![CDATA[]]></content:encoded>
       </item>
     
       <item>
         <title>Images</title>
-        <link>/tags/images/</link>
-        <guid>/tags/images/</guid>
+        <link>/web/tags/images/</link>
+        <guid>/web/tags/images/</guid>
         <description></description>
         <content:encoded><![CDATA[]]></content:encoded>
       </item>
     
       <item>
         <title>Install</title>
-        <link>/tags/install/</link>
-        <guid>/tags/install/</guid>
+        <link>/web/tags/install/</link>
+        <guid>/web/tags/install/</guid>
         <description></description>
         <content:encoded><![CDATA[]]></content:encoded>
       </item>
     
       <item>
         <title>Installpkg</title>
-        <link>/tags/installpkg/</link>
-        <guid>/tags/installpkg/</guid>
+        <link>/web/tags/installpkg/</link>
+        <guid>/web/tags/installpkg/</guid>
         <description></description>
         <content:encoded><![CDATA[]]></content:encoded>
       </item>
     
       <item>
         <title>Jitsi</title>
-        <link>/tags/jitsi/</link>
-        <guid>/tags/jitsi/</guid>
+        <link>/web/tags/jitsi/</link>
+        <guid>/web/tags/jitsi/</guid>
         <description></description>
         <content:encoded><![CDATA[]]></content:encoded>
       </item>
     
       <item>
         <title>Packages</title>
-        <link>/tags/packages/</link>
-        <guid>/tags/packages/</guid>
+        <link>/web/tags/packages/</link>
+        <guid>/web/tags/packages/</guid>
         <description></description>
         <content:encoded><![CDATA[]]></content:encoded>
       </item>
     
       <item>
         <title>Pkgtool</title>
-        <link>/tags/pkgtool/</link>
-        <guid>/tags/pkgtool/</guid>
+        <link>/web/tags/pkgtool/</link>
+        <guid>/web/tags/pkgtool/</guid>
         <description></description>
         <content:encoded><![CDATA[]]></content:encoded>
       </item>
     
       <item>
         <title>Postgrest</title>
-        <link>/tags/postgrest/</link>
-        <guid>/tags/postgrest/</guid>
+        <link>/web/tags/postgrest/</link>
+        <guid>/web/tags/postgrest/</guid>
         <description></description>
         <content:encoded><![CDATA[]]></content:encoded>
       </item>
     
       <item>
         <title>Setup</title>
-        <link>/tags/setup/</link>
-        <guid>/tags/setup/</guid>
+        <link>/web/tags/setup/</link>
+        <guid>/web/tags/setup/</guid>
         <description></description>
         <content:encoded><![CDATA[]]></content:encoded>
       </item>
     
       <item>
         <title>Slackbook</title>
-        <link>/tags/slackbook/</link>
-        <guid>/tags/slackbook/</guid>
+        <link>/web/tags/slackbook/</link>
+        <guid>/web/tags/slackbook/</guid>
         <description></description>
         <content:encoded><![CDATA[]]></content:encoded>
       </item>
     
       <item>
         <title>Slackbuild</title>
-        <link>/tags/slackbuild/</link>
-        <guid>/tags/slackbuild/</guid>
+        <link>/web/tags/slackbuild/</link>
+        <guid>/web/tags/slackbuild/</guid>
         <description></description>
         <content:encoded><![CDATA[]]></content:encoded>
       </item>
     
       <item>
         <title>Slackpkg</title>
-        <link>/tags/slackpkg/</link>
-        <guid>/tags/slackpkg/</guid>
+        <link>/web/tags/slackpkg/</link>
+        <guid>/web/tags/slackpkg/</guid>
         <description></description>
         <content:encoded><![CDATA[]]></content:encoded>
       </item>
     
       <item>
         <title>Slackpkg&#43;</title>
-        <link>/tags/slackpkg&#43;/</link>
-        <guid>/tags/slackpkg&#43;/</guid>
+        <link>/web/tags/slackpkg&#43;/</link>
+        <guid>/web/tags/slackpkg&#43;/</guid>
         <description></description>
         <content:encoded><![CDATA[]]></content:encoded>
       </item>
     
       <item>
         <title>Sysstat</title>
-        <link>/tags/sysstat/</link>
-        <guid>/tags/sysstat/</guid>
+        <link>/web/tags/sysstat/</link>
+        <guid>/web/tags/sysstat/</guid>
         <description></description>
         <content:encoded><![CDATA[]]></content:encoded>
       </item>
     
       <item>
         <title>Xterm</title>
-        <link>/tags/xterm/</link>
-        <guid>/tags/xterm/</guid>
+        <link>/web/tags/xterm/</link>
+        <guid>/web/tags/xterm/</guid>
         <description></description>
         <content:encoded><![CDATA[]]></content:encoded>
       </item>
