@@ -43,7 +43,7 @@ footnoteReturnLinkContents = "↩" # Provides a nicer footnote return link
   name = "Home"
   weight = 1
   identifier = "home"
-  url = ""
+  url = "/"
   
 [[menu.main]]
   name = "Downloads"
