@@ -3,18 +3,18 @@
   <channel>
     <docs>https://blogs.law.harvard.edu/tech/rss</docs>
     <title>Search on Slackware</title>
-    <link>/web/search/</link>
+    <link>/search/</link>
     <description>Recent content in Search on Slackware</description>
     <image>
       <title>Search on Slackware</title>
-      <link>/web/search/</link>
-      <url>/web/img/penguins.jpg</url>
+      <link>/search/</link>
+      <url>/img/penguins.jpg</url>
     </image>
     <ttl>1440</ttl>
     <generator>Hugo 0.53</generator>
     <language>en-US</language>
     
-      <atom:link href="/web/search/index.xml" rel="self" type="application/rss+xml" />
+      <atom:link href="/search/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>

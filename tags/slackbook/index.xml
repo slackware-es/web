@@ -3,26 +3,26 @@
   <channel>
     <docs>https://blogs.law.harvard.edu/tech/rss</docs>
     <title>Slackbook on Slackware</title>
-    <link>/web/tags/slackbook/</link>
+    <link>/tags/slackbook/</link>
     <description>Recent content in Slackbook on Slackware</description>
     <image>
       <title>Slackbook on Slackware</title>
-      <link>/web/tags/slackbook/</link>
-      <url>/web/img/penguins.jpg</url>
+      <link>/tags/slackbook/</link>
+      <url>/img/penguins.jpg</url>
     </image>
     <ttl>1440</ttl>
     <generator>Hugo 0.53</generator>
     <language>en-US</language>
     <lastBuildDate>Sat, 04 Aug 2018 08:01:21 +0000</lastBuildDate>
     
-      <atom:link href="/web/tags/slackbook/index.xml" rel="self" type="application/rss+xml" />
+      <atom:link href="/tags/slackbook/index.xml" rel="self" type="application/rss+xml" />
     
     
       <item>
         <title>Disk usage</title>
-        <link>/web/posts/diskusage/</link>
+        <link>/posts/diskusage/</link>
         <pubDate>Sat, 04 Aug 2018 08:01:21 +0000</pubDate>
-        <guid>/web/posts/diskusage/</guid>
+        <guid>/posts/diskusage/</guid>
         <description>In this post we will explore how to free disk space without reinstalling the system, and will present some scripts to help in the process.
 </description>
         <category domain="/categories/documentation">Documentation</category>
@@ -70,9 +70,9 @@ With that in mind we can free up a couple of GB easily without breaking anything
     
       <item>
         <title>The Slackware Book</title>
-        <link>/web/posts/slackbook/</link>
+        <link>/posts/slackbook/</link>
         <pubDate>Sat, 28 Jul 2018 08:01:21 +0000</pubDate>
-        <guid>/web/posts/slackbook/</guid>
+        <guid>/posts/slackbook/</guid>
         <description>The Slackware Book can be read online in its original form at: slackbook.
 I&amp;rsquo;ll reproduce here the introduction paragraphs. Please consider to collaborate with the Slackware documentation project in it&amp;rsquo;s web site
 </description>

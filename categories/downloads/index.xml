@@ -3,26 +3,26 @@
   <channel>
     <docs>https://blogs.law.harvard.edu/tech/rss</docs>
     <title>Downloads on Slackware</title>
-    <link>/web/categories/downloads/</link>
+    <link>/categories/downloads/</link>
     <description>Recent content in Downloads on Slackware</description>
     <image>
       <title>Downloads on Slackware</title>
-      <link>/web/categories/downloads/</link>
-      <url>/web/img/penguins.jpg</url>
+      <link>/categories/downloads/</link>
+      <url>/img/penguins.jpg</url>
     </image>
     <ttl>1440</ttl>
     <generator>Hugo 0.53</generator>
     <language>en-US</language>
     <lastBuildDate>Sat, 28 Jul 2018 08:01:21 +0000</lastBuildDate>
     
-      <atom:link href="/web/categories/downloads/index.xml" rel="self" type="application/rss+xml" />
+      <atom:link href="/categories/downloads/index.xml" rel="self" type="application/rss+xml" />
     
     
       <item>
         <title>Downloads</title>
-        <link>/web/downloads/downloads/</link>
+        <link>/downloads/downloads/</link>
         <pubDate>Sat, 28 Jul 2018 08:01:21 +0000</pubDate>
-        <guid>/web/downloads/downloads/</guid>
+        <guid>/downloads/downloads/</guid>
         <description>{{if and (eq .Sort &#34;name&#34;) (ne .Order &#34;desc&#34;)}} Name &amp;#9650; {{else if and (eq .Sort &#34;name&#34;) (ne .Order &#34;asc&#34;)}} Name &amp;#9660; {{else}} Name {{end}}  {{if and (eq .Sort &#34;size&#34;) (ne .Order &#34;desc&#34;)}} Size &amp;#9650; {{else if and (eq .Sort &#34;size&#34;) (ne .Order &#34;asc&#34;)}} Size &amp;#9660; {{else}} Size {{end}}  {{if and (eq .Sort &#34;time&#34;) (ne .Order &#34;desc&#34;)}} Modified &amp;#9650; {{else if and (eq .Sort &#34;time&#34;) (ne .</description>
         <category domain="/categories/downloads">Downloads</category>
         <content:encoded><![CDATA[    {{if and (eq .Sort &#34;name&#34;) (ne .Order &#34;desc&#34;)}} Name &amp;#9650; {{else if and (eq .Sort &#34;name&#34;) (ne .Order &#34;asc&#34;)}} Name &amp;#9660; {{else}} Name {{end}}  {{if and (eq .Sort &#34;size&#34;) (ne .Order &#34;desc&#34;)}} Size &amp;#9650; {{else if and (eq .Sort &#34;size&#34;) (ne .Order &#34;asc&#34;)}} Size &amp;#9660; {{else}} Size {{end}}  {{if and (eq .Sort &#34;time&#34;) (ne .Order &#34;desc&#34;)}} Modified &amp;#9650; {{else if and (eq .Sort &#34;time&#34;) (ne .Order &#34;asc&#34;)}} Modified &amp;#9660; {{else}} Modified {{end}}   {{if .CanGoUp}}      ..     {{end}} {{range .Items}}  {{if .IsDir}} {{else}}{{end}}   {{.Name}}  {{if not .IsDir}}{{.HumanSize}}{{end}} {{.HumanModTime &#34;02.01.2006 15:04:05&#34;}}  {{end}}  ]]></content:encoded>

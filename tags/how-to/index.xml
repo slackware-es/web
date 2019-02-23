@@ -3,26 +3,26 @@
   <channel>
     <docs>https://blogs.law.harvard.edu/tech/rss</docs>
     <title>How To on Slackware</title>
-    <link>/web/tags/how-to/</link>
+    <link>/tags/how-to/</link>
     <description>Recent content in How To on Slackware</description>
     <image>
       <title>How To on Slackware</title>
-      <link>/web/tags/how-to/</link>
-      <url>/web/img/penguins.jpg</url>
+      <link>/tags/how-to/</link>
+      <url>/img/penguins.jpg</url>
     </image>
     <ttl>1440</ttl>
     <generator>Hugo 0.53</generator>
     <language>en-US</language>
     <lastBuildDate>Sun, 05 Aug 2018 23:01:21 +0000</lastBuildDate>
     
-      <atom:link href="/web/tags/how-to/index.xml" rel="self" type="application/rss+xml" />
+      <atom:link href="/tags/how-to/index.xml" rel="self" type="application/rss+xml" />
     
     
       <item>
         <title>Shell</title>
-        <link>/web/docs/shell/</link>
+        <link>/docs/shell/</link>
         <pubDate>Sun, 05 Aug 2018 23:01:21 +0000</pubDate>
-        <guid>/web/docs/shell/</guid>
+        <guid>/docs/shell/</guid>
         <description>This document is a derivative of the Slackbook:bash and Slackbook beta. The aim is to produce an evolution and contribute it back to the original work.
 What Is A Shell? A shell is a program that give access to the operating system&amp;rsquo;s services. In Slackware the command-line interface (CLI) shell is bash, the Bourne Again Shell.
 The first program Slackware executes after you log into the system is the shell command-line interface:</description>
@@ -130,9 +130,9 @@ darkstar:~$ tar -czf /tmp/tarball.tar.gz /tmp/tarball/ ]]></content:encoded>
     
       <item>
         <title>Package Management</title>
-        <link>/web/docs/packages/</link>
+        <link>/docs/packages/</link>
         <pubDate>Sat, 04 Aug 2018 08:01:21 +0000</pubDate>
-        <guid>/web/docs/packages/</guid>
+        <guid>/docs/packages/</guid>
         <description>This document is a derivative of the Slacbook:install. The aim is to produce an evolution and contribute it back to the original work.
 Introduction Package management is an essential part of any Linux distribution. The software included in Slackware, along with many third-party tools, is distributed as source code. But compiling all those thousands of different applications and libraries is tedious and time consuming. That&amp;rsquo;s why many people prefer to install pre-compiled software packages.</description>
         <category domain="/categories/technology">Technology</category>
@@ -195,9 +195,9 @@ cd .. installpkg app-version-arch-tag.tgz ]]></content:encoded>
     
       <item>
         <title>How to build your own Slackware</title>
-        <link>/web/docs/build/</link>
+        <link>/docs/build/</link>
         <pubDate>Sat, 28 Jul 2018 08:01:21 +0000</pubDate>
-        <guid>/web/docs/build/</guid>
+        <guid>/docs/build/</guid>
         <description> In this article we&amp;rsquo;re going to describe how to build your own slackware distribution based on the official disitribution.
 To do that we will describe the process of generating a slackware image to use in cloud environments.
 Prepare the environment We&amp;rsquo;re going to use the repository https://github.com/slacware-es/dev to upload all the scripts needed to build your own slackware distribution.
@@ -211,9 +211,9 @@ Select your packages Generate tag files Build installation media Install / distr
     
       <item>
         <title>Slackware installation</title>
-        <link>/web/docs/install/</link>
+        <link>/docs/install/</link>
         <pubDate>Sat, 28 Jul 2018 08:01:21 +0000</pubDate>
-        <guid>/web/docs/install/</guid>
+        <guid>/docs/install/</guid>
         <description>This document is a derivative of the Slacbook:install and Slackbook beta. The aim is to produce an evolution and contribute it back to the original work.
 Introduction Slackware&amp;rsquo;s installation is a bit more simplistic than that of most other Linux distributions and is very reminiscent of installing one of the varieties of BSD operating systems. If you&amp;rsquo;re familiar with those, you should feel right at home. If you&amp;rsquo;ve never installed Slackware or used a distribution that makes use of a non-graphical installer, you may feel a bit overwhelmed at first.</description>
         <category domain="/categories/technology">Technology</category>
