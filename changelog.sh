@@ -1,8 +1,6 @@
 #!/bin/bash
 
-VERSION=${1:-current}
-MIRROR="/var/www/slackware.es/public/files/slackware"
-CHANGELOG="$MIRROR/slackware64-$VERSION/ChangeLog.txt"
+VERSION=$1
 
 echo "Last: |" 
-sed '/+--------------------------+/,$d ; s/^/    /g ; 10q ' $CHANGELOG 
+wget -qO - ftp://ftp.osuosl.org/pub/slackware/slackware64-$VERSION/ChangeLog.txt | sed '/+--------------------------+/,$d ; s/^/    /g ; 10q ' 
