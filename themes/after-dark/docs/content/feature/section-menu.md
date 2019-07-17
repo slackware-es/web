@@ -7,6 +7,10 @@ features = ["code highlighter", "snippets", "section menu"]
 notes = [
   "review 'fuzzy-search' examples if modified"
 ]
+[[copyright]]
+  owner = "Josh Habdas"
+  date = "2019"
+  license = "agpl-3.0-or-later"
 +++
 
 After Dark uses Hugo's {{< external href="https://gohugo.io/templates/menu-templates/#section-menu-for-lazy-bloggers" text="Section Menu for “Lazy” Bloggers" />}} to create a site-wide navigational aid. The section menu is disabled by default.
@@ -46,7 +50,7 @@ Exclude menu items by identifier:
 
 ```toml
 [params.layout.menu.main]
-  exclude = ["home", "search"] # exclude homepage and blog postings
+  exclude = ["home", "post"] # exclude homepage and blog postings
 ```
 
 Decorate links with SVG icons using `pre` and `post`:

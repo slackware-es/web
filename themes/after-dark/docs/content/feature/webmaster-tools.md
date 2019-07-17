@@ -4,6 +4,10 @@ description = "Test and submit your site with popular search engines."
 categories = ["search"]
 tags = ["SEO", "robots", "metadata"]
 features = ["code highlighter", "related content", "snippets"]
+[[copyright]]
+  owner = "Josh Habdas"
+  date = "2019"
+  license = "agpl-3.0-or-later"
 +++
 
 ## Webmaster verification
@@ -55,7 +59,7 @@ To test with Yandex use their {{< external href="https://webmaster.yandex.com/to
   {{< /hackcss-formgroup >}}
 {{< /hackcss-form >}}
 
-Use [ephemeral hosting](../air-gapping/#ephemeral-hosting-with-end-to-end-encryption) to check your site while in development/testing.
+Use [Ephemeral Hosting]({{< relref "ephemeral-hosting" >}}) to check your site while in development/testing.
 
 ## Test and Monitor Speed
 

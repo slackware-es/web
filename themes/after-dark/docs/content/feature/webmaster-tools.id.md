@@ -4,6 +4,10 @@ description = "Menguji dan mengirim situs anda dengan mesin pencari yang terkena
 categories = ["search"]
 tags = ["SEO", "robots", "metadata"]
 feature = ["code highlighter", "related content", "snippets"]
+[[copyright]]
+  owner = "Josh Habdas"
+  date = "2019"
+  license = "agpl-3.0-or-later"
 +++
 
 ## Verifikasi Webmaster
@@ -55,7 +59,7 @@ Untuk menguji dengan Yandex gunakan {{< external href="https://webmaster.yandex.
   {{< /hackcss-formgroup >}}
 {{< /hackcss-form >}}
 
-Gunakan [ephemeral hosting](../air-gapping/#ephemeral-hosting-with-end-to-end-encryption) untuk memeriksa situs anda saat dalam pengembangan/pengujian.
+Gunakan [Hosting Ephemeral]({{< relref "ephemeral-hosting" >}}) untuk memeriksa situs anda saat dalam pengembangan/pengujian.
 
 ## Menguji dan memantau kecepatan
 

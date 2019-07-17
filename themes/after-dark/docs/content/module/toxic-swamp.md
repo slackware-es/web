@@ -10,9 +10,13 @@ features = ["snippets", "related content"]
   scriptSrc = [
     "'sha512-TKVuLlCT8+a0Chpa6Pw3clhu9fhZ9JOzgblgxQaUQVP/z4lfPnrdyWDOgucORnS2qapWu/iPVG2d0ywyGH2NjA=='"
   ]
+[[copyright]]
+  owner = "Josh Habdas"
+  date = "2019"
+  license = "agpl-3.0-or-later"
 +++
 
-Monetize attention in one of more than 40 cryptocurrency mining pools and take home 200% more per hash when compared to Coinhive.[^1]
+Monetize attention in one of more than 40 cryptocurrency mining pools with support for the March 2019 Monero hard fork.
 
 {{< hackcss-alert >}}
 <video controls
@@ -27,7 +31,7 @@ Your browser doesn't support embedded videos. Here is a <a href="https://jhabdas
 
 # Features
 
-- Earn cryptocurrency while visitors browse your sites
+- Mine cryptocurrency while visitors browse your sites
 - Reward effort during site development and publishing
 - Transparent, unobtrusive multilingual user interface
 - Does not use cookies or connect to any third-parties
@@ -35,6 +39,7 @@ Your browser doesn't support embedded videos. Here is a <a href="https://jhabdas
 - Automatically starts when external power is detected
 - Suspends operation during loss of power or attention
 - Optimized for low-bandwidth high-latency connections
+- Cannot be detected by MinerBlock extension at 1.2.12
 
 # Installation
 
@@ -58,7 +63,7 @@ Verify [Release Hash]({{< relref "release-hashes" >}}) and GPG signature:
 ```sh
 cd themes/toxic-swamp && \
 npm install && npm run integrity && \
-git tag --verify v1.0.0-beta.16
+git tag --verify v1.0.0-beta.28
 ```
 
 Specify module in site config:
@@ -448,7 +453,7 @@ Generate configuration with `Advanced Settings` specified:
           <option>monero.crypto-pool.fr</option>
         {{< /hackcss-select >}}
         {{< hackcss-helpblock >}}
-          Select a {{< external href="https://git.habd.as/comfusion/toxic-swamp/src/branch/master/server/pools.json" text="supported pool" />}} to mine with.
+          Select a {{< external href="https://git.habd.as/comfusion/webminerpool/src/branch/master/server/pools.json" text="supported pool" />}} to mine with.
         {{< /hackcss-helpblock >}}
       {{< /hackcss-formgroup >}}
       {{< hackcss-formgroup name="poolpassgroup" >}}
@@ -492,12 +497,15 @@ English translations available for toolbar display:
 - Indonesian (id)
 - Russian (ru)
 - Greek (el)
+- German (de)
+- Polish (pl)
+- Italian (it)
 
 Enable them with module `translations` whitelist:
 
 ```toml
 [params.modules.toxic_swamp]
-  translations = ["id", "ru", "el"] # English translations enabled
+  translations = ["id", "ru", "el", "de", "pl", "it"] # English translations enabled
 ```
 
 Use `languageCode` site config to control which is displayed:
@@ -506,6 +514,10 @@ Use `languageCode` site config to control which is displayed:
 languageCode = "en-US" # English (United States) or English by default
 languageCode = "id-ID" # Indonesian (Indonesia) or Indonesian, if available
 languageCode = "ru-RU" # Russian (Russia) or Russian, if available
+languageCode = "el-GR" # Greek (Greece) or Greek, if available
+languageCode = "de-DE" # German (Germany) or German, if available
+languageCode = "pl-PL" # Polish (Poland) or Polish, if available
+languageCode = "it-IT" # Italian (Italy) or Italian, if available
 ```
 
 {{< hackcss-alert type="info" >}}
@@ -520,5 +532,3 @@ cp themes/toxic-swamp/layouts/partials/modules/toxic-swamp/inline.jsonld.html $_
 ```
 
 Remove config and customizations to return to module defaults.
-
-[^1]: Estimate assumes 50%  {{< external href="https://coinhive.com/info/faq#rev-share" text="non-negotiable" />}} Coinhive mining fee compared with 0% for {{< external href="https://moneroocean.stream/?dark#/help/faq" text="MoneroOcean" />}} and excludes upgrade incentives, hashrate variance, pool and proxy uptime, withdrawal fees and other optimizations.

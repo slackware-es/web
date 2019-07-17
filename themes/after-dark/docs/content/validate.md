@@ -2,6 +2,10 @@
 title = "Validate Release"
 description = "Complete the included form to validate the release."
 noindex = true
+[[copyright]]
+  owner = "Josh Habdas"
+  date = "2019"
+  license = "agpl-3.0-or-later"
 +++
 
 {{< hackcss-form name="validate" action="/validate/" >}}
@@ -18,7 +22,7 @@ noindex = true
         placeholder="whUlqT0w6vfvTzd12LpU5kst/Cz3yt9j3ncIHcB4CDQFFiMVPlfX/I+vKl3Y98faqBLlgh6M4pyhiYzZNIPUPA=="
     >}}
     {{< hackcss-helpblock >}}
-      Submit with 7.2.1 <a href="/feature/release-hashes">Release Hash</a> to validate.
+      Submit with 8.1.0 <a href="/feature/release-hashes">Release Hash</a> to validate.
       <noscript>JavaScript required for proper validation.</noscript>
     {{< /hackcss-helpblock >}}
   {{< /hackcss-formgroup >}}
@@ -29,7 +33,7 @@ noindex = true
 <script>
   (function (window, document, undefined) {
     "use strict";
-    const digest = 'i4QY3BDdVQR3Pvmjc5jupUaPQaB0SXWov57tiNhtVBvq2uRqSd1Zjb2I/VFEqefjt4TKJQ9qPOksUJ6Gs6zzCg==';
+    const digest = 'fWy5sWb6UxQbqy4YJcO+URfUg1FKivJQIka+SxK6GyH5492YzwKZ1FOIV4+ukmZZgIH067mYme7GN/obIJ028Q==';
     const confirm = form => {
       form.digest.readOnly = true;
       form.digest.value = digest;
