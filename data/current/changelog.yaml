@@ -1,5 +1,10 @@
 Last: |
-    Wed Jul 17 05:33:01 UTC 2019
-    d/cmake-3.14.6-x86_64-1.txz:  Upgraded.
-    d/strace-5.2-x86_64-1.txz:  Upgraded.
-    d/vala-0.44.6-x86_64-1.txz:  Upgraded.
+    Mon Jul 15 00:26:07 UTC 2019
+    patches/packages/bzip2-1.0.8-x86_64-1_slack14.2.txz:  Upgraded.
+      Fixes security issues:
+      bzip2recover: Fix use after free issue with outFile.
+      Make sure nSelectors is not out of range.
+      For more information, see:
+        https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-3189
+        https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-12900
+      (* Security fix *)
