@@ -1,6 +1,6 @@
 {
   "name": "after-dark",
-  "version": "8.1.0",
+  "version": "8.3.2",
   "description": "Hugo Dark Theme Website Generator.",
   "author": "Josh Habdas <jhabdas@protonmail.com> (https://habd.as)",
   "keywords": [
@@ -34,12 +34,12 @@
   },
   "devDependencies": {
     "atom-one-chroma": "^2.0.0",
-    "commitizen": "^3.1.1",
-    "cz-conventional-changelog": "^2.1.0",
+    "commitizen": "^4.0.3",
+    "cz-conventional-changelog": "^3.0.2",
     "fetch-inject": "^2.0.4",
-    "fuse.js": "^3.4.4",
+    "fuse.js": "^3.4.5",
     "hack": "^0.8.1",
-    "lazysizes": "^4.1.8",
+    "lazysizes": "^5.1.0",
     "lodash-cli": "^4.17.5",
     "mark.js": "^8.11.1",
     "standard-version": "^6.0.1",
