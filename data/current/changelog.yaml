@@ -1,10 +1,11 @@
 Last: |
-    Mon Jul 15 00:26:07 UTC 2019
-    patches/packages/bzip2-1.0.8-x86_64-1_slack14.2.txz:  Upgraded.
-      Fixes security issues:
-      bzip2recover: Fix use after free issue with outFile.
-      Make sure nSelectors is not out of range.
-      For more information, see:
-        https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-3189
-        https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-12900
-      (* Security fix *)
+    Mon Jul 29 02:33:59 UTC 2019
+    a/kernel-generic-4.19.62-x86_64-1.txz:  Upgraded.
+    a/kernel-huge-4.19.62-x86_64-1.txz:  Upgraded.
+    a/kernel-modules-4.19.62-x86_64-1.txz:  Upgraded.
+    d/kernel-headers-4.19.62-x86-1.txz:  Upgraded.
+    k/kernel-source-4.19.62-noarch-1.txz:  Upgraded.
+    n/s-nail-14.9.14-x86_64-1.txz:  Upgraded.
+    x/xf86-video-sis-0.11.0-x86_64-1.txz:  Upgraded.
+    isolinux/initrd.img:  Rebuilt.
+    kernels/*:  Upgraded.
