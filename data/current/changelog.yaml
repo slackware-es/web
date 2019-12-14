@@ -1,11 +1,6 @@
 Last: |
-    Mon Jul 22 03:05:48 UTC 2019
-    patches/packages/linux-4.4.186/*:  Upgraded.
-      These updates fix various bugs and many minor security issues.
-      Be sure to upgrade your initrd after upgrading the kernel packages.
-      If you use lilo to boot your machine, be sure lilo.conf points to the correct
-      kernel and initrd and run lilo as root to update the bootloader.
-      If you use elilo to boot your machine, you should run eliloconfig to copy the
-      kernel and initrd to the EFI System Partition.
+    Wed Dec  4 19:00:33 UTC 2019
+    patches/packages/mozilla-thunderbird-68.3.0-x86_64-1_slack14.2.txz:  Upgraded.
+      This is a bugfix release.
       For more information, see:
-        Fixed in 4.4.183:
+        https://www.mozilla.org/en-US/thunderbird/68.3.0/releasenotes/
